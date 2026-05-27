@@ -75,7 +75,7 @@
     margin: 0 auto;
     padding: 20px clamp(28px, 3.4vw, 56px) 28px;
     display: grid;
-    grid-template-rows: auto 1fr auto auto auto auto auto;
+    grid-template-rows: auto 1fr auto auto auto auto auto auto;
     gap: 0;
   }
 
@@ -749,6 +749,244 @@
   .questions li:first-child::before{ top: 6px; }
 
   /* ============================================================
+     TESTER — guess-the-prompt mini-game
+     ============================================================ */
+  .tester{
+    position: relative;
+    z-index: 3;
+    background: var(--pitch);
+    padding: clamp(36px, 4.4vw, 64px) 0 clamp(36px, 4vw, 56px);
+    border-bottom: 1px solid var(--line);
+  }
+  .tester-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(20px, 2.4vw, 32px);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tester-head-left{ display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .tester-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .tester-head h2{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .tester-counter{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .tester-sub{
+    margin: 0 0 clamp(18px, 2.4vw, 28px) 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 64ch;
+  }
+
+  .tester-card{
+    background: var(--pitch-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(22px, 2.6vw, 32px);
+  }
+  .tester-card[hidden]{ display: none; }
+  .tester-output-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .tester-output{
+    margin: 0 0 clamp(20px, 2.6vw, 28px) 0;
+    color: var(--ink);
+    font-size: clamp(15px, 1.15vw, 18px);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-family: var(--font-sans);
+  }
+  .tester-input-label{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .tester-textarea{
+    display: block;
+    width: 100%;
+    background: var(--pitch);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 12px 14px;
+    resize: vertical;
+    min-height: 90px;
+    outline: none;
+    transition: border-color var(--dur-base) var(--ease-out-soft);
+  }
+  .tester-textarea:focus{ border-color: var(--ink-soft); }
+  .tester-actions{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .tester-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--pitch);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform var(--dur-micro) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft);
+  }
+  .tester-btn:hover{ background: #fff; transform: translateY(-1px); }
+  .tester-btn:active{ transform: translateY(1px); }
+  .tester-btn::before{
+    content: "";
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 8px var(--signal);
+  }
+  .tester-skip{
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 6px 8px;
+  }
+  .tester-skip:hover{ color: var(--ink); }
+
+  /* reveal state */
+  .tester-score-row{
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(18px, 2vw, 24px);
+    padding-bottom: clamp(16px, 2vw, 22px);
+    border-bottom: 1px solid var(--line);
+  }
+  .tester-score{
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(56px, 7vw, 92px);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .tester-tier{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .tier-cold      { color: var(--ink-faint); }
+  .tier-warm      { color: var(--ember); }
+  .tier-hot       { color: var(--signal); }
+  .tier-burning   { color: var(--signal); }
+  .tier-perfect   { color: var(--cool); }
+  .tester-meta-row{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .tester-prompt-label{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    margin-top: clamp(16px, 2vw, 20px);
+  }
+  .tester-prompt{
+    margin: 0 0 clamp(16px, 2vw, 22px) 0;
+    color: var(--ink);
+    font-size: clamp(15px, 1.15vw, 18px);
+    line-height: 1.55;
+    border-left: 2px solid var(--signal);
+    padding: 4px 0 4px 16px;
+    font-style: italic;
+  }
+  .tester-matches{
+    margin: 0 0 clamp(18px, 2vw, 24px) 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .tester-matches b{ color: var(--ink); font-weight: 600; }
+  .token-hit{
+    display: inline-block;
+    background: rgba(255,89,69,.15);
+    border-bottom: 1px solid var(--signal);
+    color: var(--ink);
+    padding: 1px 5px;
+    margin: 0 2px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    text-transform: lowercase;
+  }
+  .tester-loading{
+    text-align: center;
+    padding: 40px 0;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  /* ============================================================
      responsive
      ============================================================ */
   @media (max-width: 720px){
@@ -783,6 +1021,12 @@
     /* review policy: stack columns */
     .rp-cols{ grid-template-columns: 1fr; gap: 18px; }
     .rp-precedent{ font-size: 10px; }
+
+    /* tester: tighter card */
+    .tester-card{ padding: 20px 18px; }
+    .tester-score{ font-size: 56px; }
+    .tester-output{ font-size: 15px; }
+    .tester-prompt{ font-size: 15px; }
   }
 </style>
 </head>
@@ -1121,6 +1365,46 @@
     </p>
   </section>
 
+  <!-- ============== TESTER ============== -->
+  <section class="tester" id="tester" aria-label="Algorithmacy tester">
+    <div class="tester-head">
+      <div class="tester-head-left">
+        <span class="tester-label">Tester</span>
+        <h2>Read the algorithm. Guess the prompter.</h2>
+      </div>
+      <span class="tester-counter" id="tester-counter">000 / 100</span>
+    </div>
+    <p class="tester-sub">You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?</p>
+
+    <div class="tester-card" id="tester-loading">
+      <div class="tester-loading">Loading prompts…</div>
+    </div>
+
+    <div class="tester-card" id="tester-input-card" hidden>
+      <div class="tester-output-label">Output</div>
+      <p class="tester-output" id="tester-output"></p>
+      <label class="tester-input-label" for="tester-textarea">Your guess at the prompt</label>
+      <textarea class="tester-textarea" id="tester-textarea" placeholder="e.g. write a haiku about a cat staring at a door"></textarea>
+      <div class="tester-actions">
+        <button type="button" class="tester-btn" id="tester-score-btn">Score guess</button>
+        <button type="button" class="tester-skip" id="tester-skip-btn">Skip →</button>
+      </div>
+    </div>
+
+    <div class="tester-card" id="tester-reveal-card" hidden>
+      <div class="tester-score-row">
+        <span class="tester-score" id="tester-score">0</span>
+        <span class="tester-tier" id="tester-tier">cold</span>
+      </div>
+      <span class="tester-prompt-label">Actual prompt</span>
+      <p class="tester-prompt" id="tester-prompt"></p>
+      <p class="tester-matches" id="tester-matches"></p>
+      <div class="tester-actions">
+        <button type="button" class="tester-btn" id="tester-next-btn">Try another →</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== TRACKS & QUESTIONS ============== -->
   <section class="tracks" id="tracks" aria-label="Tracks and questions">
     <div class="tracks-head">
@@ -1294,6 +1578,140 @@
         }
       });
     });
+  })();
+
+  // Tester: fetch prompts.json, shuffle, score guesses, reveal answers
+  (function(){
+    const STOPWORDS = new Set(['the','a','an','of','to','in','and','is','it','that','this','for','on','with','at','by','from','as','be','are','was','were','or','but','if','i','you','your','my','me','we','he','she','they','them','their','his','her','its']);
+
+    function normalise(str){
+      return (str || '').toLowerCase()
+        .replace(/[^\p{L}\p{N}\s'-]/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+    function stem(w){
+      if (w.length > 5 && w.endsWith('ing')) return w.slice(0, -3);
+      if (w.length > 4 && w.endsWith('ed')) return w.slice(0, -2);
+      if (w.length > 4 && w.endsWith('es')) return w.slice(0, -2);
+      if (w.length > 3 && w.endsWith('s')) return w.slice(0, -1);
+      return w;
+    }
+    function tokenize(str){
+      return normalise(str).split(' ')
+        .filter(w => w && !STOPWORDS.has(w))
+        .map(stem);
+    }
+    function scoreGuess(guess, item){
+      const guessTokens = new Set(tokenize(guess));
+      const promptTokens = new Set(tokenize(item.prompt));
+      // Jaccard on token sets
+      let inter = 0;
+      const matched = [];
+      guessTokens.forEach(t => {
+        if (promptTokens.has(t)) { inter++; matched.push(t); }
+      });
+      const union = new Set([...guessTokens, ...promptTokens]).size || 1;
+      const jaccard = inter / union;
+      // Tag bonus
+      const tagSet = (item.tags || []).map(t => stem(normalise(t).split(' ')[0]));
+      let tagHits = 0;
+      const tagMatched = [];
+      tagSet.forEach(t => {
+        if (guessTokens.has(t)) { tagHits++; tagMatched.push(t); }
+      });
+      const tagFrac = tagSet.length ? tagHits / tagSet.length : 0;
+      const composite = Math.round(100 * (0.55 * jaccard + 0.45 * tagFrac));
+      let tier, tierClass;
+      if (composite < 25)      { tier = 'cold';         tierClass = 'tier-cold'; }
+      else if (composite < 50) { tier = 'warm';         tierClass = 'tier-warm'; }
+      else if (composite < 75) { tier = 'hot';          tierClass = 'tier-hot'; }
+      else if (composite < 90) { tier = 'burning';      tierClass = 'tier-burning'; }
+      else                     { tier = 'perfect read'; tierClass = 'tier-perfect'; }
+      return { score: composite, tier, tierClass, matchedTokens: matched, tagMatches: tagMatched, jaccard };
+    }
+    function shuffle(arr){
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function pad3(n){ return String(n).padStart(3, '0'); }
+
+    const loadingEl = document.getElementById('tester-loading');
+    const inputCard = document.getElementById('tester-input-card');
+    const revealCard = document.getElementById('tester-reveal-card');
+    const outputEl = document.getElementById('tester-output');
+    const textareaEl = document.getElementById('tester-textarea');
+    const counterEl = document.getElementById('tester-counter');
+    const scoreEl = document.getElementById('tester-score');
+    const tierEl = document.getElementById('tester-tier');
+    const promptEl = document.getElementById('tester-prompt');
+    const matchesEl = document.getElementById('tester-matches');
+    const scoreBtn = document.getElementById('tester-score-btn');
+    const skipBtn = document.getElementById('tester-skip-btn');
+    const nextBtn = document.getElementById('tester-next-btn');
+
+    if (!loadingEl) return;
+
+    let items = [];
+    let idx = 0;
+
+    function showInput(){
+      if (!items.length) return;
+      const item = items[idx];
+      outputEl.textContent = item.response;
+      textareaEl.value = '';
+      counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(items.length);
+      loadingEl.hidden = true;
+      revealCard.hidden = true;
+      inputCard.hidden = false;
+      textareaEl.focus();
+    }
+    function showReveal(guess){
+      const item = items[idx];
+      const result = scoreGuess(guess, item);
+      scoreEl.textContent = result.score;
+      tierEl.textContent = result.tier;
+      tierEl.className = 'tester-tier ' + result.tierClass;
+      promptEl.textContent = item.prompt;
+      const matchPool = Array.from(new Set([...result.matchedTokens, ...result.tagMatches]));
+      if (matchPool.length){
+        const chips = matchPool.map(t => '<span class="token-hit">' + t + '</span>').join('');
+        matchesEl.innerHTML = '<b>Matches:</b> ' + chips;
+      } else {
+        matchesEl.innerHTML = '<b>Matches:</b> none — try identifying the form and the subject';
+      }
+      inputCard.hidden = true;
+      revealCard.hidden = false;
+    }
+    function next(){
+      idx = (idx + 1) % items.length;
+      showInput();
+    }
+
+    scoreBtn.addEventListener('click', () => {
+      showReveal(textareaEl.value);
+    });
+    textareaEl.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') showReveal(textareaEl.value);
+    });
+    skipBtn.addEventListener('click', next);
+    nextBtn.addEventListener('click', next);
+
+    fetch('/prompts.json')
+      .then(r => r.json())
+      .then(data => {
+        items = shuffle(data.items || []);
+        idx = 0;
+        showInput();
+      })
+      .catch(err => {
+        loadingEl.innerHTML = '<div class="tester-loading">Could not load prompts.</div>';
+        console.error('Tester load failed:', err);
+      });
   })();
 
   // Tracks accordion: click to expand, collapses others, scrolls to track
