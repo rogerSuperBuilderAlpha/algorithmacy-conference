@@ -75,7 +75,7 @@
     margin: 0 auto;
     padding: 20px clamp(28px, 3.4vw, 56px) 28px;
     display: grid;
-    grid-template-rows: auto 1fr auto auto auto auto;
+    grid-template-rows: auto 1fr auto auto auto auto auto;
     gap: 0;
   }
 
@@ -532,6 +532,80 @@
   .footer-bottom .marks{ display: flex; gap: 18px; }
 
   /* ============================================================
+     REVIEW POLICY — methodological note on open review
+     ============================================================ */
+  .review-policy{
+    position: relative;
+    z-index: 3;
+    background: var(--pitch);
+    padding: clamp(36px, 4.4vw, 64px) 0 clamp(32px, 3.6vw, 52px);
+    border-bottom: 1px solid var(--line);
+  }
+  .rp-head{
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(20px, 2.6vw, 36px);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .rp-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .rp-head h2{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .rp-cols{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    margin-bottom: clamp(24px, 2.8vw, 36px);
+  }
+  .rp-cols > div{ min-width: 0; }
+  .rp-cols h3{
+    margin: 0 0 8px 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .rp-cols p{
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.55;
+  }
+  .rp-precedent{
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .rp-precedent b{ color: var(--ink); font-weight: 600; }
+
+  /* ============================================================
      TRACKS & QUESTIONS — sidebar nav + anchored content
      ============================================================ */
   .tracks{
@@ -705,6 +779,10 @@
     .track-toggle h3{ font-size: clamp(18px, 5.4vw, 22px); }
     .track-num{ font-size: 9px; padding: 3px 7px; }
     .questions li{ padding-left: 52px; font-size: 14px; }
+
+    /* review policy: stack columns */
+    .rp-cols{ grid-template-columns: 1fr; gap: 18px; }
+    .rp-precedent{ font-size: 10px; }
   }
 </style>
 </head>
@@ -998,7 +1076,7 @@
     </div>
     <div class="cell">
       <div class="k">Submissions</div>
-      <div class="v">5 types · 12 tracks<small>APA 7 · double-blind · open access</small></div>
+      <div class="v">5 types · 5 tracks<small>APA 7 · open review · open access</small></div>
     </div>
   </section>
 
@@ -1013,7 +1091,33 @@
       </span>
     </a>
     <p class="cta-aside">
-      Intake is via pull request. Drop a 300–500-word abstract and outline at <span class="path">/submissions/&lt;handle&gt;.md</span> — five submission types, twelve thematic tracks.
+      Intake is via pull request. Drop a 300–500-word abstract and outline at <span class="path">/submissions/&lt;handle&gt;.md</span> — five submission types, five thematic tracks. Open review.
+    </p>
+  </section>
+
+  <!-- ============== REVIEW POLICY ============== -->
+  <section class="review-policy" id="review" aria-label="Review policy">
+    <div class="rp-head">
+      <span class="rp-label">Review</span>
+      <h2>Open, signed, published.</h2>
+    </div>
+    <div class="rp-cols">
+      <div>
+        <h3>Open</h3>
+        <p>Submissions and review threads live on the public repository from the moment of intake. There is no anonymized submission stage.</p>
+      </div>
+      <div>
+        <h3>Signed</h3>
+        <p>Reviewers attach their names to their assessments. Accountability is a feature of the review, not a compromise of it.</p>
+      </div>
+      <div>
+        <h3>Published</h3>
+        <p>Accepted papers ship alongside their full review history — reviewer reports, author responses, and revision trail.</p>
+      </div>
+    </div>
+    <p class="rp-precedent">
+      After established open-review practice at <b>F1000Research</b>, <b>eLife</b>, <b>OpenReview.net</b>, and <b>The BMJ</b>.
+      A double-blind workflow is incompatible with a public-PR intake; open review is the methodologically honest fit — and consonant with the conference's own questions about algorithmic opacity and accountability.
     </p>
   </section>
 
@@ -1126,10 +1230,10 @@
       <div>
         <h6>Submissions</h6>
         <ul>
-          <li>5 types · 12 tracks</li>
+          <li>5 types · 5 tracks</li>
           <li>Full papers · notes · panels</li>
           <li>Posters · practitioner reports</li>
-          <li>APA 7 · double-blind · open access</li>
+          <li>APA 7 · open review · open access</li>
         </ul>
       </div>
       <div>
