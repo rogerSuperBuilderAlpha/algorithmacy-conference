@@ -492,7 +492,21 @@
      ============================================================ */
   @media (max-width: 720px){
     body{ overflow: auto; }
-    .stage{ height: auto; min-height: unset; padding: 16px 24px 0; }
+    .stage{ height: auto; min-height: unset; padding: 12px 20px 0; }
+
+    /* tighten the hero so the diagram (and α) sit higher in the viewport */
+    .hero{ padding: 16px 0 16px; gap: 16px; }
+    .copy > div > *{ }
+    .copy{ gap: 14px; }
+    .eyebrow{ flex-wrap: wrap; gap: 8px 12px; font-size: 10px; letter-spacing: .14em; }
+    .display{ font-size: clamp(44px, 14vw, 60px); letter-spacing: -0.03em; }
+    .lede{ font-size: 14px; line-height: 1.5; margin-top: 16px !important; }
+
+    .diagram{ min-height: 320px; padding-top: 16px; }
+    .diagram-head{ font-size: 9px; gap: 8px; padding-bottom: 8px; }
+    .diagram-foot{ flex-direction: column; gap: 6px; padding-top: 10px; }
+    .diagram-foot .right{ text-align: left; max-width: 100%; }
+
     .meta-row{ grid-template-columns: 1fr 1fr; }
     .meta-row .cell{ border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0; }
     .meta-row .cell + .cell{ padding-left: 0; }
