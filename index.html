@@ -69,7 +69,7 @@
   .stage{
     position: relative;
     z-index: 3;
-    width: min(1440px, 100%);
+    width: min(1100px, 100%);
     min-height: 100vh;
     margin: 0 auto;
     padding: 20px clamp(28px, 3.4vw, 56px) 28px;
@@ -127,8 +127,8 @@
      ============================================================ */
   .hero{
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: clamp(24px, 3.6vw, 72px);
+    grid-template-columns: 1fr;
+    gap: 32px;
     align-items: stretch;
     padding: clamp(28px, 3.4vw, 56px) 0 clamp(20px, 2vw, 32px);
     border-bottom: 1px solid var(--line);
@@ -198,12 +198,12 @@
     border-bottom: 1px solid var(--ink-faint);
   }
 
-  /* right column: diagram */
+  /* diagram block — sits below the copy */
   .diagram{
     position: relative;
-    min-height: 0;
-    border-left: 1px solid var(--line);
-    padding-left: clamp(28px, 3vw, 56px);
+    min-height: 420px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
     display: grid;
     grid-template-rows: auto 1fr auto;
     row-gap: 0;
@@ -490,11 +490,9 @@
   /* ============================================================
      responsive
      ============================================================ */
-  @media (max-width: 1080px){
+  @media (max-width: 720px){
     body{ overflow: auto; }
     .stage{ height: auto; min-height: unset; padding: 16px 24px 0; }
-    .hero{ grid-template-columns: 1fr; gap: 32px; }
-    .diagram{ border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; min-height: 420px; }
     .meta-row{ grid-template-columns: 1fr 1fr; }
     .meta-row .cell{ border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0; }
     .meta-row .cell + .cell{ padding-left: 0; }
@@ -539,7 +537,7 @@
         </p>
 
         <h1 class="display" aria-label="Algorithmacy">
-          Algo<span class="dot">·</span>rithm<span class="dot">·</span>acy
+          Algo<span class="dot">·</span>rith<span class="dot">·</span>macy
         </h1>
 
         <p class="lede" style="margin-top: 24px;">
