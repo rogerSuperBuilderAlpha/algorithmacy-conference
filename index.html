@@ -582,20 +582,20 @@
             </filter>
 
             <!-- motion paths — H → α -->
-            <path id="pIA"  d="M 90,260 C 90,180 160,130 240,100" />
-            <path id="pIIA" d="M 390,260 C 390,180 320,130 240,100" />
+            <path id="pIA"  d="M 90,260 C 90,150 160,80 240,60" />
+            <path id="pIIA" d="M 390,260 C 390,150 320,80 240,60" />
           </defs>
 
           <!-- pulse rings around algorithm -->
-          <circle class="ringpulse" cx="240" cy="100"/>
-          <circle class="ringpulse" cx="240" cy="100" style="animation-delay:1s"/>
-          <circle class="ringpulse" cx="240" cy="100" style="animation-delay:2s"/>
+          <circle class="ringpulse" cx="240" cy="60"/>
+          <circle class="ringpulse" cx="240" cy="60" style="animation-delay:1s"/>
+          <circle class="ringpulse" cx="240" cy="60" style="animation-delay:2s"/>
 
           <!-- solid edges through the algorithm (inline so stroke renders) -->
-          <path d="M 90,260 C 90,180 160,130 240,100"
+          <path d="M 90,260 C 90,150 160,80 240,60"
                 fill="none" stroke="var(--ink)" stroke-width="1.5"
                 opacity=".82" class="draw"/>
-          <path d="M 390,260 C 390,180 320,130 240,100"
+          <path d="M 390,260 C 390,150 320,80 240,60"
                 fill="none" stroke="var(--ink)" stroke-width="1.5"
                 opacity=".82" class="draw d2"/>
 
@@ -626,11 +626,11 @@
           </g>
 
           <!-- ALGORITHM — luminous core diamond, high in the frame -->
-          <g transform="translate(240 100) rotate(45)">
+          <g transform="translate(240 60) rotate(45)">
             <rect x="-26" y="-26" width="52" height="52" class="alg-core" rx="3"/>
           </g>
-          <text x="240" y="104" class="alg-glyph">α</text>
-          <text x="240" y="172" text-anchor="middle" class="node-label" style="fill: var(--cool); opacity: .85;">algorithm · third party</text>
+          <text x="240" y="64" class="alg-glyph">α</text>
+          <text x="240" y="132" text-anchor="middle" class="node-label" style="fill: var(--cool); opacity: .85;">algorithm · third party</text>
 
           <!--
             PARTICLES — each human exchanges with α along its own edge.
