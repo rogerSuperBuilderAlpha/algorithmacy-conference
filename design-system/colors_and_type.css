@@ -1,0 +1,185 @@
+/* ============================================================
+   Staffing Etc. — Colors, Type, Radii, Shadows, Spacing
+   Brand palette: American red/white/blue, institutional.
+   Typeface: Inter SemiBold primary.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---------- BRAND COLORS (raw) ---------- */
+  --c-white:    #FFFFFF;
+  --c-gray-200: #D5D5D5;
+  --c-gray-400: #AAAAAA;
+  --c-gray-500: #808080;
+  --c-gray-700: #555555;
+
+  --c-red-500:  #B20812;   /* brand red */
+  --c-red-100:  #E59CA1;
+  --c-red-700:  #77050C;
+  --c-red-900:  #3B0306;
+
+  --c-navy-900: #162C4A;
+  --c-navy-800: #002A52;
+  --c-navy-700: #2D5793;
+  --c-blue-600: #0055A4;   /* brand blue */
+  --c-blue-500: #4383DD;
+  --c-blue-400: #5D8EBB;
+  --c-blue-300: #8CB0D2;
+  --c-blue-200: #AECCE8;
+  --c-blue-150: #97B9E8;
+  --c-blue-100: #BBD3F4;
+  --c-bluegray: #C7CED6;
+
+  --c-rose:     #CC6A70;
+
+  /* ---------- SEMANTIC TOKENS — LIGHT ---------- */
+  --bg-canvas:   var(--c-white);
+  --bg-surface:  var(--c-white);
+  --bg-sunken:   #F4F6F9;          /* very faint blue-gray */
+  --bg-raised:   var(--c-white);
+  --bg-brand:    var(--c-navy-900);
+
+  --fg-1: #0E1A2E;                 /* near-black, slight navy cast */
+  --fg-2: var(--c-gray-700);
+  --fg-3: var(--c-gray-500);
+  --fg-4: var(--c-gray-400);
+  --fg-on-primary: var(--c-white);
+  --fg-on-brand:   var(--c-white);
+  --fg-inverse:    var(--c-white);
+
+  --border-hairline: #E4E8EE;
+  --border-strong:   var(--c-bluegray);
+  --border-focus:    var(--c-blue-600);
+
+  /* Primary = institutional navy/blue; Accent = flag red */
+  --color-primary:        var(--c-blue-600);
+  --color-primary-hover:  var(--c-navy-700);
+  --color-primary-soft:   var(--c-blue-100);
+  --color-primary-fg:     var(--c-white);
+
+  --color-accent:         var(--c-red-500);
+  --color-accent-hover:   var(--c-red-700);
+  --color-accent-soft:    #FCE4E6;
+  --color-accent-fg:      var(--c-white);
+
+  --color-success:      #1F7A4D;
+  --color-success-soft: #DCEFE4;
+  --color-warn:         #B87200;
+  --color-warn-soft:    #FBE8C5;
+  --color-danger:       var(--c-red-500);
+  --color-danger-soft:  #FCE4E6;
+  --color-info:         var(--c-blue-500);
+  --color-info-soft:    var(--c-blue-100);
+
+  --ring-focus: rgba(0, 85, 164, 0.35);
+
+  /* ---------- TYPE ---------- */
+  --font-sans:    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-heading: var(--font-sans);
+
+  /* Brand uses SemiBold as the primary voice weight. */
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* Scale */
+  --fs-2xs: 11px;   --lh-2xs: 16px;
+  --fs-xs:  12px;   --lh-xs:  16px;
+  --fs-sm:  13px;   --lh-sm:  18px;
+  --fs-md:  15px;   --lh-md:  22px;
+  --fs-lg:  17px;   --lh-lg:  24px;
+  --fs-xl:  20px;   --lh-xl:  28px;
+  --fs-2xl: 24px;   --lh-2xl: 32px;
+  --fs-3xl: 30px;   --lh-3xl: 38px;
+  --fs-4xl: 38px;   --lh-4xl: 46px;
+  --fs-5xl: 48px;   --lh-5xl: 56px;
+  --fs-6xl: 60px;   --lh-6xl: 68px;
+
+  --tracking-tight: -0.018em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.04em;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---------- RADII (institutional: modest, squared) ---------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-sm: 0 0 0 1px var(--border-hairline), 0 1px 2px 0 rgba(14,26,46,0.04);
+  --shadow-md: 0 0 0 1px var(--border-hairline), 0 4px 12px -2px rgba(14,26,46,0.08), 0 2px 4px -1px rgba(14,26,46,0.04);
+  --shadow-lg: 0 0 0 1px var(--border-hairline), 0 16px 32px -8px rgba(14,26,46,0.12), 0 4px 8px -2px rgba(14,26,46,0.06);
+
+  /* ---------- MOTION ---------- */
+  --ease-out-soft: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-sharp: cubic-bezier(0.4, 0, 1, 1);
+  --dur-micro: 120ms;
+  --dur-base: 200ms;
+  --dur-page: 320ms;
+}
+
+/* ============================================================
+   Semantic element styles — SemiBold forward
+   ============================================================ */
+html { font-family: var(--font-sans); color: var(--fg-1); background: var(--bg-canvas); }
+body {
+  font-size: var(--fs-md); line-height: var(--lh-md);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Display + headings use SemiBold per brand direction. */
+.display {
+  font-family: var(--font-heading);
+  font-size: var(--fs-6xl); line-height: var(--lh-6xl);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+h1, .h1 { font-size: var(--fs-4xl); line-height: var(--lh-4xl); font-weight: var(--fw-semibold); letter-spacing: var(--tracking-tight); color: var(--fg-1); margin: 0; }
+h2, .h2 { font-size: var(--fs-3xl); line-height: var(--lh-3xl); font-weight: var(--fw-semibold); letter-spacing: var(--tracking-tight); color: var(--fg-1); margin: 0; }
+h3, .h3 { font-size: var(--fs-2xl); line-height: var(--lh-2xl); font-weight: var(--fw-semibold); color: var(--fg-1); margin: 0; }
+h4, .h4 { font-size: var(--fs-xl);  line-height: var(--lh-xl);  font-weight: var(--fw-semibold); color: var(--fg-1); margin: 0; }
+h5, .h5 { font-size: var(--fs-lg);  line-height: var(--lh-lg);  font-weight: var(--fw-semibold); color: var(--fg-1); margin: 0; }
+
+p, .body { font-size: var(--fs-md); line-height: var(--lh-md); color: var(--fg-1); margin: 0; }
+.body-sm { font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--fg-2); }
+.body-xs { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--fg-2); }
+
+.label { font-size: var(--fs-xs); line-height: var(--lh-xs); font-weight: var(--fw-semibold); color: var(--fg-2); }
+.overline {
+  font-size: var(--fs-2xs); line-height: var(--lh-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--fw-semibold);
+  color: var(--fg-3);
+}
+
+code, .mono, .code { font-family: var(--font-mono); font-size: 0.92em; font-feature-settings: "tnum", "zero"; color: var(--fg-1); }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
