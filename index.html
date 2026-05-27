@@ -24,13 +24,14 @@
     --cool:         #5A9BFF;  /* algorithmic third — cool glow */
   }
   *{ box-sizing: border-box; }
-  html, body{ margin: 0; padding: 0; height: 100%; }
+  html, body{ margin: 0; padding: 0; }
+  html{ background: var(--pitch); }
   body{
     background: var(--pitch);
     color: var(--ink);
     font-family: var(--font-sans);
+    min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: auto;
     position: relative;
     -webkit-font-smoothing: antialiased;
   }
@@ -74,7 +75,7 @@
     margin: 0 auto;
     padding: 20px clamp(28px, 3.4vw, 56px) 28px;
     display: grid;
-    grid-template-rows: auto 1fr auto auto auto;
+    grid-template-rows: auto 1fr auto auto auto auto;
     gap: 0;
   }
 
@@ -531,10 +532,152 @@
   .footer-bottom .marks{ display: flex; gap: 18px; }
 
   /* ============================================================
+     TRACKS & QUESTIONS — sidebar nav + anchored content
+     ============================================================ */
+  .tracks{
+    position: relative;
+    z-index: 3;
+    padding: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px);
+    background: var(--pitch);
+    border-bottom: 1px solid var(--line);
+  }
+  .tracks-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: clamp(28px, 3.4vw, 48px);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .tracks-head h2{
+    margin: 0;
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .tracks-head .tracks-sub{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .tracks-list{
+    display: flex; flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .track{
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 12px;
+  }
+  .track-toggle{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: clamp(20px, 2.2vw, 30px) 0;
+    background: none; border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--ink);
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+  }
+  .track-num{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .track-toggle h3{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink-soft);
+    line-height: 1.15;
+    flex: 1 1 auto;
+    transition: color var(--dur-base) var(--ease-out-soft);
+  }
+  .track-toggle:hover h3{ color: var(--ink); }
+  .track.open .track-toggle h3{ color: var(--ink); }
+  .toggle-icon{
+    flex: 0 0 auto;
+    width: 22px; height: 22px;
+    position: relative;
+    color: var(--ink-faint);
+    transition: color var(--dur-base) var(--ease-out-soft),
+                transform var(--dur-page) var(--ease-out-soft);
+  }
+  .toggle-icon::before, .toggle-icon::after{
+    content: ""; position: absolute;
+    background: currentColor;
+    transition: transform var(--dur-page) var(--ease-out-soft);
+  }
+  .toggle-icon::before{
+    /* horizontal bar */
+    left: 2px; right: 2px; top: 50%;
+    height: 1.5px; margin-top: -0.75px;
+  }
+  .toggle-icon::after{
+    /* vertical bar — rotates to merge with horizontal on open */
+    top: 2px; bottom: 2px; left: 50%;
+    width: 1.5px; margin-left: -0.75px;
+  }
+  .track-toggle:hover .toggle-icon{ color: var(--ink-soft); }
+  .track.open .toggle-icon{ color: var(--signal); }
+  .track.open .toggle-icon::after{ transform: rotate(90deg); }
+
+  .track-body{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-page) var(--ease-out-soft);
+  }
+  .track.open .track-body{ grid-template-rows: 1fr; }
+  .track-body > .questions-wrap{
+    min-height: 0;
+    overflow: hidden;
+  }
+  .questions{
+    list-style: none;
+    margin: 0; padding: 0 0 clamp(20px, 2.6vw, 32px);
+    counter-reset: q;
+  }
+  .questions li{
+    position: relative;
+    padding: 14px 0 16px 64px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: clamp(15px, 1.1vw, 17px);
+    line-height: 1.55;
+    counter-increment: q;
+  }
+  .questions li:first-child{ border-top: 0; padding-top: 4px; }
+  .questions li::before{
+    content: "Q." counter(q, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+  }
+  .questions li:first-child::before{ top: 6px; }
+
+  /* ============================================================
      responsive
      ============================================================ */
   @media (max-width: 720px){
-    body{ overflow: auto; }
     .stage{ height: auto; min-height: unset; padding: 12px 20px 0; }
 
     /* tighten the hero so the diagram (and α) sit higher in the viewport */
@@ -556,6 +699,12 @@
     .cta-strip{ flex-direction: column; align-items: flex-start; gap: 18px; }
     .footer-cols{ grid-template-columns: 1fr 1fr; gap: 24px; }
     .footer-bottom{ flex-direction: column; align-items: flex-start; }
+
+    /* tracks: tighter accordion on mobile */
+    .track-toggle{ gap: 12px; padding: 18px 0; }
+    .track-toggle h3{ font-size: clamp(18px, 5.4vw, 22px); }
+    .track-num{ font-size: 9px; padding: 3px 7px; }
+    .questions li{ padding-left: 52px; font-size: 14px; }
   }
 </style>
 </head>
@@ -868,6 +1017,109 @@
     </p>
   </section>
 
+  <!-- ============== TRACKS & QUESTIONS ============== -->
+  <section class="tracks" id="tracks" aria-label="Tracks and questions">
+    <div class="tracks-head">
+      <h2>Tracks &amp; Questions</h2>
+      <p class="tracks-sub">5 thematic tracks · click to expand</p>
+    </div>
+
+    <div class="tracks-list">
+      <article class="track" id="tr-01">
+        <button type="button" class="track-toggle" aria-expanded="false" aria-controls="tr-01-body">
+          <span class="track-num">TR.01</span>
+          <h3>Coordination &amp; Mediation</h3>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="track-body" id="tr-01-body">
+          <div class="questions-wrap">
+            <ol class="questions">
+              <li>What does it mean to coordinate <em>through</em> an algorithm, and how is that distinct from being managed by one?</li>
+              <li>When does the algorithmic third become a partner versus an obstacle to coordination?</li>
+              <li>Which workplace handovers and exchanges are uniquely triadic, and which can still be done dyadically?</li>
+              <li>What is the historical relationship between oracy, literacy, and algorithmacy as coordination forms?</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="track" id="tr-02">
+        <button type="button" class="track-toggle" aria-expanded="false" aria-controls="tr-02-body">
+          <span class="track-num">TR.02</span>
+          <h3>Algorithmic Management</h3>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="track-body" id="tr-02-body">
+          <div class="questions-wrap">
+            <ol class="questions">
+              <li>How do performance algorithms reshape what counts as “good work” across sectors?</li>
+              <li>What new forms of surveillance and metric-shaping emerge when management is algorithmically mediated?</li>
+              <li>How are scheduling, ranking, and matching algorithms reconfiguring shift work and labor markets?</li>
+              <li>What is the role of human management in algorithmically-managed environments?</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="track" id="tr-03">
+        <button type="button" class="track-toggle" aria-expanded="false" aria-controls="tr-03-body">
+          <span class="track-num">TR.03</span>
+          <h3>Platform Labor &amp; Worker Voice</h3>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="track-body" id="tr-03-body">
+          <div class="questions-wrap">
+            <ol class="questions">
+              <li>How do platform workers learn the algorithm in the absence of documentation or training?</li>
+              <li>What strategies do gig workers develop to game, anticipate, or accommodate platform logics?</li>
+              <li>What forms of collective action are possible when work is algorithmically mediated?</li>
+              <li>How do workers refuse, sabotage, or work around algorithmic management?</li>
+              <li>What is the role of unions, worker centers, and informal solidarities in this setting?</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="track" id="tr-04">
+        <button type="button" class="track-toggle" aria-expanded="false" aria-controls="tr-04-body">
+          <span class="track-num">TR.04</span>
+          <h3>Trust, Opacity &amp; Governance</h3>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="track-body" id="tr-04-body">
+          <div class="questions-wrap">
+            <ol class="questions">
+              <li>What information asymmetries exist between workers, managers, and the algorithm?</li>
+              <li>When does algorithmic opacity protect workers, and when does it harm them?</li>
+              <li>Why do workers comply with algorithmic directives, and under what conditions do they cease to?</li>
+              <li>How can algorithmic systems be audited specifically from the worker’s perspective?</li>
+              <li>What models of codetermination or stakeholder review apply to algorithmic management?</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="track" id="tr-05">
+        <button type="button" class="track-toggle" aria-expanded="false" aria-controls="tr-05-body">
+          <span class="track-num">TR.05</span>
+          <h3>Methods, Lineage &amp; Practice</h3>
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="track-body" id="tr-05-body">
+          <div class="questions-wrap">
+            <ol class="questions">
+              <li>What methodologies are best suited to studying algorithmic coordination at work?</li>
+              <li>How do we observe what cannot be directly seen — model behavior, intent, reasoning?</li>
+              <li>Which earlier regimes — bureaucracy, Taylorism, scientific management — prefigure today’s algorithmacy?</li>
+              <li>What field accounts reveal the texture of algorithmically-mediated work as it is actually done?</li>
+              <li>What can be learned from those who have left algorithmic platforms about what failed for them?</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ============== FOOTER ============== -->
   <footer class="footer">
     <div class="footer-cols">
@@ -938,6 +1190,48 @@
         }
       });
     });
+  })();
+
+  // Tracks accordion: click to expand, collapses others, scrolls to track
+  (function(){
+    const tracks = document.querySelectorAll('.track[id]');
+    if (!tracks.length) return;
+
+    tracks.forEach(track => {
+      const btn = track.querySelector('.track-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const wasOpen = track.classList.contains('open');
+        // collapse all
+        tracks.forEach(t => {
+          t.classList.remove('open');
+          const b = t.querySelector('.track-toggle');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          track.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          // smooth scroll the track into view after expand animation
+          requestAnimationFrame(() => {
+            track.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          history.replaceState(null, '', '#' + track.id);
+        } else {
+          // closing the current one — drop the hash
+          history.replaceState(null, '', window.location.pathname);
+        }
+      });
+    });
+
+    // open the track from URL hash if present
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash + '.track');
+      if (target) {
+        target.classList.add('open');
+        const b = target.querySelector('.track-toggle');
+        if (b) b.setAttribute('aria-expanded', 'true');
+      }
+    }
   })();
 </script>
 </body>
