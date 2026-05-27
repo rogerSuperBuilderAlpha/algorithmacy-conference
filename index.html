@@ -205,7 +205,7 @@
     border-top: 1px solid var(--line);
     padding-top: 24px;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     row-gap: 0;
   }
   .diagram-head{
@@ -225,6 +225,49 @@
   .diagram-head .seq span{ opacity: .45; padding: 0 6px; }
   .diagram-head .seq b{ color: var(--ink); }
   .diagram-head .seq em{ color: var(--ink-faint); font-style: normal; padding: 0 2px;}
+  .seq-btn{
+    background: none; border: none; padding: 0 2px; margin: 0;
+    color: var(--ink-faint);
+    font: inherit; letter-spacing: inherit; text-transform: inherit;
+    cursor: pointer;
+    transition: color var(--dur-base) var(--ease-out-soft);
+    -webkit-font-smoothing: inherit;
+  }
+  .seq-btn:hover{ color: var(--ink-soft); }
+  .seq-btn.active{ color: var(--ink); }
+
+  /* ============================================================
+     REFERENCE STRIP — oracy / literacy diagrams on click
+     ============================================================ */
+  .ref-strip{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur-page) var(--ease-out-soft),
+                border-color var(--dur-page) var(--ease-out-soft),
+                padding var(--dur-page) var(--ease-out-soft);
+    border-bottom: 1px solid transparent;
+    padding: 0 0;
+  }
+  .ref-strip.open{
+    max-height: 260px;
+    border-bottom-color: var(--line);
+    padding: 12px 0 16px;
+  }
+  .ref-panel{ display: none; }
+  .ref-strip[data-active="oracy"] .ref-panel[data-panel="oracy"],
+  .ref-strip[data-active="literacy"] .ref-panel[data-panel="literacy"]{ display: block; }
+  .ref-label{
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .ref-label b{ color: var(--ink-soft); font-weight: 600; }
+  .ref-panel svg{
+    width: 100%; height: 150px; display: block; overflow: visible;
+  }
 
   .triad{
     position: relative;
@@ -566,8 +609,122 @@
       <div class="diagram-head">
         <span><span style="color:var(--signal); margin-right:6px;">●</span> <b>Fig. α</b></span>
         <span class="seq">
-          oracy<em>→</em>literacy<em>→</em><b>algorithmacy</b>
+          <button type="button" class="seq-btn" data-show="oracy">oracy</button><em>→</em><button type="button" class="seq-btn" data-show="literacy">literacy</button><em>→</em><b>algorithmacy</b>
         </span>
+      </div>
+
+      <div class="ref-strip" id="ref-strip" data-active="">
+        <!-- ORACY: direct exchange -->
+        <div class="ref-panel" data-panel="oracy">
+          <div class="ref-label"><b>oracy</b> — direct exchange</div>
+          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <path id="oracy-path" d="M 55,70 L 345,70" />
+            </defs>
+            <line x1="75" y1="70" x2="325" y2="70" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+
+            <!-- H1 -->
+            <circle cx="55" cy="70" r="20" class="node-ring"/>
+            <text x="55" y="71" class="node-glyph" style="font-size:15px;">I</text>
+            <text x="55" y="108" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+
+            <!-- H2 -->
+            <circle cx="345" cy="70" r="20" class="node-ring"/>
+            <text x="345" y="71" class="node-glyph" style="font-size:15px;">II</text>
+            <text x="345" y="108" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+
+            <!-- particles bouncing both directions -->
+            <circle r="3" class="particle">
+              <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.1s"
+                             keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                             keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+                <mpath href="#oracy-path"/>
+              </animateMotion>
+            </circle>
+            <circle r="2.4" class="particle" style="opacity:.6">
+              <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.0s"
+                             keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="spline"
+                             keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+                <mpath href="#oracy-path"/>
+              </animateMotion>
+            </circle>
+          </svg>
+        </div>
+
+        <!-- LITERACY: moderated dyad — each human authors and reads a message -->
+        <div class="ref-panel" data-panel="literacy">
+          <div class="ref-label"><b>literacy</b> — written exchange</div>
+          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <!-- Route 1: H1 writes M_left, H2 reads it -->
+              <path id="lit-route1" d="M 55,100 L 142,34 L 345,100" />
+              <!-- Route 2: H2 writes M_right, H1 reads it -->
+              <path id="lit-route2" d="M 345,100 L 258,34 L 55,100" />
+            </defs>
+
+            <!-- 4 cross lines -->
+            <line x1="55" y1="100" x2="142" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+            <line x1="55" y1="100" x2="258" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+            <line x1="345" y1="100" x2="142" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+            <line x1="345" y1="100" x2="258" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+
+            <!-- M_left (page glyph) -->
+            <g>
+              <rect x="128" y="14" width="28" height="40" rx="2"
+                    fill="var(--pitch-raised)" stroke="var(--ember)" stroke-width="1.5"/>
+              <line x1="134" y1="23" x2="150" y2="23" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="134" y1="29" x2="150" y2="29" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="134" y1="35" x2="150" y2="35" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="134" y1="41" x2="147" y2="41" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+            </g>
+
+            <!-- M_right (page glyph) -->
+            <g>
+              <rect x="244" y="14" width="28" height="40" rx="2"
+                    fill="var(--pitch-raised)" stroke="var(--ember)" stroke-width="1.5"/>
+              <line x1="250" y1="23" x2="266" y2="23" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="250" y1="29" x2="266" y2="29" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="250" y1="35" x2="266" y2="35" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+              <line x1="250" y1="41" x2="263" y2="41" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+            </g>
+
+            <!-- H1 -->
+            <circle cx="55" cy="100" r="20" class="node-ring"/>
+            <text x="55" y="101" class="node-glyph" style="font-size:15px;">I</text>
+            <text x="55" y="135" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+
+            <!-- H2 -->
+            <circle cx="345" cy="100" r="20" class="node-ring"/>
+            <text x="345" y="101" class="node-glyph" style="font-size:15px;">II</text>
+            <text x="345" y="135" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+
+            <!-- Message labels -->
+            <text x="142" y="68" text-anchor="middle" class="node-label" style="fill: var(--ember); font-size:7px;">message</text>
+            <text x="258" y="68" text-anchor="middle" class="node-label" style="fill: var(--ember); font-size:7px;">message</text>
+
+            <!-- particles flow the FULL route: H1 → message → H2 (one-way) and H2 → message → H1 (one-way) -->
+            <circle r="2.8" class="particle">
+              <animateMotion dur="3.2s" repeatCount="indefinite" begin="0s" calcMode="linear">
+                <mpath href="#lit-route1"/>
+              </animateMotion>
+            </circle>
+            <circle r="2.4" class="particle" style="opacity:.6">
+              <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.6s" calcMode="linear">
+                <mpath href="#lit-route1"/>
+              </animateMotion>
+            </circle>
+            <circle r="2.8" class="particle">
+              <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.8s" calcMode="linear">
+                <mpath href="#lit-route2"/>
+              </animateMotion>
+            </circle>
+            <circle r="2.4" class="particle" style="opacity:.6">
+              <animateMotion dur="3.2s" repeatCount="indefinite" begin="2.4s" calcMode="linear">
+                <mpath href="#lit-route2"/>
+              </animateMotion>
+            </circle>
+          </svg>
+        </div>
       </div>
 
       <div class="triad">
@@ -582,20 +739,20 @@
             </filter>
 
             <!-- motion paths — H → α -->
-            <path id="pIA"  d="M 90,260 C 90,150 160,80 240,60" />
-            <path id="pIIA" d="M 390,260 C 390,150 320,80 240,60" />
+            <path id="pIA"  d="M 90,260 C 90,165 160,100 240,80" />
+            <path id="pIIA" d="M 390,260 C 390,165 320,100 240,80" />
           </defs>
 
           <!-- pulse rings around algorithm -->
-          <circle class="ringpulse" cx="240" cy="60"/>
-          <circle class="ringpulse" cx="240" cy="60" style="animation-delay:1s"/>
-          <circle class="ringpulse" cx="240" cy="60" style="animation-delay:2s"/>
+          <circle class="ringpulse" cx="240" cy="80"/>
+          <circle class="ringpulse" cx="240" cy="80" style="animation-delay:1s"/>
+          <circle class="ringpulse" cx="240" cy="80" style="animation-delay:2s"/>
 
           <!-- solid edges through the algorithm (inline so stroke renders) -->
-          <path d="M 90,260 C 90,150 160,80 240,60"
+          <path d="M 90,260 C 90,165 160,100 240,80"
                 fill="none" stroke="var(--ink)" stroke-width="1.5"
                 opacity=".82" class="draw"/>
-          <path d="M 390,260 C 390,150 320,80 240,60"
+          <path d="M 390,260 C 390,165 320,100 240,80"
                 fill="none" stroke="var(--ink)" stroke-width="1.5"
                 opacity=".82" class="draw d2"/>
 
@@ -626,11 +783,11 @@
           </g>
 
           <!-- ALGORITHM — luminous core diamond, high in the frame -->
-          <g transform="translate(240 60) rotate(45)">
+          <g transform="translate(240 80) rotate(45)">
             <rect x="-26" y="-26" width="52" height="52" class="alg-core" rx="3"/>
           </g>
-          <text x="240" y="64" class="alg-glyph">α</text>
-          <text x="240" y="132" text-anchor="middle" class="node-label" style="fill: var(--cool); opacity: .85;">algorithm · third party</text>
+          <text x="240" y="84" class="alg-glyph">α</text>
+          <text x="240" y="30" text-anchor="middle" class="node-label" style="fill: var(--cool); opacity: .85;">algorithm · third party · platform</text>
 
           <!--
             PARTICLES — each human exchanges with α along its own edge.
@@ -761,6 +918,27 @@
 
 </main>
 
-
+<script>
+  (function(){
+    const strip = document.getElementById('ref-strip');
+    if (!strip) return;
+    const btns = document.querySelectorAll('.seq-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.show;
+        const isOpenOnSame = strip.classList.contains('open') && strip.dataset.active === target;
+        btns.forEach(b => b.classList.remove('active'));
+        if (isOpenOnSame) {
+          strip.classList.remove('open');
+          strip.dataset.active = '';
+        } else {
+          strip.dataset.active = target;
+          strip.classList.add('open');
+          btn.classList.add('active');
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
