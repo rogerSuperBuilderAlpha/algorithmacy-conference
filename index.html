@@ -572,8 +572,8 @@
   }
   .rp-cols{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(20px, 3vw, 40px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(18px, 2.4vw, 32px);
     margin-bottom: clamp(24px, 2.8vw, 36px);
   }
   .rp-cols > div{ min-width: 0; }
@@ -1343,7 +1343,7 @@
   <section class="review-policy" id="review" aria-label="Review policy">
     <div class="rp-head">
       <span class="rp-label">Review</span>
-      <h2>Open, signed, published.</h2>
+      <h2>Open, signed, published, timestamped.</h2>
     </div>
     <div class="rp-cols">
       <div>
@@ -1357,6 +1357,10 @@
       <div>
         <h3>Published</h3>
         <p>Accepted papers ship alongside their full review history — reviewer reports, author responses, and revision trail.</p>
+      </div>
+      <div>
+        <h3>Timestamped</h3>
+        <p>Your pull request is a public, dated record. In any future priority dispute, the conference will support your claim based on the PR timestamp.</p>
       </div>
     </div>
     <p class="rp-precedent">
