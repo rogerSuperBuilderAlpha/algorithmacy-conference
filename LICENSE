@@ -20,13 +20,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-This MIT license applies to all source code in this repository, including
-HTML, CSS, JavaScript, and JSON data files (notably index.html, prompts.json,
-and design-system/colors_and_type.css).
-
-Non-code content — README.md, CONTRIBUTING.md, TRACKS.md, FORKING.md, all
-files in /submissions/, and the contents of .github/ — is licensed
-separately under Creative Commons Attribution 4.0 International (CC BY 4.0).
-See LICENSE-CONTENT for that license.
