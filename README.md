@@ -64,6 +64,14 @@ A double-blind workflow is incompatible with a public-PR intake; open review is 
 
 Limited support available for LMIC scholars, doctoral students, and worker representatives. Indicate need with your abstract.
 
+## AI use
+
+AI assistance is welcome and confers no penalty. We care about the quality of the contribution, not the method. If you use AI, the result should be excellent — obvious slop will not be reviewed well regardless of how it was produced. See [CONTRIBUTING.md](./CONTRIBUTING.md#ai-use) for the full policy.
+
+## Authorship & priority
+
+Opening a pull request is a public, dated, timestamped record of your contribution. **In any future priority dispute, the conference will support your claim based on the PR timestamp.** See [CONTRIBUTING.md](./CONTRIBUTING.md#authorship--priority).
+
 ## Standards
 
 - **Style:** APA 7

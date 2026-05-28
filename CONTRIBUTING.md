@@ -79,6 +79,26 @@ The conference and its review process operate under a no-tolerance policy for ha
 
 Concerns: rhunt@bentley.edu.
 
+## AI use
+
+**AI assistance is welcome.** We care about the quality of the contribution, not the method by which you arrived at it.
+
+If you use AI in drafting your abstract, your full paper, or any supporting artifact: that's fine. We will not ask, and we will not penalize you for it. We will also not credit you extra for *not* using it.
+
+What we **will** penalize is obvious AI slop. If you use AI, the output should be excellent — sharper, more specific, more rigorous than what you would have produced alone, not less. Generic prose, formulaic structure, hallucinated citations, vague claims dressed up as insight: reviewers will read these as a failure of judgment regardless of how they were produced. The thing the conference is *about* is the quality of human–algorithm coordination. Your submission is itself a sample of that.
+
+You do not need to disclose AI use. You may, if you wish, in a brief "Tools & methods" note in the body — but it is not required and confers no advantage.
+
+## Authorship & priority
+
+**Posting your submission secures priority on its content.** Opening a pull request creates a public, dated, immutable record on GitHub. The PR timestamp is the priority date.
+
+If a dispute later arises over priority — someone publishes the same idea, or claims prior art on a contribution that originated in your submission — **the conference will support your claim** based on the submission timestamp. The PR history is the record; it cannot be quietly altered.
+
+This is one of the reasons the intake is public and PR-based. Anonymized submissions to private systems leave no comparable public, timestamped, externally verifiable trail.
+
+You retain copyright on your work throughout.
+
 ## Licensing
 
 By submitting, you grant the conference the right to publish the abstract, full paper, and review history under **CC BY 4.0**. Authors retain copyright.
