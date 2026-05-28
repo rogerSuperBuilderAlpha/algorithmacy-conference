@@ -78,6 +78,15 @@ Opening a pull request is a public, dated, timestamped record of your contributi
 - **Format:** Markdown (`.md`) for abstracts; PDF (in the PR description as an attachment) for full papers
 - **License:** Open access. Authors retain copyright; accepted papers published under CC BY 4.0.
 
+## Open source
+
+This entire conference setup — the website, the CFP infrastructure, the open-review workflow — is open source. We want other conferences to be able to adopt this model.
+
+- **Code** (website HTML/CSS/JS) is [MIT-licensed](./LICENSE)
+- **Content** (README, CONTRIBUTING, TRACKS, templates, submissions) is [CC BY 4.0](./LICENSE-CONTENT)
+- This repository is set up as a **GitHub template**: click "Use this template" to clone it for your own venue
+- See [`FORKING.md`](./FORKING.md) for a guide on what to swap and what to keep
+
 ## Repository layout
 
 ```
