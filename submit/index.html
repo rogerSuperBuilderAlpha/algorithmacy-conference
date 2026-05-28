@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Submit · Algorithmacy Conference</title>
+<link rel="stylesheet" href="/design-system/colors_and_type.css" />
+<style>
+  :root{
+    --pitch:        #07080A;
+    --pitch-2:      #0C0E12;
+    --pitch-raised: #11141A;
+    --line:         rgba(237,234,228,0.10);
+    --line-strong:  rgba(237,234,228,0.22);
+    --ink:          #EFEAE0;
+    --ink-soft:     rgba(239,234,224,0.62);
+    --ink-faint:    rgba(239,234,224,0.32);
+    --signal:       #FF5945;
+    --signal-deep:  #C8351F;
+    --ember:        #FFB077;
+    --cool:         #5A9BFF;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ margin: 0; padding: 0; }
+  html{ background: var(--pitch); }
+  body{
+    background: var(--pitch);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .stage{
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 20px clamp(28px, 3.4vw, 56px) 56px;
+  }
+
+  /* ---------- topstrip ---------- */
+  .topstrip{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: clamp(40px, 5vw, 64px);
+  }
+  .brand{
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    text-transform: none;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .brand:hover{ text-decoration: none; color: var(--ink); }
+  .brand .back{ color: var(--ink-soft); }
+  .brand svg{ width: 22px; height: 22px; color: var(--ink); }
+  .topstrip .right{ display: flex; gap: 22px; align-items: center; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    margin-bottom: clamp(40px, 5vw, 72px);
+    padding-bottom: clamp(32px, 4vw, 48px);
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow{
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .eyebrow .num{
+    color: var(--signal);
+    border: 1px solid rgba(255,89,69,.4);
+    background: rgba(255,89,69,.08);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+  h1.display{
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    font-size: clamp(44px, 7vw, 96px);
+    margin: 0 0 28px 0;
+  }
+  .lede{
+    margin: 0;
+    max-width: 60ch;
+    font-size: clamp(16px, 1.2vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .lede b{ color: var(--ink); font-weight: 600; }
+
+  /* ---------- section ---------- */
+  .section{
+    margin-bottom: clamp(48px, 5vw, 72px);
+  }
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: clamp(20px, 2.4vw, 28px);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .section-num{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .section h2{
+    margin: 0;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .section p{
+    margin: 0 0 18px 0;
+    font-size: clamp(15px, 1.1vw, 17px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 68ch;
+  }
+  .section p b{ color: var(--ink); font-weight: 600; }
+  .section p a, .section a{
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--ink-faint);
+  }
+  .section a:hover{ text-decoration-color: var(--signal); }
+
+  /* ---------- prompt block ---------- */
+  .prompt-wrap{
+    margin-top: clamp(20px, 2.4vw, 28px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--pitch-raised);
+    overflow: hidden;
+  }
+  .prompt-toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,.02);
+    border-bottom: 1px solid var(--line);
+  }
+  .prompt-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .prompt-label b{ color: var(--ink); font-weight: 600; }
+  .copy-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--pitch);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: -0.005em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background var(--dur-base) var(--ease-out-soft),
+                transform var(--dur-micro) var(--ease-out-soft);
+  }
+  .copy-btn:hover{ background: #fff; transform: translateY(-1px); }
+  .copy-btn.copied{ background: var(--cool); color: var(--pitch); }
+  .copy-btn::before{
+    content: "";
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 8px var(--signal);
+  }
+  .copy-btn.copied::before{ background: var(--pitch); box-shadow: none; }
+  .prompt-textarea{
+    width: 100%;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+    border: 0;
+    padding: 16px 18px;
+    resize: vertical;
+    min-height: 320px;
+    outline: none;
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .prompt-textarea:focus{ outline: none; }
+
+  /* ---------- how-it-works under the prompt ---------- */
+  .how-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.4vw, 28px);
+    margin-top: clamp(20px, 2.4vw, 28px);
+  }
+  .how-row div{ min-width: 0; }
+  .how-row h3{
+    margin: 0 0 6px 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .how-row p{
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: none;
+  }
+
+  /* ---------- steps ---------- */
+  .steps{
+    list-style: none;
+    counter-reset: step;
+    margin: 0; padding: 0;
+  }
+  .steps li{
+    counter-increment: step;
+    position: relative;
+    padding: 18px 0 18px 52px;
+    border-bottom: 1px solid var(--line);
+  }
+  .steps li:last-child{ border-bottom: 0; }
+  .steps li::before{
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+  }
+  .steps li h3{
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .steps li p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+  code{
+    font-family: var(--font-mono);
+    background: var(--pitch-raised);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: var(--ink);
+  }
+  .docs-links{
+    margin-top: clamp(16px, 2vw, 22px);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .docs-links a{
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0 4px;
+    border-bottom: 1px solid var(--ink-faint);
+    transition: border-color var(--dur-base) var(--ease-out-soft);
+  }
+  .docs-links a:hover{ border-color: var(--signal); }
+
+  /* ---------- policy list ---------- */
+  .policy-list{
+    list-style: none;
+    margin: 0 0 16px 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+  }
+  .policy-list li{
+    padding: 16px;
+    border: 1px solid var(--line);
+    background: var(--pitch-raised);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .policy-list li b{
+    display: block;
+    color: var(--signal);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .policy-aside{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .policy-aside a{ color: var(--ink); }
+
+  /* ---------- footer ---------- */
+  .page-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    margin-top: clamp(32px, 4vw, 56px);
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .page-footer a{ color: var(--ink); text-decoration: none; }
+  .page-footer a:hover{ color: var(--signal); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px){
+    .stage{ padding: 16px 20px 40px; }
+    .topstrip{ font-size: 10px; }
+    .topstrip .right{ font-size: 9px; gap: 14px; }
+    .how-row{ grid-template-columns: 1fr; gap: 14px; }
+    .policy-list{ grid-template-columns: 1fr 1fr; }
+    .prompt-textarea{ font-size: 11.5px; min-height: 280px; }
+  }
+  @media (max-width: 480px){
+    .policy-list{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<main class="stage">
+
+  <header class="topstrip">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
+        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      </svg>
+      <span><span class="back">← </span>Algorithmacy</span>
+    </a>
+    <div class="right">
+      <span>CFP / V01 · 2026</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">
+      <span class="num">Submit</span>
+      <span>Open-review · public-PR · timestamped priority</span>
+    </span>
+    <h1 class="display">How to submit.</h1>
+    <p class="lede">
+      The Algorithmacy Conference accepts submissions as <b>pull requests</b> against our public repository on GitHub. There are two paths — <b>have an AI handle it</b> for you, or do it by hand. Either way, your PR is the submission, and its timestamp is your priority record.
+    </p>
+  </section>
+
+  <!-- ============== PATH A — AI ASSISTED ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Use AI to handle the submission.</h2>
+    </div>
+    <p>
+      Paste the prompt below into a fresh conversation with <b>Claude</b>, <b>ChatGPT</b>, <b>Gemini</b>, or any LLM with web/tool access. It will ask you for your title, abstract, type, track, and the rest — then either open the PR for you (if it has GitHub tool access) or hand you the exact commands and content to do it yourself.
+    </p>
+
+    <div class="prompt-wrap">
+      <div class="prompt-toolbar">
+        <span class="prompt-label"><b>Prompt</b> · paste into any capable LLM</span>
+        <button type="button" class="copy-btn" id="copy-prompt-btn">Copy prompt</button>
+      </div>
+<textarea class="prompt-textarea" id="prompt-textarea" readonly spellcheck="false">You are helping a researcher submit a paper to the **Algorithmacy Conference** — a conference on how workers coordinate through algorithmic third parties. Submissions are made as GitHub pull requests against this repository:
+
+  Repository:  https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+  Site:        https://algorithmacy.com
+  Closes:      2026-08-01
+
+YOUR JOB
+
+Walk the user through their submission interactively. Then either:
+  (A) execute the submission for them — if you have gh CLI, the GitHub API, browser automation, or any equivalent tool — or
+  (B) generate the exact file content and shell commands they need to run themselves.
+
+STEP 1 — gather submission details
+
+Ask the user the following, one at a time, and validate as you go:
+
+  - Title
+  - Authors (name + affiliation for each)
+  - Primary contact email
+  - Type — exactly one of:
+      * Full paper          (6–8 pages)
+      * Note                (2–3 pages)
+      * Panel               (3–4 participants)
+      * Poster              (visual + 1pg extended abstract)
+      * Practitioner report (2–4 pages)
+  - Track — exactly one of:
+      * TR.01 — Coordination & Mediation
+      * TR.02 — Algorithmic Management
+      * TR.03 — Platform Labor & Worker Voice
+      * TR.04 — Trust, Opacity & Governance
+      * TR.05 — Methods, Lineage & Practice
+  - Keywords (3–7, comma-separated)
+  - Abstract (300–500 words — count and warn if outside range)
+  - Outline (5–10 bullets for papers/notes; participants for panels; visual + 1pg abstract description for posters)
+  - Author bios (≤100 words per author)
+  - GitHub handle (used for the submission filename)
+  - Conflicts of interest, or "none"
+
+STEP 2 — produce the submission file
+
+Generate `submissions/<handle>.md` using exactly this format:
+
+  # <Title>
+
+  **Authors:** <Name (Affiliation)>, ...
+  **Contact:** <email>
+  **Type:** <one of the five>
+  **Track:** TR.0X
+  **Word count:** <abstract body only>
+  **Keywords:** <comma-separated>
+  **Conflicts of interest:** <none, or describe>
+
+  ---
+
+  ## Abstract
+  <300–500 words>
+
+  ## Outline
+  <bullets, or panel participants, or visual description>
+
+  ## Author bios
+  **<Name>** is a <role> at <affiliation>. <≤100 words>
+
+  ---
+
+  *Submitted under the conference open-review policy: this submission and all reviews will be public on the repository. The PR timestamp is the priority record.*
+
+STEP 3 — submit
+
+Path A — full automation (preferred if you have tools):
+
+  1. Verify auth:        gh auth status
+  2. Fork the repo:      gh repo fork rogerSuperBuilderAlpha/algorithmacy-conference --clone
+  3. cd into the fork
+  4. Create a branch:    git checkout -b submission/<handle>
+  5. Write the file:     submissions/<handle>.md  (append a discriminator like -2 if the handle is taken)
+  6. Commit:             git add submissions/<handle>.md && git commit -m "Submission: <title>"
+  7. Push:               git push -u origin submission/<handle>
+  8. Open PR:            gh pr create --base main \
+                            --title "[<type>] [<track>] <title>" \
+                            --body "<short summary + COI + acknowledgment of open-review policy>"
+
+Path B — manual (no tools):
+
+  Provide:
+    - the exact `git`/`gh` commands listed above (the user runs them locally), or
+    - the GitHub web-UI steps (use the fork link https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/fork, add the file, click "Create pull request")
+    - the full filled-in markdown for the user to paste
+
+STEP 4 — confirm
+
+  - Share the PR URL.
+  - Remind: the PR timestamp is now the priority record.
+  - Reviewers will respond on the PR thread within ~5 business days.
+
+POLICY NOTE — mention this exactly once, before the user finalizes:
+
+  This is open review. Your submission and all reviews are public on the public repository from the moment of intake. Reviewers will sign their reviews. The PR timestamp establishes your priority on the contribution.
+
+AI USE POLICY — the conference welcomes AI assistance in any part of the submission. Quality is what matters, not method. Don't apologize for using AI; don't disclose unless asked.
+
+BEGIN by greeting the user and asking: "What are you submitting today?" Then collect details conversationally.
+</textarea>
+    </div>
+
+    <div class="how-row">
+      <div>
+        <h3>What it does</h3>
+        <p>Collects your submission details, drafts the markdown file, and (with tool access) opens the PR. Without tools, it generates the commands and content for you to run yourself.</p>
+      </div>
+      <div>
+        <h3>What it needs</h3>
+        <p>Any capable LLM. Claude, ChatGPT, Gemini, etc. For full automation, an LLM that can run shell commands (Claude Code, ChatGPT with GitHub plugin) or browse on your behalf.</p>
+      </div>
+      <div>
+        <h3>What you keep</h3>
+        <p>Full control. The LLM walks you through and asks for confirmation before opening the PR. You can stop at any point and finish manually.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PATH B — MANUAL ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Or do it by hand.</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Fork the repository</h3>
+        <p>Open the repo and click "Fork" at the top-right. <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/fork" target="_blank" rel="noopener">Direct fork link →</a></p>
+      </li>
+      <li>
+        <h3>Copy the submission template</h3>
+        <p>In your fork, copy <code>submissions/TEMPLATE.md</code> to <code>submissions/&lt;your-handle&gt;.md</code>.</p>
+      </li>
+      <li>
+        <h3>Fill in your abstract</h3>
+        <p>Complete every field: title, authors, type, track, 300–500-word abstract, outline, author bios.</p>
+      </li>
+      <li>
+        <h3>Open a pull request against <code>main</code></h3>
+        <p>GitHub will auto-populate the conference's PR template. Title format: <code>[Type] [TR.0X] Your title</code>.</p>
+      </li>
+    </ol>
+    <p class="docs-links">
+      Full workflow: <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a>
+      · Tracks: <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/TRACKS.md" target="_blank" rel="noopener">TRACKS.md</a>
+      · Template: <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/TEMPLATE.md" target="_blank" rel="noopener">TEMPLATE.md</a>
+    </p>
+  </section>
+
+  <!-- ============== POLICY ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>What you're agreeing to.</h2>
+    </div>
+    <ul class="policy-list">
+      <li><b>Open</b>Your submission and all reviews are public on the repository from intake. There is no anonymized stage.</li>
+      <li><b>Signed</b>Reviewers attach their names. Accountability is a feature of the review, not a compromise of it.</li>
+      <li><b>Published</b>Accepted papers ship alongside their full reviewer reports, author responses, and revision trail.</li>
+      <li><b>Timestamped</b>Your PR timestamp is your priority record. The conference will support your claim in any future dispute.</li>
+    </ul>
+    <p class="policy-aside">No double-blind workflow. <a href="/#review">Why this model →</a></p>
+  </section>
+
+  <footer class="page-footer">
+    <a href="/">← Back to home</a>
+    <span>Roger Hunt · rhunt@bentley.edu</span>
+  </footer>
+
+</main>
+
+<script>
+  (function(){
+    const btn = document.getElementById('copy-prompt-btn');
+    const ta = document.getElementById('prompt-textarea');
+    if (!btn || !ta) return;
+    btn.addEventListener('click', async () => {
+      const text = ta.value;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch(e) {
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        ta.setSelectionRange(0, 0);
+      }
+      const orig = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2200);
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -987,6 +987,56 @@
   }
 
   /* ============================================================
+     FLOATING SUBMIT BUTTON
+     ============================================================ */
+  .fab-submit{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px 14px 18px;
+    background: var(--ink);
+    color: var(--pitch) !important;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    text-decoration: none !important;
+    border-radius: 999px;
+    box-shadow:
+      0 0 0 1px rgba(239,234,224,.08),
+      0 14px 36px -10px rgba(0,0,0,.6),
+      0 4px 12px -4px rgba(0,0,0,.45);
+    transition: transform var(--dur-base) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft),
+                box-shadow var(--dur-base) var(--ease-out-soft);
+  }
+  .fab-submit::before{
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 12px var(--signal);
+    flex: 0 0 auto;
+  }
+  .fab-submit:hover{
+    transform: translateY(-2px);
+    background: #fff;
+    box-shadow:
+      0 0 0 1px rgba(239,234,224,.14),
+      0 20px 44px -10px rgba(0,0,0,.7),
+      0 6px 18px -4px rgba(0,0,0,.55);
+  }
+  .fab-submit:active{ transform: translateY(0); }
+  .fab-submit .arrow{
+    transition: transform var(--dur-base) var(--ease-out-soft);
+  }
+  .fab-submit:hover .arrow{ transform: translateX(3px); }
+
+  /* ============================================================
      responsive
      ============================================================ */
   @media (max-width: 720px){
@@ -1027,6 +1077,14 @@
     .tester-score{ font-size: 56px; }
     .tester-output{ font-size: 15px; }
     .tester-prompt{ font-size: 15px; }
+
+    /* floating submit: smaller, snugger to the corner */
+    .fab-submit{
+      bottom: 16px; right: 16px;
+      padding: 12px 18px 12px 15px;
+      font-size: 13px;
+      gap: 10px;
+    }
   }
 </style>
 </head>
@@ -1326,8 +1384,8 @@
 
   <!-- ============== CTA ============== -->
   <section class="cta-strip">
-    <a class="cta" href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference" target="_blank" rel="noopener">
-      <span>Submit a paper on GitHub</span>
+    <a class="cta" href="/submit">
+      <span>Submit a paper</span>
       <span class="arrow" aria-hidden="true">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <path d="M3 11h15M13 5l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1561,6 +1619,11 @@
   </footer>
 
 </main>
+
+<a href="/submit" class="fab-submit" aria-label="Submit a paper">
+  <span>Submit a paper</span>
+  <span class="arrow" aria-hidden="true">→</span>
+</a>
 
 <script>
   (function(){
