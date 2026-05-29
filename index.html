@@ -1397,76 +1397,6 @@
     </p>
   </section>
 
-  <!-- ============== REVIEW POLICY ============== -->
-  <section class="review-policy" id="review" aria-label="Review policy">
-    <div class="rp-head">
-      <span class="rp-label">Review</span>
-      <h2>Open, signed, published, timestamped.</h2>
-    </div>
-    <div class="rp-cols">
-      <div>
-        <h3>Open</h3>
-        <p>Submissions and review threads live on the public repository from the moment of intake. There is no anonymized submission stage.</p>
-      </div>
-      <div>
-        <h3>Signed</h3>
-        <p>Reviewers attach their names to their assessments. Accountability is a feature of the review, not a compromise of it.</p>
-      </div>
-      <div>
-        <h3>Published</h3>
-        <p>Accepted papers ship alongside their full review history — reviewer reports, author responses, and revision trail.</p>
-      </div>
-      <div>
-        <h3>Timestamped</h3>
-        <p>Your pull request is a public, dated record. In any future priority dispute, the conference will support your claim based on the PR timestamp.</p>
-      </div>
-    </div>
-    <p class="rp-precedent">
-      After established open-review practice at <b>F1000Research</b>, <b>eLife</b>, <b>OpenReview.net</b>, and <b>The BMJ</b>.
-      A double-blind workflow is incompatible with a public-PR intake; open review is the methodologically honest fit — and consonant with the conference's own questions about algorithmic opacity and accountability.
-    </p>
-  </section>
-
-  <!-- ============== TESTER ============== -->
-  <section class="tester" id="tester" aria-label="Algorithmacy tester">
-    <div class="tester-head">
-      <div class="tester-head-left">
-        <span class="tester-label">Tester</span>
-        <h2>Read the algorithm. Guess the prompter.</h2>
-      </div>
-      <span class="tester-counter" id="tester-counter">000 / 100</span>
-    </div>
-    <p class="tester-sub">You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?</p>
-
-    <div class="tester-card" id="tester-loading">
-      <div class="tester-loading">Loading prompts…</div>
-    </div>
-
-    <div class="tester-card" id="tester-input-card" hidden>
-      <div class="tester-output-label">Output</div>
-      <p class="tester-output" id="tester-output"></p>
-      <label class="tester-input-label" for="tester-textarea">Your guess at the prompt</label>
-      <textarea class="tester-textarea" id="tester-textarea" placeholder="e.g. write a haiku about a cat staring at a door"></textarea>
-      <div class="tester-actions">
-        <button type="button" class="tester-btn" id="tester-score-btn">Score guess</button>
-        <button type="button" class="tester-skip" id="tester-skip-btn">Skip →</button>
-      </div>
-    </div>
-
-    <div class="tester-card" id="tester-reveal-card" hidden>
-      <div class="tester-score-row">
-        <span class="tester-score" id="tester-score">0</span>
-        <span class="tester-tier" id="tester-tier">cold</span>
-      </div>
-      <span class="tester-prompt-label">Actual prompt</span>
-      <p class="tester-prompt" id="tester-prompt"></p>
-      <p class="tester-matches" id="tester-matches"></p>
-      <div class="tester-actions">
-        <button type="button" class="tester-btn" id="tester-next-btn">Try another →</button>
-      </div>
-    </div>
-  </section>
-
   <!-- ============== TRACKS & QUESTIONS ============== -->
   <section class="tracks" id="tracks" aria-label="Tracks and questions">
     <div class="tracks-head">
@@ -1567,6 +1497,76 @@
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <!-- ============== REVIEW POLICY ============== -->
+  <section class="review-policy" id="review" aria-label="Review policy">
+    <div class="rp-head">
+      <span class="rp-label">Review</span>
+      <h2>Open, signed, published, timestamped.</h2>
+    </div>
+    <div class="rp-cols">
+      <div>
+        <h3>Open</h3>
+        <p>Submissions and review threads live on the public repository from the moment of intake. There is no anonymized submission stage.</p>
+      </div>
+      <div>
+        <h3>Signed</h3>
+        <p>Reviewers attach their names to their assessments. Accountability is a feature of the review, not a compromise of it.</p>
+      </div>
+      <div>
+        <h3>Published</h3>
+        <p>Accepted papers ship alongside their full review history — reviewer reports, author responses, and revision trail.</p>
+      </div>
+      <div>
+        <h3>Timestamped</h3>
+        <p>Your pull request is a public, dated record. In any future priority dispute, the conference will support your claim based on the PR timestamp.</p>
+      </div>
+    </div>
+    <p class="rp-precedent">
+      After established open-review practice at <b>F1000Research</b>, <b>eLife</b>, <b>OpenReview.net</b>, and <b>The BMJ</b>.
+      A double-blind workflow is incompatible with a public-PR intake; open review is the methodologically honest fit — and consonant with the conference's own questions about algorithmic opacity and accountability.
+    </p>
+  </section>
+
+  <!-- ============== TESTER ============== -->
+  <section class="tester" id="tester" aria-label="Algorithmacy tester">
+    <div class="tester-head">
+      <div class="tester-head-left">
+        <span class="tester-label">Tester</span>
+        <h2>Read the algorithm. Guess the prompter.</h2>
+      </div>
+      <span class="tester-counter" id="tester-counter">000 / 100</span>
+    </div>
+    <p class="tester-sub">You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?</p>
+
+    <div class="tester-card" id="tester-loading">
+      <div class="tester-loading">Loading prompts…</div>
+    </div>
+
+    <div class="tester-card" id="tester-input-card" hidden>
+      <div class="tester-output-label">Output</div>
+      <p class="tester-output" id="tester-output"></p>
+      <label class="tester-input-label" for="tester-textarea">Your guess at the prompt</label>
+      <textarea class="tester-textarea" id="tester-textarea" placeholder="e.g. write a haiku about a cat staring at a door"></textarea>
+      <div class="tester-actions">
+        <button type="button" class="tester-btn" id="tester-score-btn">Score guess</button>
+        <button type="button" class="tester-skip" id="tester-skip-btn">Skip →</button>
+      </div>
+    </div>
+
+    <div class="tester-card" id="tester-reveal-card" hidden>
+      <div class="tester-score-row">
+        <span class="tester-score" id="tester-score">0</span>
+        <span class="tester-tier" id="tester-tier">cold</span>
+      </div>
+      <span class="tester-prompt-label">Actual prompt</span>
+      <p class="tester-prompt" id="tester-prompt"></p>
+      <p class="tester-matches" id="tester-matches"></p>
+      <div class="tester-actions">
+        <button type="button" class="tester-btn" id="tester-next-btn">Try another →</button>
+      </div>
     </div>
   </section>
 
