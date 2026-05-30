@@ -1,10 +1,10 @@
 {
-  "version": "2.8",
-  "count": 9000,
+  "version": "2.9",
+  "count": 10000,
   "byDifficulty": {
-    "easy": 3711,
-    "medium": 3824,
-    "hard": 1465
+    "easy": 4126,
+    "medium": 4253,
+    "hard": 1621
   },
   "chunks": [
     "chunk-000.json",
@@ -15,6 +15,7 @@
     "chunk-005.json",
     "chunk-006.json",
     "chunk-007.json",
-    "chunk-008.json"
+    "chunk-008.json",
+    "chunk-009.json"
   ]
 }
