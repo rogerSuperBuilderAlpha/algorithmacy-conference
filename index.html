@@ -898,6 +898,72 @@
   }
   .tester-skip:hover{ color: var(--ink); }
 
+  /* mode + difficulty toolbar */
+  .tester-toolbar{
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px 24px; flex-wrap: wrap;
+    margin-bottom: clamp(16px, 2vw, 22px);
+  }
+  .tester-modes, .tester-diff{ display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .tester-diff-label{
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-faint); margin-right: 4px;
+  }
+  .tester-mode-btn, .tester-diff-btn{
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-soft);
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--line); border-radius: 5px;
+    padding: 8px 12px; cursor: pointer;
+    transition: color var(--dur-base) var(--ease-out-soft),
+                border-color var(--dur-base) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft);
+  }
+  .tester-diff-btn{ padding: 7px 10px; }
+  .tester-mode-btn:hover, .tester-diff-btn:hover{ color: var(--ink); border-color: var(--line-strong); }
+  .tester-mode-btn.active{ color: var(--pitch); background: var(--ink); border-color: var(--ink); }
+  .tester-diff-btn.active{ color: var(--signal); border-color: rgba(255,89,69,.5); background: rgba(255,89,69,.07); }
+
+  /* multiple-choice options */
+  .tester-choices{ display: grid; gap: 10px; margin-top: 4px; }
+  .tester-choices[hidden]{ display: none; }
+  #tester-freetext[hidden]{ display: none; }
+  .tester-choice{
+    text-align: left; width: 100%;
+    font-family: var(--font-sans); font-size: clamp(14px, 1.05vw, 16px); line-height: 1.5;
+    color: var(--ink); background: rgba(255,255,255,.03);
+    border: 1px solid var(--line); border-radius: 6px;
+    padding: 14px 16px 14px 44px; position: relative; cursor: pointer;
+    transition: border-color var(--dur-base) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft);
+  }
+  .tester-choice::before{
+    content: attr(data-key);
+    position: absolute; left: 16px; top: 14px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);
+  }
+  .tester-choice:hover:not([disabled]){ border-color: var(--line-strong); background: rgba(255,255,255,.05); }
+  .tester-choice[disabled]{ cursor: default; }
+  .tester-choice.correct{ border-color: var(--cool); background: rgba(90,155,255,.10); }
+  .tester-choice.correct::before{ color: var(--cool); }
+  .tester-choice.wrong{ border-color: var(--signal); background: rgba(255,89,69,.10); }
+  .tester-choice.wrong::before{ color: var(--signal); }
+
+  /* hint ladder */
+  .tester-hint-btn{
+    background: none; border: 1px solid var(--line); border-radius: 5px;
+    color: var(--ink-soft); font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase; cursor: pointer; padding: 11px 14px;
+  }
+  .tester-hint-btn:hover:not([disabled]){ color: var(--ink); border-color: var(--line-strong); }
+  .tester-hint-btn[disabled]{ opacity: .4; cursor: default; }
+  .tester-hint{
+    margin: 14px 0 0; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .1em; color: var(--ink-soft); line-height: 1.9;
+  }
+  .tester-hint[hidden]{ display: none; }
+  .tester-hint b{ color: var(--ink); text-transform: none; }
+
   /* reveal state */
   .tester-score-row{
     display: flex;
@@ -1539,21 +1605,45 @@
       </div>
       <span class="tester-counter" id="tester-counter">000 / 100</span>
     </div>
-    <p class="tester-sub">You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?</p>
+    <p class="tester-sub" id="tester-sub">You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?</p>
+
+    <div class="tester-toolbar">
+      <div class="tester-modes" id="tester-modes" role="tablist" aria-label="Exercise mode">
+        <button type="button" class="tester-mode-btn active" data-mode="classic">Guess prompt</button>
+        <button type="button" class="tester-mode-btn" data-mode="mc">Multiple choice</button>
+        <button type="button" class="tester-mode-btn" data-mode="forward">Predict output</button>
+        <button type="button" class="tester-mode-btn" data-mode="relay">Relay</button>
+      </div>
+      <div class="tester-diff" id="tester-diff" aria-label="Difficulty">
+        <span class="tester-diff-label">Level</span>
+        <button type="button" class="tester-diff-btn active" data-diff="all">All</button>
+        <button type="button" class="tester-diff-btn" data-diff="easy">Easy</button>
+        <button type="button" class="tester-diff-btn" data-diff="medium">Med</button>
+        <button type="button" class="tester-diff-btn" data-diff="hard">Hard</button>
+      </div>
+    </div>
 
     <div class="tester-card" id="tester-loading">
       <div class="tester-loading">Loading prompts…</div>
     </div>
 
     <div class="tester-card" id="tester-input-card" hidden>
-      <div class="tester-output-label">Output</div>
+      <div class="tester-output-label" id="tester-stim-label">Output</div>
       <p class="tester-output" id="tester-output"></p>
-      <label class="tester-input-label" for="tester-textarea">Your guess at the prompt</label>
-      <textarea class="tester-textarea" id="tester-textarea" placeholder="e.g. write a haiku about a cat staring at a door"></textarea>
+
+      <div id="tester-freetext">
+        <label class="tester-input-label" id="tester-input-label" for="tester-textarea">Your guess at the prompt</label>
+        <textarea class="tester-textarea" id="tester-textarea" placeholder="e.g. write a haiku about a cat staring at a door"></textarea>
+      </div>
+
+      <div class="tester-choices" id="tester-choices" hidden></div>
+
       <div class="tester-actions">
         <button type="button" class="tester-btn" id="tester-score-btn">Score guess</button>
+        <button type="button" class="tester-hint-btn" id="tester-hint-btn">Hint</button>
         <button type="button" class="tester-skip" id="tester-skip-btn">Skip →</button>
       </div>
+      <p class="tester-hint" id="tester-hint" hidden></p>
     </div>
 
     <div class="tester-card" id="tester-reveal-card" hidden>
@@ -1561,7 +1651,7 @@
         <span class="tester-score" id="tester-score">0</span>
         <span class="tester-tier" id="tester-tier">cold</span>
       </div>
-      <span class="tester-prompt-label">Actual prompt</span>
+      <span class="tester-prompt-label" id="tester-reveal-label">Actual prompt</span>
       <p class="tester-prompt" id="tester-prompt"></p>
       <p class="tester-matches" id="tester-matches"></p>
       <div class="tester-actions">
@@ -1647,7 +1737,7 @@
     });
   })();
 
-  // Tester: fetch prompts.json, shuffle, score guesses, reveal answers
+  // Tester: multi-mode algorithmacy trainer — decode / multiple-choice / predict / relay
   (function(){
     const STOPWORDS = new Set(['the','a','an','of','to','in','and','is','it','that','this','for','on','with','at','by','from','as','be','are','was','were','or','but','if','i','you','your','my','me','we','he','she','they','them','their','his','her','its']);
 
@@ -1665,37 +1755,37 @@
       return w;
     }
     function tokenize(str){
-      return normalise(str).split(' ')
-        .filter(w => w && !STOPWORDS.has(w))
-        .map(stem);
+      return normalise(str).split(' ').filter(w => w && !STOPWORDS.has(w)).map(stem);
     }
-    function scoreGuess(guess, item){
-      const guessTokens = new Set(tokenize(guess));
-      const promptTokens = new Set(tokenize(item.prompt));
-      // Jaccard on token sets
-      let inter = 0;
-      const matched = [];
-      guessTokens.forEach(t => {
-        if (promptTokens.has(t)) { inter++; matched.push(t); }
-      });
-      const union = new Set([...guessTokens, ...promptTokens]).size || 1;
+    function esc(s){
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+    // Score a free-text guess against a target string, with a tag-overlap bonus.
+    function scoreText(guess, target, tags){
+      const g = new Set(tokenize(guess));
+      const t = new Set(tokenize(target));
+      let inter = 0; const matched = [];
+      g.forEach(w => { if (t.has(w)) { inter++; matched.push(w); } });
+      const union = new Set([...g, ...t]).size || 1;
       const jaccard = inter / union;
-      // Tag bonus
-      const tagSet = (item.tags || []).map(t => stem(normalise(t).split(' ')[0]));
-      let tagHits = 0;
-      const tagMatched = [];
-      tagSet.forEach(t => {
-        if (guessTokens.has(t)) { tagHits++; tagMatched.push(t); }
-      });
+      const tagSet = (tags || []).map(x => stem(normalise(x).split(' ')[0]));
+      let tagHits = 0; const tagMatched = [];
+      tagSet.forEach(x => { if (g.has(x)) { tagHits++; tagMatched.push(x); } });
       const tagFrac = tagSet.length ? tagHits / tagSet.length : 0;
       const composite = Math.round(100 * (0.55 * jaccard + 0.45 * tagFrac));
-      let tier, tierClass;
-      if (composite < 25)      { tier = 'cold';         tierClass = 'tier-cold'; }
-      else if (composite < 50) { tier = 'warm';         tierClass = 'tier-warm'; }
-      else if (composite < 75) { tier = 'hot';          tierClass = 'tier-hot'; }
-      else if (composite < 90) { tier = 'burning';      tierClass = 'tier-burning'; }
-      else                     { tier = 'perfect read'; tierClass = 'tier-perfect'; }
-      return { score: composite, tier, tierClass, matchedTokens: matched, tagMatches: tagMatched, jaccard };
+      return { score: composite, matched, tagMatches: tagMatched };
+    }
+    function tierFor(score){
+      if (score < 25)      return { tier: 'cold',         tierClass: 'tier-cold' };
+      if (score < 50)      return { tier: 'warm',         tierClass: 'tier-warm' };
+      if (score < 75)      return { tier: 'hot',          tierClass: 'tier-hot' };
+      if (score < 90)      return { tier: 'burning',      tierClass: 'tier-burning' };
+      return                      { tier: 'perfect read', tierClass: 'tier-perfect' };
+    }
+    function chipsHTML(matched, tagMatches){
+      const pool = Array.from(new Set([...(matched||[]), ...(tagMatches||[])]));
+      if (!pool.length) return '<b>Matches:</b> none — try identifying the form and the subject';
+      return '<b>Matches:</b> ' + pool.map(t => '<span class="token-hit">' + esc(t) + '</span>').join('');
     }
     function shuffle(arr){
       const a = arr.slice();
@@ -1707,63 +1797,199 @@
     }
     function pad3(n){ return String(n).padStart(3, '0'); }
 
-    const loadingEl = document.getElementById('tester-loading');
-    const inputCard = document.getElementById('tester-input-card');
-    const revealCard = document.getElementById('tester-reveal-card');
-    const outputEl = document.getElementById('tester-output');
-    const textareaEl = document.getElementById('tester-textarea');
-    const counterEl = document.getElementById('tester-counter');
-    const scoreEl = document.getElementById('tester-score');
-    const tierEl = document.getElementById('tester-tier');
-    const promptEl = document.getElementById('tester-prompt');
-    const matchesEl = document.getElementById('tester-matches');
-    const scoreBtn = document.getElementById('tester-score-btn');
-    const skipBtn = document.getElementById('tester-skip-btn');
-    const nextBtn = document.getElementById('tester-next-btn');
+    const loadingEl   = document.getElementById('tester-loading');
+    const inputCard   = document.getElementById('tester-input-card');
+    const revealCard  = document.getElementById('tester-reveal-card');
+    const subEl       = document.getElementById('tester-sub');
+    const modesEl     = document.getElementById('tester-modes');
+    const diffEl      = document.getElementById('tester-diff');
+    const stimLabelEl = document.getElementById('tester-stim-label');
+    const outputEl    = document.getElementById('tester-output');
+    const freetextEl  = document.getElementById('tester-freetext');
+    const inputLabelEl= document.getElementById('tester-input-label');
+    const textareaEl  = document.getElementById('tester-textarea');
+    const choicesEl   = document.getElementById('tester-choices');
+    const counterEl   = document.getElementById('tester-counter');
+    const scoreEl     = document.getElementById('tester-score');
+    const tierEl      = document.getElementById('tester-tier');
+    const revealLabel = document.getElementById('tester-reveal-label');
+    const promptEl    = document.getElementById('tester-prompt');
+    const matchesEl   = document.getElementById('tester-matches');
+    const scoreBtn    = document.getElementById('tester-score-btn');
+    const hintBtn     = document.getElementById('tester-hint-btn');
+    const hintEl      = document.getElementById('tester-hint');
+    const skipBtn     = document.getElementById('tester-skip-btn');
+    const nextBtn     = document.getElementById('tester-next-btn');
 
     if (!loadingEl) return;
 
-    let items = [];
-    let idx = 0;
+    const MODE_SUB = {
+      classic: 'You and the prompt author are coordinating through Claude. Only the output is visible. What was the input?',
+      mc:      'Only the output is visible. Which instruction produced it?',
+      forward: 'You can see the instruction. Predict what the algorithm sends back.',
+      relay:   'Your partner spoke to you through the algorithm. From its output alone, what did they mean?'
+    };
 
-    function showInput(){
-      if (!items.length) return;
-      const item = items[idx];
-      outputEl.textContent = item.response;
-      textareaEl.value = '';
-      counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(items.length);
-      loadingEl.hidden = true;
-      revealCard.hidden = true;
-      inputCard.hidden = false;
-      textareaEl.focus();
+    let allItems = [];
+    let deck = [];
+    let idx = 0;
+    let mode = 'classic';
+    let diff = 'all';
+    let hintLevel = 0;
+    let answered = false;
+
+    function applyDiff(){
+      deck = (diff === 'all') ? allItems.slice() : allItems.filter(i => (i.difficulty || 'medium') === diff);
+      if (!deck.length) deck = allItems.slice();
+      idx = 0;
     }
-    function showReveal(guess){
-      const item = items[idx];
-      const result = scoreGuess(guess, item);
-      scoreEl.textContent = result.score;
-      tierEl.textContent = result.tier;
-      tierEl.className = 'tester-tier ' + result.tierClass;
-      promptEl.textContent = item.prompt;
-      const matchPool = Array.from(new Set([...result.matchedTokens, ...result.tagMatches]));
-      if (matchPool.length){
-        const chips = matchPool.map(t => '<span class="token-hit">' + t + '</span>').join('');
-        matchesEl.innerHTML = '<b>Matches:</b> ' + chips;
-      } else {
-        matchesEl.innerHTML = '<b>Matches:</b> none — try identifying the form and the subject';
-      }
+    function sampleDistractors(item, n){
+      let pool = allItems.filter(i => i.id !== item.id && i.form && i.form === item.form);
+      if (pool.length < n) pool = allItems.filter(i => i.id !== item.id);
+      return shuffle(pool).slice(0, n);
+    }
+    function buildHints(item){
+      const h = [];
+      if (item.form) h.push('Form: <b>' + esc(item.form) + '</b>');
+      (item.tags || []).filter(t => normalise(t) !== normalise(item.form || '')).slice(0, 3)
+        .forEach(t => h.push('Clue: <b>' + esc(t) + '</b>'));
+      return h;
+    }
+
+    function renderChoices(item){
+      const key = (mode === 'forward') ? 'response' : 'prompt';
+      const opts = shuffle([item, ...sampleDistractors(item, 3)]);
+      const letters = ['A','B','C','D'];
+      choicesEl.innerHTML = '';
+      opts.forEach((o, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'tester-choice';
+        b.setAttribute('data-key', letters[i]);
+        b.textContent = o[key];
+        b.addEventListener('click', () => chooseMC(b, o, item, opts));
+        choicesEl.appendChild(b);
+      });
+    }
+    function chooseMC(btn, chosen, item, opts){
+      if (answered) return;
+      answered = true;
+      const correct = chosen.id === item.id;
+      Array.from(choicesEl.children).forEach((c, i) => {
+        c.disabled = true;
+        if (opts[i].id === item.id) c.classList.add('correct');
+        else if (c === btn) c.classList.add('wrong');
+      });
+      window.setTimeout(() => {
+        const t = tierFor(correct ? 100 : 0);
+        if (mode === 'forward'){
+          showReveal(correct ? 100 : 0, t, 'Actual output', item.response,
+            correct ? '<b>Correct.</b> You read the algorithm.' : '<b>Not quite.</b> The algorithm produced this output.');
+        } else {
+          showReveal(correct ? 100 : 0, t, 'Actual prompt', item.prompt,
+            correct ? '<b>Correct.</b>' : '<b>Not quite.</b> This is the prompt that produced the output.');
+        }
+      }, 750);
+    }
+
+    function showReveal(score, t, label, text, matchesHTML){
+      scoreEl.textContent = score;
+      tierEl.textContent = t.tier;
+      tierEl.className = 'tester-tier ' + t.tierClass;
+      revealLabel.textContent = label;
+      promptEl.textContent = text;
+      matchesEl.innerHTML = matchesHTML || '';
       inputCard.hidden = true;
       revealCard.hidden = false;
     }
-    function next(){
-      idx = (idx + 1) % items.length;
-      showInput();
+    function submitFreeText(){
+      const item = deck[idx];
+      const guess = textareaEl.value;
+      if (mode === 'relay'){
+        const r = scoreText(guess, item.intent || item.prompt, item.tags);
+        const t = tierFor(r.score);
+        const extra = '<br>Their actual prompt: “' + esc(item.prompt) + '”';
+        showReveal(r.score, t, 'What they meant', item.intent || item.prompt, chipsHTML(r.matched, r.tagMatches) + extra);
+      } else {
+        const r = scoreText(guess, item.prompt, item.tags);
+        const t = tierFor(r.score);
+        showReveal(r.score, t, 'Actual prompt', item.prompt, chipsHTML(r.matched, r.tagMatches));
+      }
     }
 
-    scoreBtn.addEventListener('click', () => {
-      showReveal(textareaEl.value);
+    function showStimulus(){
+      if (!deck.length) return;
+      answered = false;
+      hintLevel = 0;
+      const item = deck[idx];
+      counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(deck.length);
+      subEl.textContent = MODE_SUB[mode];
+      loadingEl.hidden = true;
+      revealCard.hidden = true;
+      inputCard.hidden = false;
+      hintEl.hidden = true;
+      hintEl.innerHTML = '';
+      hintBtn.disabled = false;
+
+      const useChoices = (mode === 'mc' || mode === 'forward');
+      freetextEl.hidden = useChoices;
+      choicesEl.hidden = !useChoices;
+      scoreBtn.style.display = useChoices ? 'none' : '';
+      hintBtn.style.display = useChoices ? 'none' : '';
+
+      if (mode === 'forward'){
+        stimLabelEl.textContent = 'Prompt';
+        outputEl.textContent = item.prompt;
+      } else {
+        stimLabelEl.textContent = 'Output';
+        outputEl.textContent = item.response;
+      }
+
+      if (useChoices){
+        renderChoices(item);
+      } else {
+        textareaEl.value = '';
+        if (mode === 'relay'){
+          inputLabelEl.textContent = 'What was your partner trying to get across?';
+          textareaEl.placeholder = 'e.g. they were fed up with being constantly rated';
+        } else {
+          inputLabelEl.textContent = 'Your guess at the prompt';
+          textareaEl.placeholder = 'e.g. write a haiku about a cat staring at a door';
+        }
+        window.setTimeout(() => textareaEl.focus(), 0);
+      }
+    }
+    function next(){
+      idx = (idx + 1) % deck.length;
+      showStimulus();
+    }
+
+    modesEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tester-mode-btn');
+      if (!btn) return;
+      mode = btn.getAttribute('data-mode');
+      modesEl.querySelectorAll('.tester-mode-btn').forEach(b => b.classList.toggle('active', b === btn));
+      showStimulus();
     });
+    diffEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tester-diff-btn');
+      if (!btn) return;
+      diff = btn.getAttribute('data-diff');
+      diffEl.querySelectorAll('.tester-diff-btn').forEach(b => b.classList.toggle('active', b === btn));
+      applyDiff();
+      showStimulus();
+    });
+    hintBtn.addEventListener('click', () => {
+      const hints = buildHints(deck[idx]);
+      if (hintLevel >= hints.length) { hintBtn.disabled = true; return; }
+      hintEl.hidden = false;
+      hintEl.innerHTML = hints.slice(0, hintLevel + 1).map(h => '• ' + h).join('<br>');
+      hintLevel++;
+      if (hintLevel >= hints.length) hintBtn.disabled = true;
+    });
+    scoreBtn.addEventListener('click', submitFreeText);
     textareaEl.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') showReveal(textareaEl.value);
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submitFreeText();
     });
     skipBtn.addEventListener('click', next);
     nextBtn.addEventListener('click', next);
@@ -1771,9 +1997,9 @@
     fetch('/prompts.json')
       .then(r => r.json())
       .then(data => {
-        items = shuffle(data.items || []);
-        idx = 0;
-        showInput();
+        allItems = shuffle(data.items || []);
+        applyDiff();
+        showStimulus();
       })
       .catch(err => {
         loadingEl.innerHTML = '<div class="tester-loading">Could not load prompts.</div>';
