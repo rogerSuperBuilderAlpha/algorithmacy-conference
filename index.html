@@ -1837,6 +1837,20 @@
     let diff = 'all';
     let hintLevel = 0;
     let answered = false;
+    let totals = null; // {count, byDifficulty} from the manifest, for the counter
+
+    function filterTotal(){
+      if (!totals) return deck.length;
+      return (diff === 'all') ? totals.count : (totals.byDifficulty[diff] || deck.length);
+    }
+    // Grow the loaded pool with a freshly arrived chunk, without disturbing the
+    // current item: append filtered items to the end of the live deck.
+    function appendItems(items){
+      const shuffled = shuffle(items);
+      allItems = allItems.concat(shuffled);
+      const add = (diff === 'all') ? shuffled : shuffled.filter(i => (i.difficulty || 'medium') === diff);
+      deck = deck.concat(add);
+    }
 
     function applyDiff(){
       deck = (diff === 'all') ? allItems.slice() : allItems.filter(i => (i.difficulty || 'medium') === diff);
@@ -1922,7 +1936,7 @@
       answered = false;
       hintLevel = 0;
       const item = deck[idx];
-      counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(deck.length);
+      counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(filterTotal());
       subEl.textContent = MODE_SUB[mode];
       loadingEl.hidden = true;
       revealCard.hidden = true;
@@ -1994,16 +2008,50 @@
     skipBtn.addEventListener('click', next);
     nextBtn.addEventListener('click', next);
 
-    fetch('/prompts.json')
-      .then(r => r.json())
-      .then(data => {
-        allItems = shuffle(data.items || []);
-        applyDiff();
-        showStimulus();
+    // Stream remaining chunks in the background, sequentially, appending as they arrive.
+    function loadRest(base, names){
+      let i = 0;
+      (function nxt(){
+        if (i >= names.length) return;
+        fetch(base + names[i])
+          .then(r => r.json())
+          .then(items => { appendItems(items); })
+          .catch(() => {})
+          .finally(() => { i++; nxt(); });
+      })();
+    }
+    // Sharded load: tiny manifest + first chunk for an instant start, rest streamed after.
+    fetch('/data/index.json')
+      .then(r => { if (!r.ok) throw new Error('no index'); return r.json(); })
+      .then(idx => {
+        totals = { count: idx.count, byDifficulty: idx.byDifficulty };
+        const base = '/data/';
+        return fetch(base + idx.chunks[0])
+          .then(r => r.json())
+          .then(first => {
+            allItems = shuffle(first);
+            applyDiff();
+            showStimulus();
+            loadRest(base, idx.chunks.slice(1));
+          });
       })
-      .catch(err => {
-        loadingEl.innerHTML = '<div class="tester-loading">Could not load prompts.</div>';
-        console.error('Tester load failed:', err);
+      .catch(() => {
+        // Fallback to the monolithic file if the sharded data isn't available.
+        fetch('/prompts.json')
+          .then(r => r.json())
+          .then(data => {
+            const items = data.items || [];
+            totals = { count: items.length, byDifficulty: items.reduce((a, it) => {
+              const k = it.difficulty || 'medium'; a[k] = (a[k] || 0) + 1; return a;
+            }, {}) };
+            allItems = shuffle(items);
+            applyDiff();
+            showStimulus();
+          })
+          .catch(err => {
+            loadingEl.innerHTML = '<div class="tester-loading">Could not load prompts.</div>';
+            console.error('Tester load failed:', err);
+          });
       });
   })();
 
