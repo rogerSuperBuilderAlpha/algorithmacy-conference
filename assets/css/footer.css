@@ -44,3 +44,8 @@
   }
   .footer-bottom b{ color: var(--ink-soft); font-weight: 600; }
   .footer-bottom .marks{ display: flex; gap: 18px; }
+
+  @media (max-width: 720px){
+    .footer-cols{ grid-template-columns: 1fr 1fr; gap: 24px; }
+    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+  }

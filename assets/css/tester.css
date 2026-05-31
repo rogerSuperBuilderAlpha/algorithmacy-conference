@@ -327,3 +327,10 @@
     letter-spacing: .18em;
     text-transform: uppercase;
   }
+
+  @media (max-width: 720px){
+    .tester-card{ padding: 20px 18px; }
+    .tester-score{ font-size: 56px; }
+    .tester-output{ font-size: 15px; }
+    .tester-prompt{ font-size: 15px; }
+  }

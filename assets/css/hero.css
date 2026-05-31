@@ -244,3 +244,15 @@
     stroke: var(--line-strong);
     stroke-width: 1;
   }
+
+  @media (max-width: 720px){
+    .hero{ padding: 16px 0 16px; gap: 16px; }
+    .copy{ gap: 14px; }
+    .eyebrow{ flex-wrap: wrap; gap: 8px 12px; font-size: 10px; letter-spacing: .14em; }
+    .display{ font-size: clamp(44px, 14vw, 60px); letter-spacing: -0.03em; }
+    .lede{ font-size: 14px; line-height: 1.5; margin-top: 16px !important; }
+    .diagram{ min-height: 320px; padding-top: 16px; }
+    .diagram-head{ font-size: 9px; gap: 8px; padding-bottom: 8px; }
+    .diagram-foot{ flex-direction: column; gap: 6px; padding-top: 10px; }
+    .diagram-foot .right{ text-align: left; max-width: 100%; }
+  }

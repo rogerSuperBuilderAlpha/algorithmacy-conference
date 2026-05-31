@@ -47,3 +47,7 @@
     transition: transform var(--dur-base) var(--ease-out-soft);
   }
   .fab-submit:hover .arrow{ transform: translateX(3px); }
+
+  @media (max-width: 720px){
+    .fab-submit{ bottom: 16px; right: 16px; padding: 12px 18px 12px 15px; font-size: 13px; gap: 10px; }
+  }

@@ -114,3 +114,7 @@
     0%,100%{ opacity: 1; }
     50%   { opacity: .25; }
   }
+
+  @media (max-width: 720px){
+    .stage{ height: auto; min-height: unset; padding: 12px 20px 0; }
+  }

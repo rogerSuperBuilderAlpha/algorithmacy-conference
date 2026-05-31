@@ -71,3 +71,8 @@
     line-height: 1.7;
   }
   .rp-precedent b{ color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 720px){
+    .rp-cols{ grid-template-columns: 1fr; gap: 18px; }
+    .rp-precedent{ font-size: 10px; }
+  }

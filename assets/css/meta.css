@@ -38,3 +38,9 @@
     letter-spacing: 0;
     margin-top: 4px;
   }
+
+  @media (max-width: 720px){
+    .meta-row{ grid-template-columns: 1fr 1fr; }
+    .meta-row .cell{ border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0; }
+    .meta-row .cell + .cell{ padding-left: 0; }
+  }
