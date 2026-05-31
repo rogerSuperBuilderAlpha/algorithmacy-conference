@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algorithmacy · The first global conference</title>
 <link rel="stylesheet" href="design-system/colors_and_type.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 <style>
   /* ============================================================
      PITCH — the page IS the lake.
@@ -75,7 +78,7 @@
     margin: 0 auto;
     padding: 20px clamp(28px, 3.4vw, 56px) 28px;
     display: grid;
-    grid-template-rows: auto 1fr auto auto auto auto auto auto;
+    grid-template-rows: auto auto 1fr auto auto auto auto auto auto;
     gap: 0;
   }
 
@@ -1152,6 +1155,79 @@
       gap: 10px;
     }
   }
+  /* ============================================================
+     PROMO — above-the-fold conference banner + schedule + keynotes
+     ============================================================ */
+  .promo{ position: relative; z-index: 3; padding: clamp(26px,3.6vw,48px) 0 clamp(6px,1.4vw,14px); }
+  .promo-eyebrow{
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin: 0 0 clamp(16px,2.4vw,26px);
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .promo-eyebrow .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 8px var(--signal); }
+  .pixel{ margin: 0; font-family: 'Press Start 2P', var(--font-mono); line-height: 1.08; letter-spacing: 0; }
+  .pixel .l1, .pixel .l2{ display: block; font-size: clamp(26px,7.4vw,76px); }
+  .pixel .l1{ color: var(--ink); text-shadow: 3px 3px 0 rgba(239,234,224,.07); }
+  .pixel .l2{ color: var(--signal); text-shadow: 3px 3px 0 rgba(200,53,31,.45), 0 0 28px rgba(255,89,69,.30); margin-top: .2em; }
+  .promo-tag{ margin: clamp(18px,2.4vw,28px) 0 0; max-width: 56ch; color: var(--ink-soft); font-size: clamp(15px,1.15vw,18px); line-height: 1.55; }
+  .promo-tag b{ color: var(--ink); font-weight: 600; }
+  .promo-ctas{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(22px,2.8vw,32px); }
+  .promo-btn{
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 20px; border-radius: 6px;
+    font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+    cursor: pointer; text-decoration: none;
+    transition: transform var(--dur-micro) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft),
+                border-color var(--dur-base) var(--ease-out-soft);
+  }
+  .promo-btn .arrow{ color: var(--signal); }
+  .promo-btn.primary{ background: var(--ink); color: var(--pitch); border: 1px solid var(--ink); }
+  .promo-btn.primary:hover{ background: #fff; transform: translateY(-1px); }
+  .promo-btn.ghost{ background: rgba(255,255,255,.03); color: var(--ink); border: 1px solid var(--line-strong); }
+  .promo-btn.ghost:hover{ border-color: var(--ink-soft); transform: translateY(-1px); }
+
+  /* schedule + keynotes shared section heads */
+  .sched, .keynotes{ margin-top: clamp(34px,4vw,56px); border-top: 1px solid var(--line); padding-top: clamp(22px,2.8vw,34px); }
+  .sec-head{ display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: clamp(16px,2vw,24px); }
+  .sec-head h2{ margin: 0; font-size: clamp(22px,2.6vw,34px); font-weight: 600; letter-spacing: -.022em; color: var(--ink); }
+  .sec-head .meta{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .sched-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .day{ border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.02); padding: clamp(16px,1.8vw,22px); display: flex; flex-direction: column; gap: 10px; }
+  .day .num{ align-self: flex-start; font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; color: var(--signal); border: 1px solid rgba(255,89,69,.35); background: rgba(255,89,69,.06); padding: 3px 8px; border-radius: 4px; }
+  .day.tour .num{ color: var(--cool); border-color: rgba(90,155,255,.4); background: rgba(90,155,255,.07); }
+  .day h3{ margin: 2px 0 0; font-size: clamp(17px,1.5vw,20px); font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
+  .day p{ margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+  .day ul{ margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .day li{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-soft); display: flex; gap: 8px; line-height: 1.4; }
+  .day li::before{ content: "▸"; color: var(--ink-faint); }
+  .day li.kbadge::before{ content: "★"; color: var(--signal); }
+  .day li.kbadge{ color: var(--ink); }
+
+  .kgrid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+  .kcard{ border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.02); padding: clamp(16px,1.6vw,20px); display: flex; flex-direction: column; gap: 12px; min-height: 168px; }
+  .kcard .knum{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
+  .kpx{
+    width: 44px; height: 44px; border-radius: 6px; border: 1px solid var(--line-strong);
+    background:
+      linear-gradient(90deg, rgba(239,234,224,.10) 1px, transparent 1px) 0 0 / 11px 11px,
+      linear-gradient(rgba(239,234,224,.10) 1px, transparent 1px) 0 0 / 11px 11px,
+      rgba(255,89,69,.07);
+  }
+  .kcard .kname{ margin: auto 0 0; color: var(--ink); font-weight: 600; font-size: 16px; }
+  .kcard .kaff{ font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: .04em; }
+  .kcard .ktba{ align-self: flex-start; font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--signal); border: 1px dashed rgba(255,89,69,.4); padding: 3px 8px; border-radius: 4px; }
+
+  @media (max-width: 760px){
+    .sched-grid{ grid-template-columns: 1fr; }
+    .kgrid{ grid-template-columns: 1fr 1fr; }
+    .promo-btn{ flex: 1 1 auto; justify-content: center; }
+  }
+  @media (max-width: 440px){
+    .kgrid{ grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -1174,6 +1250,106 @@
       <span class="pill"><span class="blip"></span> CFP · open</span>
     </div>
   </header>
+
+  <!-- ============== PROMO / ABOVE-THE-FOLD ============== -->
+  <section class="promo" aria-label="Conference">
+    <p class="promo-eyebrow">
+      <span class="dot"></span>
+      Algorithmacy · La Brea Pitch Lake, Trinidad &amp; Tobago · Late Oct / Early Nov
+    </p>
+    <h1 class="pixel">
+      <span class="l1">CONFERENCE</span>
+      <span class="l2">2026</span>
+    </h1>
+    <p class="promo-tag">
+      The first global conference on <b>algorithmacy</b> — how workers coordinate with one another <b>through</b> an algorithmic third party. Two days of papers, four keynotes, and a field day at the Pitch Lake.
+    </p>
+    <div class="promo-ctas">
+      <a class="promo-btn primary" href="/submit">Submit a paper <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="promo-btn ghost" href="#tracks">Topics <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="promo-btn ghost" href="#schedule">Schedule <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+
+    <!-- schedule -->
+    <div class="sched" id="schedule">
+      <div class="sec-head">
+        <h2>Program</h2>
+        <span class="meta">3 days · 4 keynotes · 5 tracks · open review</span>
+      </div>
+      <div class="sched-grid">
+        <article class="day">
+          <span class="num">DAY 01</span>
+          <h3>Papers</h3>
+          <p>Track sessions across the five thematic tracks, with open-review discussion.</p>
+          <ul>
+            <li>Paper sessions · TR.01–TR.05</li>
+            <li class="kbadge">Keynote 01</li>
+            <li class="kbadge">Keynote 02</li>
+            <li>Open-review panels</li>
+          </ul>
+        </article>
+        <article class="day">
+          <span class="num">DAY 02</span>
+          <h3>Papers</h3>
+          <p>More track sessions, notes, posters, and practitioner reports.</p>
+          <ul>
+            <li>Paper sessions continue</li>
+            <li class="kbadge">Keynote 03</li>
+            <li class="kbadge">Keynote 04</li>
+            <li>Lightning talks · posters</li>
+          </ul>
+        </article>
+        <article class="day tour">
+          <span class="num">DAY 03</span>
+          <h3>Trinidad</h3>
+          <p>A field day at the world's largest natural asphalt deposit.</p>
+          <ul>
+            <li>La Brea Pitch Lake site visit</li>
+            <li>Guided tour + local program</li>
+            <li>Closing reception</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <!-- keynotes -->
+    <div class="keynotes" id="keynotes">
+      <div class="sec-head">
+        <h2>Keynotes</h2>
+        <span class="meta">4 speakers · to be announced</span>
+      </div>
+      <div class="kgrid">
+        <article class="kcard">
+          <span class="knum">KEYNOTE 01</span>
+          <span class="kpx" aria-hidden="true"></span>
+          <span class="kname">Speaker to be announced</span>
+          <span class="kaff">Affiliation TBA</span>
+          <span class="ktba">Announcing soon</span>
+        </article>
+        <article class="kcard">
+          <span class="knum">KEYNOTE 02</span>
+          <span class="kpx" aria-hidden="true"></span>
+          <span class="kname">Speaker to be announced</span>
+          <span class="kaff">Affiliation TBA</span>
+          <span class="ktba">Announcing soon</span>
+        </article>
+        <article class="kcard">
+          <span class="knum">KEYNOTE 03</span>
+          <span class="kpx" aria-hidden="true"></span>
+          <span class="kname">Speaker to be announced</span>
+          <span class="kaff">Affiliation TBA</span>
+          <span class="ktba">Announcing soon</span>
+        </article>
+        <article class="kcard">
+          <span class="knum">KEYNOTE 04</span>
+          <span class="kpx" aria-hidden="true"></span>
+          <span class="kname">Speaker to be announced</span>
+          <span class="kaff">Affiliation TBA</span>
+          <span class="ktba">Announcing soon</span>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- ============== HERO ============== -->
   <section class="hero">
