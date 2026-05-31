@@ -4,6 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algorithmacy · The first global conference</title>
+<meta name="description" content="The first global conference on algorithmacy — how workers coordinate with another human through an algorithmic third party. La Brea Pitch Lake, Trinidad & Tobago, 2026. Open review, open access. Submissions close 1 August 2026." />
+<link rel="canonical" href="https://algorithmacy.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Algorithmacy Conference 2026" />
+<meta property="og:description" content="The first global conference on algorithmacy — how workers coordinate through an algorithmic third party. La Brea Pitch Lake, Trinidad & Tobago, 2026." />
+<meta property="og:url" content="https://algorithmacy.com/" />
+<meta property="og:image" content="https://algorithmacy.com/apple-touch-icon.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary" />
 <link rel="stylesheet" href="design-system/colors_and_type.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +20,33 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Event", "EducationalEvent"],
+  "name": "Algorithmacy Conference 2026",
+  "alternateName": "The First Global Algorithmacy Conference",
+  "url": "https://algorithmacy.com/",
+  "startDate": "2026-10",
+  "endDate": "2026-11",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "description": "The first global conference on algorithmacy — the communication competency through which a worker coordinates with another human party through an algorithmic third party. Open review, open access, public-pull-request intake. Submissions close 1 August 2026.",
+  "location": {
+    "@type": "Place",
+    "name": "La Brea Pitch Lake",
+    "address": { "@type": "PostalAddress", "addressLocality": "La Brea", "addressRegion": "Trinidad", "addressCountry": "TT" }
+  },
+  "organizer": { "@type": "Organization", "name": "GauntleTT", "url": "https://algorithmacy.com/" },
+  "performer": [
+    { "@type": "Person", "name": "Antonio Mele", "affiliation": { "@type": "Organization", "name": "London School of Economics" }, "sameAs": "https://www.linkedin.com/in/antonio-mele-6387821/" },
+    { "@type": "Person", "name": "Samuel Fosso Wamba", "affiliation": { "@type": "Organization", "name": "TBS Education" }, "sameAs": "https://www.linkedin.com/in/samuelfossowamba/" },
+    { "@type": "Person", "name": "Thomas K. F. Chiu", "affiliation": { "@type": "Organization", "name": "The Chinese University of Hong Kong" }, "sameAs": "https://www.linkedin.com/in/thomas-chiu-88469587/" }
+  ],
+  "keywords": "algorithmacy, algorithmic management, platform labor, gig economy, human-AI interaction, future of work, communication competency",
+  "sameAs": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference"
+}
+</script>
 <style>
   /* ============================================================
      PITCH — the page IS the lake.
@@ -970,6 +1006,32 @@
   .tester-hint[hidden]{ display: none; }
   .tester-hint b{ color: var(--ink); text-transform: none; }
 
+  /* progress save strip */
+  .tester-save{
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    margin: 0 0 clamp(14px,1.8vw,20px); padding: 11px 14px;
+    border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,.02);
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-soft);
+  }
+  .tester-save[hidden]{ display: none; }
+  .tester-save .ts-msg{ display: inline-flex; align-items: center; gap: 8px; }
+  .tester-save b{ color: var(--ink); font-weight: 600; }
+  .tester-save.ask{ border-color: rgba(255,89,69,.35); background: rgba(255,89,69,.05); }
+  .tester-save.blocked{ border-color: rgba(255,176,119,.4); background: rgba(255,176,119,.05); color: var(--ember); }
+  .ts-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--cool); box-shadow: 0 0 8px var(--cool); }
+  .ts-actions{ display: inline-flex; align-items: center; gap: 8px; }
+  .ts-btn{
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--pitch); background: var(--ink); border: 1px solid var(--ink); border-radius: 5px;
+    padding: 7px 12px; cursor: pointer;
+  }
+  .ts-btn:hover{ background: #fff; }
+  .ts-no{
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); background: none; border: none; cursor: pointer; padding: 6px 8px;
+  }
+  .ts-no:hover{ color: var(--ink-soft); }
+
   /* reveal state */
   .tester-score-row{
     display: flex;
@@ -1809,6 +1871,8 @@
       </div>
     </div>
 
+    <div class="tester-save" id="tester-save" hidden></div>
+
     <div class="tester-card" id="tester-loading">
       <div class="tester-loading">Loading prompts…</div>
     </div>
@@ -2038,6 +2102,75 @@
       deck = deck.concat(add);
     }
 
+    /* ---- progress persistence (localStorage, opt-in) ---- */
+    const SAVE_KEY = 'algo_progress_v1';
+    const CONSENT_KEY = 'algo_save_consent';
+    const saveEl = document.getElementById('tester-save');
+    function storageOK(){
+      try { const k = '__algo_test'; localStorage.setItem(k, '1'); localStorage.removeItem(k); return true; }
+      catch (e) { return false; }
+    }
+    const canStore = storageOK();
+    let saveOn = canStore && localStorage.getItem(CONSENT_KEY) === 'on';
+    let prog = { answered: 0, best: 0, sum: 0, seen: {} };
+    function loadProgress(){
+      if (!saveOn) return;
+      try {
+        const p = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
+        prog = { answered: p.answered || 0, best: p.best || 0, sum: p.sum || 0, seen: p.seen || {} };
+        if (p.mode) mode = p.mode;
+        if (p.diff) diff = p.diff;
+      } catch (e) {}
+    }
+    function persist(){
+      if (!saveOn) return;
+      try { localStorage.setItem(SAVE_KEY, JSON.stringify({ answered: prog.answered, best: prog.best, sum: prog.sum, seen: prog.seen, mode: mode, diff: diff })); }
+      catch (e) {}
+    }
+    function recordProgress(item, score){
+      if (!saveOn) return;
+      prog.answered++;
+      prog.sum += score;
+      if (score > prog.best) prog.best = score;
+      if (item && item.id) prog.seen[item.id] = 1;
+      persist();
+      renderSave();
+    }
+    function syncButtons(){
+      modesEl.querySelectorAll('.tester-mode-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-mode') === mode));
+      diffEl.querySelectorAll('.tester-diff-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-diff') === diff));
+    }
+    function renderSave(){
+      if (!saveEl) return;
+      const consent = canStore ? localStorage.getItem(CONSENT_KEY) : null;
+      if (!canStore){
+        saveEl.hidden = false;
+        saveEl.className = 'tester-save blocked';
+        saveEl.innerHTML = '<span class="ts-msg">⚠ Your browser is blocking local storage, so progress can’t be saved. Allow site data (or leave private mode) to keep your progress here.</span>';
+        return;
+      }
+      if (saveOn){
+        const explored = Object.keys(prog.seen).length;
+        const avg = prog.answered ? Math.round(prog.sum / prog.answered) : 0;
+        saveEl.hidden = false;
+        saveEl.className = 'tester-save on';
+        saveEl.innerHTML = '<span class="ts-msg"><span class="ts-dot"></span>Progress saved on this device · <b>' + explored + '</b> explored · best <b>' + prog.best + '</b> · avg <b>' + avg + '</b></span><button type="button" class="ts-no" id="ts-reset">Reset</button>';
+        return;
+      }
+      if (consent === 'off'){ saveEl.hidden = true; return; }
+      saveEl.hidden = false;
+      saveEl.className = 'tester-save ask';
+      saveEl.innerHTML = '<span class="ts-msg">Save your progress on this device? It stays in your browser — nothing leaves it.</span><span class="ts-actions"><button type="button" class="ts-btn" id="ts-enable">Enable saving</button><button type="button" class="ts-no" id="ts-dismiss">Not now</button></span>';
+    }
+    if (saveEl){
+      saveEl.addEventListener('click', (e) => {
+        const id = e.target && e.target.id;
+        if (id === 'ts-enable'){ try { localStorage.setItem(CONSENT_KEY, 'on'); } catch (_){} saveOn = canStore; persist(); renderSave(); }
+        else if (id === 'ts-dismiss'){ try { localStorage.setItem(CONSENT_KEY, 'off'); } catch (_){} renderSave(); }
+        else if (id === 'ts-reset'){ prog = { answered: 0, best: 0, sum: 0, seen: {} }; persist(); renderSave(); }
+      });
+    }
+
     function applyDiff(){
       deck = (diff === 'all') ? allItems.slice() : allItems.filter(i => (i.difficulty || 'medium') === diff);
       if (!deck.length) deck = allItems.slice();
@@ -2075,6 +2208,7 @@
       if (answered) return;
       answered = true;
       const correct = chosen.id === item.id;
+      recordProgress(item, correct ? 100 : 0);
       Array.from(choicesEl.children).forEach((c, i) => {
         c.disabled = true;
         if (opts[i].id === item.id) c.classList.add('correct');
@@ -2110,10 +2244,12 @@
         const t = tierFor(r.score);
         const extra = '<br>Their actual prompt: “' + esc(item.prompt) + '”';
         showReveal(r.score, t, 'What they meant', item.intent || item.prompt, chipsHTML(r.matched, r.tagMatches) + extra);
+        recordProgress(item, r.score);
       } else {
         const r = scoreText(guess, item.prompt, item.tags);
         const t = tierFor(r.score);
         showReveal(r.score, t, 'Actual prompt', item.prompt, chipsHTML(r.matched, r.tagMatches));
+        recordProgress(item, r.score);
       }
     }
 
@@ -2169,6 +2305,7 @@
       if (!btn) return;
       mode = btn.getAttribute('data-mode');
       modesEl.querySelectorAll('.tester-mode-btn').forEach(b => b.classList.toggle('active', b === btn));
+      persist();
       showStimulus();
     });
     diffEl.addEventListener('click', (e) => {
@@ -2176,6 +2313,7 @@
       if (!btn) return;
       diff = btn.getAttribute('data-diff');
       diffEl.querySelectorAll('.tester-diff-btn').forEach(b => b.classList.toggle('active', b === btn));
+      persist();
       applyDiff();
       showStimulus();
     });
@@ -2207,6 +2345,11 @@
       })();
     }
     // Sharded load: tiny manifest + first chunk for an instant start, rest streamed after.
+    // restore saved progress + preferences, then show the save affordance
+    loadProgress();
+    syncButtons();
+    renderSave();
+
     fetch('/data/index.json')
       .then(r => { if (!r.ok) throw new Error('no index'); return r.json(); })
       .then(idx => {

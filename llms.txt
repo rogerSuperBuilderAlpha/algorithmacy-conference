@@ -1,0 +1,33 @@
+# Algorithmacy Conference 2026
+
+> The first global conference on **algorithmacy** — the communication competency through which a worker coordinates with another human party *through* an algorithmic third party. Held at La Brea Pitch Lake, Trinidad & Tobago, late October / early November 2026. Open review, open access, public-pull-request intake.
+
+Algorithmacy names the worker-level capacity behind triadic, algorithmically-mediated coordination: an algorithm sits between two human parties, acts on inputs from both, and pursues its own objectives. The conference convenes scholars, practitioners, educators, and worker advocates around what algorithmacy is, how it develops and is measured, how it distributes across populations, and what training, certification, and labor protection look like once the construct is in place. Hosted by GauntleTT with a Trinidad institutional partner (TBA).
+
+## Key pages
+- [Home](https://algorithmacy.com/): overview, program, keynotes, and the five thematic tracks
+- [Submit a paper](https://algorithmacy.com/submit): how to submit via GitHub pull request — an AI-assisted path and a manual path
+- [Tracks & questions](https://algorithmacy.com/#tracks): the five thematic tracks and their guiding questions
+- [Program / schedule](https://algorithmacy.com/#schedule): two paper days, a Trinidad field day, four keynotes
+- [Keynotes](https://algorithmacy.com/#keynotes): keynote speakers
+
+## Call for papers
+- Submission deadline: 1 August 2026
+- Submission types: full paper (6–8 pp), research note (2–3 pp), panel (3–4 participants), poster (visual + 1-page abstract), practitioner report (2–4 pp)
+- Tracks: TR.01 Coordination & Mediation · TR.02 Algorithmic Management · TR.03 Platform Labor & Worker Voice · TR.04 Trust, Opacity & Governance · TR.05 Methods, Lineage & Practice
+- Format: APA 7 · open access · review is open, signed, published, and timestamped (no anonymized stage)
+- Intake: open a pull request adding `submissions/<handle>.md` (a 300–500-word abstract + outline) to the public repository; the PR timestamp is the authorship-priority record
+- Awards: Founders' Paper Award · Pitch Lake Prize (early career) · GauntleTT Practitioner Award
+
+## Keynotes
+- Antonio Mele — Economics, London School of Economics
+- Samuel Fosso Wamba — Information Systems & Data Science, TBS Education
+- Thomas K. F. Chiu — AI & STEM Education, The Chinese University of Hong Kong
+- One open keynote slot — to keynote or recommend a speaker, email rhunt@bentley.edu
+
+## Repository & more
+- [GitHub repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests
+- [Full text for agents](https://algorithmacy.com/llms-full.txt): the complete conference details in one file
+
+## Contact
+- Roger Hunt — rhunt@bentley.edu

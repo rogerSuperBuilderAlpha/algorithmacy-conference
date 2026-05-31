@@ -1,0 +1,76 @@
+# Algorithmacy Conference 2026 — full reference
+
+> The first global conference on algorithmacy. La Brea Pitch Lake, Trinidad & Tobago. Late October / early November 2026 (final dates confirming). Open review · open access · APA 7. Site: https://algorithmacy.com · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+
+## What algorithmacy is
+
+Algorithmacy is the communication competency through which a worker coordinates with another human party through an algorithmic third party. It names a worker-level capacity that the platform-work literature has documented without naming: why equivalently positioned participants on identical algorithmic systems achieve divergent coordination outcomes. The competency vocabulary inherited from computer-mediated communication, human-machine communication, and AI-mediated communication was built around a worker on one side of a medium. It does not reach the form in which the algorithm sits between two human parties, acts on inputs from both, and pursues its own objectives.
+
+The historical precedents are oracy and literacy. Oracy was the competency of a speaker before a present listener. Writing introduced a third structural position — an author addressing a reader through a document that conveyed without acting — and the competency it required was reading, writing, citing, and working through institutions that ran on text. The algorithmic form is not a more sophisticated channel through which writing happens; it is a third party with its own objectives that transforms each input as part of its operation, and the competency it requires has not yet been named in the field's existing vocabulary.
+
+## Why La Brea
+
+La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaque substrate that produced the roads of empires while remaining unreadable to those who walked over it. The conference convenes in a Caribbean nation whose talent is being recruited into the global algorithmic economy under terms its workers and institutions did not author. Whether the competency develops uniformly across populations or replicates existing stratification will be answered first in the regions whose workers enter the form last.
+
+## Venue & dates
+
+- Venue: La Brea Pitch Lake, Trinidad & Tobago (approximately 90 minutes by road from Piarco International Airport)
+- Dates: late October / early November 2026 (exact dates being finalized)
+- Hosted by GauntleTT in partnership with a Trinidad institutional partner (to be announced)
+
+## Program
+
+- Day 1 — Papers: track sessions (TR.01–TR.05), open-review panels, two keynotes
+- Day 2 — Papers: track sessions, lightning talks, posters, two keynotes
+- Day 3 — Trinidad: a field day at the La Brea Pitch Lake, guided tour, closing reception
+- Four keynotes across the program; five thematic tracks; open review throughout
+
+## Tracks
+
+- TR.01 — Coordination & Mediation: coordinating through an algorithm vs. being managed by one; the algorithmic third as partner vs. obstacle; triadic vs. dyadic workplace exchanges; the historical relationship between oracy, literacy, and algorithmacy.
+- TR.02 — Algorithmic Management: how performance algorithms reshape "good work"; surveillance and metric-shaping; scheduling, ranking, and matching; the role of human management in algorithmically-managed environments.
+- TR.03 — Platform Labor & Worker Voice: how workers learn the algorithm without documentation; gaming, anticipating, accommodating platform logics; collective action under algorithmic mediation; unions, worker centers, informal solidarities.
+- TR.04 — Trust, Opacity & Governance: information asymmetries between workers, managers, and the algorithm; when opacity protects vs. harms; worker-side auditing; codetermination and stakeholder review.
+- TR.05 — Methods, Lineage & Practice: methodologies for studying algorithmic coordination; observing what cannot be directly seen; earlier regimes (bureaucracy, Taylorism, scientific management); field accounts of mediated work.
+
+## Submission types
+
+- Full paper — 6–8 pages
+- Research note — 2–3 pages
+- Panel — 3–4 participants with a unifying argument
+- Poster — visual presentation with a one-page extended abstract
+- Practitioner report — 2–4 pages; reviewed for relevance and substance rather than academic form
+
+## How to submit
+
+Intake is via pull request against the public GitHub repository. Drop a 300–500-word abstract and outline as `submissions/<your-handle>.md`, then open a pull request titled `[Type] [TR.0X] Your title`. There are two paths: an AI-assisted path (paste the provided prompt into any capable LLM, which collects details and either opens the PR or generates the exact commands), and a manual path (fork, copy the template, fill it in, open the PR). Manuscripts follow APA 7; submissions are in English with translation support for presenters whose first language is not English.
+
+- Submission deadline: 1 August 2026
+- Review: open, signed, published, and timestamped. Submissions and review threads are public from intake; there is no anonymized stage. Reviewers sign their assessments. Accepted papers ship with their full review history. The pull-request timestamp is the authorship-priority record. Review is rolling, with responses on the PR thread typically within about five business days.
+
+## Awards
+
+- Founders' Paper Award — best full paper
+- Pitch Lake Prize — most theoretically generative early-career contribution
+- GauntleTT Practitioner Award — the practitioner report that most advances translation of algorithmacy into curriculum, policy, or worker advocacy
+
+## Keynote speakers
+
+- Antonio Mele — Economics, London School of Economics — https://www.linkedin.com/in/antonio-mele-6387821/
+- Samuel Fosso Wamba — Information Systems & Data Science, TBS Education — https://www.linkedin.com/in/samuelfossowamba/
+- Thomas K. F. Chiu — AI & STEM Education, The Chinese University of Hong Kong — https://www.linkedin.com/in/thomas-chiu-88469587/
+- One keynote slot remains open. To keynote, or to recommend a speaker, email rhunt@bentley.edu.
+
+## Travel & support
+
+Limited travel support is available for scholars from low- and middle-income countries, doctoral students, and worker representatives; apply with your abstract.
+
+## The tester (learning tool)
+
+The home page hosts an interactive "algorithmacy tester": a deck of 10,000 short prompt/response exercises in which only the model's output is shown and the learner reconstructs the human's input. Four modes — guess the prompt, multiple choice, predict the output, and a triadic "relay" (infer what your partner meant) — plus a difficulty filter and a hint ladder. Progress can be saved in the browser via local storage.
+
+## Contact
+
+Roger Hunt — rhunt@bentley.edu
+Site: https://algorithmacy.com
+Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
