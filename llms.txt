@@ -2,7 +2,7 @@
 
 > The first global conference on **algorithmacy** — the communication competency through which a worker coordinates with another human party *through* an algorithmic third party. Held at La Brea Pitch Lake, Trinidad & Tobago, late October / early November 2026. Open review, open access, public-pull-request intake.
 
-Algorithmacy names the worker-level capacity behind triadic, algorithmically-mediated coordination: an algorithm sits between two human parties, acts on inputs from both, and pursues its own objectives. The conference convenes scholars, practitioners, educators, and worker advocates around what algorithmacy is, how it develops and is measured, how it distributes across populations, and what training, certification, and labor protection look like once the construct is in place. Hosted by GauntleTT with a Trinidad institutional partner (TBA).
+Algorithmacy names the worker-level capacity behind triadic, algorithmically-mediated coordination: an algorithm sits between two human parties, acts on inputs from both, and pursues its own objectives. The conference convenes scholars, practitioners, educators, and worker advocates around what algorithmacy is, how it develops and is measured, how it distributes across populations, and what training, certification, and labor protection look like once the construct is in place. Hosted by FutureTT with a Trinidad institutional partner (TBA). Sponsored by the Rose Foundation and the Caribbean Emergence Initiative.
 
 ## Key pages
 - [Home](https://algorithmacy.com/): overview, program, keynotes, and the five thematic tracks
@@ -17,7 +17,7 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 - Tracks: TR.01 Coordination & Mediation · TR.02 Algorithmic Management · TR.03 Platform Labor & Worker Voice · TR.04 Trust, Opacity & Governance · TR.05 Methods, Lineage & Practice
 - Format: APA 7 · open access · review is open, signed, published, and timestamped (no anonymized stage)
 - Intake: open a pull request adding `submissions/<handle>.md` (a 300–500-word abstract + outline) to the public repository; the PR timestamp is the authorship-priority record
-- Awards: Founders' Paper Award · Pitch Lake Prize (early career) · GauntleTT Practitioner Award
+- Awards: Founders' Paper Award · Pitch Lake Prize (early career) · FutureTT Practitioner Award
 
 ## Keynotes
 - Antonio Mele — Economics, London School of Economics

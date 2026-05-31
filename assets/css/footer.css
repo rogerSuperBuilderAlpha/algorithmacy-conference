@@ -30,8 +30,16 @@
   }
   .footer li{ padding: 1px 0; }
   .footer li b{ color: var(--ink); font-weight: 600; }
-  .footer-bottom{
+  .footer-sponsors{
     margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  .footer-sponsors .fs-label{ color: var(--ink); font-weight: 600; letter-spacing: .18em; }
+  .footer-sponsors .fs-list{ color: var(--ink-soft); letter-spacing: .1em; }
+  .footer-bottom{
+    margin-top: 18px;
     padding-top: 14px;
     border-top: 1px solid var(--line);
     display: flex;

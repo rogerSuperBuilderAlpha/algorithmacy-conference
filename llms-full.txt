@@ -16,7 +16,8 @@ La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaq
 
 - Venue: La Brea Pitch Lake, Trinidad & Tobago (approximately 90 minutes by road from Piarco International Airport)
 - Dates: late October / early November 2026 (exact dates being finalized)
-- Hosted by GauntleTT in partnership with a Trinidad institutional partner (to be announced)
+- Hosted by FutureTT in partnership with a Trinidad institutional partner (to be announced)
+- Sponsors: the Rose Foundation and the Caribbean Emergence Initiative
 
 ## Program
 
@@ -52,7 +53,7 @@ Intake is via pull request against the public GitHub repository. Drop a 300–50
 
 - Founders' Paper Award — best full paper
 - Pitch Lake Prize — most theoretically generative early-career contribution
-- GauntleTT Practitioner Award — the practitioner report that most advances translation of algorithmacy into curriculum, policy, or worker advocacy
+- FutureTT Practitioner Award — the practitioner report that most advances translation of algorithmacy into curriculum, policy, or worker advocacy
 
 ## Keynote speakers
 
