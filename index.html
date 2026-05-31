@@ -1209,14 +1209,24 @@
   .kgrid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .kcard{ border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.02); padding: clamp(16px,1.6vw,20px); display: flex; flex-direction: column; gap: 12px; min-height: 168px; }
   .kcard .knum{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
-  .kpx{
-    width: 44px; height: 44px; border-radius: 6px; border: 1px solid var(--line-strong);
-    background:
-      linear-gradient(90deg, rgba(239,234,224,.10) 1px, transparent 1px) 0 0 / 11px 11px,
-      linear-gradient(rgba(239,234,224,.10) 1px, transparent 1px) 0 0 / 11px 11px,
-      rgba(255,89,69,.07);
+  /* headshot: layered background — photo on top, pixel-grid placeholder beneath.
+     If the photo file is missing/404s, that layer silently doesn't paint and the
+     grid shows through (no broken-image icon). Set --photo per card. */
+  .kface{
+    width: 48px; height: 48px; border-radius: 8px; border: 1px solid var(--line-strong);
+    background-color: rgba(255,89,69,.07);
+    background-image: var(--photo, none),
+      linear-gradient(90deg, rgba(239,234,224,.10) 1px, transparent 1px),
+      linear-gradient(rgba(239,234,224,.10) 1px, transparent 1px);
+    background-size: cover, 12px 12px, 12px 12px;
+    background-position: center, 0 0, 0 0;
+    background-repeat: no-repeat, repeat, repeat;
   }
-  .kcard .kname{ margin: auto 0 0; color: var(--ink); font-weight: 600; font-size: 16px; }
+  .kcard-cta{ border-color: rgba(255,89,69,.4); background: rgba(255,89,69,.05); }
+  .kmail{ margin-top: 4px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--signal); text-decoration: none; }
+  .kmail:hover{ text-decoration: underline; text-underline-offset: 3px; }
+  .kcard .kname{ margin: auto 0 0; color: var(--ink); font-weight: 600; font-size: 16px; text-decoration: none; }
+  a.kname:hover{ text-decoration: underline; text-decoration-color: var(--signal); text-underline-offset: 3px; }
   .kcard .kaff{ font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: .04em; }
   .kcard .ktba{ align-self: flex-start; font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--signal); border: 1px dashed rgba(255,89,69,.4); padding: 3px 8px; border-radius: 4px; }
 
@@ -1316,36 +1326,33 @@
     <div class="keynotes" id="keynotes">
       <div class="sec-head">
         <h2>Keynotes</h2>
-        <span class="meta">4 speakers · to be announced</span>
+        <span class="meta">3 speakers · 1 open slot</span>
       </div>
       <div class="kgrid">
         <article class="kcard">
           <span class="knum">KEYNOTE 01</span>
-          <span class="kpx" aria-hidden="true"></span>
-          <span class="kname">Speaker to be announced</span>
-          <span class="kaff">Affiliation TBA</span>
-          <span class="ktba">Announcing soon</span>
+          <span class="kface" style="--photo: url('images/antonio-mele.jpg')" aria-hidden="true"></span>
+          <a class="kname" href="https://www.linkedin.com/in/antonio-mele-6387821/" target="_blank" rel="noopener">Antonio Mele</a>
+          <span class="kaff">Economics · London School of Economics</span>
         </article>
         <article class="kcard">
           <span class="knum">KEYNOTE 02</span>
-          <span class="kpx" aria-hidden="true"></span>
-          <span class="kname">Speaker to be announced</span>
-          <span class="kaff">Affiliation TBA</span>
-          <span class="ktba">Announcing soon</span>
+          <span class="kface" style="--photo: url('images/samuel-fosso-wamba.jpg')" aria-hidden="true"></span>
+          <a class="kname" href="https://www.linkedin.com/in/samuelfossowamba/" target="_blank" rel="noopener">Samuel Fosso Wamba</a>
+          <span class="kaff">Information Systems &amp; Data Science · TBS Education</span>
         </article>
         <article class="kcard">
           <span class="knum">KEYNOTE 03</span>
-          <span class="kpx" aria-hidden="true"></span>
-          <span class="kname">Speaker to be announced</span>
-          <span class="kaff">Affiliation TBA</span>
-          <span class="ktba">Announcing soon</span>
+          <span class="kface" style="--photo: url('images/thomas-chiu.jpg')" aria-hidden="true"></span>
+          <a class="kname" href="https://www.linkedin.com/in/thomas-chiu-88469587/" target="_blank" rel="noopener">Thomas K. F. Chiu</a>
+          <span class="kaff">AI &amp; STEM Education · Chinese University of Hong Kong</span>
         </article>
-        <article class="kcard">
+        <article class="kcard kcard-cta">
           <span class="knum">KEYNOTE 04</span>
-          <span class="kpx" aria-hidden="true"></span>
-          <span class="kname">Speaker to be announced</span>
-          <span class="kaff">Affiliation TBA</span>
-          <span class="ktba">Announcing soon</span>
+          <span class="kface" aria-hidden="true"></span>
+          <span class="kname">Want to keynote?</span>
+          <span class="kaff">Keynote, or recommend someone — get in touch.</span>
+          <a class="kmail" href="mailto:rhunt@bentley.edu?subject=Algorithmacy%20Conference%20%E2%80%94%20keynote">rhunt@bentley.edu</a>
         </article>
       </div>
     </div>
