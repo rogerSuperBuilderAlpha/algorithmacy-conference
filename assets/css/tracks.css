@@ -1,0 +1,142 @@
+  /* ============================================================
+     TRACKS & QUESTIONS — sidebar nav + anchored content
+     ============================================================ */
+  .tracks{
+    position: relative;
+    z-index: 3;
+    padding: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px);
+    background: var(--pitch);
+    border-bottom: 1px solid var(--line);
+  }
+  .tracks-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: clamp(28px, 3.4vw, 48px);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .tracks-head h2{
+    margin: 0;
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .tracks-head .tracks-sub{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .tracks-list{
+    display: flex; flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .track{
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 12px;
+  }
+  .track-toggle{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: clamp(20px, 2.2vw, 30px) 0;
+    background: none; border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--ink);
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+  }
+  .track-num{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .track-toggle h3{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink-soft);
+    line-height: 1.15;
+    flex: 1 1 auto;
+    transition: color var(--dur-base) var(--ease-out-soft);
+  }
+  .track-toggle:hover h3{ color: var(--ink); }
+  .track.open .track-toggle h3{ color: var(--ink); }
+  .toggle-icon{
+    flex: 0 0 auto;
+    width: 22px; height: 22px;
+    position: relative;
+    color: var(--ink-faint);
+    transition: color var(--dur-base) var(--ease-out-soft),
+                transform var(--dur-page) var(--ease-out-soft);
+  }
+  .toggle-icon::before, .toggle-icon::after{
+    content: ""; position: absolute;
+    background: currentColor;
+    transition: transform var(--dur-page) var(--ease-out-soft);
+  }
+  .toggle-icon::before{
+    /* horizontal bar */
+    left: 2px; right: 2px; top: 50%;
+    height: 1.5px; margin-top: -0.75px;
+  }
+  .toggle-icon::after{
+    /* vertical bar — rotates to merge with horizontal on open */
+    top: 2px; bottom: 2px; left: 50%;
+    width: 1.5px; margin-left: -0.75px;
+  }
+  .track-toggle:hover .toggle-icon{ color: var(--ink-soft); }
+  .track.open .toggle-icon{ color: var(--signal); }
+  .track.open .toggle-icon::after{ transform: rotate(90deg); }
+
+  .track-body{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-page) var(--ease-out-soft);
+  }
+  .track.open .track-body{ grid-template-rows: 1fr; }
+  .track-body > .questions-wrap{
+    min-height: 0;
+    overflow: hidden;
+  }
+  .questions{
+    list-style: none;
+    margin: 0; padding: 0 0 clamp(20px, 2.6vw, 32px);
+    counter-reset: q;
+  }
+  .questions li{
+    position: relative;
+    padding: 14px 0 16px 64px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: clamp(15px, 1.1vw, 17px);
+    line-height: 1.55;
+    counter-increment: q;
+  }
+  .questions li:first-child{ border-top: 0; padding-top: 4px; }
+  .questions li::before{
+    content: "Q." counter(q, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+  }
+  .questions li:first-child::before{ top: 6px; }

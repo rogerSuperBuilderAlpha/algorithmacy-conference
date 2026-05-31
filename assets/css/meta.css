@@ -1,0 +1,40 @@
+  /* ============================================================
+     META TABULAR ROW — under the hero
+     ============================================================ */
+  .meta-row{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 3;
+  }
+  .meta-row .cell{
+    padding: 18px 22px 20px 0;
+    border-right: 1px solid var(--line);
+    min-width: 0;
+  }
+  .meta-row .cell:last-child{ border-right: 0; padding-right: 0; }
+  .meta-row .cell + .cell{ padding-left: 22px; }
+  .meta-row .k{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .meta-row .v{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .meta-row .v small{
+    display: block;
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0;
+    margin-top: 4px;
+  }

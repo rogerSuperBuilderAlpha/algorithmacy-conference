@@ -1,0 +1,46 @@
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer{
+    position: relative;
+    z-index: 3;
+    padding: 24px 0 6px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .footer-cols{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .footer h6{
+    margin: 0 0 8px 0;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: .18em;
+  }
+  .footer ul{
+    margin: 0; padding: 0;
+    list-style: none;
+  }
+  .footer li{ padding: 1px 0; }
+  .footer li b{ color: var(--ink); font-weight: 600; }
+  .footer-bottom{
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    font-size: 10px;
+    letter-spacing: .14em;
+    color: var(--ink-faint);
+  }
+  .footer-bottom b{ color: var(--ink-soft); font-weight: 600; }
+  .footer-bottom .marks{ display: flex; gap: 18px; }

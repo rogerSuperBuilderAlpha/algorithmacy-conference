@@ -1,0 +1,246 @@
+  /* ============================================================
+     MAIN — two column hero
+     ============================================================ */
+  .hero{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: stretch;
+    padding: clamp(28px, 3.4vw, 56px) 0 clamp(20px, 2vw, 32px);
+    border-bottom: 1px solid var(--line);
+    min-height: 0;
+  }
+
+  /* left column: type */
+  .copy{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(20px, 2.2vw, 32px);
+    min-width: 0;
+  }
+  .eyebrow{
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .eyebrow .num{
+    color: var(--signal);
+    border: 1px solid rgba(255,89,69,.4);
+    background: rgba(255,89,69,.08);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+  .eyebrow .dot{
+    width: 5px; height: 5px; background: var(--ink-faint); border-radius: 50%;
+  }
+
+  .display{
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.038em;
+    line-height: 0.86;
+    font-size: clamp(64px, 9.4vw, 168px);
+    margin: 0;
+  }
+  .display .dot{
+    display: inline-block;
+    color: var(--signal);
+    font-style: italic;
+    font-weight: 500;
+    transform: translateY(.04em);
+    margin: 0 0.01em;
+    text-shadow: 0 0 30px rgba(255,89,69,.55);
+  }
+  .display .dim{
+    color: var(--ink-soft);
+  }
+
+  .lede{
+    max-width: 44ch;
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .lede em{
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  /* diagram block — sits below the copy */
+  .diagram{
+    position: relative;
+    min-height: 420px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    row-gap: 0;
+  }
+  .diagram-head{
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-bottom: 12px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .diagram-head > span{ flex: 0 0 auto; }
+  .diagram-head b{ color: var(--ink); font-weight: 600; }
+  .diagram-head .seq span{ opacity: .45; padding: 0 6px; }
+  .diagram-head .seq b{ color: var(--ink); }
+  .diagram-head .seq em{ color: var(--ink-faint); font-style: normal; padding: 0 2px;}
+  .seq-btn{
+    background: none; border: none; padding: 0 2px; margin: 0;
+    color: var(--ink-faint);
+    font: inherit; letter-spacing: inherit; text-transform: inherit;
+    cursor: pointer;
+    transition: color var(--dur-base) var(--ease-out-soft);
+    -webkit-font-smoothing: inherit;
+  }
+  .seq-btn:hover{ color: var(--ink-soft); }
+  .seq-btn.active{ color: var(--ink); }
+
+  /* ============================================================
+     REFERENCE STRIP — oracy / literacy diagrams on click
+     ============================================================ */
+  .ref-strip{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur-page) var(--ease-out-soft),
+                border-color var(--dur-page) var(--ease-out-soft),
+                padding var(--dur-page) var(--ease-out-soft);
+    border-bottom: 1px solid transparent;
+    padding: 0 0;
+  }
+  .ref-strip.open{
+    max-height: 260px;
+    border-bottom-color: var(--line);
+    padding: 12px 0 16px;
+  }
+  .ref-panel{ display: none; }
+  .ref-strip[data-active="oracy"] .ref-panel[data-panel="oracy"],
+  .ref-strip[data-active="literacy"] .ref-panel[data-panel="literacy"]{ display: block; }
+  .ref-label{
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .ref-label b{ color: var(--ink-soft); font-weight: 600; }
+  .ref-panel svg{
+    width: 100%; height: 150px; display: block; overflow: visible;
+  }
+
+  .triad{
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    padding: 8px 0;
+  }
+  .triad svg{
+    width: 100%; height: 100%;
+    display: block;
+    overflow: visible;
+  }
+
+  .diagram-foot{
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    margin-top: 4px;
+    display: flex; justify-content: space-between; gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .diagram-foot b{ color: var(--ink); font-weight: 600; }
+  .diagram-foot .right{ text-align: right; color: var(--ink); max-width: 60%; }
+
+  /* ============================================================
+     SVG — diagram styles
+     ============================================================ */
+  .node-ring{
+    fill: var(--pitch-raised);
+    stroke: var(--ink);
+    stroke-width: 1.5;
+  }
+  .node-glyph{
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 18px;
+    fill: var(--ink);
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+  .node-label{
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: .22em;
+    fill: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  .alg-core{
+    fill: var(--pitch);
+    stroke: var(--cool);
+    stroke-width: 1.5;
+    filter: url(#glow);
+  }
+
+  .alg-glyph{
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 22px;
+    fill: var(--cool);
+    text-anchor: middle;
+    dominant-baseline: central;
+    filter: url(#glow);
+  }
+
+  .ringpulse{
+    fill: none;
+    stroke: var(--cool);
+    stroke-width: 1;
+    animation: ring 3s ease-out infinite;
+  }
+  @keyframes ring{
+    0%   { r: 26; opacity: .7; }
+    100% { r: 58; opacity: 0; }
+  }
+
+  .draw{
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: drawIn 1.6s var(--ease-out-soft) forwards;
+  }
+  .draw.d2{ animation-delay: .25s; }
+  .draw.d3{ animation-delay: 1.1s; }
+  @keyframes drawIn{
+    to{ stroke-dashoffset: 0; }
+  }
+
+  .particle{
+    fill: var(--signal);
+    filter: drop-shadow(0 0 6px rgba(255,89,69,.85));
+  }
+  .chip-bg{
+    fill: var(--pitch-raised);
+    stroke: var(--line-strong);
+    stroke-width: 1;
+  }

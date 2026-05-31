@@ -1,0 +1,50 @@
+  /* ============================================================
+     responsive
+     ============================================================ */
+  @media (max-width: 720px){
+    .stage{ height: auto; min-height: unset; padding: 12px 20px 0; }
+
+    /* tighten the hero so the diagram (and α) sit higher in the viewport */
+    .hero{ padding: 16px 0 16px; gap: 16px; }
+    .copy > div > *{ }
+    .copy{ gap: 14px; }
+    .eyebrow{ flex-wrap: wrap; gap: 8px 12px; font-size: 10px; letter-spacing: .14em; }
+    .display{ font-size: clamp(44px, 14vw, 60px); letter-spacing: -0.03em; }
+    .lede{ font-size: 14px; line-height: 1.5; margin-top: 16px !important; }
+
+    .diagram{ min-height: 320px; padding-top: 16px; }
+    .diagram-head{ font-size: 9px; gap: 8px; padding-bottom: 8px; }
+    .diagram-foot{ flex-direction: column; gap: 6px; padding-top: 10px; }
+    .diagram-foot .right{ text-align: left; max-width: 100%; }
+
+    .meta-row{ grid-template-columns: 1fr 1fr; }
+    .meta-row .cell{ border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0; }
+    .meta-row .cell + .cell{ padding-left: 0; }
+    .cta-strip{ flex-direction: column; align-items: flex-start; gap: 18px; }
+    .footer-cols{ grid-template-columns: 1fr 1fr; gap: 24px; }
+    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+
+    /* tracks: tighter accordion on mobile */
+    .track-toggle{ gap: 12px; padding: 18px 0; }
+    .track-toggle h3{ font-size: clamp(18px, 5.4vw, 22px); }
+    .track-num{ font-size: 9px; padding: 3px 7px; }
+    .questions li{ padding-left: 52px; font-size: 14px; }
+
+    /* review policy: stack columns */
+    .rp-cols{ grid-template-columns: 1fr; gap: 18px; }
+    .rp-precedent{ font-size: 10px; }
+
+    /* tester: tighter card */
+    .tester-card{ padding: 20px 18px; }
+    .tester-score{ font-size: 56px; }
+    .tester-output{ font-size: 15px; }
+    .tester-prompt{ font-size: 15px; }
+
+    /* floating submit: smaller, snugger to the corner */
+    .fab-submit{
+      bottom: 16px; right: 16px;
+      padding: 12px 18px 12px 15px;
+      font-size: 13px;
+      gap: 10px;
+    }
+  }

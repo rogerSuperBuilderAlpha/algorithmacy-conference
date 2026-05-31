@@ -1,0 +1,72 @@
+  /* ============================================================
+     CTA STRIP — bottom
+     ============================================================ */
+  .cta-strip{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 26px 0 28px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 3;
+  }
+  .cta{
+    --pad-x: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px var(--pad-x);
+    background: var(--ink);
+    color: var(--pitch) !important;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.005em;
+    border-radius: 6px;
+    text-decoration: none !important;
+    position: relative;
+    transition: transform var(--dur-micro) var(--ease-out-soft),
+                background var(--dur-base) var(--ease-out-soft),
+                box-shadow var(--dur-base) var(--ease-out-soft);
+    box-shadow:
+      0 0 0 1px rgba(239,234,224,.06),
+      0 18px 36px -10px rgba(0,0,0,.6);
+  }
+  .cta::before{
+    /* signal glow tab on left */
+    content:"";
+    display: block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 12px var(--signal);
+  }
+  .cta:hover{ transform: translateY(-1px); background: #fff; }
+  .cta:active{ transform: translateY(1px); }
+  .cta .arrow{
+    display: inline-flex; align-items: center;
+    transition: transform var(--dur-base) var(--ease-out-soft);
+  }
+  .cta:hover .arrow{ transform: translateX(4px); }
+
+  .cta-aside{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    max-width: 380px;
+    line-height: 1.6;
+  }
+  .cta-aside .path{
+    font-family: var(--font-mono);
+    color: var(--ink);
+    background: var(--pitch-raised);
+    padding: 3px 7px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    margin: 0 2px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 11px;
+  }

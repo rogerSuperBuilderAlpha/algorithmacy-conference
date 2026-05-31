@@ -1,0 +1,116 @@
+  /* ============================================================
+     PITCH — the page IS the lake.
+     ============================================================ */
+  :root{
+    --pitch:        #07080A;
+    --pitch-2:      #0C0E12;
+    --pitch-raised: #11141A;
+    --line:         rgba(237,234,228,0.10);
+    --line-strong:  rgba(237,234,228,0.22);
+    --ink:          #EFEAE0;
+    --ink-soft:     rgba(239,234,224,0.62);
+    --ink-faint:    rgba(239,234,224,0.32);
+    --signal:       #FF5945;  /* bright brick on black */
+    --signal-deep:  #C8351F;
+    --ember:        #FFB077;  /* warm secondary, used sparingly */
+    --cool:         #5A9BFF;  /* algorithmic third — cool glow */
+  }
+  *{ box-sizing: border-box; }
+  html, body{ margin: 0; padding: 0; }
+  html{ background: var(--pitch); }
+  body{
+    background: var(--pitch);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ambient field: dot grid + radial blooms */
+  body::before{
+    content:"";
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(rgba(239,234,224,0.06) 1px, transparent 1px),
+      radial-gradient(60% 50% at 78% 42%, rgba(90,155,255,0.10), transparent 70%),
+      radial-gradient(40% 30% at 14% 88%, rgba(255,89,69,0.06), transparent 70%);
+    background-size: 28px 28px, auto, auto;
+    background-position: 0 0, 0 0, 0 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after{
+    /* deep pool at the bottom — no top vignette */
+    content:"";
+    position: fixed; inset: 0;
+    background:
+      linear-gradient(180deg,
+        transparent 0%,
+        transparent 28%,
+        rgba(7,8,10,.55) 56%,
+        rgba(7,8,10,.92) 86%,
+        rgba(7,8,10,1)  100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ============================================================
+     STAGE
+     ============================================================ */
+  .stage{
+    position: relative;
+    z-index: 3;
+    width: min(1100px, 100%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px clamp(28px, 3.4vw, 56px) 28px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto auto auto auto auto;
+    gap: 0;
+  }
+
+  /* ----- top strip ----- */
+  .topstrip{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .brand{
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    text-transform: none;
+    font-size: 14px;
+  }
+  .brand svg{ width: 22px; height: 22px; color: var(--ink); }
+  .topstrip .right{ display: flex; gap: 22px; align-items: center; }
+  .topstrip .pill{
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 4px 10px 4px 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: rgba(255,89,69,0.06);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .topstrip .pill .blip{
+    display:inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 12px var(--signal);
+    animation: blip 1.6s ease-in-out infinite;
+  }
+  @keyframes blip{
+    0%,100%{ opacity: 1; }
+    50%   { opacity: .25; }
+  }

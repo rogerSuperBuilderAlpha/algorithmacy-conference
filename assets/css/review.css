@@ -1,0 +1,73 @@
+  /* ============================================================
+     REVIEW POLICY — methodological note on open review
+     ============================================================ */
+  .review-policy{
+    position: relative;
+    z-index: 3;
+    background: var(--pitch);
+    padding: clamp(36px, 4.4vw, 64px) 0 clamp(32px, 3.6vw, 52px);
+    border-bottom: 1px solid var(--line);
+  }
+  .rp-head{
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(20px, 2.6vw, 36px);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .rp-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--signal);
+    padding: 4px 9px;
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.06);
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .rp-head h2{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .rp-cols{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(18px, 2.4vw, 32px);
+    margin-bottom: clamp(24px, 2.8vw, 36px);
+  }
+  .rp-cols > div{ min-width: 0; }
+  .rp-cols h3{
+    margin: 0 0 8px 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .rp-cols p{
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.55;
+  }
+  .rp-precedent{
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .rp-precedent b{ color: var(--ink); font-weight: 600; }
