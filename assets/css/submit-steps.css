@@ -1,0 +1,156 @@
+  /* ---------- how-it-works under the prompt ---------- */
+  .how-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.4vw, 28px);
+    margin-top: clamp(20px, 2.4vw, 28px);
+  }
+  .how-row div{ min-width: 0; }
+  .how-row h3{
+    margin: 0 0 6px 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .how-row p{
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: none;
+  }
+
+  /* ---------- steps ---------- */
+  .steps{
+    list-style: none;
+    counter-reset: step;
+    margin: 0; padding: 0;
+  }
+  .steps li{
+    counter-increment: step;
+    position: relative;
+    padding: 18px 0 18px 52px;
+    border-bottom: 1px solid var(--line);
+  }
+  .steps li:last-child{ border-bottom: 0; }
+  .steps li::before{
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+  }
+  .steps li h3{
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .steps li p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+  code{
+    font-family: var(--font-mono);
+    background: var(--pitch-raised);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: var(--ink);
+  }
+  .docs-links{
+    margin-top: clamp(16px, 2vw, 22px);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .docs-links a{
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0 4px;
+    border-bottom: 1px solid var(--ink-faint);
+    transition: border-color var(--dur-base) var(--ease-out-soft);
+  }
+  .docs-links a:hover{ border-color: var(--signal); }
+
+  /* ---------- policy list ---------- */
+  .policy-list{
+    list-style: none;
+    margin: 0 0 16px 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+  }
+  .policy-list li{
+    padding: 16px;
+    border: 1px solid var(--line);
+    background: var(--pitch-raised);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .policy-list li b{
+    display: block;
+    color: var(--signal);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .policy-aside{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .policy-aside a{ color: var(--ink); }
+
+  /* ---------- footer ---------- */
+  .page-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    margin-top: clamp(32px, 4vw, 56px);
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .page-footer a{ color: var(--ink); text-decoration: none; }
+  .page-footer a:hover{ color: var(--signal); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px){
+    .stage{ padding: 16px 20px 40px; }
+    .topstrip{ font-size: 10px; }
+    .topstrip .right{ font-size: 9px; gap: 14px; }
+    .how-row{ grid-template-columns: 1fr; gap: 14px; }
+    .policy-list{ grid-template-columns: 1fr 1fr; }
+    .prompt-textarea{ font-size: 11.5px; min-height: 280px; }
+  }
+  @media (max-width: 480px){
+    .policy-list{ grid-template-columns: 1fr; }
+  }

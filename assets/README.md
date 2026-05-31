@@ -12,15 +12,18 @@ Each module owns both its desktop and its responsive (`@media`) rules.
 | module        | section |
 |---------------|---------|
 | `base.css`    | pitch background, `.stage` layout, top strip |
-| `hero.css`    | hero, reference strip, SVG diagrams |
+| `hero.css`    | hero (two-column intro) |
+| `diagrams.css`| reference strip + SVG oracy/literacy/algorithmacy diagrams |
 | `meta.css`    | tabular meta row under the hero |
 | `cta.css`     | "Submit a paper" CTA strip |
 | `review.css`  | open-review policy section |
 | `tracks.css`  | Tracks & Questions accordion (**shared** by home + submit) |
-| `tester.css`  | the algorithmacy tester (incl. the progress-save strip) |
+| `tester.css`  | the algorithmacy tester — cards, output, reveal state |
+| `tester-controls.css` | tester mode/difficulty toolbar, MC choices, hints, save strip |
 | `fab.css`     | floating submit button |
 | `promo.css`   | above-the-fold CONFERENCE 2026 banner, schedule, keynotes |
-| `submit.css`  | the `/submit` page (its own layout, prompt box, steps, policy) |
+| `submit.css`  | the `/submit` page — base, topstrip, hero, section, prompt box |
+| `submit-steps.css` | `/submit` how-it-works, manual steps, policy list, footer, responsive |
 
 The **home page** links: base, hero, meta, cta, footer, review, tracks,
 tester, fab, promo (in that order).
@@ -31,7 +34,9 @@ The **submit page** links: submit, tracks.
 | module           | purpose |
 |------------------|---------|
 | `reference.js`   | oracy → literacy → algorithmacy diagram toggle (home) |
-| `tester.js`      | the tester engine (modes, difficulty, hints, localStorage progress) |
+| `tester.js`      | the tester engine (state, modes, difficulty, render, init) |
+| `tester-score.js`| pure scoring/text helpers + hints + distractor picker (no DOM) |
+| `tester-progress.js` | opt-in localStorage progress factory (save strip + persistence) |
 | `tracks.js`      | Tracks & Questions accordion (**shared** by home + submit) |
 | `copy-prompt.js` | "copy prompt" button on the submit page |
 | `main.js`        | home entry — imports reference, tester, tracks |
