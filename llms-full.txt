@@ -17,7 +17,7 @@ La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaq
 - Venue: La Brea Pitch Lake, Trinidad & Tobago (approximately 90 minutes by road from Piarco International Airport)
 - Dates: late October / early November 2026 (exact dates being finalized)
 - Hosted by FutureTT in partnership with a Trinidad institutional partner (to be announced)
-- Sponsors: the Rose Foundation and the Caribbean Emergence Initiative
+- Sponsors: the Rose Foundation, the Caribbean Emergence Initiative, and Hult University (Boston)
 
 ## Program
 
@@ -47,6 +47,7 @@ La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaq
 Intake is via pull request against the public GitHub repository. Drop a 300–500-word abstract and outline as `submissions/<your-handle>.md`, then open a pull request titled `[Type] [TR.0X] Your title`. There are two paths: an AI-assisted path (paste the provided prompt into any capable LLM, which collects details and either opens the PR or generates the exact commands), and a manual path (fork, copy the template, fill it in, open the PR). Manuscripts follow APA 7; submissions are in English with translation support for presenters whose first language is not English.
 
 - Submission deadline: 1 August 2026
+- Publication: full papers accepted at the conference are organized and published by Hult University (Boston) after peer review.
 - Review: open, signed, published, and timestamped. Submissions and review threads are public from intake; there is no anonymized stage. Reviewers sign their assessments. Accepted papers ship with their full review history. The pull-request timestamp is the authorship-priority record. Review is rolling, with responses on the PR thread typically within about five business days.
 
 ## Awards
