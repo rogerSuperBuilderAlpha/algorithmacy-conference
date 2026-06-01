@@ -29,5 +29,8 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 - [GitHub repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests
 - [Full text for agents](https://algorithmacy.com/llms-full.txt): the complete conference details in one file
 
+## Organizers
+- Anusha Vissapragada, Roger Hunt, Tamsen Webster, Cat Pierson, Sarah Witmer, Amanda Gentile McEwen, Lorraine Villaroel
+
 ## Contact
 - Roger Hunt — rhunt@bentley.edu

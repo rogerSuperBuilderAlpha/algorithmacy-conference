@@ -71,6 +71,16 @@ Limited travel support is available for scholars from low- and middle-income cou
 
 The home page hosts an interactive "algorithmacy tester": a deck of 10,000 short prompt/response exercises in which only the model's output is shown and the learner reconstructs the human's input. Four modes — guess the prompt, multiple choice, predict the output, and a triadic "relay" (infer what your partner meant) — plus a difficulty filter and a hint ladder. Progress can be saved in the browser via local storage.
 
+## Organizers
+
+- Anusha Vissapragada — Hult International Business School, Boston — https://www.linkedin.com/in/anushavissapragada/
+- Roger Hunt — Bentley University (convener) — https://www.linkedin.com/in/rogerjgs404040/
+- Tamsen Webster — Message Design Institute — https://www.linkedin.com/in/tamsenwebster/
+- Cat Pierson — Manifold — https://www.linkedin.com/in/cat-pierson/
+- Sarah Witmer — University of Iowa — https://www.linkedin.com/in/sarahwitmer/
+- Amanda Gentile McEwen — Salubris Biotherapeutics — https://www.linkedin.com/in/amandamariegentilemcewen/
+- Lorraine Villaroel — Trinidad & Tobago — https://www.linkedin.com/in/lorraine-villaroel-37b3a99/
+
 ## Contact
 
 Roger Hunt — rhunt@bentley.edu
