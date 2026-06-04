@@ -61,7 +61,7 @@ Intake is via pull request against the public GitHub repository. Drop a 300–50
 - Antonio Mele — Economics, London School of Economics — https://www.linkedin.com/in/antonio-mele-6387821/
 - Samuel Fosso Wamba — Information Systems & Data Science, TBS Education — https://www.linkedin.com/in/samuelfossowamba/
 - Thomas K. F. Chiu — AI & STEM Education, The Chinese University of Hong Kong — https://www.linkedin.com/in/thomas-chiu-88469587/
-- One keynote slot remains open. To keynote, or to recommend a speaker, email rhunt@bentley.edu.
+- Antonio Scala — Complex networks, CNR Institute for Complex Systems (Rome) — https://www.linkedin.com/in/antonio-scala-1b298b19/
 
 ## Travel & support
 

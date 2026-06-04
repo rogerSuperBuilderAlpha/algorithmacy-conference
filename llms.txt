@@ -23,7 +23,7 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 - Antonio Mele — Economics, London School of Economics
 - Samuel Fosso Wamba — Information Systems & Data Science, TBS Education
 - Thomas K. F. Chiu — AI & STEM Education, The Chinese University of Hong Kong
-- One open keynote slot — to keynote or recommend a speaker, email rhunt@bentley.edu
+- Antonio Scala — Complex networks, CNR Institute for Complex Systems (Rome)
 
 ## Repository & more
 - [GitHub repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests
