@@ -74,6 +74,14 @@ Limited travel support is available for scholars from low- and middle-income cou
 
 The home page hosts an interactive "algorithmacy tester": a deck of 10,000 short prompt/response exercises in which only the model's output is shown and the learner reconstructs the human's input. Four modes — guess the prompt, multiple choice, predict the output, and a triadic "relay" (infer what your partner meant) — plus a difficulty filter and a hint ladder. Progress can be saved in the browser via local storage.
 
+## Featured speakers
+
+Ten featured-speaker slots run across the program; speakers are being announced. To be considered as a featured speaker, email rhunt@bentley.edu with your work and its fit.
+
+## Special sessions
+
+Four special-session slots are open. Propose a themed session and serve as its committee chair by emailing rhunt@bentley.edu.
+
 ## Organizers
 
 - Anusha Vissapragada — Hult International Business School, Boston — https://www.linkedin.com/in/anushavissapragada/

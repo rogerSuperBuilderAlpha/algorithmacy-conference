@@ -30,6 +30,13 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 - [GitHub repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests
 - [Full text for agents](https://algorithmacy.com/llms-full.txt): the complete conference details in one file
 
+
+## Featured speakers
+- 10 featured-speaker slots, to be announced. To be considered, email rhunt@bentley.edu.
+
+## Special sessions
+- 4 open special-session slots. Propose a themed session and serve as its committee chair — email rhunt@bentley.edu.
+
 ## Organizers
 - Anusha Vissapragada, Roger Hunt, Tamsen Webster, Cat Pierson, Sarah Witmer, Amanda Gentile McEwen, Lorraine Villaroel
 
