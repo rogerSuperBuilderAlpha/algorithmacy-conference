@@ -66,6 +66,8 @@ Intake is via pull request against the public GitHub repository. Drop a 300–50
 
 ## Travel & support
 
+Full logistics page: https://algorithmacy.com/logistics (venue, getting there, accommodation, visas & entry, registration, travel support, and local info).
+
 Limited travel support is available for scholars from low- and middle-income countries, doctoral students, and worker representatives; apply with your abstract.
 
 ## The tester (learning tool)

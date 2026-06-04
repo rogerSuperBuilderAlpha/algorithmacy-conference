@@ -7,6 +7,7 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 ## Key pages
 - [Home](https://algorithmacy.com/): overview, program, keynotes, and the five thematic tracks
 - [Submit a paper](https://algorithmacy.com/submit): how to submit via GitHub pull request — an AI-assisted path and a manual path
+- [Logistics](https://algorithmacy.com/logistics): venue, getting there, accommodation, visas, registration, travel support
 - [Tracks & questions](https://algorithmacy.com/#tracks): the five thematic tracks and their guiding questions
 - [Program / schedule](https://algorithmacy.com/#schedule): two paper days, a Trinidad field day, four keynotes
 - [Keynotes](https://algorithmacy.com/#keynotes): keynote speakers
