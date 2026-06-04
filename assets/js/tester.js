@@ -22,6 +22,7 @@ import { createProgress } from './tester-progress.js';
   };
 
   let allItems = [], deck = [], idx = 0, mode = 'classic', diff = 'all', hintLevel = 0, answered = false, totals = null;
+  let booted = false; // first render shouldn't steal focus / scroll the page to the tester
 
   const progress = createProgress({
     getMode: () => mode, setMode: m => { mode = m; },
@@ -101,6 +102,7 @@ import { createProgress } from './tester-progress.js';
 
   function showStimulus(){
     if (!deck.length) return;
+    const firstRender = !booted; booted = true;
     answered = false; hintLevel = 0;
     const item = deck[idx];
     counterEl.textContent = pad3(idx + 1) + ' / ' + pad3(filterTotal());
@@ -126,7 +128,7 @@ import { createProgress } from './tester-progress.js';
       inputLabelEl.textContent = 'Your guess at the prompt';
       textareaEl.placeholder = 'e.g. write a haiku about a cat staring at a door';
     }
-    window.setTimeout(() => textareaEl.focus(), 0);
+    if (!firstRender) window.setTimeout(() => textareaEl.focus({ preventScroll: true }), 0);
   }
   function next(){ idx = (idx + 1) % deck.length; showStimulus(); }
 
