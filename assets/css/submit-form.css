@@ -1,0 +1,140 @@
+/* Direct submission form — matches the pitch theme in submit.css */
+
+.subform{
+  display: grid;
+  gap: 22px;
+  margin-top: 28px;
+  max-width: 760px;
+}
+.subform .field{
+  display: grid;
+  gap: 8px;
+}
+.subform .row2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+@media (max-width: 620px){
+  .subform .row2{ grid-template-columns: 1fr; }
+}
+.subform label{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.subform label .req{ color: var(--signal); }
+.subform .hint{
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin: 0;
+}
+.subform input[type=text],
+.subform input[type=email],
+.subform select,
+.subform textarea{
+  width: 100%;
+  background: var(--pitch-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 11px 13px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.subform textarea{ resize: vertical; min-height: 90px; }
+.subform textarea.tall{ min-height: 200px; }
+.subform input:focus,
+.subform select:focus,
+.subform textarea:focus{
+  outline: none;
+  border-color: var(--signal);
+  background: var(--pitch-raised);
+}
+.subform select{ appearance: none; cursor: pointer; }
+.subform .wordcount{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+.subform .wordcount.ok{ color: var(--ember); }
+.subform .wordcount.bad{ color: var(--signal); }
+
+/* honeypot — visually hidden, off-screen */
+.subform .hp{
+  position: absolute;
+  left: -9999px;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+
+.subform .agree{
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.subform .agree input{ margin-top: 3px; width: 16px; height: 16px; accent-color: var(--signal); }
+.subform .agree a{ color: var(--ink); }
+
+.subform .actions{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.subform .submit-btn{
+  appearance: none;
+  border: 0;
+  background: var(--signal);
+  color: #160a07;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s ease, transform .05s ease;
+}
+.subform .submit-btn:hover{ background: var(--ember); }
+.subform .submit-btn:active{ transform: translateY(1px); }
+.subform .submit-btn:disabled{ opacity: .55; cursor: default; }
+
+/* form-level message banner */
+.form-msg{
+  margin-top: 4px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: none;
+}
+.form-msg.show{ display: block; }
+.form-msg.error{
+  background: rgba(255,89,69,.10);
+  border: 1px solid rgba(255,89,69,.35);
+  color: var(--ember);
+}
+.form-msg.success{
+  background: rgba(90,155,255,.10);
+  border: 1px solid rgba(90,155,255,.35);
+  color: var(--ink);
+}
+
+/* sent-state takeover */
+.subform.sent .form-body{ display: none; }
+.sent-state{ display: none; }
+.subform.sent .sent-state{ display: block; }
+.sent-state h3{ margin: 0 0 10px; font-size: 22px; }
+.sent-state p{ color: var(--ink-soft); line-height: 1.6; }
+.sent-state .addr{ color: var(--ink); font-weight: 600; }

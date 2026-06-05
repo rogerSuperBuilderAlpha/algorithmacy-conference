@@ -18,16 +18,22 @@ Thanks for sending this along — it looks like a great fit. One important
 thing: the Algorithmacy Conference runs on **open review**, so submissions
 aren't accepted by email. Each one is a **pull request** to our public
 repository, and the PR's timestamp becomes your authorship-priority record.
-Getting it into the system takes about five minutes. You have two ways to do it:
+Getting it into the system takes about five minutes. You have three ways to do it:
 
-**Option A — let an AI do it for you (easiest)**
-Go to **https://algorithmacy.com/submit**, copy the prompt in the "Use AI to
-handle the submission" box, and paste it into a fresh chat with Claude,
-ChatGPT, or Gemini. It will ask you for your title, abstract, type, track, and
-bio, then either open the pull request for you or hand you the exact steps.
-Paste in the abstract you already wrote and it'll take it from there.
+**Option A — fill in the web form (easiest, no GitHub account needed)**
+Go to **https://algorithmacy.com/submit**, fill in the form at the top
+("Submit directly — no GitHub needed"), and confirm your email. We open the
+pull request for you and send you the link. To revise later, resubmit with the
+same email and confirm again — it updates your existing PR.
 
-**Option B — do it by hand**
+**Option B — let an AI do it for you**
+On the same page, copy the prompt in the "Let an AI handle it" box and paste it
+into a fresh chat with Claude, ChatGPT, or Gemini. It will ask for your title,
+abstract, type, track, and bio, then either open the pull request for you or
+hand you the exact steps. Paste in the abstract you already wrote and it'll
+take it from there.
+
+**Option C — do it by hand on GitHub**
 1. Fork the repo: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 2. Copy `submissions/TEMPLATE.md` to `submissions/<your-handle>.md`
 3. Fill in: title, authors, **type** (full paper / note / panel / poster /

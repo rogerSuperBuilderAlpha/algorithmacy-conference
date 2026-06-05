@@ -10,6 +10,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="stylesheet" href="/assets/css/submit.css" />
 <link rel="stylesheet" href="/assets/css/submit-steps.css" />
+<link rel="stylesheet" href="/assets/css/submit-form.css" />
 <link rel="stylesheet" href="/assets/css/tracks.css" />
 </head>
 <body>
@@ -38,7 +39,7 @@
     </span>
     <h1 class="display">How to submit.</h1>
     <p class="lede">
-      The Algorithmacy Conference accepts submissions as <b>pull requests</b> against our public repository on GitHub. There are two paths — <b>have an AI handle it</b> for you, or do it by hand. Either way, your PR is the submission, and its timestamp is your priority record.
+      Every submission to the Algorithmacy Conference becomes a <b>public pull request</b>, and its timestamp is your authorship-priority record. The easiest way is the <b>form below — no GitHub account needed</b>: fill it in, confirm by email, and we open the PR for you. Prefer GitHub directly? Have an <b>AI handle it</b>, or do it by hand — both are further down.
     </p>
   </section>
 
@@ -145,11 +146,126 @@
     </div>
   </section>
 
-  <!-- ============== PATH A — AI ASSISTED ============== -->
+  <!-- ============== PATH 0 — DIRECT FORM (NO GITHUB) ============== -->
   <section class="section">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2>Use AI to handle the submission.</h2>
+      <h2>Submit directly — no GitHub needed.</h2>
+    </div>
+    <p>
+      Fill in the form below and confirm your email. We'll open the pull request for you and send you the link. Your submission and all reviews are public from intake, and the PR timestamp is your priority record. <b>One submission per email</b> — to revise later, resubmit with the same email and confirm again; it updates your existing PR.
+    </p>
+
+    <form class="subform" id="subform" novalidate>
+      <div class="form-body">
+
+        <div class="field">
+          <label for="f-title">Title <span class="req">*</span></label>
+          <input type="text" id="f-title" name="title" maxlength="300" required />
+        </div>
+
+        <div class="field">
+          <label for="f-authors">Authors &amp; affiliations <span class="req">*</span></label>
+          <textarea id="f-authors" name="authors" required placeholder="Jane Doe (Bentley University), John Roe (MIT)"></textarea>
+          <p class="hint">One per line or comma-separated, each with affiliation in parentheses.</p>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="f-email">Contact email <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required />
+            <p class="hint">We send a confirmation link here. This becomes your submission's identity.</p>
+          </div>
+          <div class="field">
+            <label for="f-keywords">Keywords <span class="req">*</span></label>
+            <input type="text" id="f-keywords" name="keywords" required placeholder="gig work, scheduling, worker voice" />
+            <p class="hint">3–7, comma-separated.</p>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="f-type">Type <span class="req">*</span></label>
+            <select id="f-type" name="type" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option>Full paper</option>
+              <option>Note</option>
+              <option>Panel</option>
+              <option>Poster</option>
+              <option>Practitioner report</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-track">Track <span class="req">*</span></label>
+            <select id="f-track" name="track" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option value="TR.01">TR.01 — Coordination &amp; Mediation</option>
+              <option value="TR.02">TR.02 — Algorithmic Management</option>
+              <option value="TR.03">TR.03 — Platform Labor &amp; Worker Voice</option>
+              <option value="TR.04">TR.04 — Trust, Opacity &amp; Governance</option>
+              <option value="TR.05">TR.05 — Methods, Lineage &amp; Practice</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-contribution">One-sentence contribution</label>
+          <input type="text" id="f-contribution" name="contribution" maxlength="300" placeholder="What's new about this work, in one sentence." />
+        </div>
+
+        <div class="field">
+          <label for="f-abstract">Abstract <span class="req">*</span></label>
+          <textarea id="f-abstract" name="abstract" class="tall" required placeholder="300–500 words. Make the contribution clear in the first two sentences."></textarea>
+          <span class="wordcount" id="abstract-count">0 words · target 300–500</span>
+        </div>
+
+        <div class="field">
+          <label for="f-outline">Outline <span class="req">*</span></label>
+          <textarea id="f-outline" name="outline" required placeholder="5–10 bullets for papers/notes; participants for panels; visual description for posters."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="f-bios">Author bio(s) <span class="req">*</span></label>
+          <textarea id="f-bios" name="bios" required placeholder="≤100 words per author."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="f-coi">Conflicts of interest</label>
+          <input type="text" id="f-coi" name="coi" placeholder="none, or describe" />
+        </div>
+
+        <!-- honeypot: hidden from humans -->
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Website</label>
+          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <label class="agree">
+          <input type="checkbox" name="agree" required />
+          <span>I agree to the <a href="/#review">open-review policy</a>: this submission and all reviews will be public on the repository from intake, and the PR timestamp is my priority record.</span>
+        </label>
+
+        <div id="form-msg" class="form-msg"></div>
+
+        <div class="actions">
+          <button type="submit" class="submit-btn">Confirm by email &amp; submit →</button>
+          <span class="hint">No GitHub account required.</span>
+        </div>
+      </div>
+
+      <div class="sent-state">
+        <h3>Check your email.</h3>
+        <p>We sent a confirmation link to <span class="addr" id="sent-addr"></span>. Open it (within 1 hour) to publish your submission — the pull request opens the moment you confirm, and we'll show you the link.</p>
+        <p class="hint">Didn't get it? Check spam, or <a href="/submit">try again</a>.</p>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============== PATH A — AI ASSISTED ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Prefer GitHub? Let an AI handle it.</h2>
     </div>
     <p>
       Paste the prompt below into a fresh conversation with <b>Claude</b>, <b>ChatGPT</b>, <b>Gemini</b>, or any LLM with web/tool access. It will ask you for your title, abstract, type, track, and the rest — then either open the PR for you (if it has GitHub tool access) or hand you the exact commands and content to do it yourself.
@@ -284,8 +400,8 @@ BEGIN by greeting the user and asking: "What are you submitting today?" Then col
   <!-- ============== PATH B — MANUAL ============== -->
   <section class="section">
     <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Or do it by hand.</h2>
+      <span class="section-num">03</span>
+      <h2>Or do it by hand on GitHub.</h2>
     </div>
     <ol class="steps">
       <li>
@@ -315,7 +431,7 @@ BEGIN by greeting the user and asking: "What are you submitting today?" Then col
   <!-- ============== POLICY ============== -->
   <section class="section">
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2>What you're agreeing to.</h2>
     </div>
     <ul class="policy-list">
@@ -334,6 +450,7 @@ BEGIN by greeting the user and asking: "What are you submitting today?" Then col
 
 </main>
 
+<script src="/assets/js/submit-form.js"></script>
 <script type="module" src="/assets/js/submit.js"></script>
 
 </body>

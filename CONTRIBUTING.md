@@ -4,6 +4,16 @@ This document covers how to submit a paper, how reviews work, and what reviewers
 
 ## Submitting a paper
 
+You have two routes. The **web form** needs no GitHub account; the **GitHub route** (below) is for those who prefer to open the pull request themselves.
+
+### The easy route: the web form (no GitHub account)
+
+Go to [algorithmacy.com/submit](https://algorithmacy.com/submit) and fill in the form at the top ("Submit directly — no GitHub needed"). You'll confirm your email with a one-time link, and we open the pull request for you and send you the URL. The PR opens the moment you confirm, so its timestamp is your priority record.
+
+**One submission per email.** To revise, resubmit the form with the same email and confirm again — it updates your existing PR rather than opening a second one.
+
+### The GitHub route
+
 ### 1. Fork this repository
 
 Use the GitHub "Fork" button. You'll work on your own copy and open a pull request back to `main` when ready.

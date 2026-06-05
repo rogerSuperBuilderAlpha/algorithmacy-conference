@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Submission confirmed · Algorithmacy Conference</title>
+<link rel="stylesheet" href="/design-system/colors_and_type.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="stylesheet" href="/assets/css/submit.css" />
+<meta name="robots" content="noindex" />
+</head>
+<body>
+
+<main class="stage">
+
+  <header class="topstrip">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
+        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      </svg>
+      <span><span class="back">← </span>Algorithmacy</span>
+    </a>
+    <div class="right">
+      <span>CFP / V01 · 2026</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">
+      <span class="num">Submit</span>
+      <span id="eyebrow-state">Confirmation</span>
+    </span>
+    <h1 class="display" id="headline">Confirming…</h1>
+    <p class="lede" id="lede">One moment.</p>
+    <p id="cta-wrap" style="display:none;margin-top:8px">
+      <a id="pr-link" class="copy-btn" href="#" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">View your pull request →</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <p id="detail" style="color:var(--ink-soft);line-height:1.6"></p>
+    <p class="docs-links">
+      <a href="/submit">← Back to the submission page</a>
+    </p>
+  </section>
+
+  <footer class="page-footer">
+    <a href="/">← Back to home</a>
+    <span>Roger Hunt · rhunt@bentley.edu</span>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    const q = new URLSearchParams(location.search);
+    const status = q.get('status');
+    const pr = q.get('pr');
+    const error = q.get('error');
+
+    const headline = document.getElementById('headline');
+    const lede = document.getElementById('lede');
+    const detail = document.getElementById('detail');
+    const ctaWrap = document.getElementById('cta-wrap');
+    const prLink = document.getElementById('pr-link');
+    const eyebrow = document.getElementById('eyebrow-state');
+
+    if (pr && (status === 'created' || status === 'updated')) {
+      const isUpdate = status === 'updated';
+      eyebrow.textContent = isUpdate ? 'Updated' : 'Published';
+      headline.textContent = isUpdate ? 'Your submission was updated.' : 'Your submission is in.';
+      lede.textContent = isUpdate
+        ? 'We re-confirmed your email and updated your existing pull request with the new version.'
+        : 'Your pull request is now open on the public repository. Its timestamp is your authorship-priority record.';
+      detail.innerHTML = 'Reviewers will respond on the pull request thread, typically within ~5 business days. '
+        + 'All review happens in the open — you can follow and reply right on the PR. '
+        + (isUpdate ? 'To change your submission again, just resubmit the form and confirm by email once more.'
+                    : 'To revise later, resubmit the form with the same email and confirm again — it updates this same PR.');
+      prLink.href = pr;
+      ctaWrap.style.display = '';
+      return;
+    }
+
+    // error states
+    eyebrow.textContent = 'Error';
+    const messages = {
+      expired: ['This confirmation link has expired.', 'Magic links are valid for one hour. Please submit the form again to get a fresh link.'],
+      missing: ['This link is missing its token.', 'Please use the link from your confirmation email, or submit the form again.'],
+      github: ['We couldn’t open the pull request.', 'Something went wrong talking to GitHub. Please try submitting again, or email rhunt@bentley.edu and we’ll post it for you.'],
+      server: ['Something went wrong on our end.', 'Please try submitting again. If it keeps happening, email rhunt@bentley.edu.'],
+    };
+    const [h, l] = messages[error] || messages.server;
+    headline.textContent = h;
+    lede.textContent = l;
+    detail.innerHTML = '<a href="/submit">Return to the submission page →</a>';
+  })();
+</script>
+
+</body>
+</html>
