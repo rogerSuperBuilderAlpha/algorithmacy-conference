@@ -57,8 +57,8 @@ module.exports = async (req, res) => {
   const ip = clientIp(req);
   const emailKey = sha256(clean.email);
   try {
-    if (await overLimit(`rate:ip:${ip}`, RATE_IP_MAX) ||
-        await overLimit(`rate:email:${emailKey}`, RATE_EMAIL_MAX)) {
+    if (await overLimit(`acf:rate:ip:${ip}`, RATE_IP_MAX) ||
+        await overLimit(`acf:rate:email:${emailKey}`, RATE_EMAIL_MAX)) {
       res.statusCode = 429;
       return res.json({ error: 'Too many attempts. Please try again in an hour.' });
     }
@@ -71,7 +71,7 @@ module.exports = async (req, res) => {
   // Stash the validated submission under a single-use token.
   const token = crypto.randomBytes(24).toString('base64url');
   try {
-    await redis(['SET', `pending:${token}`, JSON.stringify(clean), 'EX', String(TOKEN_TTL_SECONDS)]);
+    await redis(['SET', `acf:pending:${token}`, JSON.stringify(clean), 'EX', String(TOKEN_TTL_SECONDS)]);
   } catch (e) {
     console.error('pending store error', e);
     res.statusCode = 502;

@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
 
   let raw;
   try {
-    raw = await redis(['GET', `pending:${token}`]);
+    raw = await redis(['GET', `acf:pending:${token}`]);
   } catch (e) {
     console.error('redis get error', e);
     return redirect(res, '/submit/confirmed/?error=server');
@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
   if (!raw) return redirect(res, '/submit/confirmed/?error=expired');
 
   // Single use: delete immediately so the link can't be replayed.
-  try { await redis(['DEL', `pending:${token}`]); } catch (_) {}
+  try { await redis(['DEL', `acf:pending:${token}`]); } catch (_) {}
 
   let sub;
   try { sub = JSON.parse(raw); } catch { return redirect(res, '/submit/confirmed/?error=server'); }
@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
   try {
     let existing = null;
     try {
-      const idx = await redis(['GET', `email:${emailHash}`]);
+      const idx = await redis(['GET', `acf:email:${emailHash}`]);
       if (idx) existing = JSON.parse(idx);
     } catch (_) {}
 
@@ -57,7 +57,7 @@ module.exports = async (req, res) => {
       result = await updateSubmission(sub, existing);
     } else {
       result = await createSubmission(sub);
-      await redis(['SET', `email:${emailHash}`,
+      await redis(['SET', `acf:email:${emailHash}`,
         JSON.stringify({ pr: result.number, branch: result.branch, slug: result.slug })]);
     }
 
