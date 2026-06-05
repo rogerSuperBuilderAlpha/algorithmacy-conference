@@ -4,15 +4,25 @@ This document covers how to submit a paper, how reviews work, and what reviewers
 
 ## Submitting a paper
 
-You have two routes. The **web form** needs no GitHub account; the **GitHub route** (below) is for those who prefer to open the pull request themselves.
+There are **four ways to submit**, and **none of them requires a GitHub account.** All end as a public pull request whose timestamp is your priority record. Pick whichever fits — they are summarized in the picker at [algorithmacy.com/submit](https://algorithmacy.com/submit).
 
-### The easy route: the web form (no GitHub account)
+### Method 1 — the web form (easiest, no GitHub account)
 
-Go to [algorithmacy.com/submit](https://algorithmacy.com/submit) and fill in the form at the top ("Submit directly — no GitHub needed"). You'll confirm your email with a one-time link, and we open the pull request for you and send you the URL. The PR opens the moment you confirm, so its timestamp is your priority record.
+Go to [algorithmacy.com/submit](https://algorithmacy.com/submit) and fill in the form ("Submit directly — no GitHub needed"). You'll confirm your email with a one-time link, and we open the pull request for you and send you the URL. The PR opens the moment you confirm, so its timestamp is your priority record.
 
 **One submission per email.** To revise, resubmit the form with the same email and confirm again — it updates your existing PR rather than opening a second one.
 
-### The GitHub route
+### Method 2 — an AI agent (MCP)
+
+If you use Claude or any MCP-capable assistant, add our connector once — **Settings → Connectors → Add custom connector**, URL `https://algorithmacy.com/api/mcp` (no login or key) — then ask it to *"submit my abstract to the Algorithmacy Conference."* The agent calls `list_tracks` and `submit_abstract`, prepares everything, and submits. It **cannot publish on its own**: we email *you* a one-click sign-off link, and the PR opens only when you click it. The agent never receives the token. (Agent builders: see [llms.txt](https://algorithmacy.com/llms.txt).)
+
+### Method 3 — a copy-paste prompt for any LLM
+
+No connector required. Copy the prompt at [algorithmacy.com/submit#ai-prompt](https://algorithmacy.com/submit#ai-prompt) into ChatGPT, Claude, or Gemini. It collects your details and either opens the PR (if it has GitHub tool access) or hands you the exact commands and content.
+
+### Method 4 — by hand on GitHub
+
+For those who prefer to open the pull request themselves:
 
 ### 1. Fork this repository
 
@@ -79,9 +89,7 @@ To volunteer as a reviewer, open an issue tagged `volunteer-reviewer` with your 
 | Reviews complete | 2026-09-15 |
 | Decisions announced | 2026-09-30 |
 | Camera-ready due | 2026-10-15 |
-| Conference | Late Oct / Early Nov 2026 |
-
-Final conference dates will be confirmed by 2026-06-15.
+| Conference | **October 28–31, 2026** (La Brea Pitch Lake, Trinidad & Tobago) |
 
 ## Code of conduct
 

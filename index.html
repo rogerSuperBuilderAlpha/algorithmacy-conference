@@ -14,6 +14,7 @@
 <meta name="twitter:card" content="summary" />
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary" />
 <link rel="stylesheet" href="design-system/colors_and_type.css" />
+<link rel="stylesheet" href="/assets/css/submit-modal.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
@@ -102,7 +103,7 @@
       The first global conference on <b>algorithmacy</b> — how workers coordinate with one another <b>through</b> an algorithmic third party. Two days of papers, four keynotes, and a field day at the Pitch Lake.
     </p>
     <div class="promo-ctas">
-      <a class="promo-btn primary" href="/submit">Submit a paper <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="promo-btn primary" href="/submit" data-open-submit>Submit a paper <span class="arrow" aria-hidden="true">→</span></a>
       <a class="promo-btn ghost" href="#tracks">Topics <span class="arrow" aria-hidden="true">→</span></a>
       <a class="promo-btn ghost" href="#schedule">Schedule <span class="arrow" aria-hidden="true">→</span></a>
       <a class="promo-btn ghost" href="/research">Research <span class="arrow" aria-hidden="true">→</span></a>
@@ -633,7 +634,7 @@
 
   <!-- ============== CTA ============== -->
   <section class="cta-strip">
-    <a class="cta" href="/submit">
+    <a class="cta" href="/submit" data-open-submit>
       <span>Submit a paper</span>
       <span class="arrow" aria-hidden="true">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -923,11 +924,63 @@
 
 </main>
 
-<a href="/submit" class="fab-submit" aria-label="Submit a paper">
+<a href="/submit" class="fab-submit" aria-label="Submit a paper" data-open-submit>
   <span>Submit a paper</span>
   <span class="arrow" aria-hidden="true">→</span>
 </a>
 
+<!-- ============== SUBMIT METHOD-PICKER MODAL ============== -->
+<div class="smodal" id="submit-modal" hidden>
+  <div class="smodal__overlay" data-close></div>
+  <div class="smodal__panel" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title">
+    <button class="smodal__close" data-close aria-label="Close">×</button>
+    <p class="smodal__eyebrow">Call for papers · closes 1 Aug 2026</p>
+    <h2 class="smodal__title" id="submit-modal-title">Submit a paper</h2>
+    <p class="smodal__sub">Pick how you'd like to submit. Every path ends in the same place — a public pull request whose timestamp is your authorship-priority record.</p>
+
+    <ul class="smodal__options">
+      <li class="sopt">
+        <span class="sopt__mark" aria-hidden="true">FORM</span>
+        <div class="sopt__body">
+          <h3>Fill in a web form <span class="sopt__tag">Easiest</span></h3>
+          <p>No GitHub account needed. Enter your abstract, confirm by email, and we open the pull request for you.</p>
+        </div>
+        <a class="sopt__btn" href="/submit#web-form">Use the form →</a>
+      </li>
+
+      <li class="sopt">
+        <span class="sopt__mark" aria-hidden="true">AGENT</span>
+        <div class="sopt__body">
+          <h3>Have an AI agent submit it</h3>
+          <p>Connect our MCP server to Claude or any agent. It prepares everything; you sign off with one email click.</p>
+        </div>
+        <a class="sopt__btn" href="/submit#agent">Set up the agent →</a>
+      </li>
+
+      <li class="sopt">
+        <span class="sopt__mark" aria-hidden="true">PROMPT</span>
+        <div class="sopt__body">
+          <h3>Paste a prompt into any LLM</h3>
+          <p>Copy our prompt into ChatGPT, Claude, or Gemini; it collects your details and opens the PR.</p>
+        </div>
+        <a class="sopt__btn" href="/submit#ai-prompt">Get the prompt →</a>
+      </li>
+
+      <li class="sopt">
+        <span class="sopt__mark" aria-hidden="true">GITHUB</span>
+        <div class="sopt__body">
+          <h3>Do it by hand on GitHub</h3>
+          <p>Fork the repository, copy the template, and open a pull request yourself.</p>
+        </div>
+        <a class="sopt__btn" href="/submit#manual">Open the steps →</a>
+      </li>
+    </ul>
+
+    <p class="smodal__foot">Open review: your submission and all reviews are public from intake, and reviewers sign their assessments. New here? <a href="/submit">See the full submission page →</a></p>
+  </div>
+</div>
+
+<script src="/assets/js/submit-modal.js"></script>
 <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

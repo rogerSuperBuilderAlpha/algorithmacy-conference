@@ -39,7 +39,7 @@
     </span>
     <h1 class="display">How to submit.</h1>
     <p class="lede">
-      Every submission to the Algorithmacy Conference becomes a <b>public pull request</b>, and its timestamp is your authorship-priority record. The easiest way is the <b>form below — no GitHub account needed</b>: fill it in, confirm by email, and we open the PR for you. Prefer GitHub directly? Have an <b>AI handle it</b>, or do it by hand — both are further down.
+      Every submission to the Algorithmacy Conference becomes a <b>public pull request</b>, and its timestamp is your authorship-priority record. There are four ways in — a <a href="#web-form"><b>web form</b></a> (no GitHub needed), an <a href="#agent"><b>AI agent</b></a> via our MCP connector, a <a href="#ai-prompt"><b>copy-paste prompt</b></a> for any LLM, or a <a href="#manual"><b>manual pull request</b></a>. Pick whichever fits; they all end in the same place.
     </p>
   </section>
 
@@ -146,8 +146,8 @@
     </div>
   </section>
 
-  <!-- ============== PATH 0 — DIRECT FORM (NO GITHUB) ============== -->
-  <section class="section">
+  <!-- ============== METHOD 1 — DIRECT FORM (NO GITHUB) ============== -->
+  <section class="section" id="web-form">
     <div class="section-head">
       <span class="section-num">01</span>
       <h2>Submit directly — no GitHub needed.</h2>
@@ -261,14 +261,44 @@
     </form>
   </section>
 
-  <!-- ============== PATH A — AI ASSISTED ============== -->
-  <section class="section">
+  <!-- ============== METHOD 2 — AGENT (MCP) ============== -->
+  <section class="section" id="agent">
     <div class="section-head">
       <span class="section-num">02</span>
-      <h2>Prefer GitHub? Let an AI handle it.</h2>
+      <h2>Have an AI agent submit it.</h2>
     </div>
     <p>
-      Paste the prompt below into a fresh conversation with <b>Claude</b>, <b>ChatGPT</b>, <b>Gemini</b>, or any LLM with web/tool access. It will ask you for your title, abstract, type, track, and the rest — then either open the PR for you (if it has GitHub tool access) or hand you the exact commands and content to do it yourself.
+      If you use <b>Claude</b> or any MCP-capable assistant, connect our submission server once, then just say <i>"submit my abstract to the Algorithmacy Conference."</i> The agent gathers your details, formats everything, and submits — but <b>it can't publish on its own</b>. We email <b>you</b> a one-click sign-off link, and the pull request opens only when you click it. The agent never receives the token, so nothing goes public without your approval.
+    </p>
+
+    <div class="how-row">
+      <div>
+        <h3>1 · Add the connector</h3>
+        <p>In Claude, open <b>Settings → Connectors → Add custom connector</b> and paste this URL (no login or key needed):</p>
+        <p><code>https://algorithmacy.com/api/mcp</code></p>
+      </div>
+      <div>
+        <h3>2 · Ask it to submit</h3>
+        <p>Enable the connector in a chat and say <i>"submit this abstract to the Algorithmacy Conference,"</i> pasting your draft. It calls <code>list_tracks</code> and <code>submit_abstract</code> for you.</p>
+      </div>
+      <div>
+        <h3>3 · Sign off by email</h3>
+        <p>You'll get a confirmation email — click <b>"Confirm &amp; publish"</b> and your PR opens. Its timestamp is your priority record.</p>
+      </div>
+    </div>
+    <p class="docs-links">
+      Works with any MCP client (Claude desktop &amp; web, Cursor, custom agents). Tools: <code>list_tracks</code>, <code>submit_abstract</code>. Building your own agent? See <a href="/llms.txt" target="_blank" rel="noopener">llms.txt</a>.
+    </p>
+  </section>
+
+  <!-- ============== METHOD 3 — AI PROMPT ============== -->
+  <section class="section" id="ai-prompt">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Or paste a prompt into any LLM.</h2>
+    </div>
+    <p>
+      No connector required: paste the prompt below into a fresh conversation with <b>Claude</b>, <b>ChatGPT</b>, <b>Gemini</b>, or any LLM with web/tool access. It will ask you for your title, abstract, type, track, and the rest — then either open the PR for you (if it has GitHub tool access) or hand you the exact commands and content to do it yourself.
     </p>
 
     <div class="prompt-wrap">
@@ -395,15 +425,12 @@ BEGIN by greeting the user and asking: "What are you submitting today?" Then col
         <p>Full control. The LLM walks you through and asks for confirmation before opening the PR. You can stop at any point and finish manually.</p>
       </div>
     </div>
-    <p class="docs-links">
-      <b>Agent-to-agent (MCP):</b> point an MCP-capable agent at <code>https://algorithmacy.com/api/mcp</code>. It exposes <code>list_tracks</code> and <code>submit_abstract</code>. The agent prepares everything; we email <b>you</b> a one-click sign-off link, and the PR opens only when you click it — the agent never gets the token, so it can't publish without your approval.
-    </p>
   </section>
 
-  <!-- ============== PATH B — MANUAL ============== -->
-  <section class="section">
+  <!-- ============== METHOD 4 — MANUAL GITHUB ============== -->
+  <section class="section" id="manual">
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2>Or do it by hand on GitHub.</h2>
     </div>
     <ol class="steps">
@@ -434,7 +461,7 @@ BEGIN by greeting the user and asking: "What are you submitting today?" Then col
   <!-- ============== POLICY ============== -->
   <section class="section">
     <div class="section-head">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2>What you're agreeing to.</h2>
     </div>
     <ul class="policy-list">
