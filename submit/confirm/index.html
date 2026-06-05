@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Confirm your submission · Algorithmacy Conference</title>
+<link rel="stylesheet" href="/design-system/colors_and_type.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="stylesheet" href="/assets/css/submit.css" />
+<meta name="robots" content="noindex" />
+</head>
+<body>
+
+<main class="stage">
+
+  <header class="topstrip">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
+        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      </svg>
+      <span><span class="back">← </span>Algorithmacy</span>
+    </a>
+    <div class="right">
+      <span>CFP / V01 · 2026</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">
+      <span class="num">Submit</span>
+      <span>Confirm &amp; publish</span>
+    </span>
+    <h1 class="display">One last step.</h1>
+    <p class="lede" id="lede">
+      Click the button below to publish your submission as a pull request. This is the step
+      that confirms your email and opens the PR — its timestamp becomes your priority record.
+    </p>
+    <p style="margin-top:8px">
+      <button id="confirm-btn" class="copy-btn" style="cursor:pointer;border:0;font-size:15px;padding:13px 26px">Confirm &amp; publish my submission →</button>
+    </p>
+    <div id="msg" style="margin-top:14px;color:var(--ink-soft);line-height:1.6"></div>
+  </section>
+
+  <footer class="page-footer">
+    <a href="/submit">← Back to the submission page</a>
+    <span>Roger Hunt · rhunt@bentley.edu</span>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    const token = new URLSearchParams(location.search).get('token');
+    const btn = document.getElementById('confirm-btn');
+    const msg = document.getElementById('msg');
+
+    if (!token) {
+      btn.disabled = true;
+      msg.innerHTML = 'This confirmation link is missing its token. Please use the link from your email, or <a href="/submit">submit again</a>.';
+      return;
+    }
+
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      const label = btn.textContent;
+      btn.textContent = 'Publishing…';
+      msg.textContent = '';
+      try {
+        const res = await fetch('/api/confirm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok && out.pr) {
+          location.href = '/submit/confirmed/?status=' + encodeURIComponent(out.status || 'created')
+            + '&pr=' + encodeURIComponent(out.pr);
+          return;
+        }
+        if (res.status === 410) {
+          location.href = '/submit/confirmed/?error=expired';
+          return;
+        }
+        location.href = '/submit/confirmed/?error=' + encodeURIComponent(out.error || 'server');
+      } catch (e) {
+        btn.disabled = false;
+        btn.textContent = label;
+        msg.textContent = 'Network error — please try clicking again.';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

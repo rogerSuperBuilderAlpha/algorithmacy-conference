@@ -79,7 +79,10 @@ module.exports = async (req, res) => {
   }
 
   const siteUrl = (process.env.SITE_URL || 'https://algorithmacy.com').replace(/\/$/, '');
-  const confirmUrl = `${siteUrl}/api/confirm?token=${token}`;
+  // Link to a static page with a Confirm button — NOT a state-mutating GET — so
+  // email security scanners (Microsoft Safe Links, Gmail) can't consume the
+  // one-time token by pre-fetching the link. The page POSTs to /api/confirm.
+  const confirmUrl = `${siteUrl}/submit/confirm/?token=${token}`;
 
   try {
     await sendMagicLink(clean, confirmUrl);
@@ -168,12 +171,12 @@ You started a submission to the Algorithmacy Conference:
   Type:  ${sub.type}
   Track: ${TRACKS[sub.track]}
 
-To publish it as a pull request on our open-review repository, confirm your
-email by opening this link (valid for 1 hour):
+To publish it as a pull request on our open-review repository, open this link
+and click "Confirm & publish" (valid for 1 hour):
 
   ${confirmUrl}
 
-The pull request opens the instant you confirm, and its timestamp becomes your
+The pull request opens when you click the button, and its timestamp becomes your
 authorship-priority record. If you didn't start this submission, you can ignore
 this email — nothing will be published.
 
@@ -188,9 +191,9 @@ this email — nothing will be published.
     Type: ${escapeHtml(sub.type)}<br>
     Track: ${escapeHtml(TRACKS[sub.track])}
   </blockquote>
-  <p>To publish it as a pull request on our open-review repository, confirm your email:</p>
-  <p><a href="${escapeHtml(confirmUrl)}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;text-decoration:none;border-radius:6px">Confirm &amp; publish my submission →</a></p>
-  <p style="color:#666;font-size:13px">This link is valid for 1 hour. The pull request opens the instant you confirm, and its timestamp becomes your authorship-priority record. If you didn't start this submission, ignore this email — nothing will be published.</p>
+  <p>To publish it as a pull request on our open-review repository, open the confirmation page and click the button:</p>
+  <p><a href="${escapeHtml(confirmUrl)}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;text-decoration:none;border-radius:6px">Open confirmation page →</a></p>
+  <p style="color:#666;font-size:13px">This link is valid for 1 hour. The pull request opens when you click "Confirm &amp; publish" on that page, and its timestamp becomes your authorship-priority record. If you didn't start this submission, ignore this email — nothing will be published.</p>
   <p style="color:#666;font-size:13px">— Algorithmacy Conference</p>
 </div>`;
 
