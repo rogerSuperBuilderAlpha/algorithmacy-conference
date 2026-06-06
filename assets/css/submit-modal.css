@@ -153,3 +153,15 @@
   .sopt__body{ grid-area: body; }
   .sopt__btn{ grid-area: btn; text-align: center; }
 }
+
+/* Partner deck modal — wider panel with embedded PDF viewer */
+.pmodal__panel{ width: min(960px, 100%); }
+.pmodal__pdf{
+  display: block;
+  width: 100%;
+  height: min(72vh, 760px);
+  margin-top: 4px;
+  border: 1px solid var(--border-hairline, #E4E8EE);
+  border-radius: 10px;
+  background: var(--bg-sunken, #F4F6F9);
+}

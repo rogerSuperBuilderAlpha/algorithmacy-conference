@@ -146,6 +146,29 @@
     </div>
   </section>
 
+  <!-- ============== SPECIAL SESSION — DIGITAL SOVEREIGNTY ============== -->
+  <section class="section special-session" id="digital-sovereignty" aria-label="Special session: Digital Sovereignty">
+    <div class="section-head">
+      <span class="section-num">★</span>
+      <h2>Special session — Digital Sovereignty</h2>
+    </div>
+    <p class="ss-chair">Chaired by <b>Samuel Fosso Wamba</b> · Information Systems &amp; Data Science, TBS Education</p>
+    <p>
+      The spread of AI, data-driven decision-making, and platform business models is reshaping the digital economy — and putting <b>digital sovereignty</b> at the center of how organizations coordinate. Sovereignty here is the capacity of states, organizations, and societies to retain control over their data, infrastructures, technologies, and ecosystems even as they depend on cloud, AI, and global platforms. This session asks how that struggle between <i>openness and control</i> plays out where work is mediated by an algorithmic third party — and treats sovereignty as an organizational and coordination problem, not only a regulatory one.
+    </p>
+    <p>
+      We welcome theoretical, empirical, and practitioner contributions. Submit through the form below and flag <b>"Digital Sovereignty"</b> in the optional special-session field; pick whichever track fits best. Like everything at the conference, accepted work is reviewed in the open. Themes include:
+    </p>
+    <ul class="ss-topics">
+      <li><b>Foundations</b> — defining and operationalizing digital sovereignty; its tensions with digital globalization; theoretical lenses (dynamic capabilities, institutional and platform theory).</li>
+      <li><b>Technologies &amp; infrastructures</b> — AI sovereignty and algorithmic control; data governance and cross-border flows; cloud dependency and multi-cloud strategy; open-source vs. proprietary ecosystems.</li>
+      <li><b>Organizations, platforms &amp; supply chains</b> — platform power, lock-in, and dependency; sovereign capabilities of SMEs; algorithmic management and supply-chain resilience; strategic responses to platform dominance.</li>
+      <li><b>Global &amp; regional perspectives</b> — European, North American, Chinese, African, and Global South approaches to digital control and governance; comparative cross-country analyses.</li>
+      <li><b>Futures &amp; societal implications</b> — governance models for sovereign digital ecosystems; ethics of AI and data sovereignty; digital inclusion, inequality, and sustainability.</li>
+    </ul>
+    <p class="ss-note">Contributions from diverse geographical and intellectual backgrounds are strongly encouraged.</p>
+  </section>
+
   <!-- ============== METHOD 1 — DIRECT FORM (NO GITHUB) ============== -->
   <section class="section" id="web-form">
     <div class="section-head">
@@ -206,6 +229,15 @@
               <option value="TR.05">TR.05 — Methods, Lineage &amp; Practice</option>
             </select>
           </div>
+        </div>
+
+        <div class="field">
+          <label for="f-special">Special session <span class="opt">(optional)</span></label>
+          <select id="f-special" name="specialSession">
+            <option value="" selected>None — general program</option>
+            <option value="Digital Sovereignty">Digital Sovereignty — chaired by Samuel Fosso Wamba</option>
+          </select>
+          <p class="hint">Submitting to a <a href="#digital-sovereignty">special session</a>? Flag it here. You still pick a track above; the session chair sees the flag.</p>
         </div>
 
         <div class="field">
@@ -343,6 +375,7 @@ Ask the user the following, one at a time, and validate as you go:
   - Author bios (≤100 words per author)
   - GitHub handle (used for the submission filename)
   - Conflicts of interest, or "none"
+  - Special session (optional) — e.g. "Digital Sovereignty" (chaired by Samuel Fosso Wamba); leave blank for the general program. A track is still required.
 
 STEP 2 — produce the submission file
 
@@ -354,6 +387,7 @@ Generate `submissions/<handle>.md` using exactly this format:
   **Contact:** <email>
   **Type:** <one of the five>
   **Track:** TR.0X
+  **Special session:** <name, or omit this line if none>
   **Word count:** <abstract body only>
   **Keywords:** <comma-separated>
   **Conflicts of interest:** <none, or describe>

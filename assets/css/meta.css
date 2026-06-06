@@ -38,6 +38,18 @@
     letter-spacing: 0;
     margin-top: 4px;
   }
+  .meta-row .partner-link{
+    font: inherit;
+    color: var(--signal);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,89,69,.4);
+    text-underline-offset: 2px;
+  }
+  .meta-row .partner-link:hover{ text-decoration-color: var(--signal); }
 
   @media (max-width: 720px){
     .meta-row{ grid-template-columns: 1fr 1fr; }
