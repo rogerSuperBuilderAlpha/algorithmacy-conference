@@ -7,3 +7,9 @@ node_modules
 
 # Private agent config — contains credentials and personal memory. Never commit.
 openclaw-config/
+
+# Local outreach / prospect data — scholar names, emails, and other personal
+# info live in an ambassador's own state, never in this public repo.
+*.xlsx
+*.csv
+state/cfp_outreach/
