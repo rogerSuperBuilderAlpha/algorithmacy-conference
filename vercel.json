@@ -2,15 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "algorithmacy.com" }],
-      "destination": "https://algorithmacy.org/:path*",
+      "destination": "https://algorithmacy.org/$1",
       "statusCode": 301
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.algorithmacy.com" }],
-      "destination": "https://algorithmacy.org/:path*",
+      "destination": "https://algorithmacy.org/$1",
       "statusCode": 301
     }
   ]
