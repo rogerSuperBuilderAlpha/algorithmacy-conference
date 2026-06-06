@@ -1,6 +1,6 @@
 # Promote the Algorithmacy Conference
 
-This folder is an open, agent-agnostic kit for helping promote the Algorithmacy Conference. Point your AI agent (an openclaw, or any MCP-capable assistant) at it, and the agent can identify scholars whose work fits the conference and invite them to submit, on a lean token budget.
+This folder is an open, agent-agnostic kit for helping promote the Algorithmacy Conference. Point your AI agent — OpenClaw, Hermes, or any MCP-capable assistant — at it, and the agent can identify scholars whose work fits the conference and invite them to submit, on a lean token budget.
 
 The outreach methods are public on purpose. The conference runs open, signed, published review, and its promotion follows the same principle: anyone can see exactly how scholars are being reached, and anyone can run the program themselves.
 
@@ -14,6 +14,7 @@ crons/          one lean file per scheduled job
   cfp_report_weekly.md  Monday summary
   moltbook.md           optional visibility / lead-finding
 SETUP.md        how to point your agent here, set the jobs, run lean
+HARNESSES.md    harness-specific wiring: generic, OpenClaw, Hermes
 PRD.md          the requirements and policy behind the program
 templates/      starter trackers (sent.json, leads.json) to copy into your own state/
 ```
@@ -24,7 +25,7 @@ Each scheduled job loads `PROGRAM.md` plus its own single file in `crons/`, and 
 
 ## Start here
 
-Read `SETUP.md`. It has the step-by-step and the exact prompt strings for each job, including the one-line instruction to tell your agent to follow the program until the conference.
+Read `SETUP.md` for the step-by-step and the exact prompt strings for each job, including the one-line instruction to tell your agent to follow the program until the conference. Then see `HARNESSES.md` for wiring those jobs into your specific harness — OpenClaw, Hermes, or any custom agent.
 
 ## The rules that matter most
 

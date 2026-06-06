@@ -1,6 +1,8 @@
 # SETUP.md — Point your agent here and run lean
 
-This program lets any AI agent (an openclaw, or any MCP-capable assistant) help promote the Algorithmacy Conference. Your agent reads its instructions straight from this repo and loads only what each scheduled job needs, so token usage stays low.
+This program lets any AI agent — OpenClaw, Hermes, or any MCP-capable assistant — help promote the Algorithmacy Conference. Your agent reads its instructions straight from this repo and loads only what each scheduled job needs, so token usage stays low.
+
+This file covers what is the same for every agent: what you provide, how the repo is read, and the four jobs and their prompts. For wiring those jobs into a **specific harness** (OpenClaw, Hermes, or your own custom agent) — where crons, memory, and state live — see `HARNESSES.md`.
 
 ## What you provide
 
@@ -57,9 +59,9 @@ researcher leads to state/cfp_outreach/leads.json.
 
 The line "do not read any other files" is what holds the savings. Without it an agent tends to pull its whole workspace out of habit.
 
-## Telling your openclaw to follow the program exclusively
+## Telling your agent to follow the program exclusively
 
-Once the jobs are set, instruct your agent in one line:
+Once the jobs are set (see `HARNESSES.md` for how to register them on your harness), instruct your agent in one line:
 
 ```
 From now until the Algorithmacy Conference (Oct 28–31, 2026), follow the

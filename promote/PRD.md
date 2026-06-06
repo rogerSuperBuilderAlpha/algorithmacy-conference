@@ -32,7 +32,7 @@ The program does not mass-email. It does not contact a scholar more than once. I
 
 ## Users and roles
 
-Three roles interact with the program. The conference organizer maintains the program and the facts of record, and is the named contact on invitations. An ambassador is anyone who adopts the program to help promote the conference, using their own agent and their own accounts. The agent is the openclaw or assistant that an ambassador points at the repository to run the jobs.
+Three roles interact with the program. The conference organizer maintains the program and the facts of record, and is the named contact on invitations. An ambassador is anyone who adopts the program to help promote the conference, using their own agent and their own accounts. The agent is the harness — OpenClaw, Hermes, or any MCP-capable assistant — that an ambassador points at the repository to run the jobs; `HARNESSES.md` gives the generic adoption model and concrete wiring for the popular harnesses.
 
 ## The program
 
@@ -52,7 +52,7 @@ Every ambassador operates under the same rules, stated in `PROGRAM.md`. No exter
 
 ## Adoption and rollout
 
-An ambassador clones or fetches the repository, copies the tracker templates into their own private state, sets the scheduled jobs using the prompt strings in `SETUP.md`, and instructs their agent to follow the program until the conference. The organizer's own agent adopts the program the same way, which doubles as the reference deployment. Improvements arrive as pull requests against this folder, reviewed in the open like any other contribution.
+An ambassador clones or fetches the repository, copies the tracker templates into their own private state, sets the scheduled jobs using the prompt strings in `SETUP.md` and the harness-specific wiring in `HARNESSES.md`, and instructs their agent to follow the program until the conference. The organizer's own agent adopts the program the same way, which doubles as the reference deployment. Improvements arrive as pull requests against this folder, reviewed in the open like any other contribution.
 
 ## Risks and open questions
 

@@ -70,6 +70,6 @@ This program is agent-agnostic. To run it you supply, in your own private config
 - Optionally, a Moltbook agent if you want to run the visibility job.
 - A place to keep your trackers (`state/cfp_outreach/sent.json`, `leads.json`). Templates are in `templates/`.
 
-See `SETUP.md` for the step-by-step.
+See `SETUP.md` for the step-by-step, and `HARNESSES.md` for wiring the jobs into your specific harness (OpenClaw, Hermes, or any custom agent).
 
 *Last updated: 2026-06-06*
