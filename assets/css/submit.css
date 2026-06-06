@@ -149,6 +149,43 @@
   }
   .section a:hover{ text-decoration-color: var(--signal); }
 
+  /* ---------- special session ---------- */
+  .special-session{
+    scroll-margin-top: 24px;
+    border: 1px solid rgba(255,89,69,.28);
+    background: rgba(255,89,69,.035);
+    border-radius: 14px;
+    padding: clamp(20px, 2.6vw, 32px);
+  }
+  .special-session .section-head{ margin-top: 0; }
+  .ss-chair{
+    font-family: var(--font-mono);
+    font-size: 12.5px !important;
+    letter-spacing: .03em;
+    color: var(--ink-soft);
+    margin-top: -6px !important;
+  }
+  .ss-chair b{ color: var(--ink); }
+  .ss-topics{
+    margin: 4px 0 18px;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 68ch;
+  }
+  .ss-topics li{
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    padding-left: 20px;
+    position: relative;
+  }
+  .ss-topics li::before{ content: "▸"; position: absolute; left: 0; color: var(--signal); }
+  .ss-topics b{ color: var(--ink); font-weight: 600; }
+  .ss-note{ font-size: 13.5px !important; color: var(--ink-faint) !important; }
+
   /* ---------- prompt block ---------- */
   .prompt-wrap{
     margin-top: clamp(20px, 2.4vw, 28px);

@@ -172,7 +172,7 @@ function renderMarkdown(sub) {
 **Authors:** ${authors}
 **Contact:** ${sub.email}
 **Type:** ${sub.type}
-**Track:** ${TRACKS[sub.track]}
+**Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n**Special session:** ${sub.specialSession}` : ''}
 **Word count:** ${sub.wordCount}
 **Keywords:** ${sub.keywords.join(', ')}
 **Conflicts of interest:** ${sub.coi || 'none'}
@@ -206,7 +206,7 @@ function prBody(sub, slug) {
 
 - **File:** \`submissions/${slug}.md\`
 - **Type:** ${sub.type}
-- **Track:** ${TRACKS[sub.track]}
+- **Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n- **Special session:** ${sub.specialSession}` : ''}
 
 ## One-sentence contribution
 

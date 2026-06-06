@@ -79,8 +79,14 @@
   .kmail:hover{ text-decoration: underline; text-underline-offset: 3px; }
   .kcard .kname{ margin: auto 0 0; color: var(--ink); font-weight: 600; font-size: 16px; text-decoration: none; }
   a.kname:hover{ text-decoration: underline; text-decoration-color: var(--signal); text-underline-offset: 3px; }
-  .kcard .kaff{ font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: .04em; }
+  .kcard .kaff{ font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: .04em; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
   .kcard .ktba{ align-self: flex-start; font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--signal); border: 1px dashed rgba(255,89,69,.4); padding: 3px 8px; border-radius: 4px; }
+  .kcard .kds{ align-self: flex-start; font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--signal); background: rgba(255,89,69,.08); border: 1px solid rgba(255,89,69,.3); padding: 4px 8px; border-radius: 4px; }
+
+  /* clickable special-session card → submission page */
+  a.kcard-session{ text-decoration: none; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+  a.kcard-session:hover{ border-color: rgba(255,89,69,.5); background: rgba(255,89,69,.04); transform: translateY(-2px); }
+  a.kcard-session .kname{ color: var(--ink); }
 
   @media (max-width: 760px){
     .sched-grid{ grid-template-columns: 1fr; }
