@@ -15,49 +15,74 @@ Kept in your own private config, never committed to this repo:
 
 ## How the agent reads this repo
 
-Two options, both lean:
+The program is just files in this repo. A job needs exactly two of them: `PROGRAM.md` and its one `crons/*.md` task file. Read the warning before you choose how to load them — this is the single most common setup failure.
 
-1. **Clone once, read locally.** `git clone` the repo and point each job at `promote/PROGRAM.md` plus its one `promote/crons/*.md` file. Pull occasionally to stay current.
-2. **Fetch raw files at run time.** Each job fetches just its two files from raw GitHub:
-   ```
-   https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
-   https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_outreach.md
-   ```
+> ⚠️ **A scheduled / cron job usually runs in a fresh, isolated session with no copy of this repo on disk.** If you tell such a job to "read `promote/PROGRAM.md`," it looks on its own local filesystem, finds nothing, and reports *"file not found"* — the job appears to complete but does no work, and a report job will happily "deliver" that error to your channel as if it were a result. **Phrase every job as an HTTP fetch of the raw URLs below — not a local file read** — unless you have genuinely cloned this repo into a path the running job can reach.
 
-Either way, the rule is the same: a job loads `PROGRAM.md` plus exactly one task file, and nothing else. That is the whole token-saving design.
+**Option A — Fetch raw files at run time (default; works for any agent, any harness).** Each job fetches its two files over HTTP — your `web_fetch` / `fetch` tool, or `curl` — from these exact URLs. The repo is public; no token needed.
+
+```
+Base: https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/
+
+  PROGRAM.md                  →  <base>/PROGRAM.md
+  crons/cfp_outreach.md       →  <base>/crons/cfp_outreach.md
+  crons/cfp_report_daily.md   →  <base>/crons/cfp_report_daily.md
+  crons/cfp_report_weekly.md  →  <base>/crons/cfp_report_weekly.md
+  crons/moltbook.md           →  <base>/crons/moltbook.md
+```
+
+**Option B — Clone once, read locally.** `git clone` the repo into a persistent path your jobs share, point each job at `promote/PROGRAM.md` plus its one `promote/crons/*.md` file, and `git pull` occasionally to stay current. Use this **only** if your jobs actually run in that working directory — many cron / isolated sessions do not, which is why Option A is the default.
+
+Either way the rule is the same: a job loads `PROGRAM.md` plus exactly one task file, and nothing else. That is the whole token-saving design.
 
 ## The jobs and their prompts
 
-Set each scheduled job's prompt to read only its two files and not wander. Suggested cadence in parentheses; adjust to your capacity.
+Set each scheduled job's prompt to fetch only its two files and not wander. Each prompt below is copy-paste ready (Option A — raw fetch). Suggested cadence in parentheses; adjust to your capacity. If you cloned instead (Option B), swap the two URLs for the matching local `promote/...` paths.
 
 **Scholar outreach (weekday mornings):**
 ```
-Read promote/PROGRAM.md and promote/crons/cfp_outreach.md from the
-Algorithmacy Conference repo. Do not read any other files. Follow
-cfp_outreach.md: find scholars matched to a track, verify them, send
-personal invitations, and log to your state/cfp_outreach/ trackers.
+Fetch these two files over HTTP — use your web_fetch/fetch tool or curl, do
+NOT try to open them as local files:
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_outreach.md
+Fetch nothing else. Then follow cfp_outreach.md: find scholars matched to a
+track, verify them, send personal invitations, and log to your
+state/cfp_outreach/ trackers (sent.json, leads.json).
 ```
 
 **Daily report (evening):**
 ```
-Read promote/PROGRAM.md and promote/crons/cfp_report_daily.md. Do not read
-any other files. Follow it and send the one-line summary to my channel.
+Fetch these two files over HTTP (web_fetch/fetch tool or curl, not local
+file reads):
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_report_daily.md
+Fetch nothing else. Follow it and send the one-line summary to my channel.
 ```
 
 **Weekly report (Monday morning):**
 ```
-Read promote/PROGRAM.md and promote/crons/cfp_report_weekly.md. Do not read
-any other files. Follow it and send the weekly summary to my channel.
+Fetch these two files over HTTP (web_fetch/fetch tool or curl, not local
+file reads):
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_report_weekly.md
+Fetch nothing else. Follow it and send the weekly summary to my channel.
 ```
 
 **Visibility on Moltbook (optional, 1–3× daily):**
 ```
-Read promote/PROGRAM.md and promote/crons/moltbook.md. Do not read any other
-files. Follow it: engage substantively, keep the conference visible, and add
-researcher leads to state/cfp_outreach/leads.json.
+Fetch these two files over HTTP (web_fetch/fetch tool or curl, not local
+file reads):
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/moltbook.md
+Fetch nothing else. Follow it: engage substantively, keep the conference
+visible, and add researcher leads to state/cfp_outreach/leads.json.
 ```
 
-The line "do not read any other files" is what holds the savings. Without it an agent tends to pull its whole workspace out of habit.
+Two lines do the heavy lifting in every prompt. "Fetch nothing else" holds the token savings — without it an agent pulls its whole workspace out of habit. "Over HTTP … not local file reads" prevents the most common failure, where an isolated session reads an empty local path and silently does nothing.
+
+### Confirm it actually worked
+
+A job that fetched nothing still "completes" — the model just answers with a *file not found* note. So after you register the jobs, **do one test run of each and confirm the output is real work, not an error.** The tell for a healthy daily report is a real line like `CFP daily — quiet. 0 sent, 0 replies. 0 leads queued.` If you instead see "could not find `promote/PROGRAM.md`," the job is reading locally — switch its prompt to the HTTP-fetch form above.
 
 ## Telling your agent to follow the program exclusively
 
@@ -65,13 +90,17 @@ Once the jobs are set (see `HARNESSES.md` for how to register them on your harne
 
 ```
 From now until the Algorithmacy Conference (Oct 28–31, 2026), follow the
-promotion program in the algorithmacy-conference repo under promote/.
-Reset your crons to the four jobs in promote/SETUP.md and run them
-exclusively. Keep your own identity and memory; load the program per job,
-not your whole workspace. Pause unrelated scheduled work until the conference.
+promotion program in the algorithmacy-conference repo. Start by fetching
+https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/SETUP.md
+over HTTP (not a local file read) and do what it says: reset your crons to
+its four jobs, using the raw-URL fetch prompts exactly as written. Then do a
+test run of each job and confirm it returned real work, not a "file not
+found" error, before trusting the schedule. Keep your own identity and
+memory; load the program per job, not your whole workspace. Pause unrelated
+scheduled work until the conference.
 ```
 
-Your agent keeps being itself. The program is a mission it adopts, loaded lean, one task file per job.
+Your agent keeps being itself. The program is a mission it adopts, loaded lean, one task file per job — and every load is an HTTP fetch of a raw URL, never an assumption that the files are already on disk.
 
 ## Keeping your secrets out of the repo
 

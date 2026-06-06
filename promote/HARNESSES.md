@@ -45,14 +45,18 @@ OpenClaw runs a Gateway process with a built-in cron scheduler and a Markdown wo
 
 **Keep your agent itself.** Do not overwrite `SOUL.md` / `USER.md`. Adopt the program as a mission by adding the standing instruction from `SETUP.md` to `HEARTBEAT.md` (or wherever your recurring directives live).
 
-**Register the four jobs.** Each is an *isolated*-session cron job whose `message` is the matching per-job prompt from `SETUP.md`. Use a `cron` schedule for cadence; use `announce` delivery for the two reports so they reach your chat. Sketch of one entry in `jobs.json` (check the OpenClaw docs for exact field nesting):
+**Register the four jobs.** Each is an *isolated*-session cron job whose `message` is the matching per-job prompt from `SETUP.md`.
+
+> ⚠️ **An isolated cron session does not see your workspace.** It starts fresh with no copy of this repo, so a `message` that says "read `promote/PROGRAM.md`" will fail with *file not found* and the job will silently do nothing (a report job will even "deliver" that error to your chat). The `message` **must fetch the raw URLs over HTTP** — use the exact raw-fetch prompts from `SETUP.md`, not a local-read phrasing.
+
+Use a `cron` schedule for cadence; use `announce` delivery for the two reports so they reach your chat. Sketch of one entry in `jobs.json` (check the OpenClaw docs for exact field nesting):
 
 ```json
 {
   "schedule": { "cron": "0 9 * * 1-5", "tz": "America/Port_of_Spain" },
   "session": "isolated",
   "agentTurn": {
-    "message": "Read promote/PROGRAM.md and promote/crons/cfp_outreach.md from the Algorithmacy Conference repo. Do not read any other files. Follow cfp_outreach.md and log to state/cfp_outreach/."
+    "message": "Fetch these two files over HTTP (web_fetch/fetch tool or curl, not local file reads): https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md and https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_outreach.md . Fetch nothing else. Then follow cfp_outreach.md and log to state/cfp_outreach/."
   },
   "delivery": { "mode": "none" }
 }
