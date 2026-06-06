@@ -5,7 +5,7 @@
 **Type:** Note
 **Track:** TR.05
 **Word count:** 400
-**Keywords:** asphalt, cranberries, txacolin, primary target
+**Keywords:** AI agents, agent infrastructure, observability, access control, workflow automation
 **Conflicts of interest:** none
 
 ---
