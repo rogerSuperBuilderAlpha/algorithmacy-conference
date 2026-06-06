@@ -33,12 +33,13 @@ Map each candidate to the best-fit track:
 ## Step 2 — Verify before contacting
 
 - Confirm the scholar is real and the work fits a track. No name enters the list on model output alone.
+- Verify the specific work you will cite in the hook — not just that the person exists. Open the real source (their profile, the paper's page) and confirm the title, that it is genuinely theirs, and *what kind of work it is*: a journal article, a book review, an edited volume, and a funded project are not interchangeable, and a co-author's paper is not theirs. Calling a book review their "research" is a factual error the recipient will catch. Never cite a work from memory.
 - Find a published or institutional email. Do not guess-construct addresses; guessed addresses bounce and harm the conference's name.
 - Check `state/cfp_outreach/sent.json`. If they are already there, skip. Never re-email.
 
 ## Step 3 — Send the invitation
 
-Personalize the hook to one specific paper of theirs and the matched track. Sign as yourself, an ambassador for the conference. Template:
+Personalize the hook to one specific, verified work of theirs (the one you confirmed in Step 2) and the matched track. Sign as yourself, an ambassador for the conference. Template:
 
 ```
 Subject: Invitation to submit — Algorithmacy Conference, Trinidad, Oct 2026

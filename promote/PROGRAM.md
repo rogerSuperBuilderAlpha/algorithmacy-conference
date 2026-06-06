@@ -57,7 +57,7 @@ Each job loads `PROGRAM.md` plus its own one file in `crons/`. Nothing else. Thi
 1. Never send anything external (email, post, pull request) that misstates a conference fact. The table above is the source of truth.
 2. Never submit on a scholar's behalf without their own email sign-off. The MCP `submit_abstract` flow emails the author a one-click link and returns no token to the agent. Respect that gate.
 3. One scholar, one invite. Check your tracker before contacting anyone. Never re-email.
-4. Verify before you claim. No scholar name, affiliation, or email enters an outreach list on model output alone.
+4. Verify before you claim — about the person *and* their work. No scholar name, affiliation, email, or claim about their research enters an outreach list on model output alone. If a hook cites a paper, project, or quote, open a real source and confirm it exists, is theirs, and is characterized correctly — a journal article, a book review, an edited volume, and a funded grant are not interchangeable. Never cite a work from memory; mischaracterizing someone's work is a factual error they will notice.
 5. No spam. A small number of well-matched, correctly addressed invitations beats a blast. Guessed email addresses bounce and damage the conference's name.
 6. Sign as yourself. You invite scholars in your own name as an ambassador for the conference. The conference contact is rhunt@bentley.edu.
 
