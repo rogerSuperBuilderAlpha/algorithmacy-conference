@@ -61,18 +61,17 @@
   .kgrid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .kcard{ border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.02); padding: clamp(16px,1.6vw,20px); display: flex; flex-direction: column; gap: 12px; min-height: 168px; }
   .kcard .knum{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
-  /* headshot: layered background — photo on top, pixel-grid placeholder beneath.
-     If the photo file is missing/404s, that layer silently doesn't paint and the
-     grid shows through (no broken-image icon). Set --photo per card. */
+  /* headshot: layered background — photo on top, Algorithmacy logo mark beneath.
+     If the photo file is missing/404s (or no --photo is set), that layer silently
+     doesn't paint and the logo shows through (no broken-image icon). Set --photo per card. */
   .kface{
     width: 48px; height: 48px; border-radius: 8px; border: 1px solid var(--line-strong);
     background-color: rgba(255,89,69,.07);
     background-image: var(--photo, none),
-      linear-gradient(90deg, rgba(239,234,224,.10) 1px, transparent 1px),
-      linear-gradient(rgba(239,234,224,.10) 1px, transparent 1px);
-    background-size: cover, 12px 12px, 12px 12px;
-    background-position: center, 0 0, 0 0;
-    background-repeat: no-repeat, repeat, repeat;
+      url('/images/logo-mark.svg');
+    background-size: cover, 60%;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
   }
   .kcard-cta{ border-color: rgba(255,89,69,.4); background: rgba(255,89,69,.05); }
   .kmail{ margin-top: 4px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--signal); text-decoration: none; }
