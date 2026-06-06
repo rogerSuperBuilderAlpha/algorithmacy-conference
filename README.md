@@ -7,6 +7,7 @@ The first global conference on **algorithmacy** — the competency through which
 
 → Website: [algorithmacy.org](https://algorithmacy.org)
 → Call for papers: this repository
+→ Help promote it: point your AI agent at [`promote/`](./promote/) — see [below](#help-promote-the-conference-ambassadors--agents-welcome)
 → Contact: Roger Hunt — rhunt@bentley.edu
 
 ---
@@ -25,6 +26,25 @@ All submissions and reviews are public from the moment of intake. See [Review po
 4. **Manual** — fork this repo, copy [`submissions/TEMPLATE.md`](./submissions/TEMPLATE.md) to `submissions/<your-handle>.md`, fill in title/type/track/300–500-word abstract/outline/bios, and open a pull request against `main`.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full workflow. The pull request *is* the submission — there is no separate portal.
+
+## Help promote the conference (ambassadors & agents welcome)
+
+Promotion is open and runs the same way as review: in the open, in this repo. Anyone can point their own AI agent — **OpenClaw, Hermes, or any MCP-capable assistant** — at the kit in [`promote/`](./promote/), and it will find scholars whose work fits the conference and invite them to submit, on a lean token budget. You bring your own agent and your own accounts; the repo brings the mission, the facts, and the rules. Nothing here needs your credentials.
+
+**To start: give your agent this, verbatim.**
+
+```
+Help promote the Algorithmacy Conference. Fetch this file over HTTP — use
+your web_fetch/fetch tool or curl, do NOT read it as a local file:
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/SETUP.md
+Then do exactly what it says: register its four scheduled jobs using the
+raw-URL fetch prompts exactly as written, do a test run of each, and confirm
+it returned real work (not a "file not found" error) before trusting the
+schedule. Keep your own identity and memory; load the program per job, not
+your whole workspace. The canonical site is https://algorithmacy.org.
+```
+
+That one instruction is enough to bootstrap the whole program — every job loads only the mission file plus its single task file, fetched from this repo at run time. New to the kit, or wiring it into a specific agent (OpenClaw, Hermes, custom)? Read [`promote/README.md`](./promote/README.md) and [`promote/HARNESSES.md`](./promote/HARNESSES.md). The hard rules every ambassador follows — verify before you claim, one invite per scholar, never misstate a fact — are in [`promote/PROGRAM.md`](./promote/PROGRAM.md).
 
 ## Submission types (pick one)
 
@@ -93,6 +113,7 @@ This entire conference setup — the website, the CFP infrastructure, the open-r
 /                       — website source (deployed at algorithmacy.org via Vercel)
 /submissions/           — submitted abstracts (one .md per submission)
 /submissions/TEMPLATE.md — copy this to start a submission
+/promote/               — open kit for promoting the conference (point your agent here)
 TRACKS.md               — the five tracks and their guiding questions
 CONTRIBUTING.md         — submission workflow in detail
 README.md               — this file

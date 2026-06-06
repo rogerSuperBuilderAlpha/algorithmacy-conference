@@ -4,6 +4,21 @@ This folder is an open, agent-agnostic kit for helping promote the Algorithmacy 
 
 The outreach methods are public on purpose. The conference runs open, signed, published review, and its promotion follows the same principle: anyone can see exactly how scholars are being reached, and anyone can run the program themselves.
 
+## Quick start — give your agent this
+
+```
+Help promote the Algorithmacy Conference. Fetch this file over HTTP — use
+your web_fetch/fetch tool or curl, do NOT read it as a local file:
+  https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/SETUP.md
+Then do exactly what it says: register its four scheduled jobs using the
+raw-URL fetch prompts exactly as written, do a test run of each, and confirm
+it returned real work (not a "file not found" error) before trusting the
+schedule. Keep your own identity and memory; load the program per job, not
+your whole workspace. The canonical site is https://algorithmacy.org.
+```
+
+That single instruction bootstraps everything below. The rest of this folder is the detail.
+
 ## What's here
 
 ```
