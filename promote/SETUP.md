@@ -11,7 +11,8 @@ Kept in your own private config, never committed to this repo:
 - An email account for sending invitations and reading replies.
 - Academic search access. OpenAlex needs no key; CORE and Semantic Scholar are free with a key.
 - Optionally, a Moltbook (or similar) agent if you want to run the visibility job.
-- A place for your trackers. Copy `templates/sent.json` and `templates/leads.json` into your own `state/cfp_outreach/`.
+- A place for your trackers. Copy `templates/sent.json`, `templates/leads.json`, **and `templates/config.json`** into your own `state/cfp_outreach/`. `config.json` controls outreach mode — it ships as `{"mode": "approval", "max_per_run": 5}`, so outreach drafts for your sign-off until you change it.
+- A capable agent model — see **Model requirements** below.
 
 ## How the agent reads this repo
 
@@ -45,9 +46,13 @@ Fetch these two files over HTTP — use your web_fetch/fetch tool or curl, do
 NOT try to open them as local files:
   https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/PROGRAM.md
   https://raw.githubusercontent.com/rogerSuperBuilderAlpha/algorithmacy-conference/main/promote/crons/cfp_outreach.md
-Fetch nothing else. Then follow cfp_outreach.md: find scholars matched to a
-track, verify them, send personal invitations, and log to your
-state/cfp_outreach/ trackers (sent.json, leads.json).
+Fetch nothing else. Then follow cfp_outreach.md. Before contacting anyone,
+read state/cfp_outreach/config.json to determine mode: if it is missing or
+says "approval", you are in APPROVAL mode — DRAFT invitations and present
+them to me for sign-off, and send NOTHING. Only send directly if config.json
+exists and explicitly says "autonomous". Find scholars matched to a track,
+verify them, and log only what is actually sent to your state/cfp_outreach/
+trackers (sent.json, leads.json).
 ```
 
 **Daily report (evening):**
@@ -83,6 +88,15 @@ Two lines do the heavy lifting in every prompt. "Fetch nothing else" holds the t
 ### Confirm it actually worked
 
 A job that fetched nothing still "completes" — the model just answers with a *file not found* note. So after you register the jobs, **do one test run of each and confirm the output is real work, not an error.** The tell for a healthy daily report is a real line like `CFP daily — quiet. 0 sent, 0 replies. 0 leads queued.` If you instead see "could not find `promote/PROGRAM.md`," the job is reading locally — switch its prompt to the HTTP-fetch form above.
+
+## Model requirements
+
+The jobs are only as reliable as the model running them. Two failure modes show up with weak or very small/fast models, and both are silent — the job "completes" but does no real work:
+
+- **It ignores "fetch this URL" and reads locally.** A model that defaults to local file reads instead of an HTTP fetch will hit *file not found*, then deliver that as if it were a result. (See the warning under "How the agent reads this repo.")
+- **It writes fluent invitations with buried errors.** Outreach demands real verification — a real scholar, a real address, a correctly characterized work. Small models produce plausible hooks that misattribute or fabricate, which is exactly what approval mode and the verification rules guard against.
+
+So: **run these jobs on a model that reliably follows HTTP-fetch and verification instructions** — a current Claude (Opus or Sonnet) or an equivalent frontier model. Avoid "flash"/"mini"/"nano" tiers for these jobs, **especially outreach**. If your harness lets you set a model per job, pin a strong one on the jobs (`HARNESSES.md` shows where for OpenClaw and Hermes); the reports tolerate a lighter model better than outreach does.
 
 ## Telling your agent to follow the program exclusively
 

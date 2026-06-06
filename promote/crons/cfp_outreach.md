@@ -8,22 +8,25 @@
 
 Find scholars whose work fits a conference track, then invite them to submit. One scholar, one invite. Quality of fit over volume.
 
-## Mode — approval (default) or autonomous
+## Step 0 — Determine your mode (do this first, before anything else)
 
-This job runs in one of two modes, and **the default is approval mode**: a human signs off before any email leaves. Switch to autonomous only once you trust the targeting and tone — emails are irreversible, and a wrong or guessed address damages the conference's name.
-
-Read the mode from **your own** state, not this repo — `state/cfp_outreach/config.json`:
+This job runs in one of two modes, and **the default is approval mode**: a human signs off before any email leaves. **Your very first action this run** — before search, before drafting, before any send — is to read **your own** state file (not this repo): `state/cfp_outreach/config.json`.
 
 ```json
 {"mode": "approval", "max_per_run": 5}
 ```
 
-If the file or the `mode` field is missing, assume `"approval"`. The operator flips it to `"autonomous"` when ready; nothing in this shared repo changes. Never exceed `max_per_run` (default 5) new scholars per run in either mode.
+Decide the mode by this rule, and state which mode you are in at the top of your run:
 
-- **approval** → do Steps 1–2 in full, then **Step 3A**: draft the invitations and send the batch to the operator for sign-off. No scholar email goes out, and nothing is logged, until the operator approves.
+- The **only** way you are in autonomous mode is if that file **exists** and **explicitly** contains `"mode": "autonomous"`.
+- In **every other case** — file missing, unreadable, empty, `mode` absent, set to `approval`, or you are unsure for any reason — **you are in approval mode.** Never infer autonomous from a missing file.
+
+What each mode means:
+
+- **approval (default)** → do Steps 1–2 in full, then **Step 3A**: draft the invitations and send the batch to the operator for sign-off. **No scholar email goes out, and nothing is written to `sent.json`, until the operator approves.**
 - **autonomous** → do Steps 1–4 end to end, sending verified invitations directly (**Step 3B**).
 
-A small or fast model is exactly where approval mode earns its keep: it writes fluent, plausible invitations that can still carry a buried error. Keep it on until a few batches come back clean.
+Never exceed `max_per_run` (default 5) new scholars per run in either mode. A small or fast model is exactly where approval mode earns its keep: it writes fluent, plausible invitations that can still carry a buried error. Keep it on until a few batches come back clean.
 
 ## Step 1 — Build today's candidate list
 

@@ -31,7 +31,7 @@ crons/          one lean file per scheduled job
 SETUP.md        how to point your agent here, set the jobs, run lean
 HARNESSES.md    harness-specific wiring: generic, OpenClaw, Hermes
 PRD.md          the requirements and policy behind the program
-templates/      starter trackers (sent.json, leads.json) to copy into your own state/
+templates/      starter files (sent.json, leads.json, config.json) to copy into your own state/
 ```
 
 ## How it works in one paragraph

@@ -8,7 +8,8 @@ Every adapter below wires up the same three things. If your harness can do these
 
 1. **A scheduler** — to wake the agent on a cadence and run a job's prompt. The four jobs and their cadences are in `SETUP.md`.
 2. **Persistent identity + memory** — your agent stays itself. The program is a mission it adopts per run, not a replacement for who it is. Never overwrite your identity files with the program.
-3. **A writable state dir** — for the program's trackers. Copy `templates/sent.json` and `templates/leads.json` into a path the scheduled jobs can read and write; this doc calls it `<STATE>/cfp_outreach/`.
+3. **A writable state dir** — for the program's trackers and config. Copy `templates/sent.json`, `templates/leads.json`, and `templates/config.json` into a path the scheduled jobs can read and write; this doc calls it `<STATE>/cfp_outreach/`.
+4. **A capable model.** These jobs need a model that reliably follows HTTP-fetch and verification instructions — pin a current Claude (Opus/Sonnet) or equivalent, especially for outreach; small/fast tiers silently fail (see `SETUP.md` → Model requirements). Each harness below notes where to set the per-job model.
 
 The golden rule from `SETUP.md` holds for every harness: **a job loads `PROGRAM.md` plus its one `crons/*.md` file and nothing else.** That line is what keeps token cost low enough for many people to run outreach at once.
 
@@ -64,6 +65,8 @@ Use a `cron` schedule for cadence; use `announce` delivery for the two reports s
 
 For the daily / weekly reports, set `delivery.mode` to `announce` and the channel/target to your chat. Schema reference: `schedule` is one of `at` | `every` | `cron`; `session` is `main` | `isolated`; `delivery.mode` is `announce` | `webhook` | `none`.
 
+**Pin a strong model on these jobs**, especially outreach — set the cron job's model to a current Claude (Opus/Sonnet) or equivalent rather than a flash/mini tier. Whichever model the Gateway resolves for an isolated cron run must reliably follow HTTP-fetch and verification instructions; weak models silently fail.
+
 ---
 
 ## Hermes
@@ -81,6 +84,8 @@ Hermes (Nous Research) is a self-hosted gateway with a built-in cron scheduler, 
 
 1. **As scheduled jobs (matches the other harnesses).** Use Hermes's built-in cron scheduler to register the four jobs from `SETUP.md`, each delivering to your platform (Telegram, Discord, Slack, WhatsApp, Signal, or CLI). Install the gateway as a service with `hermes gateway install`; configure messaging with `hermes gateway setup`. (Hermes's cron config keys are version-specific — set them per your `~/.hermes/config.yaml` and the current docs.)
 2. **As a skill (Hermes-native).** The kit is already a load-only-what-you-need mission, so it maps cleanly onto Hermes's `SKILL.md` model: wrap the standing instruction plus per-job prompts as a skill the agent loads on demand. Keep `PROGRAM.md` + one `crons/*.md` as the skill's references so the lean-loading rule still holds.
+
+**Pin a strong model.** Hermes can switch models with a single command and supports per-job model choice — run outreach (and ideally the reports) on a current Claude (Opus/Sonnet) or equivalent, not a flash/mini tier, so HTTP-fetch and verification instructions are followed reliably.
 
 **Keep your agent itself.** Do not overwrite `SOUL.md` / `USER.md` / `MEMORY.md`. Add the standing instruction from `SETUP.md` as durable guidance (or via the skill above).
 

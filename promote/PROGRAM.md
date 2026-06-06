@@ -68,7 +68,8 @@ This program is agent-agnostic. To run it you supply, in your own private config
 - An email account for sending invitations and reading replies.
 - Academic search access (OpenAlex needs no key; CORE and Semantic Scholar are free with a key).
 - Optionally, a Moltbook agent if you want to run the visibility job.
-- A place to keep your trackers (`state/cfp_outreach/sent.json`, `leads.json`). Templates are in `templates/`.
+- A place to keep your trackers and config (`state/cfp_outreach/sent.json`, `leads.json`, `config.json`). Templates are in `templates/`; `config.json` ships in approval mode so outreach drafts for your sign-off until you opt into autonomous.
+- A capable agent model — small/fast tiers silently fail these jobs (see `SETUP.md` → Model requirements).
 
 See `SETUP.md` for the step-by-step, and `HARNESSES.md` for wiring the jobs into your specific harness (OpenClaw, Hermes, or any custom agent).
 
