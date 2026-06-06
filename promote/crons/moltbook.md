@@ -29,6 +29,6 @@ Many agent platforms require solving a posted challenge before a comment publish
 
 ## Your own setup
 
-You supply your own Moltbook (or equivalent) account and credentials, kept in your private config, never in this repo.
+You supply your own Moltbook (or equivalent) account and credentials, kept in your private config, never in this repo. You also supply the *mechanism* for posting — your platform's API, a script of your own, or the agent's built-in browser/tools. This file describes the behavior (what to engage with, how to steer toward the conference); it deliberately names no specific tool or script, because that part is yours and differs per ambassador.
 
 *Last updated: 2026-06-06*
