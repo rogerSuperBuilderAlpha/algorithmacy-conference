@@ -8,6 +8,23 @@
 
 Find scholars whose work fits a conference track, then invite them to submit. One scholar, one invite. Quality of fit over volume.
 
+## Mode — approval (default) or autonomous
+
+This job runs in one of two modes, and **the default is approval mode**: a human signs off before any email leaves. Switch to autonomous only once you trust the targeting and tone — emails are irreversible, and a wrong or guessed address damages the conference's name.
+
+Read the mode from **your own** state, not this repo — `state/cfp_outreach/config.json`:
+
+```json
+{"mode": "approval", "max_per_run": 5}
+```
+
+If the file or the `mode` field is missing, assume `"approval"`. The operator flips it to `"autonomous"` when ready; nothing in this shared repo changes. Never exceed `max_per_run` (default 5) new scholars per run in either mode.
+
+- **approval** → do Steps 1–2 in full, then **Step 3A**: draft the invitations and send the batch to the operator for sign-off. No scholar email goes out, and nothing is logged, until the operator approves.
+- **autonomous** → do Steps 1–4 end to end, sending verified invitations directly (**Step 3B**).
+
+A small or fast model is exactly where approval mode earns its keep: it writes fluent, plausible invitations that can still carry a buried error. Keep it on until a few batches come back clean.
+
 ## Step 1 — Build today's candidate list
 
 Pull candidates from, in priority order:
@@ -37,9 +54,9 @@ Map each candidate to the best-fit track:
 - Find a published or institutional email. Do not guess-construct addresses; guessed addresses bounce and harm the conference's name.
 - Check `state/cfp_outreach/sent.json`. If they are already there, skip. Never re-email.
 
-## Step 3 — Send the invitation
+## Step 3 — Invite (follow the branch for your mode)
 
-Personalize the hook to one specific, verified work of theirs (the one you confirmed in Step 2) and the matched track. Sign as yourself, an ambassador for the conference. Template:
+Draft the invitation the same way in both modes. Personalize the hook to one specific, verified work of theirs (the one you confirmed in Step 2) and the matched track. Sign as yourself, an ambassador for the conference. Template:
 
 ```
 Subject: Invitation to submit — Algorithmacy Conference, Trinidad, Oct 2026
@@ -70,14 +87,31 @@ Best regards,
 Conference contact: Roger Hunt, rhunt@bentley.edu
 ```
 
-Notes:
+Notes (both modes):
 - Lead the hook with their work, not with the conference.
 - Never offer to submit on their behalf without their own email sign-off. If a scholar wants agent submission, the MCP `submit_abstract` flow emails them a one-click confirmation; the agent never gets the token.
 - AI assistance is welcome at the conference and carries no penalty. Mention only if relevant.
 
+### Step 3A — Approval mode (default): draft, then request sign-off
+
+Send **nothing** to scholars. Compile a review packet and deliver it to the operator's channel. For each candidate include:
+
+- name and affiliation
+- the **exact email address** you found **and the source you verified it from** (a URL or where it is published) — if you could not find a real published or institutional address, **drop the candidate; never guess or construct one**
+- matched track, and the one specific verified work the hook is built on
+- the full drafted email, verbatim
+
+End the packet with: `Approve which to send (numbers), or reply "none".`
+
+Send zero emails and write nothing to `sent.json` until the operator replies with approvals. When they approve a subset, send only those, then do Step 4 for only those. Anyone they did not approve is not sent and not logged (so they remain eligible next time).
+
+### Step 3B — Autonomous mode: send directly
+
+Only when `config.json` has `"mode": "autonomous"`. Send the verified invitation to each candidate, then log it in Step 4. Every rule above still applies — verified work, real address, one invite per scholar.
+
 ## Step 4 — Log it
 
-Append to `state/cfp_outreach/sent.json`:
+Log **only invitations that were actually sent** — in autonomous mode, each send; in approval mode, only the ones the operator approved and you then sent. Append to `state/cfp_outreach/sent.json`:
 ```json
 {"name": "", "email": "", "affiliation": "", "track": "", "paper_hook": "", "ambassador": "", "sent": "YYYY-MM-DD"}
 ```
