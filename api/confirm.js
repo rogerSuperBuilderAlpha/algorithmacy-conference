@@ -197,7 +197,7 @@ By submitting, I/we acknowledge that this submission and all reviews of it will 
 
 ---
 
-*Submitted via the web form at algorithmacy.com on behalf of the listed authors; the pull request was opened by the conference account. The PR timestamp is the priority record.*
+*Submitted via the web form at algorithmacy.org on behalf of the listed authors; the pull request was opened by the conference account. The PR timestamp is the priority record.*
 `;
 }
 
@@ -218,7 +218,7 @@ ${sub.coi || 'none'}
 
 ---
 
-Submitted via the **web form** at algorithmacy.com (no-GitHub path). The author confirmed ownership of the contact email (\`${sub.email}\`) via a one-time link before this PR was opened.
+Submitted via the **web form** at algorithmacy.org (no-GitHub path). The author confirmed ownership of the contact email (\`${sub.email}\`) via a one-time link before this PR was opened.
 
 By submitting, the author(s) acknowledge the conference [open-review policy](../README.md#review-policy): this PR and all reviews are public, and the PR timestamp is the priority record.`;
 }

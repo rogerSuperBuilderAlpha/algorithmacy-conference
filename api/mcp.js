@@ -1,7 +1,7 @@
 // Remote MCP server for the Algorithmacy Conference — Streamable HTTP, stateless,
 // hand-rolled JSON-RPC (no SDK dependency, so the site stays buildless).
 //
-// Endpoint: POST https://algorithmacy.com/api/mcp
+// Endpoint: POST https://algorithmacy.org/api/mcp
 //
 // Lets an AI agent prepare a submission on a researcher's behalf. The agent does
 // all the work, but it CANNOT publish on its own: submit_abstract emails the

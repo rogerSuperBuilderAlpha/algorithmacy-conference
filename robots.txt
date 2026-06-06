@@ -1,4 +1,4 @@
-# Algorithmacy Conference — https://algorithmacy.com
+# Algorithmacy Conference — https://algorithmacy.org
 # Crawlers and AI agents are welcome. An LLM-friendly summary lives at /llms.txt
 # and the full reference at /llms-full.txt.
 
@@ -36,4 +36,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://algorithmacy.com/sitemap.xml
+Sitemap: https://algorithmacy.org/sitemap.xml

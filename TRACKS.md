@@ -1,6 +1,6 @@
 # Thematic tracks
 
-Submissions choose **one** track. The tracks below mirror the website's accordion at [algorithmacy.com#tracks](https://algorithmacy.com#tracks).
+Submissions choose **one** track. The tracks below mirror the website's accordion at [algorithmacy.org#tracks](https://algorithmacy.org#tracks).
 
 If your work straddles two tracks, pick the dominant one and note the secondary in your abstract.
 

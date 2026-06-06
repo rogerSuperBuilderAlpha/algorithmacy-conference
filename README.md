@@ -5,7 +5,7 @@ The first global conference on **algorithmacy** — the competency through which
 **La Brea Pitch Lake, Trinidad & Tobago · October 28–31, 2026**
 **Hosted by GauntleTT · CFP / v01**
 
-→ Website: [algorithmacy.com](https://algorithmacy.com)
+→ Website: [algorithmacy.org](https://algorithmacy.org)
 → Call for papers: this repository
 → Contact: Roger Hunt — rhunt@bentley.edu
 
@@ -19,9 +19,9 @@ All submissions and reviews are public from the moment of intake. See [Review po
 
 **You do not need a GitHub account.** There are four ways to submit — all of them end as a public pull request whose timestamp is your authorship-priority record:
 
-1. **Web form** *(easiest, no GitHub)* — go to [algorithmacy.com/submit](https://algorithmacy.com/submit), fill in the form, and confirm by email. We open the pull request for you.
-2. **AI agent (MCP)** — connect our MCP server `https://algorithmacy.com/api/mcp` to Claude or any MCP-capable agent and ask it to submit. The agent prepares everything; you sign off with a one-click email link. The agent never receives the token, so nothing publishes without your approval.
-3. **AI prompt** — copy the prompt on the [submission page](https://algorithmacy.com/submit#ai-prompt) into ChatGPT, Claude, or Gemini; it collects your details and opens the PR.
+1. **Web form** *(easiest, no GitHub)* — go to [algorithmacy.org/submit](https://algorithmacy.org/submit), fill in the form, and confirm by email. We open the pull request for you.
+2. **AI agent (MCP)** — connect our MCP server `https://algorithmacy.org/api/mcp` to Claude or any MCP-capable agent and ask it to submit. The agent prepares everything; you sign off with a one-click email link. The agent never receives the token, so nothing publishes without your approval.
+3. **AI prompt** — copy the prompt on the [submission page](https://algorithmacy.org/submit#ai-prompt) into ChatGPT, Claude, or Gemini; it collects your details and opens the PR.
 4. **Manual** — fork this repo, copy [`submissions/TEMPLATE.md`](./submissions/TEMPLATE.md) to `submissions/<your-handle>.md`, fill in title/type/track/300–500-word abstract/outline/bios, and open a pull request against `main`.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full workflow. The pull request *is* the submission — there is no separate portal.
@@ -90,7 +90,7 @@ This entire conference setup — the website, the CFP infrastructure, the open-r
 ## Repository layout
 
 ```
-/                       — website source (deployed at algorithmacy.com via Vercel)
+/                       — website source (deployed at algorithmacy.org via Vercel)
 /submissions/           — submitted abstracts (one .md per submission)
 /submissions/TEMPLATE.md — copy this to start a submission
 TRACKS.md               — the five tracks and their guiding questions
