@@ -5,12 +5,12 @@
 Algorithmacy names the worker-level capacity behind triadic, algorithmically-mediated coordination: an algorithm sits between two human parties, acts on inputs from both, and pursues its own objectives. The conference convenes scholars, practitioners, educators, and worker advocates around what algorithmacy is, how it develops and is measured, how it distributes across populations, and what training, certification, and labor protection look like once the construct is in place. Hosted by FutureTT with a Trinidad institutional partner (TBA). Sponsored by the Rose Foundation, the Caribbean Emergence Initiative, and Hult International Business School (Boston), which organizes and publishes accepted full papers after peer review.
 
 ## Key pages
-- [Home](https://algorithmacy.com/): overview, program, keynotes, and the five thematic tracks
-- [Submit a paper](https://algorithmacy.com/submit): submit via a web form (no GitHub needed), via an AI agent (MCP), or via a GitHub pull request
-- [Logistics](https://algorithmacy.com/logistics): venue, getting there, accommodation, visas, registration, travel support
-- [Tracks & questions](https://algorithmacy.com/#tracks): the five thematic tracks and their guiding questions
-- [Program / schedule](https://algorithmacy.com/#schedule): two paper days, a Trinidad field day, four keynotes
-- [Keynotes](https://algorithmacy.com/#keynotes): keynote speakers
+- [Home](https://algorithmacy.org/): overview, program, keynotes, and the five thematic tracks
+- [Submit a paper](https://algorithmacy.org/submit): submit via a web form (no GitHub needed), via an AI agent (MCP), or via a GitHub pull request
+- [Logistics](https://algorithmacy.org/logistics): venue, getting there, accommodation, visas, registration, travel support
+- [Tracks & questions](https://algorithmacy.org/#tracks): the five thematic tracks and their guiding questions
+- [Program / schedule](https://algorithmacy.org/#schedule): two paper days, a Trinidad field day, four keynotes
+- [Keynotes](https://algorithmacy.org/#keynotes): keynote speakers
 
 ## Call for papers
 - Submission deadline: 1 August 2026
@@ -22,8 +22,8 @@ Algorithmacy names the worker-level capacity behind triadic, algorithmically-med
 
 ## Submitting via an agent (MCP) or web form — no GitHub account required
 If you are an AI agent submitting on a researcher's behalf, you do not need GitHub access. Three intake paths exist:
-- **MCP server** (agent-to-agent): connect to the remote MCP server at `https://algorithmacy.com/api/mcp` (Streamable HTTP, stateless JSON-RPC). Tools: `list_tracks` (tracks, types, field requirements) and `submit_abstract` (title, authors, email, type, track, keywords, abstract 300–500 words, outline, bios, optional contribution & coi). `submit_abstract` emails a one-click sign-off link to the author's contact address and returns no token — the agent does the work, but **the human author must click the emailed link to actually open the pull request**. Nothing is published without that human sign-off.
-- **HTTP API**: `POST https://algorithmacy.com/api/submit` with a JSON body of the same fields; the author then confirms via the emailed link.
+- **MCP server** (agent-to-agent): connect to the remote MCP server at `https://algorithmacy.org/api/mcp` (Streamable HTTP, stateless JSON-RPC). Tools: `list_tracks` (tracks, types, field requirements) and `submit_abstract` (title, authors, email, type, track, keywords, abstract 300–500 words, outline, bios, optional contribution & coi). `submit_abstract` emails a one-click sign-off link to the author's contact address and returns no token — the agent does the work, but **the human author must click the emailed link to actually open the pull request**. Nothing is published without that human sign-off.
+- **HTTP API**: `POST https://algorithmacy.org/api/submit` with a JSON body of the same fields; the author then confirms via the emailed link.
 - **GitHub pull request**: open a PR adding `submissions/<handle>.md` directly (for agents that already have the author's GitHub access).
 In every path the submission and all reviews are public, and the pull-request timestamp is the authorship-priority record.
 
@@ -35,7 +35,7 @@ In every path the submission and all reviews are public, and the pull-request ti
 
 ## Repository & more
 - [GitHub repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests
-- [Full text for agents](https://algorithmacy.com/llms-full.txt): the complete conference details in one file
+- [Full text for agents](https://algorithmacy.org/llms-full.txt): the complete conference details in one file
 
 
 ## Featured speakers

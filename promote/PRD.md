@@ -56,7 +56,7 @@ An ambassador clones or fetches the repository, copies the tracker templates int
 
 ## Risks and open questions
 
-The main risk is reputational: poorly targeted or factually loose outreach would harm the conference under its own name. The safeguards above address this, and the open repository makes lapses visible quickly. An open question is whether to aggregate ambassador activity into a shared, privacy-respecting log so that duplicate invitations across ambassadors can be avoided; the current design prevents duplication only within a single ambassador's tracker. A second open question is the canonical domain, since the repository uses `algorithmacy.com` throughout and that value should be confirmed before wide adoption.
+The main risk is reputational: poorly targeted or factually loose outreach would harm the conference under its own name. The safeguards above address this, and the open repository makes lapses visible quickly. An open question is whether to aggregate ambassador activity into a shared, privacy-respecting log so that duplicate invitations across ambassadors can be avoided; the current design prevents duplication only within a single ambassador's tracker. The canonical domain was a prior open question; it is now resolved to `algorithmacy.org`, which the repository uses throughout.
 
 ## Out of scope and future work
 

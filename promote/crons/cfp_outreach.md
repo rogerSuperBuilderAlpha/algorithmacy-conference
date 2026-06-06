@@ -57,11 +57,11 @@ and accepted papers publish open access under CC BY 4.0.
 We would welcome a submission from you. Abstracts of 300 to 500 words are due
 1 August 2026. You can submit a full paper, a note, a panel, a poster, or a
 practitioner report, in any of three ways:
-  - Web form, no GitHub needed: https://algorithmacy.com/submit
+  - Web form, no GitHub needed: https://algorithmacy.org/submit
   - Through an AI agent via the conference MCP server
   - A GitHub pull request
 
-Details and the five tracks: https://algorithmacy.com
+Details and the five tracks: https://algorithmacy.org
 
 Best regards,
 [Your name]

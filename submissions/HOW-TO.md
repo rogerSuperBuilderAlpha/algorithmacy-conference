@@ -22,14 +22,14 @@ Getting it into the system takes about five minutes. You have four ways to do it
 and none of them needs a GitHub account:
 
 **Option A — fill in the web form (easiest, no GitHub account needed)**
-Go to **https://algorithmacy.com/submit**, fill in the form at the top
+Go to **https://algorithmacy.org/submit**, fill in the form at the top
 ("Submit directly — no GitHub needed"), and confirm your email. We open the
 pull request for you and send you the link. To revise later, resubmit with the
 same email and confirm again — it updates your existing PR.
 
 **Option B — have an AI agent submit it (if you use Claude or similar)**
 Add our connector once — in Claude, Settings → Connectors → Add custom connector,
-URL **https://algorithmacy.com/api/mcp** (no login or key) — then say "submit my
+URL **https://algorithmacy.org/api/mcp** (no login or key) — then say "submit my
 abstract to the Algorithmacy Conference" and paste your draft. The agent prepares
 everything and submits; you just click the one-time sign-off link we email you.
 
@@ -54,7 +54,7 @@ take it from there.
   the start, and reviewers sign their assessments — no anonymized stage
 - Accepted **full papers** are published by Hult International Business School
   (Boston) after peer review
-- Full tracks, types, and details: **https://algorithmacy.com**
+- Full tracks, types, and details: **https://algorithmacy.org**
 
 If you hit any snags with GitHub, reply here and I'll help you get it posted.
 
