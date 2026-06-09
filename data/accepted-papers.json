@@ -1,6 +1,21 @@
 {
-  "count": 1,
+  "count": 2,
   "papers": [
+    {
+      "slug": "mcewen",
+      "title": "AI Without Enterprise Infrastructure: Agentic Systems for Small Biotech Development Teams",
+      "authors": "Amanda McEwen, Harvard Business School, Bentley University, Salubris Biotherapeutics",
+      "type": "Practitioner report",
+      "trackId": "TR.01",
+      "track": "TR.01 — Coordination & Mediation",
+      "keywords": [
+        "Agentic",
+        "biotechnology",
+        "coordination"
+      ],
+      "teaser": "Artificial intelligence has historically occupied a narrow role within biotechnology companies, largely confined to discovery activities such as target identification and molecule…",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/mcewen.md"
+    },
     {
       "slug": "meleantonio",
       "title": "Asphalt for AI agents: is it any good?",
