@@ -1,0 +1,22 @@
+{
+  "count": 1,
+  "papers": [
+    {
+      "slug": "meleantonio",
+      "title": "Asphalt for AI agents: is it any good?",
+      "authors": "Antonio Mele (LSE)",
+      "type": "Note",
+      "trackId": "TR.05",
+      "track": "TR.05 — Methods, Lineage & Practice",
+      "keywords": [
+        "AI agents",
+        "agent infrastructure",
+        "observability",
+        "access control",
+        "workflow automation"
+      ],
+      "teaser": "AI agents increasingly promise to act across software environments, but their practical value depends less on model autonomy than on the substrate that lets them move safely.",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/meleantonio.md"
+    }
+  ]
+}

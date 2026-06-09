@@ -280,7 +280,7 @@
     <div class="keynotes" id="special-sessions">
       <div class="sec-head">
         <h2>Special Sessions</h2>
-        <span class="meta">1 confirmed · 3 open</span>
+        <span class="meta">2 confirmed · 2 open</span>
       </div>
       <div class="kgrid">
         <a class="kcard kcard-session" href="/submit#digital-sovereignty">
@@ -290,12 +290,13 @@
           <span class="kaff">Chaired by Samuel Fosso Wamba · TBS Education</span>
           <span class="kds">Accepting submissions →</span>
         </a>
-        <article class="kcard">
+        <a class="kcard kcard-session" href="/submit#algorithmacy-research">
           <span class="knum">SESSION 02</span>
-          <span class="kface" aria-hidden="true"></span>
-          <span class="kname">Open session</span>
-          <span class="ktba">Propose &amp; chair</span>
-        </article>
+          <span class="kface" style="--photo: url('/images/roger-hunt.jpg')" aria-hidden="true"></span>
+          <span class="kname">Algorithmacy Research</span>
+          <span class="kaff">Chaired by Roger Hunt · Bentley University</span>
+          <span class="kds">Repo &amp; open submissions →</span>
+        </a>
         <article class="kcard">
           <span class="knum">SESSION 03</span>
           <span class="kface" aria-hidden="true"></span>
@@ -796,7 +797,7 @@
       </div>
       <div>
         <h3>Published</h3>
-        <p>Accepted papers ship alongside their full review history — reviewer reports, author responses, and revision trail. Full papers are organized and published by <b>Hult International Business School</b> (Boston) after peer review.</p>
+        <p>An open PR is under review; <b>merging it is acceptance</b>. Accepted papers appear on the <a href="#accepted">Accepted Papers</a> board alongside their full review history — reviewer reports, author responses, and revision trail. Full papers are organized and published by <b>Hult International Business School</b> (Boston) after peer review.</p>
       </div>
       <div>
         <h3>Timestamped</h3>
@@ -808,6 +809,24 @@
       A double-blind workflow is incompatible with a public-PR intake; open review is the methodologically honest fit — and consonant with the conference's own questions about algorithmic opacity and accountability.
     </p>
   </section>
+
+  <!-- ============== ACCEPTED PAPERS ============== -->
+  <div class="keynotes" id="accepted">
+    <div class="sec-head">
+      <h2>Accepted Papers</h2>
+      <span class="meta" id="accepted-meta">open review · published</span>
+    </div>
+    <p class="accepted-intro">
+      A submission is a public pull request. While it is open it is under review; once it is <b>accepted, the pull request is merged</b> and the paper is listed here with its full, signed review history.
+    </p>
+    <div class="pgrid" id="accepted-grid" aria-live="polite"></div>
+    <p class="accepted-empty" id="accepted-empty" hidden>
+      No papers accepted yet. <a href="/submit">Submit yours →</a>
+    </p>
+    <noscript>
+      <p class="accepted-empty"><a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/tree/main/submissions" target="_blank" rel="noopener">Browse accepted papers on GitHub →</a></p>
+    </noscript>
+  </div>
 
   <!-- ============== RESEARCH LAB ============== -->
   <section class="review-policy" id="lab" aria-label="Research lab">
@@ -1025,6 +1044,7 @@
 
 <script src="/assets/js/submit-modal.js"></script>
 <script src="/assets/js/partner-modal.js"></script>
+<script src="/assets/js/accepted-papers.js"></script>
 <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

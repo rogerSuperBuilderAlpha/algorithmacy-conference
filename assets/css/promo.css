@@ -87,9 +87,31 @@
   a.kcard-session:hover{ border-color: rgba(255,89,69,.5); background: rgba(255,89,69,.04); transform: translateY(-2px); }
   a.kcard-session .kname{ color: var(--ink); }
 
+  /* accepted papers */
+  .accepted-intro{ margin: 0 0 18px; max-width: 70ch; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+  .accepted-intro b{ color: var(--ink); font-weight: 600; }
+  .accepted-empty{ font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-faint); }
+  .accepted-empty a{ color: var(--signal); }
+  .pgrid{ display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+  .pcard{
+    display: flex; flex-direction: column; gap: 9px;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: rgba(255,255,255,.02); padding: clamp(16px,1.6vw,20px);
+    text-decoration: none; transition: border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .pcard:hover{ border-color: rgba(255,89,69,.5); background: rgba(255,89,69,.04); transform: translateY(-2px); }
+  .pcard-top{ display: flex; align-items: center; gap: 8px; }
+  .pcard-track{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; color: var(--signal); border: 1px solid rgba(255,89,69,.3); background: rgba(255,89,69,.08); padding: 2px 7px; border-radius: 4px; }
+  .pcard-type{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+  .pcard-title{ margin: 0; font-size: 16px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+  .pcard-authors{ margin: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: .03em; color: var(--ink-soft); }
+  .pcard-teaser{ margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+  .pcard-link{ margin-top: auto; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--signal); }
+
   @media (max-width: 760px){
     .sched-grid{ grid-template-columns: 1fr; }
     .kgrid{ grid-template-columns: 1fr 1fr; }
+    .pgrid{ grid-template-columns: 1fr; }
     .promo-btn{ flex: 1 1 auto; justify-content: center; }
   }
   @media (max-width: 440px){
