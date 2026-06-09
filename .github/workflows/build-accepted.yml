@@ -1,0 +1,38 @@
+name: Build accepted papers index
+
+# A merged submission = an accepted paper. Whenever submissions/ changes on main,
+# regenerate data/accepted-papers.json so the site's Accepted Papers board stays
+# in sync without any manual step.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'submissions/**'
+      - 'build_accepted.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate accepted-papers index
+        run: python build_accepted.py
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet -- data/accepted-papers.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/accepted-papers.json
+            git commit -m "Auto-regenerate accepted papers index"
+            git push
+          else
+            echo "No change to data/accepted-papers.json"
+          fi

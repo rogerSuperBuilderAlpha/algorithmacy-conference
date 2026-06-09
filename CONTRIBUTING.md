@@ -64,9 +64,22 @@ For **full papers**, you may attach a PDF to the pull request description. The M
 - A maintainer will triage your PR within ~5 business days, confirm the submission meets format requirements, and assign 2 reviewers from the program committee.
 - Reviewers will post their assessments as PR comments. Their names will be visible. They will sign their reviews.
 - You will respond to reviewer comments in-thread. You may push revisions to your PR.
-- The program chairs will issue a decision (accept / accept with revisions / reject) on the PR thread.
+- The program chairs will issue a decision on the PR thread.
 
 Submissions remain public throughout. Rejection does not delete your PR; it remains as part of the published review history.
+
+### Submission status — the pull request *is* the status
+
+There is no separate portal or dashboard; the state of your pull request **is** the state of your submission:
+
+| PR state | Meaning |
+| --- | --- |
+| **Open** | **Under review.** Reviewers are assigned and assessing; you can keep pushing revisions. |
+| **Open + "changes requested"** | **Needs revision.** A reviewer has asked for specific changes — respond in-thread and push updates; the review continues on the same PR. |
+| **Merged** | **Accepted.** Merging the PR *is* acceptance. The paper is automatically listed on the [Accepted Papers board](https://algorithmacy.org/#accepted) (regenerated from the merged `submissions/*.md` files) alongside its full, signed review history. |
+| **Closed without merge** | **Not accepted.** The PR stays public as part of the review record. |
+
+Commenting and review happen on the GitHub PR thread — open, signed, and public. "Needs work" is simply a *changes requested* review (or a chair's accept-with-revisions note) on that thread; there is no hidden track.
 
 ## Reviewing
 
