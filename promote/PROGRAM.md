@@ -22,7 +22,7 @@ The canonical, always-current details live in the repo root: `/llms-full.txt` an
 |-------|-------|
 | Name | Algorithmacy Conference (CFP v01) |
 | Dates | October 28–31, 2026 |
-| Venue | La Brea Pitch Lake, Trinidad & Tobago |
+| Venue | Port of Spain, Trinidad & Tobago |
 | Website | `https://algorithmacy.org` |
 | Submit page | `https://algorithmacy.org/submit` |
 | Submission MCP server | `https://algorithmacy.org/api/mcp` |

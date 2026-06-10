@@ -1,6 +1,6 @@
 # Algorithmacy Conference 2026 — full reference
 
-> The first global conference on algorithmacy. La Brea Pitch Lake, Trinidad & Tobago. October 28–31, 2026. Open review · open access · APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+> The first global conference on algorithmacy. Port of Spain, Trinidad & Tobago. October 28–31, 2026. Open review · open access · APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 
 ## What algorithmacy is
 
@@ -14,9 +14,9 @@ La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaq
 
 ## Venue & dates
 
-- Venue: La Brea Pitch Lake, Trinidad & Tobago (approximately 90 minutes by road from Piarco International Airport)
+- Venue: Port of Spain, Trinidad & Tobago (approximately 30 minutes by road from Piarco International Airport; the Saturday field day travels ~90 minutes south to La Brea Pitch Lake)
 - Dates: October 28–31, 2026 (Wednesday–Saturday)
-- Hosted by FutureTT in partnership with a Trinidad institutional partner (to be announced)
+- Hosted by the Caribbean Emergence Institute in partnership with Anime Caribe (Trinidad)
 - Sponsors: the Rose Foundation, the Caribbean Emergence Initiative, and Hult International Business School (Boston)
 
 ## Program
@@ -24,7 +24,7 @@ La Brea Pitch Lake is the world's largest natural deposit of asphalt — an opaq
 - Wed, Oct 28 — Opening: registration, opening remarks, Keynote 01, opening reception
 - Thu, Oct 29 — Papers: track sessions (TR.01–TR.05), Keynote 02, open-review panels
 - Fri, Oct 30 — Papers: sessions continue, Keynotes 03 & 04, lightning talks, posters
-- Sat, Oct 31 — Trinidad: a field day at La Brea Pitch Lake, guided tour, closing reception
+- Sat, Oct 31 — Uniquely Trinidad: a field day at La Brea Pitch Lake, guided tour, closing reception
 - Four keynotes across the program; five thematic tracks; open review throughout
 
 ## Tracks

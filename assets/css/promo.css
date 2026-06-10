@@ -87,6 +87,40 @@
   a.kcard-session:hover{ border-color: rgba(255,89,69,.5); background: rgba(255,89,69,.04); transform: translateY(-2px); }
   a.kcard-session .kname{ color: var(--ink); }
 
+  /* partners — prominent feature card (opens the deck modal) */
+  .partner-feature{
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    color: var(--ink);
+    border: 1px solid rgba(255,89,69,.35);
+    background: rgba(255,89,69,.05);
+    border-radius: 12px;
+    padding: clamp(18px,2vw,26px);
+    transition: border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .partner-feature:hover{ border-color: rgba(255,89,69,.6); background: rgba(255,89,69,.09); transform: translateY(-2px); }
+  .partner-feature__mark{
+    width: 64px; height: 64px; border-radius: 10px; border: 1px solid var(--line-strong);
+    background-color: rgba(255,255,255,.04);
+    background-image: var(--photo, none);
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+  }
+  .partner-feature__body{ display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .partner-feature__name{ font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .partner-feature__desc{ font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); max-width: 62ch; }
+  .partner-feature__cta{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); white-space: nowrap; }
+  @media (max-width: 620px){
+    .partner-feature{ grid-template-columns: 52px 1fr; row-gap: 12px; }
+    .partner-feature__mark{ width: 52px; height: 52px; }
+    .partner-feature__cta{ grid-column: 1 / -1; }
+  }
+
   /* accepted papers */
   .accepted-intro{ margin: 0 0 18px; max-width: 70ch; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
   .accepted-intro b{ color: var(--ink); font-weight: 600; }

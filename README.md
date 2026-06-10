@@ -2,8 +2,8 @@
 
 The first global conference on **algorithmacy** — the competency through which a worker coordinates with another human *through an algorithmic third party*.
 
-**La Brea Pitch Lake, Trinidad & Tobago · October 28–31, 2026**
-**Hosted by GauntleTT · CFP / v01**
+**Port of Spain, Trinidad & Tobago · October 28–31, 2026**
+**Hosted by the Caribbean Emergence Institute · CFP / v01**
 
 → Website: [algorithmacy.org](https://algorithmacy.org)
 → Call for papers: this repository
