@@ -48,4 +48,4 @@ Verify every scholar before contacting them. One scholar, one invitation, never 
 
 ## Conference details
 
-Canonical, always-current details are in the repo root: `/README.md` and `/llms-full.txt`. The short version: Algorithmacy Conference, October 28–31, 2026, La Brea Pitch Lake, Trinidad & Tobago. Abstracts due 1 August 2026. Contact: Roger Hunt, rhunt@bentley.edu.
+Canonical, always-current details are in the repo root: `/README.md` and `/llms-full.txt`. The short version: Algorithmacy Conference, October 28–31, 2026, Port of Spain, Trinidad & Tobago. Abstracts due 1 August 2026. Contact: Roger Hunt, rhunt@bentley.edu.

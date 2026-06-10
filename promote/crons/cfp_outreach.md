@@ -71,7 +71,7 @@ of five tracks at the Algorithmacy Conference, the first conference on
 algorithmacy: the competency through which a worker coordinates with another
 human party through an algorithmic third party.
 
-The conference runs October 28 to 31, 2026, at La Brea Pitch Lake, Trinidad
+The conference runs October 28 to 31, 2026, in Port of Spain, Trinidad
 and Tobago. Review is open, signed, and published, with no anonymized stage,
 and accepted papers publish open access under CC BY 4.0.
 

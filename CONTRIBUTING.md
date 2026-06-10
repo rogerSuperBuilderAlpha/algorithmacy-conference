@@ -102,7 +102,7 @@ To volunteer as a reviewer, open an issue tagged `volunteer-reviewer` with your 
 | Reviews complete | 2026-09-15 |
 | Decisions announced | 2026-09-30 |
 | Camera-ready due | 2026-10-15 |
-| Conference | **October 28–31, 2026** (La Brea Pitch Lake, Trinidad & Tobago) |
+| Conference | **October 28–31, 2026** (Port of Spain, Trinidad & Tobago) |
 
 ## Code of conduct
 
