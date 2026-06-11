@@ -158,6 +158,12 @@
     padding: clamp(20px, 2.6vw, 32px);
   }
   .special-session .section-head{ margin-top: 0; }
+  .ss-subtitle{
+    font-size: 16px !important;
+    color: var(--ink-soft);
+    margin-top: -8px !important;
+    margin-bottom: 6px !important;
+  }
   .ss-chair{
     font-family: var(--font-mono);
     font-size: 12.5px !important;

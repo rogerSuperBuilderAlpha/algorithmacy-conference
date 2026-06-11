@@ -76,14 +76,14 @@ The home page hosts an interactive "algorithmacy tester": a deck of 10,000 short
 
 ## Featured speakers
 
-- Dr. Uohna Thiessen — AI/ML Strategist & Educator; Strategic AI Advisor, Break Through Tech AI (Cornell Tech) — https://www.linkedin.com/in/druohna-datascientist/. Chairs the Algorithmic Literacy special session.
+- Dr. Uohna Thiessen — AI/ML Strategist & Educator; Strategic AI Advisor, Break Through Tech AI (Cornell Tech) — https://www.linkedin.com/in/druohna-datascientist/. Chairs the Agentic AI Ecosystems special session.
 
 Ten featured-speaker slots run across the program; more speakers are being announced. To be considered as a featured speaker, email rhunt@bentley.edu with your work and its fit.
 
 ## Special sessions
 
 - Digital Sovereignty — chaired by Samuel Fosso Wamba (Information Systems & Data Science, TBS Education); accepting submissions.
-- Algorithmic Literacy — chaired by Dr. Uohna Thiessen (Break Through Tech AI, Cornell Tech); treats everyday data and AI literacy as the coordination competency for algorithmically mediated work; accepting submissions.
+- Agentic AI Ecosystems: Multi-Agent Collaboration, Autonomy, and Orchestration — chaired by Dr. Uohna Thiessen (Break Through Tech AI, Cornell Tech); explores the design, deployment, and evaluation of multi-agent systems — collaboration, autonomous workflow orchestration, long-horizon planning, domain-specific deployments, and low-code/citizen-led agent development; accepting submissions.
 
 Further special-session slots are open. Propose a themed session and serve as its committee chair by emailing rhunt@bentley.edu.
 
