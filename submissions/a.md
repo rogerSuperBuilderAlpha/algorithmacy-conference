@@ -1,10 +1,10 @@
-# Navigating the Crisis of Information: Digital Literacy, Risk, and Infrastructures in India
+# Navigating the Crisis of Information: Digital Literacy, Governance, and Infrastructures in India
 
-**Authors:** Ananthu R A, PhD Candidate, Indian Institute of Technology Delhi
+**Authors:** Ananthu R A (Indian Institute of Technology Delhi)
 **Contact:** ananthu123@gmail.com
 **Type:** Full paper
 **Track:** TR.04 — Trust, Opacity & Governance
-**Word count:** 324
+**Word count:** 326
 **Keywords:** literacy, information, infrastructures, trust, libraries
 **Conflicts of interest:** None
 
@@ -13,9 +13,9 @@
 ## Abstract
 
 Media and Information Literacy (MIL) programs treat disinformation as individual deficiency correctable through education, but this paper argues they function instead as information governance — responsibilising citizens to manage their own trust in information while leaving its asymmetries and opacities untouched. Based on fieldwork with coordinators and beneficiaries of a Digital and Information Literacy program in Kerala, India, the paper shows that whether citizens come to trust or distrust information is conditioned less by the literacy intervention itself than by an older political-pedagogical infrastructure already governing that relationship.
-The paper treats risk not as objective but as a governmental technology compelling subjects to become self-managing entrepreneurs of their own informational risk. Literacy has historically functioned less as liberation than as population management, non-conforming literacy treated as a danger to be contained; the paper extends this logic to the digital sphere, where literacy is inseparable from the infrastructures through which information moves. Digital "empowerment," then, transfers responsibility onto the user without any reciprocal claim on the opacity of the systems governing that circulation.
-Empirically, the paper examines the Educational and Digital Awareness Mission (E-DAM) in Kerala's Thaliparamba constituency, built on the state's two-decade Free and Open-Source Software policy and mass organisational infrastructure — libraries, reading rooms (vayanashalas), Kudumbashree networks, and party-linked cultural and teachers' organisations. Fieldwork shows vayanashalas as sites of collective deliberation and informal fact-checking, where trust in information is negotiated face-to-face, continuous with their role in Kerala's earlier Total Literacy Mission. Coordinators also describe the program's value for political mobilisation, while critical evaluation of information was largely absent from the curriculum.
-Framed by the state as a path to a "Knowledge Economy," the program reads as simultaneously emancipatory and governmental, caught between FOSS-based sovereignty and concessions to corporate hardware. Centrally: trust in information is governed by an infrastructure — material, institutional, political — that precedes digital literacy, such that compliance or refusal turns less on individual competency than on who controls that infrastructure.
+The paper treats risk not as objective but as a governmental technology compelling subjects to become self-managing entrepreneurs of their own informational risk. Literacy has historically functioned less as liberation than as population management; non-conforming literacy is treated as a danger to be contained. The paper extends this logic to the digital sphere, where literacy is inseparable from the infrastructures through which information moves. Digital "empowerment," then, transfers responsibility onto the user without any reciprocal claim on the opacity of the systems governing that circulation.
+Empirically, the paper examines the Educational and Digital Awareness Mission in one constituency in Kerala, South India,  built on the state's old Free and Open-Source Software policy and an even older mass organisational infrastructure like libraries, reading rooms, cultural groups, and teachers' organisations. Fieldwork shows vayanashalas as sites of collective deliberation and informal fact-checking, where trust in information is negotiated face-to-face, continuous with their role in Kerala's earlier Total Literacy Mission. Coordinators also describe the program's value for political mobilisation, while critical evaluation of information was largely absent from the curriculum.
+Framed by the state as a path to a "Knowledge Economy," the program reads as simultaneously emancipatory and governmental, caught between FOSS-based sovereignty and concessions to corporate hardware. Centrally, trust in information is governed by an infrastructure — material, institutional, political — that precedes digital literacy, such that compliance or refusal turns less on individual competency than on who controls that infrastructure.
 
 ## Outline
 
