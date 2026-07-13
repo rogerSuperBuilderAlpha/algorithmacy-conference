@@ -1,0 +1,84 @@
+  /* ============================================================
+     COLLAB SPOT — promo graphic under the hero
+     ============================================================ */
+  .collab-spot{
+    position: relative;
+    z-index: 3;
+    padding: clamp(28px, 3.4vw, 44px) 0 clamp(22px, 2.6vw, 34px);
+    border-bottom: 1px solid var(--line);
+  }
+  .collab-spot .sec-head{ margin-bottom: clamp(14px, 1.8vw, 20px); }
+  .collab-spot .sec-head h2{
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.022em;
+    color: var(--ink);
+  }
+  .collab-spot .sec-head .meta{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .collab-spot__frame{
+    display: block;
+    max-width: min(640px, 100%);
+    margin: 0 auto;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255,255,255,.02);
+    transition: border-color var(--dur-base) var(--ease-out-soft),
+                transform var(--dur-micro) var(--ease-out-soft),
+                box-shadow var(--dur-base) var(--ease-out-soft);
+  }
+  .collab-spot__frame:hover{
+    border-color: rgba(255,89,69,.55);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -18px rgba(0,0,0,.55);
+  }
+  .collab-spot__frame:focus-visible{
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+  }
+  .collab-spot__img{
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .collab-spot__cap{
+    margin: 14px auto 0;
+    max-width: min(640px, 100%);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .collab-spot__cap a{
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: rgba(239,234,224,.28);
+    text-underline-offset: 2px;
+  }
+  .collab-spot__cap a:hover{ text-decoration-color: var(--signal); }
+  .collab-spot__cap .partner-link{
+    font: inherit;
+    color: var(--signal);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,89,69,.4);
+    text-underline-offset: 2px;
+  }
+  .collab-spot__cap .partner-link:hover{ text-decoration-color: var(--signal); }
+
+  @media (max-width: 720px){
+    .collab-spot__img{ border-radius: 0; }
+    .collab-spot__frame{ border-radius: 8px; }
+  }
