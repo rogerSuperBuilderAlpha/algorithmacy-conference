@@ -47,7 +47,7 @@ const TOOLS = [
         bios: { type: 'string', description: 'Author bio(s), ≤100 words each' },
         contribution: { type: 'string', description: 'One-sentence summary of what is new (optional)' },
         coi: { type: 'string', description: 'Conflicts of interest, or "none" (optional)' },
-        specialSession: { type: 'string', description: 'Special session to submit to, e.g. "Digital Sovereignty" (optional). Still pick a track.' },
+        specialSession: { type: 'string', description: 'Special session to submit to, e.g. "Digital Sovereignty", "Algorithmic Literacy", or "Critical Cultural Research" (optional). Still pick a track.' },
       },
       required: ['title', 'authors', 'email', 'type', 'track', 'keywords', 'abstract', 'outline', 'bios'],
       additionalProperties: false,
@@ -86,7 +86,8 @@ Optional:
   contribution   — one-sentence summary of what's new
   coi            — conflicts of interest, or "none"
   specialSession — a special session, e.g. "Digital Sovereignty" (chaired by
-                   Samuel Fosso Wamba); still pick a track
+                   Samuel Fosso Wamba) or "Critical Cultural Research" (chaired
+                   by Sarah Witmer); still pick a track
 
 Submissions close 2026-08-01. All submissions and reviews are public; the pull
 request timestamp is the author's priority record.`);

@@ -77,6 +77,7 @@ The home page hosts an interactive "algorithmacy tester": a deck of 10,000 short
 ## Featured speakers
 
 - Renée Cummings — Professor of Practice in Data Science, University of Virginia; Data Activist-in-Residence — https://www.linkedin.com/in/ren%C3%A9ecummings. Featured with the Animae Caribe Festival 2026 collaboration on AI, creativity, and the future of human work.
+- Sarah Witmer — Digital cultures, University of Iowa — https://www.linkedin.com/in/sarahwitmer/. Chairs the Critical Cultural Research special session.
 - Dr. Uohna Thiessen — AI/ML Strategist & Educator; Strategic AI Advisor, Break Through Tech AI (Cornell Tech) — https://www.linkedin.com/in/druohna-datascientist/. Chairs the Algorithmic Literacy special session.
 
 Ten featured-speaker slots run across the program; more speakers are being announced. To be considered as a featured speaker, email rhunt@bentley.edu with your work and its fit.
@@ -85,6 +86,7 @@ Ten featured-speaker slots run across the program; more speakers are being annou
 
 - Digital Sovereignty — chaired by Samuel Fosso Wamba (Information Systems & Data Science, TBS Education); accepting submissions.
 - Algorithmic Literacy — chaired by Dr. Uohna Thiessen (Break Through Tech AI, Cornell Tech); treats everyday data and AI literacy as the coordination competency for algorithmically mediated work; accepting submissions.
+- Critical Cultural Research — chaired by Sarah Witmer (Digital cultures, University of Iowa); brings algorithmacy into critical cultural research on AI, apps, websites, and platform media, naming the algorithm as an actor in cultural dynamics; accepting submissions.
 
 Further special-session slots are open. Propose a themed session and serve as its committee chair by emailing rhunt@bentley.edu.
 

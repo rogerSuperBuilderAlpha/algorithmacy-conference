@@ -40,12 +40,14 @@ In every path the submission and all reviews are public, and the pull-request ti
 
 ## Featured speakers
 - Renée Cummings — Professor of Practice in Data Science, University of Virginia (Data Activist-in-Residence). Featured with the Animae Caribe Festival 2026 collaboration.
+- Sarah Witmer — Digital cultures, University of Iowa. Chairs the Critical Cultural Research special session.
 - Dr. Uohna Thiessen — AI/ML Strategy & Education, Break Through Tech AI (Cornell Tech). Chairs the Algorithmic Literacy special session.
 - 10 featured-speaker slots; more to be announced. To be considered, email rhunt@bentley.edu.
 
 ## Special sessions
 - Digital Sovereignty — chaired by Samuel Fosso Wamba (TBS Education); accepting submissions.
 - Algorithmic Literacy — chaired by Dr. Uohna Thiessen (Break Through Tech AI, Cornell Tech); accepting submissions.
+- Critical Cultural Research — chaired by Sarah Witmer (University of Iowa); bringing algorithmacy into critical cultural analysis of AI, apps, and platforms; accepting submissions.
 - Further special-session slots are open. Propose a themed session and serve as its committee chair — email rhunt@bentley.edu.
 
 ## Organizers
