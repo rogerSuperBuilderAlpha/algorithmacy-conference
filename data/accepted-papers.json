@@ -1,6 +1,41 @@
 {
-  "count": 2,
+  "count": 5,
   "papers": [
+    {
+      "slug": "a",
+      "title": "Navigating the Crisis of Information: Digital Literacy, Governance, and Infrastructures in India",
+      "authors": "Ananthu R A (Indian Institute of Technology Delhi)",
+      "type": "Full paper",
+      "trackId": "TR.04",
+      "track": "TR.04 — Trust, Opacity & Governance",
+      "keywords": [
+        "literacy",
+        "information",
+        "infrastructures",
+        "trust",
+        "libraries"
+      ],
+      "teaser": "Media and Information Literacy (MIL) programs treat disinformation as individual deficiency correctable through education, but this paper argues they function instead as…",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/a.md"
+    },
+    {
+      "slug": "khurana",
+      "title": "Ghosted by the Feed: Platform Labour and the Politics of Algorithmic Visibility",
+      "authors": "Disha Khurana (IIT Mandi; Government of Punjab)",
+      "type": "Full paper",
+      "trackId": "TR.02",
+      "track": "TR.02 — Algorithmic Management",
+      "keywords": [
+        "Algorithmic Violence",
+        "Platform Labour",
+        "Content Creators",
+        "Collective Action",
+        "Engagement pods",
+        "Creativity Paradox"
+      ],
+      "teaser": "The content creator economy stages an unusual labour relation as they produce a novel figure of the worker, one that is constantly disciplined but never informed.",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/khurana.md"
+    },
     {
       "slug": "mcewen",
       "title": "AI Without Enterprise Infrastructure: Agentic Systems for Small Biotech Development Teams",
@@ -32,6 +67,24 @@
       ],
       "teaser": "AI agents increasingly promise to act across software environments, but their practical value depends less on model autonomy than on the substrate that lets them move safely.",
       "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/meleantonio.md"
+    },
+    {
+      "slug": "wesley83",
+      "title": "Automation From the Bottom Up: How Skill-Matched Task Routing Makes AI Adoption Worker-Led",
+      "authors": "Wesley Faulkner (Work Evolution Framework LLC)",
+      "type": "Practitioner report",
+      "trackId": "TR.04",
+      "track": "TR.04 — Trust, Opacity & Governance",
+      "keywords": [
+        "skill-based matching",
+        "decision routing",
+        "algorithmic management",
+        "automation dividend",
+        "auditability",
+        "worker-led adoption"
+      ],
+      "teaser": "Most organizations adopt AI the way they run everything else: leadership picks the tool, mandates the rollout, and measures compliance.",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/wesley83.md"
     }
   ]
 }
