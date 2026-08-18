@@ -1,5 +1,5 @@
 {
-  "count": 5,
+  "count": 6,
   "papers": [
     {
       "slug": "a",
@@ -17,6 +17,25 @@
       ],
       "teaser": "Media and Information Literacy (MIL) programs treat disinformation as individual deficiency correctable through education, but this paper argues they function instead as…",
       "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/a.md"
+    },
+    {
+      "slug": "ii",
+      "title": "Humanized AI and Algorithmic Coordination in Healthcare Practice",
+      "authors": "Phillip M. Rowell II, Chief Analytics Officer, Health Catalyst",
+      "type": "Practitioner report",
+      "trackId": "TR.04",
+      "track": "TR.04 — Trust, Opacity & Governance",
+      "keywords": [
+        "algorithmacy",
+        "humanized AI",
+        "algorithmic accountability",
+        "healthcare analytics",
+        "human-in-the-loop",
+        "governance",
+        "platform mediation"
+      ],
+      "teaser": "Algorithmic systems now quietly coordinate clinical and operational decisions across modern health systems, from triage prioritization to staffing, discharge planning, and…",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/ii.md"
     },
     {
       "slug": "khurana",
