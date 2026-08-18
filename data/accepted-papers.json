@@ -1,5 +1,5 @@
 {
-  "count": 6,
+  "count": 7,
   "papers": [
     {
       "slug": "a",
@@ -86,6 +86,25 @@
       ],
       "teaser": "AI agents increasingly promise to act across software environments, but their practical value depends less on model autonomy than on the substrate that lets them move safely.",
       "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/meleantonio.md"
+    },
+    {
+      "slug": "phd",
+      "title": "From Sediment to Algorithm: Rethinking Environmental Governance through Algorithmacy in South Africa's Breede River Catchment",
+      "authors": "Mistancia Kanengoni - PhD (University of Cape Town), South Africa",
+      "type": "Full paper",
+      "trackId": "TR.02",
+      "track": "TR.02 — Algorithmic Management",
+      "keywords": [
+        "Algorithmacy",
+        "Environmental Governance",
+        "Environmental Humanities",
+        "Political Ecology",
+        "Science and Technology Studies (STS)",
+        "Algorithmic Mediation",
+        "Social Life of Sediments"
+      ],
+      "teaser": "From Sediment to Algorithm: Rethinking Environmental Governance through Algorithmacy in South Africa's Breede River Catchment",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/phd.md"
     },
     {
       "slug": "wesley83",
