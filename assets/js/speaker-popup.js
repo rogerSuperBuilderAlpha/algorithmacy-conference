@@ -70,6 +70,13 @@ const speakerData = {
     bio: 'Sarah Witmer is a digital cultures researcher, media professor and PhD candidate whose work explores digital media, algorithmic authority, online communities, journalism, identity and institutional trust.',
     photo: '/images/speakers/sarah-witmer.jpg',
     linkedin: 'https://www.linkedin.com/in/sarahwitmer/'
+  },
+  'mellissa-lezama': {
+    name: 'Mellissa Lezama',
+    title: 'Founder and CEO of The HR Horizon',
+    bio: 'Mellissa Lezama, Founder and CEO of The HR Horizon, is an attorney and global HR specialist helping organisations navigate people, technology, employment law and AI-driven workplace change responsibly.',
+    photo: '/images/speakers/mellissa-lezama.png',
+    linkedin: 'https://www.linkedin.com/in/mellissa-lezama'
   }
 };
 
