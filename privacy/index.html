@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy · Algorithmacy</title>
+<meta name="description" content="What Algorithmacy collects on the conference site and the Studio form, who receives it, and how to ask for it to be deleted." />
+<link rel="canonical" href="https://algorithmacy.org/privacy" />
+<link rel="stylesheet" href="/design-system/colors_and_type.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/css/submit.css" />
+<link rel="stylesheet" href="/assets/css/submit-steps.css" />
+<link rel="stylesheet" href="/assets/css/fab.css" />
+</head>
+<body>
+
+<main class="stage">
+
+  <header class="topstrip">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
+        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      </svg>
+      <span><span class="back">← </span>Algorithmacy</span>
+    </a>
+    <div class="right">
+      <span>Last updated 10 October 2026</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">
+      <span class="num">Privacy</span>
+      <span>Conference and Studio</span>
+    </span>
+    <h1 class="display">What we do with personal information.</h1>
+    <p class="lede">
+      This notice covers <b>algorithmacy.org</b>, including the conference pages and <a href="/studio">Algorithmacy Studio</a>. It describes the information the site actually collects, who receives it, and how to ask us to delete it.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Who runs this site.</h2>
+    </div>
+    <p>
+      The Algorithmacy Conference is convened by <b>Roger Hunt</b> and hosted by the <b>Caribbean Emergence Institute</b> in Port of Spain, Trinidad and Tobago. Studio is a separate practice on the same site: design and AI engineering for an owner-run office. Registering for the conference does not start a Studio engagement, and a Studio inquiry does not register you for the conference.
+    </p>
+    <p>
+      Conference questions, including a request about a submission or a registration, go to <a href="mailto:rhunt@bentley.edu">rhunt@bentley.edu</a>. A Studio inquiry goes to <a href="mailto:roger@algorithmacy.org">roger@algorithmacy.org</a>.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Studio inquiries.</h2>
+    </div>
+    <p>
+      The form at the bottom of <a href="/studio">/studio</a> asks which path you want (the office engagement, or a different problem), your name, your email, the business, and the chore or problem. If you choose the office engagement, it also asks the kind of office. A hidden field is there for spam. If that field is filled in, the note is discarded and nothing is sent.
+    </p>
+    <p>
+      What you submit is emailed to <b>roger@algorithmacy.org</b> through <b>Mailgun</b>, with your address as the reply-to, so Roger can answer you. It is not added to a mailing list. Sending the form does not create a contract. The conversation, and any later agreement about access or the length of the work, happens after that reply.
+    </p>
+    <p>
+      The same note can be sent by writing to that address yourself. The mailto link under the form only opens your own mail program. This site does not receive that copy unless you send it.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Paper submissions.</h2>
+    </div>
+    <p>
+      The form at <a href="/submit">/submit</a> collects the title, authors and affiliations, a contact email, the submission type, the track, keywords, the abstract, an outline, author bios, a contribution statement, a conflict statement, and a special-session note if you add one.
+    </p>
+    <p>
+      We email a one-time confirmation link to that contact address through Mailgun. Until you confirm, the submission is held in <b>Upstash Redis</b> for one hour and then deleted. We do not publish it before you confirm.
+    </p>
+    <p>
+      When you confirm, the submission — <b>including the contact email</b> — is published as a pull request on the public GitHub repository <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference">rogerSuperBuilderAlpha/algorithmacy-conference</a>. Reviews are public and signed. There is no anonymized stage. That is the intake the conference describes on the submission page.
+    </p>
+    <p>
+      We also store a hash of the contact email, not the address itself, so a later submission from the same address can update that pull request. The address itself remains in the public pull request. A separate rate-limit record, also a hash of the email, and a short-lived record of the IP address, expire after one hour. They exist to slow repeated form posts.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Registration.</h2>
+    </div>
+    <p>
+      <b>Register Now</b> leaves this site and opens a form hosted by <b>Jotform</b>. We do not run that form on this server. Jotform collects what you type there, and we receive the responses in order to register you for the conference. Fees are not yet set on this site, and this site does not take payment. Jotform’s own privacy notice applies to the form platform.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Email, logs, and what we do not collect.</h2>
+    </div>
+    <p>
+      If you email either address above, we keep the correspondence so we can answer it. The site is hosted on <b>Vercel</b>. Logs for the form endpoints can include the IP address and the time of the request. We use those logs to operate the site.
+    </p>
+    <p>
+      This site does not run analytics, does not use advertising cookies, and does not ask you to create an account. The <a href="/cookies">cookie notice</a> says what that means in the browser.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>How long we keep it.</h2>
+    </div>
+    <p>
+      An unconfirmed submission expires after one hour. Rate-limit records expire after one hour. A published pull request stays public for as long as the repository keeps it. A Studio inquiry stays in the mailbox at roger@algorithmacy.org while the conversation is open.
+    </p>
+    <p>
+      Mailgun, Jotform, GitHub, Upstash, and Vercel keep their own logs under their own rules. We do not control those retention periods, and this page does not restate them.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <h2>Asking to see or delete it.</h2>
+    </div>
+    <p>
+      Email <a href="mailto:rhunt@bentley.edu">rhunt@bentley.edu</a> for conference information, or <a href="mailto:roger@algorithmacy.org">roger@algorithmacy.org</a> for a Studio inquiry. You can ask what we hold, ask us to correct it, or ask us to delete it.
+    </p>
+    <p>
+      We will delete or correct what we still hold: a pending submission, a rate-limit record, a mailbox thread, a registration response we received. A pull request that is already public is different. We can close it or edit what we control. Forks, review comments, and GitHub history can remain. We will tell you when that is the case.
+    </p>
+    <p>
+      The conference and Studio are not directed at children. We do not knowingly collect information from anyone under 16. If we learn that we have, we will delete it.
+    </p>
+    <p>
+      If this notice changes, the date at the top of the page changes with it.
+    </p>
+  </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-row">
+      <a href="/">← Back to home</a>
+      <span>Roger Hunt · rhunt@bentley.edu</span>
+    </div>
+    <nav class="legal-links" aria-label="Legal">
+      <a href="/privacy" aria-current="page">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/conduct">Code of conduct</a>
+    </nav>
+  </footer>
+
+</main>
+
+<nav class="mode-toggle" aria-label="Switch between conference, studio, and cohorts">
+  <a href="/" class="is-here">Conference</a>
+  <a href="/studio">Studio</a>
+  <a href="https://cohorts.algorithmacy.org" target="_blank" rel="noopener">Cohorts</a>
+</nav>
+
+</body>
+</html>

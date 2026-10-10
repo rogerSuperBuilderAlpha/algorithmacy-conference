@@ -4,7 +4,7 @@
   .footer{
     position: relative;
     z-index: 3;
-    padding: 24px 0 6px;
+    padding: 24px 0 120px;
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: .14em;
@@ -52,6 +52,17 @@
   }
   .footer-bottom b{ color: var(--ink-soft); font-weight: 600; }
   .footer-bottom .marks{ display: flex; gap: 18px; }
+  .footer-legal{
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .footer-legal a{
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-legal a:hover{ color: var(--signal); text-decoration: none; }
 
   @media (max-width: 720px){
     .footer-cols{ grid-template-columns: 1fr 1fr; gap: 24px; }
