@@ -3,15 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Studio · Algorithmacy</title>
-<meta name="description" content="Algorithmacy Studio sets up a swarm of agents for an owner-run office. $5,000 to set it up. $1,000 a month for an engineer to manage and adapt them. You prompt the engineer." />
+<title>Algorithmacy Studio — $5,000 to set up the agents, $1,000 a month</title>
+<meta name="description" content="For owner-run offices of about 5 to 50 people. An engineer learns how the office works, sets up a swarm of AI agents around the chores that eat the week, then manages them. You prompt the engineer. $5,000 to set up, $1,000 a month." />
 <link rel="canonical" href="https://algorithmacy.org/studio" />
+<meta name="theme-color" content="#07080A" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Studio · Algorithmacy" />
-<meta property="og:description" content="You prompt the engineer. They manage the agents. $5,000 to set up a swarm for the office, then $1,000 a month." />
+<meta property="og:site_name" content="Algorithmacy" />
+<meta property="og:title" content="Algorithmacy Studio — you prompt the engineer" />
+<meta property="og:description" content="$5,000 to set up a swarm of agents for an owner-run office. $1,000 a month for an engineer to manage and adapt them. You prompt the engineer." />
 <meta property="og:url" content="https://algorithmacy.org/studio" />
-<meta property="og:image" content="https://algorithmacy.org/apple-touch-icon.png" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://algorithmacy.org/images/studio-share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Algorithmacy Studio. You prompt the engineer. They manage the agents. $5,000 to set up, $1,000 a month." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Algorithmacy Studio — you prompt the engineer" />
+<meta name="twitter:description" content="$5,000 to set up a swarm of agents for an owner-run office. $1,000 a month for an engineer to manage and adapt them. You prompt the engineer." />
+<meta name="twitter:image" content="https://algorithmacy.org/images/studio-share.png" />
 <link rel="stylesheet" href="/design-system/colors_and_type.css" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -27,11 +35,11 @@
   "name": "Algorithmacy Studio",
   "serviceType": "Agent swarm setup and management for owner-run offices",
   "url": "https://algorithmacy.org/studio",
-  "description": "Set up a swarm of agents around how an owner-run office works, then have an engineer manage and adapt them. You prompt the engineer.",
+  "description": "Set up a swarm of agents around how an owner-run office works, then have an engineer manage and adapt them. You prompt the engineer. $5,000 to set up, $1,000 a month.",
   "provider": {
     "@type": "Person",
     "name": "Roger Hunt",
-    "email": "rhunt@bentley.edu"
+    "email": "roger@algorithmacy.org"
   },
   "areaServed": "US",
   "audience": {
@@ -82,15 +90,29 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero studio-hero">
     <span class="eyebrow">
       <span class="num">Studio</span>
-      <span>for owner-run offices</span>
+      <span>Owner-run offices · about 5 to 50 people</span>
     </span>
     <h1 class="display">You prompt the engineer.<br>They manage the agents.</h1>
     <p class="lede">
-      Algorithmacy Studio sets up a <b>swarm of agents</b> around how your office actually works, then keeps it current. The onboarding fee is <b>$5,000</b>. After that it is <b>$1,000 a month</b>. You tell the engineer what should change. They do the managing.
+      Algorithmacy Studio sets up a <b>swarm of agents</b> around how your office actually works — intake, chasing documents, follow-ups, reminders, review replies — then keeps it current. You tell the engineer what should change. They do the managing.
     </p>
+
+    <div class="studio-offer" aria-label="The engagement">
+      <p class="studio-price">
+        <span class="studio-price-amt">$5,000</span>
+        <span class="studio-price-label">once, to set the swarm up</span>
+      </p>
+      <p class="studio-price">
+        <span class="studio-price-amt">$1,000</span>
+        <span class="studio-price-label">a month, to manage and adapt it</span>
+      </p>
+    </div>
+
+    <a class="studio-cta" href="#desk">Tell us about the office <span class="arrow" aria-hidden="true">→</span></a>
+    <p class="studio-hero-note">Law firms first, then dental practices and med spas, real estate offices, and CPA firms. The button opens the form on this page. It drafts an email. Nothing is sent until you send it.</p>
   </section>
 
   <section class="section" aria-labelledby="desk-title">
@@ -102,7 +124,7 @@
       The first question is who handles the chore that eats the week — intake, chasing documents, the follow-up that slips. Tell us the office and that chore. The line below is the engagement, priced.
     </p>
 
-    <form class="desk" id="desk" action="mailto:rhunt@bentley.edu" method="post" enctype="text/plain">
+    <form class="desk" id="desk" action="mailto:roger@algorithmacy.org" method="post" enctype="text/plain">
       <fieldset class="desk-offices">
         <legend>What kind of office is this?</legend>
         <label><input type="radio" name="office" value="law firm" checked> Law firm</label>
@@ -137,37 +159,64 @@
       </div>
 
       <button type="submit" class="desk-send" id="desk-send">Ask the studio about this office</button>
-      <p class="desk-note">This opens an email to Roger Hunt at rhunt@bentley.edu. Nothing is sent until you send that email.</p>
+      <p class="desk-note">This opens an email to Roger Hunt at roger@algorithmacy.org. Nothing is sent until you send that email.</p>
     </form>
+  </section>
+
+  <section class="section" aria-labelledby="how-title">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 id="how-title">How it works.</h2>
+    </div>
+    <ol class="how">
+      <li>
+        <span class="how-num">01</span>
+        <h3>Tell us the office and the chore</h3>
+        <p>Name the kind of office, the business, and the work that eats the week.</p>
+      </li>
+      <li>
+        <span class="how-num">02</span>
+        <h3>We learn how it runs and set up the agents</h3>
+        <p>An engineer learns how the office actually moves that work, then sets a swarm of agents around it. That is the $5,000.</p>
+      </li>
+      <li>
+        <span class="how-num">03</span>
+        <h3>You prompt the engineer as things change</h3>
+        <p>You are not the one watching the agents. When the office shifts, you say so. The engineer manages and adapts them. That is the $1,000 a month.</p>
+      </li>
+    </ol>
   </section>
 
   <section class="section" aria-labelledby="compare-title">
     <div class="section-head">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <h2 id="compare-title">Three ways to get the work done.</h2>
     </div>
-    <div class="compare" role="table" aria-label="Cost comparison">
-      <div class="compare-row compare-head" role="row">
-        <span role="columnheader">Tools you already pay for</span>
-        <span role="columnheader">A hire in the office</span>
-        <span role="columnheader">Algorithmacy Studio</span>
-      </div>
-      <div class="compare-row" role="row">
-        <span role="cell">About <b>$200 a month</b>, and a lot of your time managing them.</span>
-        <span role="cell">About <b>$200,000 a year</b> for an AI engineer to sit and watch a screen.</span>
-        <span role="cell"><b>$5,000</b> to set it up, then <b>$1,000 a month</b>.</span>
-      </div>
-      <div class="compare-row" role="row">
-        <span role="cell">You analyze the business yourself, between the other work.</span>
-        <span role="cell">You employ someone whose job is the screen.</span>
-        <span role="cell">We analyze the business. You prompt the engineer. They manage the agents.</span>
-      </div>
+    <div class="compare-cards">
+      <article class="compare-card">
+        <h3>Tools you already pay for</h3>
+        <p class="compare-figure">About $200 <span>a month</span></p>
+        <p>and a lot of your time managing them.</p>
+        <p class="compare-detail">You analyze the business yourself, between the other work.</p>
+      </article>
+      <article class="compare-card">
+        <h3>A hire in the office</h3>
+        <p class="compare-figure">About $200,000 <span>a year</span></p>
+        <p>for an AI engineer to sit and watch a screen.</p>
+        <p class="compare-detail">You employ someone whose job is the screen.</p>
+      </article>
+      <article class="compare-card is-studio">
+        <h3>Algorithmacy Studio</h3>
+        <p class="compare-figure">$5,000 <span>then $1,000 a month</span></p>
+        <p>to set it up, then to manage and adapt it.</p>
+        <p class="compare-detail">We analyze the business. You prompt the engineer. They manage the agents.</p>
+      </article>
     </div>
   </section>
 
   <section class="section" aria-labelledby="month-title">
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2 id="month-title">What the money is for.</h2>
     </div>
     <ol class="studio-steps">
@@ -192,7 +241,7 @@
 
   <section class="section" aria-labelledby="who-title">
     <div class="section-head">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 id="who-title">Who this is for.</h2>
     </div>
     <p>
@@ -203,9 +252,44 @@
     </p>
   </section>
 
+  <section class="section" aria-labelledby="faq-title">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2 id="faq-title">Questions worth asking first.</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Where does our information go, and what do you need access to?</summary>
+        <p>The engineer needs to see how the chore moves through the office: which tools, which steps, who touches the work. What access that takes, and what stays inside your systems, depends on the office. Bring any privacy or access rules you already follow. We talk through them before anyone connects anything. This page does not claim a security certification.</p>
+      </details>
+      <details>
+        <summary>Can’t I just use ChatGPT?</summary>
+        <p>You can. Tools in that range are the first column above: about $200 a month, and your time to run them. Studio is the other arrangement. An engineer learns the office, sets agents around the chores, and keeps them matched to the work. You prompt the engineer. You are not the one sitting with the tools.</p>
+      </details>
+      <details>
+        <summary>What happens when something breaks?</summary>
+        <p>Agents miss steps, and offices change. When that happens, you tell the engineer. Looking at it and adapting the swarm is what the monthly work is. This page does not promise that nothing will break, or a response window. How you reach the engineer is part of the conversation before the work starts.</p>
+      </details>
+      <details>
+        <summary>How long is this, and how do we stop?</summary>
+        <p>The shape is $5,000 to set the swarm up, then $1,000 a month while an engineer manages and adapts it. Length, and how you end it, are agreed before the work starts. This page does not set a term.</p>
+      </details>
+      <details>
+        <summary>What is included in the $5,000?</summary>
+        <p>Learning how this office actually moves work, and setting up agents around the chores you name — intake, chasing documents, follow-ups, reminders, review replies. It is not a generic install. The $1,000 a month after that is the engineer managing and adapting those agents as the office changes. What gets built first follows the chore you describe. Timing is something we talk through, not a date promised here.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="studio-close" aria-labelledby="close-title">
+    <h2 id="close-title">Name the office and the chore.</h2>
+    <p>The form drafts an email to roger@algorithmacy.org. Nothing is sent until you send it. If a call is easier, say so in that email.</p>
+    <a class="studio-cta" href="#desk">Tell us about the office <span class="arrow" aria-hidden="true">→</span></a>
+  </section>
+
   <footer class="page-footer">
     <a href="/">← Back to home</a>
-    <span>Roger Hunt · rhunt@bentley.edu</span>
+    <span>Roger Hunt · <a class="footer-mail" href="mailto:roger@algorithmacy.org">roger@algorithmacy.org</a></span>
   </footer>
 
 </main>
