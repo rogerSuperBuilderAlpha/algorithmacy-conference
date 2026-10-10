@@ -106,6 +106,8 @@ To volunteer as a reviewer, open an issue tagged `volunteer-reviewer` with your 
 
 ## Code of conduct
 
+The public statement is at [algorithmacy.org/conduct](https://algorithmacy.org/conduct).
+
 The conference and its review process operate under a no-tolerance policy for harassment, discrimination, or personal attacks. Disagreement with ideas is welcome and expected; attacks on individuals are grounds for removal from the program.
 
 Concerns: rhunt@bentley.edu.

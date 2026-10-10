@@ -89,6 +89,7 @@
     outline-offset: 2px;
   }
   body:has(.mode-toggle) .fab-submit{ bottom: 80px; }
+  body:has(.mode-toggle) .stage{ padding-bottom: 112px; }
 
   @media (max-width: 720px){
     .mode-toggle{ right: 16px; bottom: 16px; }

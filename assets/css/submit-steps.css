@@ -126,8 +126,8 @@
   /* ---------- footer ---------- */
   .page-footer{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     padding-top: 28px;
     margin-top: clamp(32px, 4vw, 56px);
     border-top: 1px solid var(--line);
@@ -136,11 +136,23 @@
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--ink-soft);
+    gap: 14px;
+  }
+  .page-footer-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 14px;
   }
+  .legal-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
   .page-footer a{ color: var(--ink); text-decoration: none; }
   .page-footer a:hover{ color: var(--signal); }
+  .page-footer a[aria-current="page"]{ color: var(--signal); }
 
   /* ---------- responsive ---------- */
   @media (max-width: 720px){
