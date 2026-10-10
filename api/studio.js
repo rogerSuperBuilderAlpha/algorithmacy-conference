@@ -70,7 +70,7 @@ function validateInquiry(b) {
   const str = (v) => (typeof v === 'string' ? v.replace(/[\r\n]+/g, ' ').trim() : '');
 
   const intent = str(b.intent) === 'other' ? 'other' : (str(b.intent) === 'office' ? 'office' : '');
-  if (!intent) errors.push('Choose the office engagement or a different problem.');
+  if (!intent) errors.push('Choose the office engagement or other work.');
 
   const name = str(b.name);
   if (name.length < 2 || name.length > 120) errors.push('Your name is required.');
@@ -80,7 +80,7 @@ function validateInquiry(b) {
 
   const chore = str(b.chore);
   if (chore.length < 2 || chore.length > 400) {
-    errors.push(intent === 'other' ? 'Tell us the problem.' : 'Tell us the chore.');
+    errors.push('Tell us the work.');
   }
 
   const email = str(b.email).toLowerCase();
@@ -96,7 +96,7 @@ function validateInquiry(b) {
 }
 
 function inquiryText(clean) {
-  const path = clean.intent === 'other' ? 'A different problem' : 'The office engagement';
+  const path = clean.intent === 'other' ? 'Other work' : 'The office engagement';
   const lines = [
     path,
     '',
@@ -105,21 +105,21 @@ function inquiryText(clean) {
     'Business: ' + clean.business,
   ];
   if (clean.office) lines.push('Office: ' + clean.office);
-  lines.push((clean.intent === 'other' ? 'Problem: ' : 'Chore: ') + clean.chore);
+  lines.push('Work: ' + clean.chore);
   lines.push('');
   lines.push('Reply to the address above.');
   return lines.join('\n');
 }
 
 function inquiryHtml(clean) {
-  const path = clean.intent === 'other' ? 'A different problem' : 'The office engagement';
+  const path = clean.intent === 'other' ? 'Other work' : 'The office engagement';
   const rows = [
     ['Name', clean.name],
     ['Email', clean.email],
     ['Business', clean.business],
   ];
   if (clean.office) rows.push(['Office', clean.office]);
-  rows.push([clean.intent === 'other' ? 'Problem' : 'Chore', clean.chore]);
+  rows.push(['Work', clean.chore]);
   const body = rows.map(([label, value]) =>
     `<p style="margin:0 0 8px"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`
   ).join('');

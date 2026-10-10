@@ -1,8 +1,141 @@
 /* Studio landing page. Uses the conference pitch palette, without the paper numbering. */
 
-.studio-nav{
-  margin-bottom: clamp(28px, 4vw, 48px);
+.stage{ position: relative; z-index: 1; }
+
+.studio-field{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
+.studio-figure{
+  position: absolute;
+  right: 2.5vw;
+  top: 15vh;
+  width: min(420px, 26vw);
+  opacity: 0;
+  animation: studio-fade 27s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 9s);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 16%);
+}
+.studio-figure svg{
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+@keyframes studio-fade{
+  0% { opacity: 0; }
+  6% { opacity: 0.9; }
+  27% { opacity: 0.9; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.studio-field .node-ring{
+  fill: var(--pitch-raised);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.studio-field .node-glyph{
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 18px;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.studio-field .node-label{
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  fill: var(--ink-soft);
+  text-transform: uppercase;
+}
+.studio-field .alg-core{
+  fill: var(--pitch);
+  stroke: var(--cool);
+  stroke-width: 1.5;
+  filter: url(#sf-glow);
+}
+.studio-field .alg-glyph{
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 22px;
+  fill: var(--cool);
+  text-anchor: middle;
+  dominant-baseline: central;
+  filter: url(#sf-glow);
+}
+.studio-field .ringpulse{
+  fill: none;
+  stroke: var(--cool);
+  stroke-width: 1;
+  animation: studio-ring 3s ease-out infinite;
+}
+@keyframes studio-ring{
+  0%   { r: 26; opacity: .7; }
+  100% { r: 58; opacity: 0; }
+}
+.studio-field .particle{
+  fill: var(--signal);
+  filter: drop-shadow(0 0 6px rgba(255,89,69,.85));
+}
+
+.studio-field.is-still .studio-figure{
+  animation: none;
+  opacity: 0;
+}
+.studio-field.is-still .studio-figure[data-figure="algorithmacy"]{ opacity: 0.28; }
+.studio-field.is-still .ringpulse{ animation: none; opacity: 0; }
+
+@media (max-width: 1180px){
+  .studio-figure{
+    right: -6vw;
+    top: 7vh;
+    width: min(420px, 48vw);
+  }
+}
+@media (max-width: 720px){
+  .studio-figure{
+    right: -18vw;
+    top: 18vh;
+    width: 92vw;
+    animation-name: studio-fade-quiet;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+@keyframes studio-fade-quiet{
+  0% { opacity: 0; }
+  6% { opacity: 0.16; }
+  27% { opacity: 0.16; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .studio-figure{ animation: none; }
+}
+
+.studio-nav{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+  padding: 8px 0 0;
+}
+.studio-brand{
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.studio-brand:hover{ color: var(--ink); text-decoration: none; }
 .studio-links{
   display: flex;
   flex-wrap: wrap;
@@ -12,10 +145,11 @@
 .studio-links a{
   color: var(--ink-soft);
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .studio-links a:hover{ color: var(--ink); text-decoration: none; }
 .studio-links a[aria-current="page"]{ color: var(--ink); }

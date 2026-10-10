@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Algorithmacy Studio — the chore that eats the week</title>
-<meta name="description" content="For owner-run offices of about 5 to 50 people. An engineer learns how the office works and runs the agents around the chores that eat the week. $5,000 to set up, $1,000 a month. You prompt the engineer." />
+<title>Algorithmacy Studio</title>
+<meta name="description" content="An engineer sets up agents for an owner-run office and keeps them running. $5,000 to set up, $1,000 a month. Law firms first. Offices of about 5 to 50 people." />
 <link rel="canonical" href="https://algorithmacy.org/studio" />
 <meta name="theme-color" content="#07080A" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Algorithmacy" />
-<meta property="og:title" content="Algorithmacy Studio — the chore that eats the week" />
-<meta property="og:description" content="An engineer learns the office and runs the agents. $5,000 to set up, $1,000 a month. Law firms first, then dental, med spa, real estate, and CPA offices." />
+<meta property="og:title" content="Algorithmacy Studio" />
+<meta property="og:description" content="An engineer sets up agents for an owner-run office and keeps them running. $5,000 to set up, $1,000 a month. Law firms first." />
 <meta property="og:url" content="https://algorithmacy.org/studio" />
 <meta property="og:image" content="https://algorithmacy.org/images/studio-share.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Algorithmacy Studio. The chore that eats the week. $5,000 to set up, $1,000 a month." />
+<meta property="og:image:alt" content="Algorithmacy Studio. $5,000 to set up agents, $1,000 a month." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Algorithmacy Studio — the chore that eats the week" />
-<meta name="twitter:description" content="An engineer learns the office and runs the agents. $5,000 to set up, $1,000 a month. You prompt the engineer." />
+<meta name="twitter:title" content="Algorithmacy Studio" />
+<meta name="twitter:description" content="An engineer sets up agents for an owner-run office and keeps them running. $5,000 to set up, $1,000 a month." />
 <meta name="twitter:image" content="https://algorithmacy.org/images/studio-share.png" />
 <link rel="stylesheet" href="/design-system/colors_and_type.css" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -34,7 +34,7 @@
   "name": "Algorithmacy Studio",
   "serviceType": "Design and AI engineering for owner-run offices",
   "url": "https://algorithmacy.org/studio",
-  "description": "Algorithmacy Studio designs how an owner-run office works with AI and builds the agents that do the chores. $5,000 to set up, $1,000 a month. You prompt the engineer.",
+  "description": "An engineer learns an owner-run office, sets up agents for the chores, and manages them. $5,000 to set up, $1,000 a month.",
   "provider": {
     "@type": "Person",
     "name": "Roger Hunt",
@@ -53,7 +53,7 @@
       "name": "Onboarding",
       "price": "5000",
       "priceCurrency": "USD",
-      "description": "Set up a swarm of agents around how the office works."
+      "description": "Set up agents for how the office works."
     },
     {
       "@type": "Offer",
@@ -74,18 +74,162 @@
 </head>
 <body>
 
+<div class="studio-field" aria-hidden="true">
+  <div class="studio-figure" style="--i:0" data-figure="oracy">
+    <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <path id="sf-oracy-path" d="M 55,70 L 345,70" />
+      </defs>
+      <line x1="75" y1="70" x2="325" y2="70" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+      <circle cx="55" cy="70" r="20" class="node-ring"/>
+      <text x="55" y="71" class="node-glyph" style="font-size:15px;">I</text>
+      <text x="55" y="108" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+      <circle cx="345" cy="70" r="20" class="node-ring"/>
+      <text x="345" y="71" class="node-glyph" style="font-size:15px;">II</text>
+      <text x="345" y="108" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+      <circle r="3" class="particle">
+        <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.1s"
+                       keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-oracy-path"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.4" class="particle" style="opacity:.6">
+        <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.0s"
+                       keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-oracy-path"/>
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+
+  <div class="studio-figure" style="--i:1" data-figure="literacy">
+    <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <path id="sf-lit-route1" d="M 55,100 L 142,34 L 345,100" />
+        <path id="sf-lit-route2" d="M 345,100 L 258,34 L 55,100" />
+      </defs>
+      <line x1="55" y1="100" x2="142" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+      <line x1="55" y1="100" x2="258" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+      <line x1="345" y1="100" x2="142" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+      <line x1="345" y1="100" x2="258" y2="34" stroke="var(--ink)" stroke-width="1.25" opacity=".72"/>
+      <g>
+        <rect x="128" y="14" width="28" height="40" rx="2" fill="var(--pitch-raised)" stroke="var(--ember)" stroke-width="1.5"/>
+        <line x1="134" y1="23" x2="150" y2="23" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="134" y1="29" x2="150" y2="29" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="134" y1="35" x2="150" y2="35" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="134" y1="41" x2="147" y2="41" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+      </g>
+      <g>
+        <rect x="244" y="14" width="28" height="40" rx="2" fill="var(--pitch-raised)" stroke="var(--ember)" stroke-width="1.5"/>
+        <line x1="250" y1="23" x2="266" y2="23" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="250" y1="29" x2="266" y2="29" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="250" y1="35" x2="266" y2="35" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+        <line x1="250" y1="41" x2="263" y2="41" stroke="var(--ember)" stroke-width="0.9" opacity=".85"/>
+      </g>
+      <circle cx="55" cy="100" r="20" class="node-ring"/>
+      <text x="55" y="101" class="node-glyph" style="font-size:15px;">I</text>
+      <text x="55" y="135" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+      <circle cx="345" cy="100" r="20" class="node-ring"/>
+      <text x="345" y="101" class="node-glyph" style="font-size:15px;">II</text>
+      <text x="345" y="135" text-anchor="middle" class="node-label" style="font-size:8px;">human</text>
+      <text x="142" y="68" text-anchor="middle" class="node-label" style="fill: var(--ember); font-size:7px;">message</text>
+      <text x="258" y="68" text-anchor="middle" class="node-label" style="fill: var(--ember); font-size:7px;">message</text>
+      <circle r="2.8" class="particle">
+        <animateMotion dur="3.2s" repeatCount="indefinite" begin="0s" calcMode="linear">
+          <mpath href="#sf-lit-route1"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.4" class="particle" style="opacity:.6">
+        <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.6s" calcMode="linear">
+          <mpath href="#sf-lit-route1"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.8" class="particle">
+        <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.8s" calcMode="linear">
+          <mpath href="#sf-lit-route2"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.4" class="particle" style="opacity:.6">
+        <animateMotion dur="3.2s" repeatCount="indefinite" begin="2.4s" calcMode="linear">
+          <mpath href="#sf-lit-route2"/>
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+
+  <div class="studio-figure" style="--i:2" data-figure="algorithmacy">
+    <svg viewBox="0 0 480 400" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <filter id="sf-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <path id="sf-pIA" d="M 90,260 C 90,165 160,100 240,80" />
+        <path id="sf-pIIA" d="M 390,260 C 390,165 320,100 240,80" />
+      </defs>
+      <circle class="ringpulse" cx="240" cy="80"/>
+      <circle class="ringpulse" cx="240" cy="80" style="animation-delay:1s"/>
+      <circle class="ringpulse" cx="240" cy="80" style="animation-delay:2s"/>
+      <path d="M 90,260 C 90,165 160,100 240,80" fill="none" stroke="var(--ink)" stroke-width="1.5" opacity=".82"/>
+      <path d="M 390,260 C 390,165 320,100 240,80" fill="none" stroke="var(--ink)" stroke-width="1.5" opacity=".82"/>
+      <text x="240" y="272" text-anchor="middle" class="node-label" style="font-size: 8.5px; letter-spacing:.2em;">coordination ⟵ ⟶ desired</text>
+      <path d="M 124,290 L 356,290" fill="none" stroke="var(--ink-faint)" stroke-width="1.25" stroke-dasharray="3 5"/>
+      <g>
+        <circle cx="90" cy="290" r="26" class="node-ring"/>
+        <text x="90" y="291" class="node-glyph">I</text>
+        <text x="90" y="335" text-anchor="middle" class="node-label">human · party one</text>
+      </g>
+      <g>
+        <circle cx="390" cy="290" r="26" class="node-ring"/>
+        <text x="390" y="291" class="node-glyph">II</text>
+        <text x="390" y="335" text-anchor="middle" class="node-label">human · party two</text>
+      </g>
+      <g transform="translate(240 80) rotate(45)">
+        <rect x="-26" y="-26" width="52" height="52" class="alg-core" rx="3"/>
+      </g>
+      <text x="240" y="84" class="alg-glyph">α</text>
+      <text x="240" y="30" text-anchor="middle" class="node-label" style="fill: var(--cool); opacity: .85;">algorithm · third party</text>
+      <circle r="3.4" class="particle">
+        <animateMotion dur="3.6s" repeatCount="indefinite" begin="1.4s"
+                       keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-pIA"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.4" class="particle" style="opacity:.6">
+        <animateMotion dur="3.6s" repeatCount="indefinite" begin="2.8s"
+                       keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-pIA"/>
+        </animateMotion>
+      </circle>
+      <circle r="3.4" class="particle">
+        <animateMotion dur="3.6s" repeatCount="indefinite" begin="2.0s"
+                       keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-pIIA"/>
+        </animateMotion>
+      </circle>
+      <circle r="2.4" class="particle" style="opacity:.6">
+        <animateMotion dur="3.6s" repeatCount="indefinite" begin="3.4s"
+                       keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline"
+                       keySplines="0.4 0 0.2 1; 0.4 0 0.2 1">
+          <mpath href="#sf-pIIA"/>
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+</div>
+
 <main class="stage">
 
-  <header class="topstrip studio-nav">
-    <span class="brand">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
-        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-      </svg>
-      <span>Algorithmacy</span>
-    </span>
+  <header class="studio-nav">
+    <a class="studio-brand" href="/studio">Algorithmacy Studio</a>
     <nav class="studio-links" aria-label="Algorithmacy">
       <a href="/">Conference</a>
       <a href="/studio" aria-current="page">Studio</a>
@@ -94,107 +238,100 @@
   </header>
 
   <section class="hero studio-hero">
-    <span class="eyebrow">
-      <span class="num">Studio</span>
-      <span>Offices of about 5 to 50 · law firms first</span>
-    </span>
-    <h1 class="display">The chore that eats the week.</h1>
+    <h1 class="display">We set up agents for your office.</h1>
     <p class="lede">
-      An engineer learns how your office actually works and runs the agents around it — intake, chasing documents, follow-ups, reminders, review replies. You tell the engineer what should change. They do the managing.
+      For owner-run offices of about 5 to 50 people. Law firms first. An engineer learns the office, sets up agents for the chores, and keeps them running. You say what should change.
     </p>
 
-    <div class="studio-offer" aria-label="The office engagement">
+    <div class="studio-offer" aria-label="Price">
       <p class="studio-price">
         <span class="studio-price-amt">$5,000</span>
-        <span class="studio-price-label">once, to set the swarm up</span>
+        <span class="studio-price-label">to set up</span>
       </p>
       <p class="studio-price">
         <span class="studio-price-amt">$1,000</span>
-        <span class="studio-price-label">a month, to manage and adapt it</span>
+        <span class="studio-price-label">a month after that</span>
       </p>
     </div>
 
-    <a class="studio-cta" href="#desk" data-intent="office">Tell us the chore <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="studio-cta" href="#desk" data-intent="office">Get in touch</a>
   </section>
 
   <section class="section" aria-labelledby="practice-title">
     <div class="section-head">
-      <h2 id="practice-title">We design the coordination. Then an engineer runs it.</h2>
+      <h2 id="practice-title">Two ways to start.</h2>
     </div>
     <p>
-      Algorithmacy Studio designs how an office works with AI, and builds the agents that do the chores. You prompt the engineer. They manage the agents. Two ways into the same conversation.
+      The priced work is an engineer for one office. If you need something else designed or built, write anyway. We will talk about the cost. It is not listed here.
     </p>
     <div class="paths">
       <article class="path is-priced">
         <h3>The office engagement</h3>
         <p class="path-price"><b>$5,000</b> once, then <b>$1,000</b> a month.</p>
-        <p>Law firms first, then dental practices and med spas, real estate offices, and CPA firms. Another owner-run office of about 5 to 50 people, with the same shape of work, uses the same engagement.</p>
-        <a class="path-link" href="#desk" data-intent="office">Tell us the chore</a>
+        <p>Law firms first, then dental practices and med spas, real estate offices, and CPA firms. Another owner-run office of about 5 to 50 people can use the same engagement.</p>
+        <a class="path-link" href="#desk" data-intent="office">Get in touch</a>
       </article>
       <article class="path">
-        <h3>A different problem</h3>
-        <p class="path-price">No second price on this page.</p>
-        <p>Design or AI work that is not the office engagement. It is the same conversation with the same engineer. What it costs is something we talk through, not a package listed here.</p>
-        <a class="path-link" href="#desk" data-intent="other">Tell us the problem</a>
+        <h3>Other work</h3>
+        <p class="path-price">No price listed.</p>
+        <p>Design or AI work that is not the office engagement. Same engineer. We agree on a price before any work starts.</p>
+        <a class="path-link" href="#desk" data-intent="other">Describe the work</a>
       </article>
     </div>
   </section>
 
   <section class="section" aria-labelledby="how-title">
     <div class="section-head">
-      <h2 id="how-title">How the office engagement works.</h2>
+      <h2 id="how-title">How it works.</h2>
     </div>
     <ol class="how">
       <li>
-        <h3>Tell us the office and the chore</h3>
-        <p>Name the kind of office, the business, and the work that eats the week.</p>
+        <h3>Tell us the office and the work</h3>
+        <p>The kind of office, the business, and the chores. Intake, documents, follow-ups, reminders, review replies.</p>
       </li>
       <li>
-        <h3>We learn how it runs and set up the agents</h3>
-        <p>An engineer learns how the office actually moves that work, then sets a swarm of agents around it. That is the $5,000.</p>
+        <h3>We learn the office and set up the agents</h3>
+        <p>An engineer learns how that work moves, then sets up agents for it. That is the $5,000.</p>
       </li>
       <li>
-        <h3>You prompt the engineer as things change</h3>
-        <p>You are not the one watching the agents. When the office shifts, you say so. The engineer manages and adapts them. That is the $1,000 a month.</p>
+        <h3>You say when something should change</h3>
+        <p>You are not the one running the agents. The engineer manages them. That is the $1,000 a month.</p>
       </li>
     </ol>
   </section>
 
   <section class="section" aria-labelledby="compare-title">
     <div class="section-head">
-      <h2 id="compare-title">Three ways to get the work done.</h2>
+      <h2 id="compare-title">What else this costs.</h2>
     </div>
     <div class="compare-cards">
       <article class="compare-card">
         <h3>Tools you already pay for</h3>
         <p class="compare-figure">About $200 <span>a month</span></p>
-        <p>and a lot of your time managing them.</p>
-        <p class="compare-detail">You analyze the business yourself, between the other work.</p>
+        <p>plus your time to run them.</p>
       </article>
       <article class="compare-card">
-        <h3>A hire in the office</h3>
+        <h3>Hiring an engineer</h3>
         <p class="compare-figure">About $200,000 <span>a year</span></p>
-        <p>for an AI engineer to sit and watch a screen.</p>
-        <p class="compare-detail">You employ someone whose job is the screen.</p>
+        <p>for an AI engineer on staff.</p>
       </article>
       <article class="compare-card is-studio">
         <h3>Algorithmacy Studio</h3>
         <p class="compare-figure">$5,000 <span>then $1,000 a month</span></p>
-        <p>to set it up, then to manage and adapt it.</p>
-        <p class="compare-detail">We analyze the business. You prompt the engineer. They manage the agents.</p>
+        <p>to set the agents up, then to manage them.</p>
       </article>
     </div>
   </section>
 
   <section class="section" aria-labelledby="who-title">
     <div class="section-head">
-      <h2 id="who-title">Who this is for.</h2>
+      <h2 id="who-title">Who it is for.</h2>
     </div>
     <p>
-      Owner-run offices of about <b>5 to 50 people</b>, where the week disappears into admin and follow-up. The fit, in order: <b>law firms</b>, then <b>dental practices and med spas</b>, <b>real estate offices</b>, and <b>CPA firms</b>. A clinic, a home-services company, or a small agency with the same shape of work can use the same engagement.
+      Owner-run offices of about 5 to 50 people. Law firms first, then dental practices and med spas, real estate offices, and CPA firms. A clinic, a home-services company, or a small agency with the same kind of work can use the same engagement.
     </p>
     <p>
-      The conference on this site is a separate program. Studio is the agency practice: one office, one swarm, one engineer on the other side of the prompt.
+      The conference on this site is a separate program.
     </p>
     <figure class="studio-person">
       <img src="/images/speakers/roger-hunt.jpg" width="96" height="96" alt="Roger Hunt">
@@ -208,41 +345,41 @@
 
   <section class="section" aria-labelledby="faq-title">
     <div class="section-head">
-      <h2 id="faq-title">Questions worth asking first.</h2>
+      <h2 id="faq-title">Questions.</h2>
     </div>
     <div class="faq">
       <details>
         <summary>Where does our information go, and what do you need access to?</summary>
-        <p>The engineer needs to see how the chore moves through the office: which tools, which steps, who touches the work. What access that takes, and what stays inside your systems, depends on the office. Bring any privacy or access rules you already follow. We talk through them before anyone connects anything. This page does not claim a security certification.</p>
+        <p>The engineer needs to see how the work moves: which tools, which steps, who touches it. What access that takes, and what stays in your systems, depends on the office. Bring the privacy or access rules you already follow. We agree on that before anyone connects anything. This page does not claim a security certification.</p>
       </details>
       <details>
         <summary>Can’t I just use ChatGPT?</summary>
-        <p>You can. Tools in that range are the first column above: about $200 a month, and your time to run them. Studio is the other arrangement. An engineer learns the office, sets agents around the chores, and keeps them matched to the work. You prompt the engineer. You are not the one sitting with the tools.</p>
+        <p>You can. Tools in that range are about $200 a month, and you still run them. Here, an engineer learns the office, sets up the agents, and keeps them current. You are not the one running the tools.</p>
       </details>
       <details>
         <summary>What happens when something breaks?</summary>
-        <p>Agents miss steps, and offices change. When that happens, you tell the engineer. Looking at it and adapting the swarm is what the monthly work is. This page does not promise that nothing will break, or a response window. How you reach the engineer is part of the conversation before the work starts.</p>
+        <p>Agents miss steps, and offices change. You tell the engineer. Fixing that is the monthly work. This page does not promise that nothing will break, or how fast someone replies. How you reach the engineer is agreed before the work starts.</p>
       </details>
       <details>
         <summary>How long is this, and how do we stop?</summary>
-        <p>The shape is $5,000 to set the swarm up, then $1,000 a month while an engineer manages and adapts it. Length, and how you end it, are agreed before the work starts. This page does not set a term.</p>
+        <p>$5,000 to set up, then $1,000 a month while an engineer manages the agents. How long it lasts, and how you stop, are agreed before the work starts. This page does not set a term.</p>
       </details>
       <details>
         <summary>What is included in the $5,000?</summary>
-        <p>Learning how this office actually moves work, and setting up agents around the chores you name — intake, chasing documents, follow-ups, reminders, review replies. It is not a generic install. The $1,000 a month after that is the engineer managing and adapting those agents as the office changes. What gets built first follows the chore you describe. Timing is something we talk through, not a date promised here.</p>
+        <p>Learning how this office moves work, and setting up agents for the chores you name: intake, chasing documents, follow-ups, reminders, review replies. Not a generic install. The $1,000 a month is the engineer managing those agents as the office changes. What gets built first follows the work you describe. Timing is discussed, not promised here.</p>
       </details>
     </div>
   </section>
 
   <section class="studio-close" id="desk" aria-labelledby="close-title">
-    <h2 id="close-title">Tell us the chore.</h2>
-    <p id="desk-intro">The form sends a note to Roger Hunt. You will see a confirmation on this page. If you would rather write it yourself, the email link under the button is there.</p>
+    <h2 id="close-title">Get in touch.</h2>
+    <p id="desk-intro">This form emails Roger Hunt. You will see a confirmation on this page. You can also write to him yourself.</p>
 
     <form class="desk" id="desk-form" action="/api/studio" method="post">
       <fieldset class="desk-intent">
-        <legend>Which conversation is this?</legend>
+        <legend>What do you need?</legend>
         <label><input type="radio" name="intent" value="office" checked> The office engagement</label>
-        <label><input type="radio" name="intent" value="other"> A different problem</label>
+        <label><input type="radio" name="intent" value="other"> Other work</label>
       </fieldset>
 
       <fieldset class="desk-offices" id="desk-offices">
@@ -268,8 +405,8 @@
           <input type="text" name="business" id="desk-business" autocomplete="organization" required>
         </label>
         <label class="desk-field desk-field-wide">
-          <span id="desk-chore-label">The chore that eats the week</span>
-          <input type="text" name="chore" id="desk-chore" placeholder="Client intake, chasing documents" required>
+          <span id="desk-chore-label">The work</span>
+          <input type="text" name="chore" id="desk-chore" placeholder="Intake, follow-ups, chasing documents" required>
         </label>
       </div>
 
@@ -280,7 +417,7 @@
       <p class="desk-line" id="desk-line" aria-live="polite"></p>
 
       <p class="desk-status" id="desk-status" role="alert" hidden></p>
-      <button type="submit" class="desk-send" id="desk-send">Send this to the studio</button>
+      <button type="submit" class="desk-send" id="desk-send">Send</button>
       <p class="desk-note">Or write it yourself: <a id="desk-mailto" href="mailto:roger@algorithmacy.org">roger@algorithmacy.org</a>. Sending the form is covered by the <a href="/privacy">privacy notice</a> and the <a href="/terms">terms</a>.</p>
     </form>
 
