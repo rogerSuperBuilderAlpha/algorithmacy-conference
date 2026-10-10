@@ -1,4 +1,5 @@
 (function () {
+  var STUDIO_MAIL = "roger@algorithmacy.org";
   var form = document.getElementById("desk");
   var line = document.getElementById("desk-line");
   var choreInput = document.getElementById("desk-chore");
@@ -44,10 +45,12 @@
       "Name: " + name,
       "Business: " + business,
       "Office: " + kind,
-      "Chore: " + chore
+      "Chore: " + chore,
+      "",
+      "If a call is easier than email, say so here."
     ].join("\n");
     window.location.href =
-      "mailto:rhunt@bentley.edu?subject=" +
+      "mailto:" + STUDIO_MAIL + "?subject=" +
       encodeURIComponent(subject) +
       "&body=" +
       encodeURIComponent(body);
