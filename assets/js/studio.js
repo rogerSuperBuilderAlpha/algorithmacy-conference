@@ -1,4 +1,10 @@
 (function () {
+  var field = document.querySelector(".studio-field");
+  if (field && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    field.querySelectorAll("animate, animateMotion").forEach(function (node) { node.remove(); });
+    field.classList.add("is-still");
+  }
+
   var STUDIO_MAIL = "roger@algorithmacy.org";
   var form = document.getElementById("desk-form");
   var line = document.getElementById("desk-line");
@@ -26,35 +32,34 @@
     return el ? el.value.trim() : "";
   }
 
-  function chorePhrase() {
-    var chore = choreInput.value.trim();
-    if (!chore) return intent() === "other" ? "the problem" : "the chore that eats the week";
-    return "\u201c" + chore + "\u201d";
-  }
-
   function article(kind) {
     return /^[aeiou]/i.test(kind) ? "an " : "a ";
   }
 
+  function officeLabel() {
+    var kind = article(office()) + office();
+    return kind.charAt(0).toUpperCase() + kind.slice(1);
+  }
+
   function writeLine() {
+    var chore = choreInput.value.trim();
     if (intent() === "other") {
-      line.textContent =
-        "A different problem" +
-        (choreInput.value.trim() ? ", " + chorePhrase() : "") +
-        ". No price is set on this page. Roger will reply to talk it through.";
+      line.textContent = chore
+        ? "Other work: " + chore + ". No price is listed on this page."
+        : "Other work. No price is listed on this page.";
       return;
     }
     line.textContent =
-      "For " + article(office()) + office() +
-      ", we learn how the office works, set agents around " + chorePhrase() +
-      ", and an engineer runs them. You prompt the engineer. Setup is $5,000. The month is $1,000.";
+      officeLabel() +
+      (chore ? ". Work: " + chore + "." : ".") +
+      " $5,000 to set up, then $1,000 a month.";
   }
 
   function applyIntent() {
     var other = intent() === "other";
     if (offices) offices.disabled = other;
-    if (choreLabel) choreLabel.textContent = other ? "The problem" : "The chore that eats the week";
-    choreInput.placeholder = other ? "What you want designed or built" : "Client intake, chasing documents";
+    if (choreLabel) choreLabel.textContent = "The work";
+    choreInput.placeholder = other ? "What you want designed or built" : "Intake, follow-ups, chasing documents";
     writeLine();
     writeMailto();
   }
@@ -69,7 +74,7 @@
     if (email) rows.push("Email: " + email);
     if (business) rows.push("Business: " + business);
     if (intent() === "office") rows.push("Office: " + office());
-    if (chore) rows.push((intent() === "other" ? "Problem: " : "Chore: ") + chore);
+    if (chore) rows.push("Work: " + chore);
     return rows.join("\n");
   }
 
