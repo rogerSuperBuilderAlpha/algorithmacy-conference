@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Studio · Algorithmacy</title>
+<meta name="description" content="Algorithmacy Studio sets up a swarm of agents for an owner-run office. $5,000 to set it up. $1,000 a month for an engineer to manage and adapt them. You prompt the engineer." />
+<link rel="canonical" href="https://algorithmacy.org/studio" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Studio · Algorithmacy" />
+<meta property="og:description" content="You prompt the engineer. They manage the agents. $5,000 to set up a swarm for the office, then $1,000 a month." />
+<meta property="og:url" content="https://algorithmacy.org/studio" />
+<meta property="og:image" content="https://algorithmacy.org/apple-touch-icon.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="stylesheet" href="/design-system/colors_and_type.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/css/submit.css" />
+<link rel="stylesheet" href="/assets/css/submit-steps.css" />
+<link rel="stylesheet" href="/assets/css/studio.css" />
+<link rel="stylesheet" href="/assets/css/fab.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Algorithmacy Studio",
+  "serviceType": "Agent swarm setup and management for owner-run offices",
+  "url": "https://algorithmacy.org/studio",
+  "description": "Set up a swarm of agents around how an owner-run office works, then have an engineer manage and adapt them. You prompt the engineer.",
+  "provider": {
+    "@type": "Person",
+    "name": "Roger Hunt",
+    "email": "rhunt@bentley.edu"
+  },
+  "areaServed": "US",
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Owner-run offices of about 5 to 50 people"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Onboarding",
+      "price": "5000",
+      "priceCurrency": "USD",
+      "description": "Set up a swarm of agents around how the office works."
+    },
+    {
+      "@type": "Offer",
+      "name": "Management",
+      "price": "1000",
+      "priceCurrency": "USD",
+      "description": "Monthly management and adaptation of the agents.",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "1000",
+        "priceCurrency": "USD",
+        "unitText": "MONTH"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<main class="stage">
+
+  <header class="topstrip">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="9" y="3" width="6" height="6" transform="rotate(45 12 6)" fill="currentColor"/>
+        <path d="M8 16 L11 8 M16 16 L13 8 M9 18 L15 18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      </svg>
+      <span><span class="back">← </span>Algorithmacy</span>
+    </a>
+    <div class="right">
+      <span>Studio</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">
+      <span class="num">Studio</span>
+      <span>for owner-run offices</span>
+    </span>
+    <h1 class="display">You prompt the engineer.<br>They manage the agents.</h1>
+    <p class="lede">
+      Algorithmacy Studio sets up a <b>swarm of agents</b> around how your office actually works, then keeps it current. The onboarding fee is <b>$5,000</b>. After that it is <b>$1,000 a month</b>. You tell the engineer what should change. They do the managing.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="desk-title">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 id="desk-title">Describe the office.</h2>
+    </div>
+    <p>
+      The first question is who handles the chore that eats the week — intake, chasing documents, the follow-up that slips. Tell us the office and that chore. The line below is the engagement, priced.
+    </p>
+
+    <form class="desk" id="desk" action="mailto:rhunt@bentley.edu" method="post" enctype="text/plain">
+      <fieldset class="desk-offices">
+        <legend>What kind of office is this?</legend>
+        <label><input type="radio" name="office" value="law firm" checked> Law firm</label>
+        <label><input type="radio" name="office" value="dental practice or med spa"> Dental or med spa</label>
+        <label><input type="radio" name="office" value="real estate office"> Real estate</label>
+        <label><input type="radio" name="office" value="CPA firm"> CPA firm</label>
+        <label><input type="radio" name="office" value="owner-run office"> Another owner-run office</label>
+      </fieldset>
+
+      <div class="desk-fields">
+        <label class="desk-field">
+          <span>Your name</span>
+          <input type="text" name="name" id="desk-name" autocomplete="name" required>
+        </label>
+        <label class="desk-field">
+          <span>The business</span>
+          <input type="text" name="business" id="desk-business" autocomplete="organization" required>
+        </label>
+        <label class="desk-field desk-field-wide">
+          <span>The chore that eats the week</span>
+          <input type="text" name="chore" id="desk-chore" placeholder="Client intake, chasing documents" required>
+        </label>
+      </div>
+
+      <p class="desk-line" id="desk-line" aria-live="polite">
+        For a law firm, we learn how the office works, set agents around the chore that eats the week, and an engineer runs them. You prompt the engineer. Setup is $5,000. The month is $1,000.
+      </p>
+
+      <div class="desk-price" aria-hidden="true">
+        <p><b>$5,000</b> once, to set the swarm up</p>
+        <p><b>$1,000</b> each month, to manage and adapt it</p>
+      </div>
+
+      <button type="submit" class="desk-send" id="desk-send">Ask the studio about this office</button>
+      <p class="desk-note">This opens an email to Roger Hunt at rhunt@bentley.edu. Nothing is sent until you send that email.</p>
+    </form>
+  </section>
+
+  <section class="section" aria-labelledby="compare-title">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 id="compare-title">Three ways to get the work done.</h2>
+    </div>
+    <div class="compare" role="table" aria-label="Cost comparison">
+      <div class="compare-row compare-head" role="row">
+        <span role="columnheader">Tools you already pay for</span>
+        <span role="columnheader">A hire in the office</span>
+        <span role="columnheader">Algorithmacy Studio</span>
+      </div>
+      <div class="compare-row" role="row">
+        <span role="cell">About <b>$200 a month</b>, and a lot of your time managing them.</span>
+        <span role="cell">About <b>$200,000 a year</b> for an AI engineer to sit and watch a screen.</span>
+        <span role="cell"><b>$5,000</b> to set it up, then <b>$1,000 a month</b>.</span>
+      </div>
+      <div class="compare-row" role="row">
+        <span role="cell">You analyze the business yourself, between the other work.</span>
+        <span role="cell">You employ someone whose job is the screen.</span>
+        <span role="cell">We analyze the business. You prompt the engineer. They manage the agents.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="month-title">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 id="month-title">What the money is for.</h2>
+    </div>
+    <ol class="studio-steps">
+      <li>
+        <h3>Understand the office</h3>
+        <p>The $5,000 is for learning how this business actually moves work, not for a generic install.</p>
+      </li>
+      <li>
+        <h3>Set up the swarm</h3>
+        <p>Agents are built around that work — the intake, the documents, the follow-up — the chores named above.</p>
+      </li>
+      <li>
+        <h3>You prompt the engineer</h3>
+        <p>When the office changes, you say so. You are not the one watching the agents.</p>
+      </li>
+      <li>
+        <h3>They manage and adapt them</h3>
+        <p>The $1,000 a month is that work: keep the swarm matched to the office as it shifts.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="who-title">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 id="who-title">Who this is for.</h2>
+    </div>
+    <p>
+      Owner-run offices of about <b>5 to 50 people</b>, where the week disappears into admin and follow-up. The fit, in order: <b>law firms</b>, then <b>dental practices and med spas</b>, <b>real estate offices</b>, and <b>CPA firms</b>. A clinic, a home-services company, or a small agency with the same shape of work can use the same engagement.
+    </p>
+    <p>
+      The conference on this site is a separate program. Studio is the agency practice: one office, one swarm, one engineer on the other side of the prompt.
+    </p>
+  </section>
+
+  <footer class="page-footer">
+    <a href="/">← Back to home</a>
+    <span>Roger Hunt · rhunt@bentley.edu</span>
+  </footer>
+
+</main>
+
+<script src="/assets/js/studio.js"></script>
+<nav class="mode-toggle" aria-label="Switch between conference and studio">
+  <a href="/">Conference</a>
+  <a href="/studio" aria-current="page">Studio</a>
+</nav>
+</body>
+</html>

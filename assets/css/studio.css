@@ -1,0 +1,199 @@
+/* Studio — the agency desk. Shares the conference pitch palette. */
+
+.desk{
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(22px, 2.6vw, 32px);
+}
+.desk-offices{
+  border: 0;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+.desk-offices legend{
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.1vw, 17px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  padding: 0;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.desk-offices label{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.desk-offices input{
+  accent-color: var(--signal);
+  width: 16px;
+  height: 16px;
+}
+.desk-offices label:has(input:checked){ color: var(--ink); }
+.desk-offices label:has(input:focus-visible){
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.desk-fields{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+  margin-bottom: 22px;
+}
+.desk-field{ display: flex; flex-direction: column; gap: 6px; }
+.desk-field-wide{ grid-column: 1 / -1; }
+.desk-field span{
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.desk-field input{
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--pitch-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+.desk-field input::placeholder{ color: var(--ink-faint); }
+.desk-field input:focus{
+  outline: 2px solid var(--signal);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.desk-line{
+  margin: 0 0 18px;
+  max-width: 62ch;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.desk-price{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 0 0 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.desk-price p{
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.desk-price b{
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.desk-send{
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 18px;
+  background: var(--ink);
+  color: var(--pitch);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.desk-send:hover{ background: #fff; }
+.desk-send:focus-visible{
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+.desk-note{
+  margin: 12px 0 0;
+  max-width: 62ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-faint);
+}
+
+.compare{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.15fr;
+  border-top: 1px solid var(--line);
+}
+.compare-row{
+  display: contents;
+}
+.compare-row span{
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.compare-row span:last-child{
+  color: var(--ink);
+  padding-right: 0;
+}
+.compare-head span{
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 15px;
+}
+.compare b{ color: var(--ink); font-weight: 600; }
+
+.studio-steps{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 32px;
+  counter-reset: step;
+}
+.studio-steps li{ counter-increment: step; }
+.studio-steps h3{
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.studio-steps h3::before{
+  content: counter(step) ". ";
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+}
+.studio-steps p{
+  margin: 0;
+  max-width: 36ch;
+}
+
+@media (max-width: 720px){
+  .desk-fields{ grid-template-columns: 1fr; }
+  .compare{ grid-template-columns: 1fr; }
+  .compare-head{ display: none; }
+  .compare-row{ display: block; padding: 8px 0 4px; }
+  .compare-row span{
+    display: block;
+    padding: 8px 0;
+    border-bottom: 0;
+  }
+  .compare-row span:last-child{
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+  }
+  .studio-steps{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .desk-send{ transition: none; }
+}
