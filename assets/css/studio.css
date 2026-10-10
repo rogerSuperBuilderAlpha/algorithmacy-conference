@@ -432,13 +432,43 @@
 }
 
 @media (max-width: 720px){
-  .stage{ padding-bottom: 112px; }
+  .stage{ padding: 14px 16px 112px; }
+  .studio-hero{
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+  }
+  .studio-hero .eyebrow{
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    gap: 8px 10px;
+  }
   .studio-hero h1.display{
-    font-size: clamp(36px, 11vw, 48px);
+    font-size: clamp(27px, 7.5vw, 40px);
+    letter-spacing: -0.042em;
+    line-height: 1.02;
+    margin-bottom: 12px;
     max-width: none;
   }
-  .studio-hero .eyebrow{ flex-wrap: wrap; }
-  .studio-price{ max-width: none; }
+  .studio-hero .lede{
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .studio-offer{
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin: 16px 0 14px;
+  }
+  .studio-price{
+    flex: 1 1 0;
+    max-width: none;
+    min-width: 0;
+    padding: 12px 10px 11px;
+  }
+  .studio-price-amt{ font-size: 26px; }
+  .studio-price-label{
+    margin-top: 6px;
+    font-size: 13px;
+  }
   .studio-cta,
   .desk-send{
     width: 100%;
