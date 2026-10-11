@@ -5,17 +5,19 @@
     field.classList.add("is-still");
   }
 
-  var STUDIO_MAIL = "roger@algorithmacy.org";
   var form = document.getElementById("desk-form");
   var line = document.getElementById("desk-line");
-  var choreInput = document.getElementById("desk-chore");
-  var choreLabel = document.getElementById("desk-chore-label");
+  var messageInput = document.getElementById("desk-message");
+  var messageLabel = document.getElementById("desk-message-label");
   var offices = document.getElementById("desk-offices");
-  var mailto = document.getElementById("desk-mailto");
   var status = document.getElementById("desk-status");
   var done = document.getElementById("desk-done");
   var send = document.getElementById("desk-send");
-  if (!form || !line || !choreInput || !mailto) return;
+  var terms = document.getElementById("desk-terms");
+  var started = document.getElementById("desk-started");
+  if (!form || !line || !messageInput) return;
+
+  if (started) started.value = String(Date.now());
 
   function intent() {
     var picked = form.querySelector('input[name="intent"]:checked');
@@ -27,7 +29,7 @@
     return picked ? picked.value : "owner-run office";
   }
 
-  function field(id) {
+  function fieldValue(id) {
     var el = document.getElementById(id);
     return el ? el.value.trim() : "";
   }
@@ -41,50 +43,32 @@
     return kind.charAt(0).toUpperCase() + kind.slice(1);
   }
 
+  function preview(text) {
+    var clean = text.replace(/\s+/g, " ").trim();
+    if (clean.length > 140) return clean.slice(0, 137) + "…";
+    return clean;
+  }
+
   function writeLine() {
-    var chore = choreInput.value.trim();
+    var message = preview(messageInput.value);
     if (intent() === "other") {
-      line.textContent = chore
-        ? "Other work: " + chore + ". No price is listed on this page."
+      line.textContent = message
+        ? "Other work: " + message + ". No price is listed on this page."
         : "Other work. No price is listed on this page.";
       return;
     }
     line.textContent =
       officeLabel() +
-      (chore ? ". Work: " + chore + "." : ".") +
+      (message ? ". Work: " + message + "." : ".") +
       " $5,000 to set up, then $1,000 a month.";
   }
 
   function applyIntent() {
     var other = intent() === "other";
     if (offices) offices.disabled = other;
-    if (choreLabel) choreLabel.textContent = "The work";
-    choreInput.placeholder = other ? "What you want designed or built" : "Intake, follow-ups, chasing documents";
+    if (messageLabel) messageLabel.textContent = "The chore or message";
+    messageInput.placeholder = other ? "What you want designed or built" : "Intake, follow-ups, chasing documents";
     writeLine();
-    writeMailto();
-  }
-
-  function mailBody() {
-    var name = field("desk-name");
-    var email = field("desk-email");
-    var business = field("desk-business");
-    var chore = choreInput.value.trim();
-    var rows = [line.textContent, ""];
-    if (name) rows.push("Name: " + name);
-    if (email) rows.push("Email: " + email);
-    if (business) rows.push("Business: " + business);
-    if (intent() === "office") rows.push("Office: " + office());
-    if (chore) rows.push("Work: " + chore);
-    return rows.join("\n");
-  }
-
-  function writeMailto() {
-    var business = field("desk-business") || "inquiry";
-    var subject = "Studio — " + business;
-    mailto.href =
-      "mailto:" + STUDIO_MAIL +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(mailBody());
   }
 
   document.querySelectorAll("[data-intent]").forEach(function (el) {
@@ -101,44 +85,62 @@
     });
   });
 
-  form.addEventListener("input", function () {
-    writeLine();
-    writeMailto();
-  });
+  form.addEventListener("input", writeLine);
   form.addEventListener("change", applyIntent);
+
+  function showError(message) {
+    if (send) send.disabled = false;
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = message;
+  }
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+    if (terms) terms.setCustomValidity("");
+    if (terms && !terms.checked) {
+      terms.setCustomValidity("Please agree to the Terms of Service and Privacy Policy.");
+    }
     if (!form.checkValidity()) {
       form.reportValidity();
+      if (terms) terms.setCustomValidity("");
       return;
     }
+    if (terms) terms.setCustomValidity("");
     if (status) {
       status.hidden = true;
       status.textContent = "";
     }
-    if (send) send.disabled = true;
+    if (send) {
+      send.disabled = true;
+      send.textContent = "Sending…";
+    }
 
     var payload = {
       intent: intent(),
-      name: field("desk-name"),
-      email: field("desk-email"),
-      business: field("desk-business"),
-      chore: choreInput.value.trim(),
-      website: (form.querySelector('[name="website"]') || {}).value || ""
+      name: fieldValue("desk-name"),
+      business: fieldValue("desk-business"),
+      email: fieldValue("desk-email"),
+      phone: fieldValue("desk-phone"),
+      message: messageInput.value.trim(),
+      terms: !!(terms && terms.checked),
+      started: started ? Number(started.value) : 0,
+      hp_field: (form.querySelector('[name="hp_field"]') || {}).value || ""
     };
     if (payload.intent === "office") payload.office = office();
 
     fetch("/api/studio", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload)
     }).then(function (res) {
       return res.json().catch(function () { return {}; }).then(function (data) {
         return { ok: res.ok, data: data };
       });
     }).then(function (result) {
-      if (!result.ok) throw new Error((result.data && result.data.error) || "We could not send that. Use the email link, or try again.");
+      if (!result.ok || !result.data || !result.data.ok) {
+        throw new Error((result.data && result.data.error) || "We could not send that. Email topanga@algorithmacy.org and we will reply.");
+      }
       form.hidden = true;
       if (done) {
         done.hidden = false;
@@ -146,10 +148,8 @@
         if (title) title.focus();
       }
     }).catch(function (err) {
-      if (send) send.disabled = false;
-      if (!status) return;
-      status.hidden = false;
-      status.textContent = err && err.message ? err.message : "We could not send that. Use the email link, or try again.";
+      if (send) send.textContent = "Send";
+      showError(err && err.message ? err.message : "We could not send that. Email topanga@algorithmacy.org and we will reply.");
     });
   });
 

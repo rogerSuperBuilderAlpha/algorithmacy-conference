@@ -214,6 +214,13 @@
   line-height: 1.4;
   color: var(--ink-soft);
 }
+.studio-offer-note{
+  margin: 0 0 22px;
+  max-width: 62ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
 
 .studio-cta,
 .desk-send{
@@ -252,7 +259,7 @@
   outline: 2px solid var(--signal);
   outline-offset: 3px;
 }
-.desk-send:disabled{ opacity: 0.6; cursor: wait; }
+.desk-send:disabled{ cursor: wait; }
 
 .paths{
   display: grid;
@@ -358,6 +365,14 @@
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--ink-soft);
+}
+.compare-kicker{
+  margin: 8px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--ink-soft);
 }
 .compare-figure{
@@ -558,7 +573,8 @@
   font-weight: 600;
   color: var(--ink);
 }
-.desk-field input{
+.desk-field input,
+.desk-field textarea{
   font-family: var(--font-sans);
   font-size: 16px;
   color: var(--ink);
@@ -567,11 +583,71 @@
   border-radius: 6px;
   padding: 12px 14px;
 }
-.desk-field input::placeholder{ color: var(--ink-faint); }
-.desk-field input:focus{
+.desk-field textarea{
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.45;
+}
+.desk-field input::placeholder,
+.desk-field textarea::placeholder{
+  color: var(--ink-soft);
+  opacity: 1;
+}
+.desk-field input:focus,
+.desk-field textarea:focus{
   outline: 2px solid var(--signal);
   outline-offset: 1px;
   border-color: transparent;
+}
+.desk-field .desk-optional{
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.desk-field .desk-hint{
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.desk-consent{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 0 16px;
+  max-width: 62ch;
+}
+.desk-consent input{
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  flex: 0 0 auto;
+  accent-color: var(--signal);
+}
+.desk-consent input:focus-visible{
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+.desk-consent label{
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  font-weight: 500;
+}
+.desk-consent a{
+  color: var(--ink);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.visually-hidden{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .desk-hp{
@@ -609,9 +685,9 @@
 .studio-close .desk-note{
   margin: 12px 0 0;
   max-width: 62ch;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .desk-note a{
   color: var(--ink);
