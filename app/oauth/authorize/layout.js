@@ -19,6 +19,7 @@ export default function OAuthLayout({ children }) {
           <nav className="top-links" aria-label="Algorithmacy">
             <a href="/studio">The offer</a>
             <a href="/book/">Book a call</a>
+            <a href="https://x.com/algorithmacy" target="_blank" rel="noopener noreferrer">@algorithmacy</a>
           </nav>
         </header>
         <main className="portal portal-login" id="oauth">

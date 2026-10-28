@@ -672,6 +672,20 @@ pre.key-once{ white-space: pre-wrap; }
   display: inline-block;
   padding: 12px 0;
 }
+.top-brand-row{
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  min-width: 0;
+}
+a.top-x{
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+}
+a.top-x:hover{ color: var(--ink); text-decoration: underline; }
 @media (max-width: 600px){
   .portal{ padding-top: 20px; }
   .portal-login{ margin-top: 32px; }

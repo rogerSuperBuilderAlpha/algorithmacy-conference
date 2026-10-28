@@ -173,6 +173,7 @@ function BareChrome({ pathname, children }) {
                 <a href="/book/">Book a call</a>
               </>
             )}
+            <a href="https://x.com/algorithmacy" target="_blank" rel="noopener noreferrer">@algorithmacy</a>
           </nav>
         </header>
         <main className={finish ? 'portal' : 'portal portal-login'} id="portal">
@@ -270,7 +271,10 @@ function Frame({ page, user, account, mode, me, loading, quiet, children }) {
       <a className="visually-hidden" href="#portal">Skip to the content</a>
       <div className="sheet">
         <header className="top" id="portal-top">
-          <Link className="top-brand" href={isEngineer(user) && mode === 'engineer' ? '/portal/admin/' : '/portal/'}>Algorithmacy Studio</Link>
+          <div className="top-brand-row">
+            <Link className="top-brand" href={isEngineer(user) && mode === 'engineer' ? '/portal/admin/' : '/portal/'}>Algorithmacy Studio</Link>
+            <a className="top-x" href="https://x.com/algorithmacy" target="_blank" rel="noopener noreferrer">@algorithmacy</a>
+          </div>
           {quiet ? <div className="top-meta" id="portal-top-meta" /> : (loading || !user ? <div className="top-meta" id="portal-top-meta"><span className="portal-loading">Loading.</span></div> : (
             <TopMeta user={user} account={account} mode={mode} page={page} />
           ))}

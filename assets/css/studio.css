@@ -763,6 +763,12 @@ a.visually-hidden:focus-visible{
   color: var(--ink-2);
 }
 .foot nav{ display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 18px;
+}
 .foot a{ color: var(--ink-2); }
 .foot a:hover{ color: var(--ink); }
 

@@ -10,7 +10,11 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <link rel="stylesheet" href="/assets/css/x-follow.css" />
+        {children}
+        <script src="/assets/js/x-follow.js" defer />
+      </body>
     </html>
   );
 }

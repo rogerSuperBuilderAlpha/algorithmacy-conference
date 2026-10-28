@@ -1,0 +1,285 @@
+/* ============================================================
+   FOLLOW @algorithmacy — site-wide dialog
+   Scoped palette so the card matches the conference site on
+   both the pitch pages and the light Studio pages.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.x-follow {
+  --xf-pitch: #07080A;
+  --xf-raised: #11141A;
+  --xf-ink: #EFEAE0;
+  --xf-ink-soft: rgba(239, 234, 224, 0.72);
+  --xf-signal: #FF5945;
+  --xf-cool: #5A9BFF;
+  --xf-line: rgba(237, 234, 224, 0.16);
+  --xf-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --xf-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  font-family: var(--xf-sans);
+  font-variant-numeric: lining-nums;
+  color: var(--xf-ink);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.x-follow.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.x-follow:focus {
+  outline: none;
+}
+
+.x-follow__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(7, 8, 10, 0.85);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.x-follow__panel {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  max-height: min(90vh, 640px);
+  overflow: auto;
+  background: var(--xf-raised);
+  border: 2px solid var(--xf-cool);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  padding: 28px 72px 28px 28px;
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+}
+
+.x-follow.is-open .x-follow__panel {
+  transform: scale(1);
+}
+
+.x-follow__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: rgba(239, 234, 224, 0.1);
+  color: var(--xf-ink);
+  border-radius: 6px;
+  font-family: var(--xf-sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.x-follow__close:hover {
+  background: rgba(255, 89, 69, 0.2);
+  color: var(--xf-signal);
+}
+
+.x-follow__gradient {
+  height: 3px;
+  margin: 0 0 18px;
+  background: linear-gradient(90deg, var(--xf-cool) 0%, #B865FF 50%, #FFB077 100%);
+  border-radius: 2px;
+}
+
+.x-follow__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--xf-ink);
+  color: var(--xf-pitch);
+}
+
+.x-follow__mark svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+}
+
+.x-follow__eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--xf-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--xf-cool);
+}
+
+.x-follow__title {
+  margin: 0;
+  font-family: var(--xf-sans);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--xf-ink);
+}
+
+.x-follow__desc {
+  margin: 12px 0 0;
+  font-family: var(--xf-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--xf-ink-soft);
+}
+
+.x-follow__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.x-follow__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: var(--xf-ink);
+  color: var(--xf-pitch);
+  font-family: var(--xf-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+  box-shadow: 0 0 0 1px rgba(239, 234, 224, 0.06), 0 14px 28px -12px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.x-follow__cta svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.x-follow__cta:hover {
+  background: #fff;
+  color: var(--xf-pitch);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.x-follow__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  border: 1px solid var(--xf-line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--xf-ink);
+  font-family: var(--xf-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.x-follow__dismiss:hover {
+  border-color: var(--xf-signal);
+  color: var(--xf-signal);
+}
+
+.x-follow :focus-visible {
+  outline: 2px solid var(--xf-cool);
+  outline-offset: 3px;
+}
+
+.x-follow__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.x-follow-open {
+  overflow: hidden;
+}
+
+@media (max-width: 680px) {
+  .x-follow {
+    padding: 16px;
+  }
+
+  .x-follow__panel {
+    padding: 24px 64px 20px 20px;
+    border-radius: 14px;
+  }
+
+  .x-follow__title {
+    font-size: 28px;
+  }
+
+  .x-follow__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .x-follow__cta,
+  .x-follow__dismiss {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .x-follow,
+  .x-follow__panel,
+  .x-follow__close,
+  .x-follow__cta,
+  .x-follow__dismiss {
+    transition: none;
+  }
+
+  .x-follow__panel,
+  .x-follow.is-open .x-follow__panel {
+    transform: none;
+  }
+}
