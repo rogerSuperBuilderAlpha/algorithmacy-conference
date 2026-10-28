@@ -769,6 +769,9 @@ a.visually-hidden:focus-visible{
   justify-content: flex-end;
   gap: 6px 18px;
 }
+@media (max-width: 700px){
+  .foot-links{ justify-content: flex-start; }
+}
 .foot a{ color: var(--ink-2); }
 .foot a:hover{ color: var(--ink); }
 
