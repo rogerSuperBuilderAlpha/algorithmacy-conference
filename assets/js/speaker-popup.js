@@ -41,7 +41,8 @@ const speakerData = {
     title: 'Digital cultures researcher and media professor',
     bio: 'Sarah Witmer is a digital cultures researcher, media professor and PhD candidate whose work explores digital media, algorithmic authority, online communities, journalism, identity and institutional trust.',
     photo: '/images/speakers/sarah-witmer.jpg',
-    linkedin: 'https://www.linkedin.com/in/sarahwitmer/'
+    linkedin: 'https://www.linkedin.com/in/sarahwitmer/',
+    slides: 'https://pitch.com/v/cp3-22w7ek'
   },
   'mellissa-lezama': {
     name: 'Mellissa Lezama',
@@ -129,6 +130,7 @@ const modalName = document.getElementById('modal-name');
 const modalTitle = document.getElementById('modal-title');
 const modalBio = document.getElementById('modal-bio');
 const modalLinkedin = document.getElementById('modal-linkedin');
+const modalSlides = document.getElementById('modal-slides');
 
 let lastFocusedElement = null;
 const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
@@ -151,6 +153,14 @@ function openSpeakerModal(speakerId) {
     modalLinkedin.style.display = 'inline-flex';
   } else {
     modalLinkedin.style.display = 'none';
+  }
+
+  // Handle slides link - show only if available
+  if (speaker.slides) {
+    modalSlides.href = speaker.slides;
+    modalSlides.style.display = 'inline-flex';
+  } else {
+    modalSlides.style.display = 'none';
   }
 
   // Show modal
