@@ -105,6 +105,20 @@ const speakerData = {
     bio: 'Dr. Marcia Mc Clashie Belgrove is Co-founder of The Rose Foundation and CEI, a community development and social justice advocate, and former adviser to two Trinidad and Tobago Prime Ministers.',
     photo: '/images/marcia-belgrove.jpg',
     linkedin: 'https://www.linkedin.com/in/marcia-belgrove-305596242/'
+  },
+  'brendon-butts': {
+    name: 'Brendon Butts',
+    title: 'Chairman, T&T National Commission for UNESCO',
+    bio: 'Brendon Butts is an educator, education architect and technology-in-education specialist with more than three decades of experience in teaching, school leadership, professional development and education innovation. He currently serves as Chairman of the Trinidad and Tobago National Commission for UNESCO and as Interim Director of Schools at EDFAM Schools. He is also Founder and Managing Director of Education Solution Specialists Ltd, where he leads the design and implementation of education technology, STEAM, coding, digital literacy and teacher-capacity initiatives across Trinidad and Tobago and the wider Caribbean. Brendon holds a Master\'s degree in Educational Studies from the University of Sheffield, specializing in Educational Technology. His current work explores human-centred AI, computational thinking, learner agency and teacher capacity, and includes the development of a Primary Computational Thinking Framework, designed specifically for the Caribbean primary curriculum.',
+    photo: '/images/brendon-butts.jpg',
+    linkedin: 'https://www.linkedin.com/in/brendon-butts-9202a415b/'
+  },
+  'rushton-paray': {
+    name: 'Rushton Paray',
+    title: 'Founder & MD, CTSL (FutureTT)',
+    bio: 'Rushton Paray is the Founder and Managing Director of Computer Technologies & Services Limited (CTSL), with more than 30 years of experience in ICT, entrepreneurship and business leadership. He served as Member of Parliament for Mayaro from 2015 to 2025 and previously led the Mayaro Business Chamber. His work spans digital transformation, technology solutions and community development. He currently serves as Regional Director of the SMRP Trinidad Chapter, bringing a practical business and technology perspective to operational improvement and professional development.',
+    photo: '/images/rushton-paray.jpg',
+    linkedin: 'https://www.linkedin.com/in/paraygroup'
   }
 };
 
