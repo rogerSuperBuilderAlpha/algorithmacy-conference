@@ -60,11 +60,11 @@ module.exports = async (req, res) => {
     await redis(['DEL', `acf:pending:${token}`]);
 
     const sub = JSON.parse(raw);
-    const emailHash = sha256(sub.email.toLowerCase());
+    const emailKey = emailIndexKey(sub);
 
     let existing = null;
     try {
-      const idx = await redis(['GET', `acf:email:${emailHash}`]);
+      const idx = await redis(['GET', emailKey]);
       if (idx) existing = JSON.parse(idx);
     } catch (_) {}
 
@@ -73,8 +73,8 @@ module.exports = async (req, res) => {
       result = await updateSubmission(sub, existing);
     } else {
       const created = await createSubmission(sub);
-      await redis(['SET', `acf:email:${emailHash}`,
-        JSON.stringify({ pr: created.number, branch: created.branch, slug: created.slug })]);
+      await redis(['SET', emailKey,
+        JSON.stringify({ pr: created.number, branch: created.branch, slug: created.slug, conference: submissionYear(sub) })]);
       result = created;
     }
 
@@ -117,7 +117,7 @@ async function createSubmission(sub) {
   const pr = await gh('/pulls', {
     method: 'POST',
     body: {
-      title: `[${sub.type}] [${sub.track}] ${sub.title}`.slice(0, 250),
+      title: `${sub.conference === '2027' ? '[2027] ' : ''}[${sub.type}] [${sub.track}] ${sub.title}`.slice(0, 250),
       head: finalBranch,
       base: BASE_BRANCH,
       body: prBody(sub, slug),
@@ -171,6 +171,7 @@ function renderMarkdown(sub) {
 
 **Authors:** ${authors}
 **Contact:** ${sub.email}
+**Conference:** ${submissionYear(sub)}
 **Type:** ${sub.type}
 **Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n**Special session:** ${sub.specialSession}` : ''}
 **Word count:** ${sub.wordCount}
@@ -205,6 +206,7 @@ function prBody(sub, slug) {
   return `## Submission
 
 - **File:** \`submissions/${slug}.md\`
+- **Conference:** ${submissionYear(sub)}
 - **Type:** ${sub.type}
 - **Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n- **Special session:** ${sub.specialSession}` : ''}
 
@@ -285,6 +287,17 @@ async function branchExists(branch) {
 // ---------------------------------------------------------------------------
 // misc
 // ---------------------------------------------------------------------------
+
+function submissionYear(sub) {
+  return sub && sub.conference === '2027' ? '2027' : '2026';
+}
+
+// 2026 keeps the original email key so an existing submission still updates.
+// 2027 uses its own key so a later paper does not overwrite the 2026 pull request.
+function emailIndexKey(sub) {
+  const hash = sha256(String(sub.email || '').toLowerCase());
+  return submissionYear(sub) === '2027' ? `acf:email:2027:${hash}` : `acf:email:${hash}`;
+}
 
 function baseSlug(sub) {
   const first = sub.authors.split(/[\n,]/)[0] || '';
