@@ -1,18 +1,26 @@
 # Algorithmacy Conference — full reference
 
-> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Its theme is Decision Experience Design. Dates and venue to be announced. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Dates and venue to be announced. The wording of the call is at https://algorithmacy.org/#2027. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 
 ## 2027 call for papers
 
-The Second Algorithmacy Conference (2027) invites work on Decision Experience Design. Dates and venue to be announced. The abstract deadline will be announced with the dates and venue. Until that notice, the call is open and review is rolling. This account is written as of October 2026. Current chat and agent interfaces fall embarrassingly short, and they will change. The points below are meant to remain.
+Second Algorithmacy Conference (2027): Decision Experience Design
 
-Digital experience used to be a designer guiding a user toward an end that both people had, for the most part, agreed. A person wants to buy a raincoat, and a retailer designs a clear, simple flow for that purchase. The end is now less clear. People using agents such as Claude or Grok Bot are often making something themselves. It is raining, and the person needs a way to get to work. They land on a site that steers them toward raincoats. Talking with their agent, they conclude that they need an umbrella. No one gets what they wanted.
+Dates and venue to be announced.
 
-Conversion rate, stickiness, and dark patterns that trick a person into buying a raincoat are the wrong measures. The measure is whether the person gets themselves to the decision, and whether the interface then surfaces ways to find and purchase what that decision requires. The experience is how the person makes the decision. The design problem is how the designer surfaces the decisions that move the person closer along whatever path they need.
+Digital experience used to be about a designer guiding a user to an end which both people agreed to... mostly. I want to buy a raincoat, and an online retailer designs me a beautiful, clear, simple flow for me to achieve that.
 
-Three premises. (1) The user is the human: cognitive, biological, and emotional. Research on agent experience is bracketed. (2) The user environment is a platform: opaque, cooptive, and triadic. (3) The design move is an aesthetic shift.
+Today, however, that end is less clear. As users engage agents like Claude or Grok Bot, they are often creating something themselves. Perhaps it's raining where I am and I need to come up with a strategy to get to work. If I land on a site that is driving me towards raincoats, but for whatever reason, as I was discussing with my agent, I figure I need an umbrella, well, then no one gets what they want.
 
-When a person engages a large language model, they are engaging an animation. Animators design experiences that are opaque because frames are missing, cooptive because the viewer locks in and the gaps disappear, and triadic. Watching an actor is a dyad: a person watching an actor. Watching animation is a triad: a person watching a character manipulated by an animator. The conference proposes that participants learn the core methods of the animator and apply them.
+The key metrics here are less about conversion rate optimization or stickiness or, heaven forbid, dark patterns that somehow trick me into buying a raincoat, and more about me as the user getting myself to the decision and then surfacing solutions to find and purchase a raincoat.
+
+The experience is about how I make that decision. The design problem is how the designer surfaces key decisions that move me closer along whatever path I need to go.
+
+Now, given that, current chat and AI interfaces fall embarrassingly short, as of October 2026, so things will be changing a lot! There are some bits, however, that remain regardless of the current state of things. 1) The user, in this case, is the human: cognitive, biological, emotional. There is a whole other band of research on agent experience which can be bracketed from this discussion. 2) The user environment is a platform: opaque, cooptive, and triadic. 3) The design move we need to make is an aesthetic shift.
+
+When we engage LLMs we are engaging animations. Animators design experiences which are fundamentally opaque. There are quite literally missing frames. They design experiences which are cooptive. At some point during an animation-based experience you "lock in" and the gaps disappear. And they are triadic. When I watch an actor, "I" am watching an "Actor". That's a dyad. When I'm watching animation, "I" am watching a "character" manipulated by an "animator".
+
+In order to deliver solutions for Decision Experience Design, this conference proposes learning about and applying the core methodologies of the animator.
 
 Decision Experience Design is the focal point. Submissions on algorithmacy more generally are welcome and are filed under TR.05. The same five ids are what the form stores.
 
