@@ -116,6 +116,29 @@ test('X account is linked from the header, the year bar, the footer, and Organiz
   assert.match(html, /aria-label="Algorithmacy on X \(@algorithmacy\)"/);
 });
 
+test('the 2027 intro is the organizer text, seven paragraphs, verbatim', () => {
+  const paragraphs = [
+    'Digital experience used to be about a designer guiding a user to an end which both people agreed to... mostly. I want to buy a raincoat, and an online retailer designs me a beautiful, clear, simple flow for me to achieve that.',
+    'Today, however, that end is less clear. As users engage agents like Claude or Grok Bot, they are often creating something themselves. Perhaps it\'s raining where I am and I need to come up with a strategy to get to work. If I land on a site that is driving me towards raincoats, but for whatever reason, as I was discussing with my agent, I figure I need an umbrella, well, then no one gets what they want.',
+    'The key metrics here are less about conversion rate optimization or stickiness or, heaven forbid, dark patterns that somehow trick me into buying a raincoat, and more about me as the user getting myself to the decision and then surfacing solutions to find and purchase a raincoat.',
+    'The experience is about how I make that decision. The design problem is how the designer surfaces key decisions that move me closer along whatever path I need to go.',
+    'Now, given that, current chat and AI interfaces fall embarrassingly short, as of October 2026, so things will be changing a lot! There are some bits, however, that remain regardless of the current state of things. 1) The user, in this case, is the human: cognitive, biological, emotional. There is a whole other band of research on agent experience which can be bracketed from this discussion. 2) The user environment is a platform: opaque, cooptive, and triadic. 3) The design move we need to make is an aesthetic shift.',
+    'When we engage LLMs we are engaging animations. Animators design experiences which are fundamentally opaque. There are quite literally missing frames. They design experiences which are cooptive. At some point during an animation-based experience you "lock in" and the gaps disappear. And they are triadic. When I watch an actor, "I" am watching an "Actor". That\'s a dyad. When I\'m watching animation, "I" am watching a "character" manipulated by an "animator".',
+    'In order to deliver solutions for Decision Experience Design, this conference proposes learning about and applying the core methodologies of the animator.',
+  ];
+  assert.equal(paragraphs.length, 7);
+  const intro = html.slice(html.indexOf('id="cfp-2027-intro"'), html.indexOf('Topics and questions to consider'));
+  for (const paragraph of paragraphs) {
+    assert.ok(intro.includes(paragraph), paragraph.slice(0, 48));
+  }
+  const full = fs.readFileSync(path.join(root, 'llms-full.txt'), 'utf8');
+  for (const paragraph of paragraphs) assert.ok(full.includes(paragraph));
+  const summary = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8');
+  assert.match(summary, /Theme: Decision Experience Design/);
+  assert.match(summary, /https:\/\/algorithmacy\.org\/#2027/);
+  assert.equal(summary.includes('heaven forbid'), false);
+});
+
 test('2027 call uses the 2026 submission mechanism and states no date or venue', () => {
   const call = html.slice(html.indexOf('id="cfp-2027"'));
   assert.match(call, /Decision Experience Design/);

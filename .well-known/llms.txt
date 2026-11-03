@@ -1,6 +1,6 @@
 # Algorithmacy
 
-> Algorithmacy is two programs on one site. The 2026 conference, held in Port of Spain from 28 to 31 October, has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Its theme is Decision Experience Design. Dates and venue to be announced. Algorithmacy Studio installs a local model on a computer a small office or a home owns, and maintains it.
+> Algorithmacy is two programs on one site. The 2026 conference, held in Port of Spain from 28 to 31 October, has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Dates and venue to be announced. The wording of the call is at https://algorithmacy.org/#2027. Algorithmacy Studio installs a local model on a computer a small office or a home owns, and maintains it.
 
 Studio's decision guide works for an AI tool that can fetch URLs and for one that cannot. The copied prompt and the files below carry the same facts: three ways to run AI, hardware tiers, the first 10 free-labor offer, and a booking link the tool can fill in.
 
@@ -18,7 +18,7 @@ Studio's decision guide works for an AI tool that can fetch URLs and for one tha
 
 ## Conference
 
-The 2026 conference has concluded. The 2027 call for papers is open. Its theme is Decision Experience Design. Dates and venue to be announced. The call is written as of October 2026: a designer used to guide a user toward an agreed end, such as buying a raincoat; with agents such as Claude or Grok Bot, the person may instead arrive at an umbrella, and neither the site nor the person gets what they wanted. Conversion rate, stickiness, and dark patterns are the wrong measures. The user is the human (agent-experience research is bracketed). The environment is a platform: opaque, cooptive, and triadic. The design move is an aesthetic shift. Engaging a large language model is treated as engaging an animation: missing frames, lock-in, and a viewer, a character, and an animator. The proposal is to learn animators' core methods and apply them.
+The 2026 conference has concluded. The 2027 call for papers is open. Dates and venue to be announced. Theme: Decision Experience Design. The wording of the call is at https://algorithmacy.org/#2027.
 
 Decision Experience Design is the focal point. Submissions on algorithmacy more generally are welcome. The five ids are unchanged. TR.01 Decision surfacing, including the aesthetic shift. TR.02 Opacity and missing frames. TR.03 Cooptation, lock-in, and measures, including business and management. TR.04 Person, character, and animator, including the human user and artificial life in the animator's sense. TR.05 Methods, literacy, and algorithmacy, including the history of literacy, education, animation methods, and general work on algorithmacy. A philosophical paper uses the track of the concept it treats. Guiding questions for each area are on https://algorithmacy.org/#2027. Submission types are unchanged: full paper, note, panel, poster, practitioner report. A 2027 submission is tagged with conference year 2027 so it does not replace a 2026 submission from the same email.
 
