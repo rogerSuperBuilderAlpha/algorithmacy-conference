@@ -118,8 +118,13 @@ test('X account is linked from the header, the year bar, the footer, and Organiz
 
 test('2027 call uses the 2026 submission mechanism and states no date or venue', () => {
   const call = html.slice(html.indexOf('id="cfp-2027"'));
+  assert.match(call, /Decision Experience Design/);
   assert.match(call, /Dates and venue to be announced/);
   assert.match(call, /name="conference" value="2027"/);
+  assert.match(call, /raincoat/);
+  assert.match(call, /umbrella/);
+  assert.match(call, /TR\.01 Decision surfacing/);
+  assert.match(call, /TR\.05 Animation methods and metrics/);
   assert.match(call, /id="subform"/);
   assert.match(call, /TR\.01/);
   assert.match(call, /TR\.05/);
@@ -151,10 +156,12 @@ test('public descriptions say 2026 has concluded and the 2027 call is open', () 
 });
 
 test('validate tags 2027 and leaves an omitted year on 2026', () => {
-  const { validate } = require('../lib/submission-core');
+  const { validate, trackLabel } = require('../lib/submission-core');
   const next = validate(payload());
   assert.deepEqual(next.errors, []);
   assert.equal(next.clean.conference, '2027');
+  assert.match(trackLabel('TR.01', '2027'), /Decision surfacing/);
+  assert.match(trackLabel('TR.01', '2026'), /Coordination & Mediation/);
 
   const current = validate(payload({ conference: undefined }));
   assert.deepEqual(current.errors, []);

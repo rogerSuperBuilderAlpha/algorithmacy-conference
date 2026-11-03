@@ -1,12 +1,30 @@
 # Algorithmacy Conference — full reference
 
-> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Dates and venue to be announced. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Its theme is Decision Experience Design. Dates and venue to be announced. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 
 ## 2027 call for papers
 
-The Second Algorithmacy Conference continues the 2026 scope, tracks, submission types, and intake. Dates and venue to be announced. The abstract deadline will be announced with the dates and venue. Until that notice, the call is open and review is rolling.
+The Second Algorithmacy Conference (2027) invites work on Decision Experience Design. Dates and venue to be announced. The abstract deadline will be announced with the dates and venue. Until that notice, the call is open and review is rolling. This account is written as of October 2026. Current chat and agent interfaces fall embarrassingly short, and they will change. The points below are meant to remain.
 
-Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. Do not invent a 2027 date, venue, keynote, or publication partner. None has been announced.
+Digital experience used to be a designer guiding a user toward an end that both people had, for the most part, agreed. A person wants to buy a raincoat, and a retailer designs a clear, simple flow for that purchase. The end is now less clear. People using agents such as Claude or Grok Bot are often making something themselves. It is raining, and the person needs a way to get to work. They land on a site that steers them toward raincoats. Talking with their agent, they conclude that they need an umbrella. No one gets what they wanted.
+
+Conversion rate, stickiness, and dark patterns that trick a person into buying a raincoat are the wrong measures. The measure is whether the person gets themselves to the decision, and whether the interface then surfaces ways to find and purchase what that decision requires. The experience is how the person makes the decision. The design problem is how the designer surfaces the decisions that move the person closer along whatever path they need.
+
+Three premises. (1) The user is the human: cognitive, biological, and emotional. Research on agent experience is bracketed. (2) The user environment is a platform: opaque, cooptive, and triadic. (3) The design move is an aesthetic shift.
+
+When a person engages a large language model, they are engaging an animation. Animators design experiences that are opaque because frames are missing, cooptive because the viewer locks in and the gaps disappear, and triadic. Watching an actor is a dyad: a person watching an actor. Watching animation is a triad: a person watching a character manipulated by an animator. The conference proposes that participants learn the core methods of the animator and apply them.
+
+Tracks, using the same ids the form already accepts:
+
+- TR.01 Decision surfacing: decisions that move a person along a path whose end was not agreed in advance, including the raincoat flow and the umbrella case.
+- TR.02 Opacity and missing frames: what an interface withholds, and what that does to a decision still being made.
+- TR.03 Cooptation, lock-in, and dark patterns: when an interface captures a decision, including a trick purchase, and why conversion rate and stickiness mismeasure that capture.
+- TR.04 User, character, and designer: the human user, with agent-experience research bracketed, and the triad of person, character, and designer.
+- TR.05 Animation methods and metrics: animators' core methods applied to chat and agent interfaces, and evaluation once conversion rate, stickiness, and dark patterns are set aside.
+
+Designers, researchers, animators, and practitioners may submit. Types are unchanged: full paper (6 to 8 pages), note (2 to 3 pages), panel (3 to 4 participants), poster (with a one-page extended abstract), and practitioner report (2 to 4 pages).
+
+Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. No 2027 date, venue, keynote, or publication partner has been announced.
 
 ## 2026 archive
 

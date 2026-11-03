@@ -13,19 +13,12 @@
 //      UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
 
 const crypto = require('node:crypto');
+const core = require('../lib/submission-core');
 
 const REPO = process.env.GITHUB_REPO || 'rogerSuperBuilderAlpha/algorithmacy-conference';
 const [OWNER, NAME] = REPO.split('/');
 const BASE_BRANCH = process.env.GITHUB_BASE_BRANCH || 'main';
 const DONE_TTL_SECONDS = 10 * 60;
-
-const TRACKS = {
-  'TR.01': 'TR.01 — Coordination & Mediation',
-  'TR.02': 'TR.02 — Algorithmic Management',
-  'TR.03': 'TR.03 — Platform Labor & Worker Voice',
-  'TR.04': 'TR.04 — Trust, Opacity & Governance',
-  'TR.05': 'TR.05 — Methods, Lineage & Practice',
-};
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -173,7 +166,7 @@ function renderMarkdown(sub) {
 **Contact:** ${sub.email}
 **Conference:** ${submissionYear(sub)}
 **Type:** ${sub.type}
-**Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n**Special session:** ${sub.specialSession}` : ''}
+**Track:** ${core.trackLabel(sub.track, submissionYear(sub))}${sub.specialSession ? `\n**Special session:** ${sub.specialSession}` : ''}
 **Word count:** ${sub.wordCount}
 **Keywords:** ${sub.keywords.join(', ')}
 **Conflicts of interest:** ${sub.coi || 'none'}
@@ -208,7 +201,7 @@ function prBody(sub, slug) {
 - **File:** \`submissions/${slug}.md\`
 - **Conference:** ${submissionYear(sub)}
 - **Type:** ${sub.type}
-- **Track:** ${TRACKS[sub.track]}${sub.specialSession ? `\n- **Special session:** ${sub.specialSession}` : ''}
+- **Track:** ${core.trackLabel(sub.track, submissionYear(sub))}${sub.specialSession ? `\n- **Special session:** ${sub.specialSession}` : ''}
 
 ## One-sentence contribution
 

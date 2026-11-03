@@ -5,6 +5,8 @@
 **Type:** [Full paper | Note | Panel | Poster | Practitioner report]
 **Conference:** [2026 | 2027]
 **Track:** [TR.01 | TR.02 | TR.03 | TR.04 | TR.05]
+
+For a 2027 submission (Decision Experience Design), use the same ids with these names: TR.01 Decision surfacing; TR.02 Opacity and missing frames; TR.03 Cooptation, lock-in, and dark patterns; TR.04 User, character, and designer; TR.05 Animation methods and metrics. A 2026 submission uses the names in [TRACKS.md](../TRACKS.md). Dates and venue for 2027 are to be announced.
 **Word count:** [body of abstract, target 300–500]
 **Keywords:** [3–7 comma-separated]
 **Conflicts of interest:** [none, or describe]

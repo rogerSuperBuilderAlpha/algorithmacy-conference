@@ -62,13 +62,19 @@ const TOOLS = [
 
 async function callTool(name, args) {
   if (name === 'list_tracks') {
-    const tracks = Object.values(core.TRACKS).map((t) => `  ${t}`).join('\n');
+    const tracks2027 = Object.values(core.TRACKS_2027).map((t) => `  ${t}`).join('\n');
+    const tracks2026 = Object.values(core.TRACKS).map((t) => `  ${t}`).join('\n');
     const types = core.TYPES.map((t) => `  ${t}`).join('\n');
     return text(
 `Algorithmacy Conference — submission reference
 
-Tracks (pick exactly one, by id e.g. "TR.03"):
-${tracks}
+Track ids are TR.01 through TR.05. Pick exactly one id, for example "TR.03".
+
+2027, Decision Experience Design (set conference to "2027"):
+${tracks2027}
+
+2026 archive (omit conference, or set it to "2026"). The same ids keep these names:
+${tracks2026}
 
 Types (pick exactly one):
 ${types}
@@ -121,7 +127,7 @@ from a 2026 submission by the same email.`);
       return text(`Could not send the confirmation email: ${e.message}`, true);
     }
     return text(
-`✓ Submission prepared: "${clean.title}" (Conference ${clean.conference}, ${clean.type}, ${core.TRACKS[clean.track]}).
+`✓ Submission prepared: "${clean.title}" (Conference ${clean.conference}, ${clean.type}, ${core.trackLabel(clean.track, clean.conference)}).
 
 A one-click sign-off link was emailed to ${clean.email}. The author must open that
 email and click "Confirm & publish" to open the pull request — nothing is published
