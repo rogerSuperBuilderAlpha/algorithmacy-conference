@@ -13,6 +13,40 @@
 <link rel="stylesheet" href="/assets/css/submit-steps.css" />
 <link rel="stylesheet" href="/assets/css/fab.css" />
 <link rel="stylesheet" href="/assets/css/x-follow.css" />
+<style>
+.trinidad-video-figure {
+  margin: 2rem 0 0;
+  padding: 0;
+  text-align: center;
+}
+.trinidad-video {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  border: 2px solid var(--cool);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.trinidad-video-figure figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+@media (prefers-reduced-motion: reduce) {
+  .trinidad-video {
+    animation-play-state: paused !important;
+  }
+}
+</style>
+<script>
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.addEventListener('DOMContentLoaded', function() {
+    var vid = document.querySelector('.trinidad-video');
+    if (vid) { vid.pause(); vid.removeAttribute('autoplay'); }
+  });
+}
+</script>
 </head>
 <body>
 
@@ -86,6 +120,19 @@
         <p>Car hire and pre-arranged taxis are the most reliable options outside the transfer windows. We'll publish recommended providers closer to the date.</p>
       </li>
     </ol>
+    <figure class="trinidad-video-figure">
+      <video
+        class="trinidad-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="/images/video/trinidad-poster.jpg"
+      >
+        <source src="/images/video/trinidad.mp4" type="video/mp4">
+      </video>
+      <figcaption>Sunset in Trinidad</figcaption>
+    </figure>
   </section>
 
   <!-- ============== ACCOMMODATION ============== -->
