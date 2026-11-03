@@ -124,7 +124,11 @@ test('2027 call uses the 2026 submission mechanism and states no date or venue',
   assert.match(call, /raincoat/);
   assert.match(call, /umbrella/);
   assert.match(call, /TR\.01 Decision surfacing/);
-  assert.match(call, /TR\.05 Animation methods and metrics/);
+  assert.match(call, /TR\.05 Methods, literacy, and algorithmacy/);
+  assert.match(call, /What does a designer owe a person whose end changes mid-session, from raincoat to umbrella\?/);
+  assert.match(call, /File under TR\.05\./);
+  assert.match(call, /Artificial life/);
+  assert.match(call, /Submissions on algorithmacy more generally are welcome/);
   assert.match(call, /id="subform"/);
   assert.match(call, /TR\.01/);
   assert.match(call, /TR\.05/);

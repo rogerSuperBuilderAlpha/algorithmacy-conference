@@ -72,6 +72,7 @@ Track ids are TR.01 through TR.05. Pick exactly one id, for example "TR.03".
 
 2027, Decision Experience Design (set conference to "2027"):
 ${tracks2027}
+Filing for 2027: decision surfacing and the aesthetic shift are TR.01. Opacity and missing frames are TR.02. Cooptation, lock-in, measures other than conversion and stickiness, and business or management implications are TR.03. The person/character/animator triad, the human user, and artificial life in the animator's sense are TR.04. Animation methods, the history of literacy and algorithmacy, education, and algorithmacy more generally are TR.05. A philosophical paper uses the track of the concept it treats.
 
 2026 archive (omit conference, or set it to "2026"). The same ids keep these names:
 ${tracks2026}
