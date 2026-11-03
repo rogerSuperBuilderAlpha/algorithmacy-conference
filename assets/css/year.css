@@ -124,6 +124,18 @@
 .topstrip .right{ flex-wrap: wrap; row-gap: 8px; justify-content: flex-end; }
 
 .year-panel[hidden]{ display: none !important; }
+.cfp-version-bar{ margin: 8px 0 18px; }
+#cfp-ai-polish h2:first-child{ margin-top: 0; }
+.cfp-refs{
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 12px;
+}
+.cfp-refs li{
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+  margin: 0 0 0.7em;
+}
 
 .cfp{
   padding: 28px 0 12px;

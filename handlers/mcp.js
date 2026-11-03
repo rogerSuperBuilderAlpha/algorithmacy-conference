@@ -37,7 +37,7 @@ const TOOLS = [
         authors: { type: 'string', description: 'Authors with affiliations, e.g. "Jane Doe (MIT), John Roe (Bentley)"' },
         email: { type: 'string', description: "Author's contact email — the sign-off link is sent here" },
         type: { type: 'string', enum: core.TYPES },
-        track: { type: 'string', enum: Object.keys(core.TRACKS) },
+        track: { type: 'string', enum: Object.keys(core.TRACKS_2027) },
         keywords: {
           anyOf: [{ type: 'string' }, { type: 'array', items: { type: 'string' } }],
           description: '3–7 keywords, comma-separated or as an array',
@@ -68,13 +68,10 @@ async function callTool(name, args) {
     return text(
 `Algorithmacy Conference — submission reference
 
-Track ids are TR.01 through TR.05. Pick exactly one id, for example "TR.03".
-
-2027, Decision Experience Design (set conference to "2027"):
+2027 uses six ids, TR.01 through TR.06. Set conference to "2027". Pick exactly one id:
 ${tracks2027}
-Filing for 2027: decision surfacing and the aesthetic shift are TR.01. Opacity and missing frames are TR.02. Cooptation, lock-in, measures other than conversion and stickiness, and business or management implications are TR.03. The person/character/animator triad, the human user, and artificial life in the animator's sense are TR.04. Animation methods, the history of literacy and algorithmacy, education, and algorithmacy more generally are TR.05. A philosophical paper uses the track of the concept it treats.
 
-2026 archive (omit conference, or set it to "2026"). The same ids keep these names:
+2026 archive (omit conference, or set it to "2026") uses five ids, TR.01 through TR.05. TR.06 is rejected for 2026:
 ${tracks2026}
 
 Types (pick exactly one):
@@ -85,7 +82,7 @@ Required fields for submit_abstract:
   authors      — name + affiliation for each, e.g. "Jane Doe (MIT), John Roe (Bentley)"
   email        — author's contact email (the sign-off link is sent here)
   type         — one of the types above
-  track        — one of the track ids above (TR.01–TR.05)
+  track        — TR.01–TR.06 for conference "2027"; TR.01–TR.05 if conference is omitted or "2026"
   keywords     — 3–7, comma-separated (or an array)
   abstract     — 300–500 words
   outline      — 5–10 bullets (or panel participants / poster description)

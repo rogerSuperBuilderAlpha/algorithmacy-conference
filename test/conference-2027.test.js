@@ -38,9 +38,13 @@ function payload(extra) {
   }, extra);
 }
 
-test('index.html has no em dashes', () => {
-  assert.equal(html.includes('\u2014'), false);
-  assert.equal(html.includes('—'), false);
+test('em dashes stay inside the AI Polish wording', () => {
+  const start = html.indexOf('id="cfp-ai-polish"');
+  const end = html.indexOf('<!-- /cfp-ai-polish -->');
+  assert.ok(start > 0 && end > start);
+  const rest = html.slice(0, start) + html.slice(end);
+  assert.equal(rest.includes('\u2014'), false);
+  assert.ok(html.slice(start, end).includes('\u2014'));
 });
 
 test('thank-you section names only people and facts already on the 2026 page', () => {
@@ -127,7 +131,7 @@ test('the 2027 intro is the organizer text, seven paragraphs, verbatim', () => {
     'In order to deliver solutions for Decision Experience Design, this conference proposes learning about and applying the core methodologies of the animator.',
   ];
   assert.equal(paragraphs.length, 7);
-  const intro = html.slice(html.indexOf('id="cfp-2027-intro"'), html.indexOf('Topics and questions to consider'));
+  const intro = html.slice(html.indexOf('id="cfp-2027-intro"'), html.indexOf('id="cfp-ai-polish"'));
   for (const paragraph of paragraphs) {
     assert.ok(intro.includes(paragraph), paragraph.slice(0, 48));
   }
@@ -139,6 +143,32 @@ test('the 2027 intro is the organizer text, seven paragraphs, verbatim', () => {
   assert.equal(summary.includes('heaven forbid'), false);
 });
 
+function normalizeText(value) {
+  return value
+    .replace(/<a\b[^>]*>/gi, '')
+    .replace(/<\/a>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+test('the AI Polish tab matches the source file, whitespace aside', () => {
+  const source = fs.readFileSync(path.join(root, 'test/fixtures/ai-polish-cfp-2027.txt'), 'utf8');
+  const sourceNorm = source.split('\n').map((line) => (
+    line.startsWith(' * ') ? line.slice(3) : line
+  )).join('\n').replace(/\s+/g, ' ').trim();
+  const open = html.indexOf('>', html.indexOf('id="ai-polish-body"')) + 1;
+  const close = html.indexOf('</div>\n      </div><!-- /cfp-ai-polish -->');
+  assert.ok(open > 0 && close > open);
+  const got = normalizeText(html.slice(open, close));
+  assert.equal(got, sourceNorm);
+});
+
 test('2027 call uses the 2026 submission mechanism and states no date or venue', () => {
   const call = html.slice(html.indexOf('id="cfp-2027"'));
   assert.match(call, /Decision Experience Design/);
@@ -146,12 +176,11 @@ test('2027 call uses the 2026 submission mechanism and states no date or venue',
   assert.match(call, /name="conference" value="2027"/);
   assert.match(call, /raincoat/);
   assert.match(call, /umbrella/);
-  assert.match(call, /TR\.01 Decision surfacing/);
-  assert.match(call, /TR\.05 Methods, literacy, and algorithmacy/);
-  assert.match(call, /What does a designer owe a person whose end changes mid-session, from raincoat to umbrella\?/);
-  assert.match(call, /File under TR\.05\./);
-  assert.match(call, /Artificial life/);
-  assert.match(call, /Submissions on algorithmacy more generally are welcome/);
+  assert.match(call, /TR\.01 Decision Experience Design \(DXD\) and Choice Architecture/);
+  assert.match(call, /TR\.06 Stratification, Labor, and the Hidden Animator/);
+  assert.equal(call.includes('Guiding questions'), false);
+  assert.equal(call.includes('Topics and questions to consider'), false);
+  assert.equal(call.includes('What does a designer owe a person whose end changes mid-session'), false);
   assert.match(call, /id="subform"/);
   assert.match(call, /TR\.01/);
   assert.match(call, /TR\.05/);
@@ -165,7 +194,6 @@ test('2027 call uses the 2026 submission mechanism and states no date or venue',
   assert.match(html, /src="\/assets\/js\/submit-form\.js"/);
   assert.match(formJs, /\/api\/submit/);
   assert.doesNotMatch(call, /Port of Spain, 2027|venue: [^<]*2027|October 2027|keynote/i);
-  assert.equal(call.includes('\u2014'), false);
 });
 
 test('public descriptions say 2026 has concluded and the 2027 call is open', () => {
@@ -187,7 +215,9 @@ test('validate tags 2027 and leaves an omitted year on 2026', () => {
   const next = validate(payload());
   assert.deepEqual(next.errors, []);
   assert.equal(next.clean.conference, '2027');
-  assert.match(trackLabel('TR.01', '2027'), /Decision surfacing/);
+  assert.match(trackLabel('TR.01', '2027'), /Decision Experience Design \(DXD\) and Choice Architecture/);
+  assert.match(trackLabel('TR.06', '2027'), /Hidden Animator/);
+  assert.equal(trackLabel('TR.06', '2026'), undefined);
   assert.match(trackLabel('TR.01', '2026'), /Coordination & Mediation/);
 
   const current = validate(payload({ conference: undefined }));
@@ -196,6 +226,12 @@ test('validate tags 2027 and leaves an omitted year on 2026', () => {
 
   const bad = validate(payload({ conference: '2028' }));
   assert.ok(bad.errors.some((error) => /2026 or 2027/.test(error)));
+
+  const sixth = validate(payload({ conference: '2027', track: 'TR.06' }));
+  assert.deepEqual(sixth.errors, []);
+  assert.equal(sixth.clean.track, 'TR.06');
+  const sixthOn2026 = validate(payload({ conference: '2026', track: 'TR.06' }));
+  assert.ok(sixthOn2026.errors.some((error) => /TR\.01–TR\.05/.test(error)));
 });
 
 test('local submit handler accepts a 2027 dry-run without calling the network', async () => {
