@@ -174,6 +174,15 @@ test('2027 call uses the 2026 submission mechanism and states no date or venue',
   assert.match(call, /Decision Experience Design/);
   assert.match(call, /Dates and venue to be announced/);
   assert.match(call, /name="conference" value="2027"/);
+  assert.match(html, /property="og:image" content="https:\/\/algorithmacy.org\/images\/social-share-2027.png"/);
+  assert.match(html, /property="og:image:width" content="1200"/);
+  assert.match(html, /property="og:image:height" content="630"/);
+  assert.match(html, /property="og:image:alt" content="Algorithmacy Conference 2027\. Call for Papers\. Decision Experience Design\./);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /name="twitter:image" content="https:\/\/algorithmacy.org\/images\/social-share-2027.png"/);
+  assert.match(html, /src="\/images\/hero-algorithmacy-2027.png"/);
+  assert.match(html, /src="\/images\/hero-algorithmacy-2026.png"/);
+  assert.match(html, /"image": "https:\/\/algorithmacy.org\/images\/social-share-2026.png"/);
   assert.match(call, /raincoat/);
   assert.match(call, /umbrella/);
   assert.match(call, /TR\.01 Decision Experience Design \(DXD\) and Choice Architecture/);

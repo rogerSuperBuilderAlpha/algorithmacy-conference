@@ -7,7 +7,7 @@ const root = path.join(__dirname, '..');
 
 function walk(dir, out) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === 'node_modules' || entry.name === 'public' || entry.name === '.git') continue;
+    if (entry.name === 'node_modules' || entry.name === 'public' || entry.name === '.git' || entry.name === 'design') continue;
     const abs = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(abs, out);
     else if (entry.name.endsWith('.html')) out.push(abs);

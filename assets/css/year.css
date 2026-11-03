@@ -124,6 +124,15 @@
 .topstrip .right{ flex-wrap: wrap; row-gap: 8px; justify-content: flex-end; }
 
 .year-panel[hidden]{ display: none !important; }
+.cfp-hero{ margin: 4px 0 18px; }
+.cfp-hero img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: #07080A;
+}
 .cfp-version-bar{ margin: 8px 0 18px; }
 #cfp-ai-polish h2:first-child{ margin-top: 0; }
 .cfp-refs{
