@@ -82,3 +82,77 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 })();
+
+// Two wordings of the 2027 call. Both panels are in the HTML so the page
+// still shows them, Human Slop first, if this script does not run.
+(function () {
+  var tablist = document.getElementById('cfp-version-tabs');
+  if (!tablist) return;
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  var panels = {
+    human: document.getElementById('cfp-human-slop'),
+    ai: document.getElementById('cfp-ai-polish'),
+  };
+
+  function hashId() {
+    var hash = location.hash;
+    if (!hash || hash === '#') return '';
+    try { return decodeURIComponent(hash.slice(1)); }
+    catch (e) { return hash.slice(1); }
+  }
+
+  function whichForHash() {
+    var id = hashId();
+    if (id === 'cfp-ai-polish' || id === 'cfp-tab-ai') return 'ai';
+    if (id === 'cfp-human-slop' || id === 'cfp-tab-human') return 'human';
+    return '';
+  }
+
+  function select(which, opts) {
+    opts = opts || {};
+    if (!panels[which]) return;
+    tabs.forEach(function (tab) {
+      var on = tab.getAttribute('data-cfp') === which;
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+    });
+    Object.keys(panels).forEach(function (key) {
+      var panel = panels[key];
+      if (!panel) return;
+      panel.hidden = key !== which;
+    });
+    if (opts.focus) {
+      var active = tabs.filter(function (tab) { return tab.getAttribute('data-cfp') === which; })[0];
+      if (active) active.focus();
+    }
+    if (opts.hash) {
+      var next = which === 'ai' ? '#cfp-ai-polish' : '#cfp-human-slop';
+      if (location.hash !== next) location.hash = next;
+    }
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener('click', function () {
+      select(tab.getAttribute('data-cfp'), { hash: true });
+    });
+    tab.addEventListener('keydown', function (event) {
+      var next = index;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      select(tabs[next].getAttribute('data-cfp'), { hash: true, focus: true });
+    });
+  });
+
+  function fromHash() {
+    var which = whichForHash();
+    if (which) select(which);
+    else if (panels.human && panels.ai && !panels.human.hidden && !panels.ai.hidden) select('human');
+  }
+
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();

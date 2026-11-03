@@ -1,0 +1,60 @@
+Call for Papers: Decision Experience Design, Animation, and the Practice of Algorithmacy
+The Argument the Conference Convenes Around
+Online retailers and their customers used to agree on the goal. If a shopper wanted a raincoat, the retailer built a simple, low-friction website to sell them that raincoat. Designer and buyer both knew the end goal before the interaction started.
+That agreement breaks down when people solve problems using conversational agents like Claude or Grok. Suppose it is pouring outside and a commuter needs to figure out how to get to work dry. They might start out searching for raincoats, talk through the commute with an agent, and realize halfway through that an umbrella is what they actually need. If they land on a retail site engineered to push raincoat conversions, digital nudging tools (Weinmann, Schneider, & vom Brocke, 2016) collide with a shifting goal, and neither the site nor the user gets what they wanted.
+The metrics that built modern web design—conversion rates, page stickiness, and dark patterns—fail when the destination is moving. Choice architecture proves that how options are presented systematically shapes what people decide (Johnson et al., 2012). But the design problem today is not how to push someone toward a fixed finish line. Decision Experience Design (DXD) is the practice of building interfaces that help a user figure out what decision to make when the finish line is still being worked out.
+Current chat and AI interfaces fall well short of supporting this work. Although models and interfaces change rapidly, three baseline conditions of the problem remain constant:
+First, the user is a human being: biological, cognitive, and emotional. A separate body of research examines machine-to-machine agent experience; we bracket that literature here to focus on the human decider.
+Second, the user environment is a platform that is opaque, co-optive, and triadic. Platforms coordinate activity by co-opting external actors, assets, and behaviors into organizational processes via algorithmic management (Stark & Vanden Broeck, 2024), while operating with an opacity rooted in corporate secrecy, technical specialization, and the scale of machine learning itself (Burrell, 2016). Demanding transparency does little to help the user decide, because peering inside a black box is not the same as understanding how a system exercises power across a relational environment (Ananny & Crawford, 2018).
+Third, the design move required is an aesthetic shift: recognizing that when we engage large language models, we are engaging animations. Building on Teri Silvio’s (2019) theory of animation as the projection of human agency and persona onto non-human objects, Luke Stark (2024) demonstrates that LLM chatbots function as animated characters that rely on stereotypes, obscure human labor, and manipulate emotion.
+Understanding LLM interfaces as animation clarifies why platform environments behave the way they do:
+ * Animation is constitutively opaque. There are literal missing frames. As Norman McLaren (1968) observed, animation is not the art of drawings that move, but the art of movements that are drawn; what happens between each frame is more consequential than what exists on the frame itself. Animation is the craft of manipulating the invisible interstices between frames.
+ * Animation is co-optive. At a certain threshold in an animated sequence, the viewer "locks in" and the perceptual gaps disappear, enlisting the viewer's own perception to supply continuity where none exists.
+ * Animation is triadic. Watching a stage actor is a dyadic encounter between an audience member ("I") and a performer ("Actor"). Watching animation introduces a third term: "I" am watching a "character" manipulated by an unseen "animator."
+To build interfaces suited for Decision Experience Design, researchers and designers must learn and apply the core methodologies of the animator (Chevalier et al., 2016; Silvio, 2019; Stark, 2024)—working deliberately with the missing frames rather than pretending the gaps do not exist.
+Conference Scope and Thematic Tracks
+While our featured theme examines Decision Experience Design and Animation, the conference convenes scholars, practitioners, designers, and worker advocates around algorithmacy writ large: the communication competency and situated practice through which human actors coordinate with one another, make decisions, and contest power through an algorithmic third party.
+Submissions are invited across six tracks. Listed questions are suggestive rather than exhaustive; authors working across multiple tracks should indicate their primary and secondary fit.
+Track 1 — Decision Experience Design (DXD) and Choice Architecture
+ * How do conversational agents alter the classical tools of choice architecture (structuring the choice task vs. describing options; Johnson et al., 2012) when options are generated dynamically in dialogue?
+ * What metrics can replace conversion rate optimization and interface stickiness to measure whether an environment actually helped a user reach a sound decision?
+ * What happens when a user's emerging, agent-mediated intention collides with a platform's pre-structured digital nudges (Weinmann, Schneider, & vom Brocke, 2016), and how can interfaces renegotiate ends mid-flow?
+Track 2 — Animation Theory, Missing Frames, and the Aesthetics of AI Interfaces
+ * How can concrete animator methodologies (keyframing, holding frames, onion-skinning, managing timing and spacing across the interstices; McLaren, 1968; Chevalier et al., 2016) be translated into interface design patterns for human decision-making?
+ * What triggers perceptual and cognitive "lock-in" during LLM interactions, and how can designers intentionally break that lock-in when a high-stakes decision requires friction or doubt?
+ * How does shifting from a dyadic framing (human–AI teammate) to a triadic framing (viewer–character–animator; Silvio, 2019; Stark, 2024) change how we assign responsibility, authorship, and liability for AI-assisted decisions?
+Track 3 — Construct, Theory, and Epistemology of Algorithmacy
+ * How does algorithmacy differ structurally from prior communication competencies such as oracy, print literacy, and digital literacy when the mediating "grammar" (model weights, system prompts, ranking functions) updates silently without the user's knowledge?
+ * When actors coordinate through an algorithmic third party, how do folk theories and "imagined algorithms" shape human-to-human communication even when the user's technical mental model is wrong?
+ * How can we theorize the relationship between algorithmic opacity (Burrell, 2016; Ananny & Crawford, 2018) and the pragmatic fluency users develop by testing, prompting, and observing system outputs?
+Track 4 — Platform Co-optation, Algorithmic Management, and Triadic Coordination
+ * How does platform co-optation (Stark & Vanden Broeck, 2024) reorganize decision rights between workers, consumers, and platform owners?
+ * When everyday algorithmacy becomes bilateral—as workers, drivers, or job applicants deploy their own agents and prompt strategies to game algorithmic management—what new forms of counter-co-optation emerge?
+ * Where does organizational memory reside when key strategic pivots (the shift from raincoat to umbrella) occur inside ephemeral, co-opted chat sessions whose intermediate reasoning frames are missing?
+Track 5 — The Human Decider: Cognitive, Biological, and Affective Dimensions
+ * How does continuous reliance on animated, persona-driven interfaces reshape human decision fatigue, epistemic vigilance, and emotional attachment?
+ * What physiological, behavioral, or psychometric markers distinguish active human deliberation from passive compliance ("lock-in") during agent-mediated choice tasks?
+ * How do individual differences in algorithmacy moderate susceptibility to anthropomorphic manipulation and dark patterns in conversational interfaces?
+Track 6 — Stratification, Labor, and the Hidden Animator
+ * In classical animation, master animators drew the keyframes while lower-paid "in-betweeners" drew the transitional frames that made motion look effortless. How does the smooth illusion of LLM decision support obscure the human labor of data raters, annotators, and uncredited writers compressed into the interstices (Stark, 2024)?
+ * Does algorithmacy develop uniformly across populations, or does triadic platform coordination replicate and deepen existing socioeconomic and geographic stratification?
+ * What pedagogical, regulatory, or collective-bargaining interventions build durable algorithmacy among workers and publics entering platformed labor markets?
+Submission Formats and Open Review Process
+We welcome empirical papers (quantitative, qualitative, experimental, or computational), theoretical essays, design provocations, and practitioner case studies.
+ * Full Papers (6–8 pages): Completed empirical, theoretical, or design research.
+ * Research Notes (2–3 pages): Works-in-progress, methodological innovations, or focused single-case studies.
+ * Panels (3–4 participants): A unified theoretical or empirical argument accompanied by a short framing statement.
+ * Design Demonstrations & Posters: Interactive prototypes, interface experiments, or visual presentations accompanied by a one-page extended abstract.
+ * Practitioner Reports: Accounts translating algorithmacy or Decision Experience Design into organizational practice, curriculum, or policy.
+Open, Signed, Timestamped Review:
+Submissions are managed via open pull request on the conference's public repository (with web-form and agent-assisted submission paths available for authors without a GitHub account). Submissions and signed peer-review threads are public from intake; accepted papers are published alongside their complete review history, author responses, and revision trail, with the pull-request timestamp serving as the permanent priority record. All manuscripts should follow APA 7 style.
+References
+ * Ananny, M., & Crawford, K. (2018). Seeing without knowing: Limitations of the transparency ideal and its application to algorithmic accountability. New Media & Society, 20(3), 973–989.
+ * Burrell, J. (2016). How the machine ‘thinks’: Understanding opacity in machine learning algorithms. Big Data & Society, 3(1), 1–12.
+ * Chevalier, F., Riche, N. H., Plaisant, C., Chalbi, A., & Hurter, C. (2016). Animations 25 years later: New roles and opportunities. In Proceedings of the International Working Conference on Advanced Visual Interfaces (AVI '16) (pp. 280–287). ACM.
+ * Johnson, E. J., Shu, S. B., Dellaert, B. G. C., Fox, C., Goldstein, D. G., Häubl, G., Larrick, R. P., Payne, J. W., Peters, E., Schkade, D., Wansink, B., & Weber, E. U. (2012). Beyond nudges: Tools of a choice architecture. Marketing Letters, 23(2), 487–504.
+ * McLaren, N. (1968). Definition of animation. Quoted in M. Furniss (1998), Art in Motion: Animation Aesthetics (p. 5). John Libbey Publishing.
+ * Silvio, T. (2019). Puppets, Gods, and Brands: Theorizing the Age of Animation from Taiwan. University of Hawai‘i Press.
+ * Stark, D., & Vanden Broeck, P. (2024). Principles of algorithmic management. Organization Theory, 5(2), 1–27.
+ * Stark, L. (2024). Animation and artificial intelligence. In Proceedings of the 2024 ACM Conference on Fairness, Accountability, and Transparency (FAccT '24) (pp. 1525–1536). ACM. https://doi.org/10.1145/3630106.3658995
+ * Weinmann, M., Schneider, C., & vom Brocke, J. (2016). Digital nudging. Business & Information Systems Engineering, 58(6), 433–436.
