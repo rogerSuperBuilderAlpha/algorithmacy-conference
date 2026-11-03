@@ -1,5 +1,5 @@
 {
-  "count": 9,
+  "count": 10,
   "papers": [
     {
       "slug": "a",
@@ -124,6 +124,25 @@
       ],
       "teaser": "From Sediment to Algorithm: Rethinking Environmental Governance through Algorithmacy in South Africa's Breede River Catchment",
       "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/phd.md"
+    },
+    {
+      "slug": "villaroel",
+      "title": "When the Third Party Is a Machine: Need Frustration, Allostatic Load and the Neural Cost of Coordinating Through Algorithms",
+      "authors": "Lorraine Villaroel (Caribbean Emergence Institute)",
+      "type": "Full paper",
+      "trackId": "TR.02",
+      "track": "TR.02 — Algorithmic Management",
+      "keywords": [
+        "algorithmacy",
+        "algorithmic management",
+        "psychological needs",
+        "social pain",
+        "allostatic load",
+        "neuroplasticity",
+        "platform work"
+      ],
+      "teaser": "Algorithmacy describes the competence of coordinating with another person through an algorithmic third party. Most discussion of it focuses on skills, control and governance.",
+      "url": "https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/submissions/villaroel.md"
     },
     {
       "slug": "wesley83",
