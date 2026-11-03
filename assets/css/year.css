@@ -1,0 +1,193 @@
+/* Thank-you, media placeholder, and year tabs above the conference pages. */
+
+.stage{
+  display: block;
+  height: auto;
+}
+
+.thanks{
+  padding: 12px 0 4px;
+}
+.thanks-kicker{
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+.thanks h2{
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--ink);
+}
+.thanks p{
+  max-width: 68ch;
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.media-soon{
+  margin: 8px 0 22px;
+}
+.media-soon-frame{
+  min-height: 148px;
+  padding: 28px 18px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  background:
+    radial-gradient(70% 90% at 50% 0%, rgba(90,155,255,0.10), transparent 70%),
+    var(--pitch-2);
+}
+.media-soon-kicker{
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.media-soon-text{
+  margin: 0;
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--ink);
+}
+
+.year-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  flex-wrap: wrap;
+  padding: 4px 0 14px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.year-tablist{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.year-tab{
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.year-tab[aria-selected="true"]{
+  color: var(--ink);
+  border-color: var(--signal);
+  background: rgba(255,89,69,0.10);
+}
+.year-tab:focus-visible,
+.year-x:focus-visible,
+.x-link:focus-visible{
+  outline: 2px solid var(--cool);
+  outline-offset: 3px;
+}
+.year-x,
+.x-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.year-x:hover,
+.x-link:hover{ color: var(--signal); }
+.year-x svg,
+.x-link svg{ width: 14px; height: 14px; display: block; }
+
+.topstrip{ flex-wrap: wrap; row-gap: 10px; }
+.topstrip .right{ flex-wrap: wrap; row-gap: 8px; justify-content: flex-end; }
+
+.year-panel[hidden]{ display: none !important; }
+
+.cfp{
+  padding: 28px 0 12px;
+  max-width: 76ch;
+}
+.cfp-kicker{
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.cfp h1{
+  margin: 0 0 8px;
+  font-size: clamp(30px, 4.4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: var(--ink);
+}
+.cfp-meta{
+  margin: 0 0 22px;
+  color: var(--ink);
+  font-size: 16px;
+}
+.cfp h2,
+.cfp h3{
+  margin: 28px 0 8px;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cfp p,
+.cfp li{
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.cfp p{ margin: 0 0 12px; }
+.cfp ol,
+.cfp ul{ margin: 0 0 12px; padding-left: 1.2em; }
+.cfp li{ margin: 0 0 8px; }
+.cfp a{ color: var(--ink); }
+.cfp code{
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--ink);
+}
+.cfp-form-head{
+  margin-top: 36px;
+  padding-top: 8px;
+}
+.cfp .subform{ max-width: 100%; }
+
+.cfp-footer{ padding-top: 36px; }
+.footer-legal a{ display: inline-flex; align-items: center; gap: 8px; }
+.footer-legal svg{ width: 14px; height: 14px; flex: none; }
+
+@media (max-width: 720px){
+  .thanks p,
+  .cfp p,
+  .cfp li{ font-size: 15.5px; }
+  .media-soon-frame{ min-height: 120px; padding: 22px 14px; }
+  .year-bar{ align-items: flex-start; }
+  .topstrip .right{ width: 100%; justify-content: flex-start; gap: 12px; }
+}

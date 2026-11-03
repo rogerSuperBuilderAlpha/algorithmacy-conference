@@ -48,6 +48,7 @@ const TOOLS = [
         contribution: { type: 'string', description: 'One-sentence summary of what is new (optional)' },
         coi: { type: 'string', description: 'Conflicts of interest, or "none" (optional)' },
         specialSession: { type: 'string', description: 'Special session to submit to, e.g. "Digital Sovereignty", "Algorithmic Literacy", or "Critical Cultural Research" (optional). Still pick a track.' },
+        conference: { type: 'string', enum: ['2026', '2027'], description: 'Conference year. Use "2027" for the Second Algorithmacy Conference. Omit to submit to 2026.' },
       },
       required: ['title', 'authors', 'email', 'type', 'track', 'keywords', 'abstract', 'outline', 'bios'],
       additionalProperties: false,
@@ -88,9 +89,14 @@ Optional:
   specialSession — a special session, e.g. "Digital Sovereignty" (chaired by
                    Samuel Fosso Wamba) or "Critical Cultural Research" (chaired
                    by Sarah Witmer); still pick a track
+  conference     — "2027" for the Second Algorithmacy Conference. Omit for 2026.
+                   The 2026 meeting has concluded. The 2027 call is open; dates
+                   and venue are to be announced.
 
-The call for papers is open, with no fixed abstract date. All submissions and reviews are public; the pull
-request timestamp is the author's priority record.`);
+The 2027 call for papers is open. Dates and venue are to be announced. The 2026
+meeting has concluded. All submissions and reviews are public; the pull request
+timestamp is the author's priority record. A 2027 submission is stored separately
+from a 2026 submission by the same email.`);
   }
 
   if (name === 'submit_abstract') {
@@ -115,7 +121,7 @@ request timestamp is the author's priority record.`);
       return text(`Could not send the confirmation email: ${e.message}`, true);
     }
     return text(
-`✓ Submission prepared: "${clean.title}" (${clean.type}, ${core.TRACKS[clean.track]}).
+`✓ Submission prepared: "${clean.title}" (Conference ${clean.conference}, ${clean.type}, ${core.TRACKS[clean.track]}).
 
 A one-click sign-off link was emailed to ${clean.email}. The author must open that
 email and click "Confirm & publish" to open the pull request — nothing is published

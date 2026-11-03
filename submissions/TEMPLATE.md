@@ -3,6 +3,7 @@
 **Authors:** Your Name (Affiliation), Co-author Name (Affiliation)
 **Contact:** primary-author@example.edu
 **Type:** [Full paper | Note | Panel | Poster | Practitioner report]
+**Conference:** [2026 | 2027]
 **Track:** [TR.01 | TR.02 | TR.03 | TR.04 | TR.05]
 **Word count:** [body of abstract, target 300–500]
 **Keywords:** [3–7 comma-separated]
