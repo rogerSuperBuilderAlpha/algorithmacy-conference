@@ -29,10 +29,13 @@
       });
     });
 
-    // open the track from URL hash if present
-    if (window.location.hash) {
-      const target = document.querySelector(window.location.hash + '.track');
-      if (target) {
+    // open the track from URL hash if present. Year tabs use #2026 and #2027,
+    // which are not CSS selectors, so resolve the id directly.
+    if (window.location.hash.length > 1) {
+      let id = window.location.hash.slice(1);
+      try { id = decodeURIComponent(id); } catch (e) { /* keep the raw id */ }
+      const target = document.getElementById(id);
+      if (target && target.classList.contains('track')) {
         target.classList.add('open');
         const b = target.querySelector('.track-toggle');
         if (b) b.setAttribute('aria-expanded', 'true');

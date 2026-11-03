@@ -1,12 +1,51 @@
 # Algorithmacy Conference — full reference
 
-> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Dates and venue to be announced. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Its theme is Decision Experience Design. Dates and venue to be announced. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 
 ## 2027 call for papers
 
-The Second Algorithmacy Conference continues the 2026 scope, tracks, submission types, and intake. Dates and venue to be announced. The abstract deadline will be announced with the dates and venue. Until that notice, the call is open and review is rolling.
+The Second Algorithmacy Conference (2027) invites work on Decision Experience Design. Dates and venue to be announced. The abstract deadline will be announced with the dates and venue. Until that notice, the call is open and review is rolling. This account is written as of October 2026. Current chat and agent interfaces fall embarrassingly short, and they will change. The points below are meant to remain.
 
-Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. Do not invent a 2027 date, venue, keynote, or publication partner. None has been announced.
+Digital experience used to be a designer guiding a user toward an end that both people had, for the most part, agreed. A person wants to buy a raincoat, and a retailer designs a clear, simple flow for that purchase. The end is now less clear. People using agents such as Claude or Grok Bot are often making something themselves. It is raining, and the person needs a way to get to work. They land on a site that steers them toward raincoats. Talking with their agent, they conclude that they need an umbrella. No one gets what they wanted.
+
+Conversion rate, stickiness, and dark patterns that trick a person into buying a raincoat are the wrong measures. The measure is whether the person gets themselves to the decision, and whether the interface then surfaces ways to find and purchase what that decision requires. The experience is how the person makes the decision. The design problem is how the designer surfaces the decisions that move the person closer along whatever path they need.
+
+Three premises. (1) The user is the human: cognitive, biological, and emotional. Research on agent experience is bracketed. (2) The user environment is a platform: opaque, cooptive, and triadic. (3) The design move is an aesthetic shift.
+
+When a person engages a large language model, they are engaging an animation. Animators design experiences that are opaque because frames are missing, cooptive because the viewer locks in and the gaps disappear, and triadic. Watching an actor is a dyad: a person watching an actor. Watching animation is a triad: a person watching a character manipulated by an animator. The conference proposes that participants learn the core methods of the animator and apply them.
+
+Decision Experience Design is the focal point. Submissions on algorithmacy more generally are welcome and are filed under TR.05. The same five ids are what the form stores.
+
+Guiding questions, and where each group is filed:
+
+- Decision surfacing (TR.01). What does a designer owe a person whose end changes mid-session, from raincoat to umbrella? Which decisions does the interface put in front of the person, and which does the person have to notice without help? Once a person and an agent have settled on an umbrella, what should the next screen show, and what should it take off the raincoat path? How can the interface keep a record that the end has changed, so later steps follow the umbrella?
+- Opacity and missing frames (TR.02). Which frames of the decision are absent, and can the person tell? What can a person do when the reason for offering a raincoat is not on the screen? When does a missing frame leave room to deliberate, and when does it hide that an end has already been picked?
+- Cooptation and lock-in (TR.03). At what moment does the person lock in, so that the gap between raincoat and umbrella drops out of view? Which interface acts produce that lock-in, and which can the person refuse without dropping the task? What would let the person unlock and come back to the umbrella?
+- The user, the character, and the animator (TR.04). In a session with an agent, who is the person, who is the character, and who is the animator? What changes once the person sees that the character is being manipulated? Where is the designer during the session, and where after lock-in?
+- The human user, cognitive, biological, and emotional (TR.04). What thinking does it take to see that the offered end is a raincoat when the named end was an umbrella? How do bodily conditions such as being wet, cold, or late change which decision the person can hold? Which feelings follow from being steered into an unchosen purchase, and how do they enter the next step?
+- The aesthetic shift (TR.01). What is the practical difference between a flow built toward an agreed purchase and a design whose object is the decision? Which screens in a raincoat path would have to be remade? What in a finished interface would show that the shift had been made, using a mid-session change from raincoat to umbrella as the test?
+- Animation methods (TR.05). Which methods do animators use when choosing frames a viewer will not see, and which of those methods can an interface designer use? How does an animator time lock-in, and what is the matching moment in a chat or agent session? Which methods stop working when the person is making the decision, and is not only watching?
+- Measures other than conversion and stickiness (TR.03). What record shows that the person reached a decision of their own? How should the outcome be scored when the person leaves with an umbrella and the site offered only raincoats? What in the record would show a dark pattern, and what would show a decision the person made?
+
+Wider areas, also welcome:
+
+- History of literacy and its bearing on algorithmacy (TR.05). Which earlier changes in reading and writing changed what a person could decide without someone else carrying the message, and what comparison with algorithmic systems does that history support? What did teachers, scribes, or printers have to show or withhold, and what does that imply for an interface designer now? Where did a literacy leave users less able to see the medium, and does algorithmic use open a gap of that kind?
+- Education (TR.05). What must a learner practice in order to notice a mid-session change of end? How can a course keep apart building a path to a known product and surfacing a decision? What exercise makes a missing frame visible to a student who has not trained as an animator?
+- Business and management (TR.03). What does a firm stop counting as success if a session may rightly end in another product? Which routines keep rewarding time on the site when the person needed to leave with something else? How should a team report a session that ends on an umbrella when the path was built for raincoats?
+- Philosophical work. File under the concept: decision or the aesthetic shift under TR.01, opacity under TR.02, cooptation under TR.03, the triad under TR.04, animation under TR.05. Questions include what a decision is if the end is revised inside the session; how missing frames differ from mere difficulty; what relation holds among person, character, and animator; and what has to be true of a design change for it to count as an aesthetic shift.
+- Artificial life, in the sense that an animator brings a character to life (TR.04). What does an animator do that makes a character seem alive? When that character seems alive in an agent interface, does the person hand over the decision, and what purchase follows? Once the character is taken to be alive, what is left of the animator's hand?
+
+Tracks:
+
+- TR.01 Decision surfacing. Includes the aesthetic shift.
+- TR.02 Opacity and missing frames. Includes philosophical work on opacity.
+- TR.03 Cooptation, lock-in, and measures. Includes business and management, and philosophical work on cooptation.
+- TR.04 Person, character, and animator. Includes the human user and artificial life in the animator's sense. Agent-experience research stays bracketed.
+- TR.05 Methods, literacy, and algorithmacy. Includes animation methods, the history of literacy, education, and submissions on algorithmacy more generally.
+
+Designers, researchers, animators, practitioners, educators, and managers may submit, as may people working on these questions philosophically. Types are unchanged: full paper (6 to 8 pages), note (2 to 3 pages), panel (3 to 4 participants), poster (with a one-page extended abstract), and practitioner report (2 to 4 pages).
+
+Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. No 2027 date, venue, keynote, or publication partner has been announced.
 
 ## 2026 archive
 

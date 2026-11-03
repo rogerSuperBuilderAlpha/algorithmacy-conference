@@ -150,10 +150,15 @@
   color: var(--ink);
   font-size: 16px;
 }
-.cfp h2,
-.cfp h3{
+.cfp h2{
   margin: 28px 0 8px;
   font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cfp h3{
+  margin: 22px 0 8px;
+  font-size: 17px;
   letter-spacing: -0.01em;
   color: var(--ink);
 }

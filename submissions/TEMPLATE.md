@@ -5,6 +5,8 @@
 **Type:** [Full paper | Note | Panel | Poster | Practitioner report]
 **Conference:** [2026 | 2027]
 **Track:** [TR.01 | TR.02 | TR.03 | TR.04 | TR.05]
+
+For a 2027 submission the theme is Decision Experience Design, and the same ids have these names: TR.01 Decision surfacing (also the aesthetic shift); TR.02 Opacity and missing frames; TR.03 Cooptation, lock-in, and measures (also business and management); TR.04 Person, character, and animator (also the human user, and artificial life in the animator's sense); TR.05 Methods, literacy, and algorithmacy (also the history of literacy, education, animation methods, and algorithmacy more generally). A philosophical paper uses the track of the concept it treats. A 2026 submission uses the names in [TRACKS.md](../TRACKS.md). Dates and venue for 2027 are to be announced.
 **Word count:** [body of abstract, target 300–500]
 **Keywords:** [3–7 comma-separated]
 **Conflicts of interest:** [none, or describe]
