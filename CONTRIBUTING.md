@@ -4,11 +4,11 @@ This document covers how to submit a paper, how reviews work, and what reviewers
 
 ## Submitting a paper
 
-There are **four ways to submit**, and **none of them requires a GitHub account.** All end as a public pull request whose timestamp is your priority record. Pick whichever fits — they are summarized in the picker at [algorithmacy.org/submit](https://algorithmacy.org/submit).
+There are **four ways to submit**, and **none of them requires a GitHub account.** All end as a public pull request whose timestamp is your priority record. The open call is the Second Algorithmacy Conference (2027). It has six tracks, TR.01 through TR.06, named in [submissions/TEMPLATE.md](./submissions/TEMPLATE.md). Submit it at [algorithmacy.org/#2027](https://algorithmacy.org/#2027). A 2026 submission uses five tracks, TR.01 through TR.05, named in [TRACKS.md](./TRACKS.md), and the form at [algorithmacy.org/submit](https://algorithmacy.org/submit).
 
 ### Method 1 — the web form (easiest, no GitHub account)
 
-Go to [algorithmacy.org/submit](https://algorithmacy.org/submit) and fill in the form ("Submit directly — no GitHub needed"). You'll confirm your email with a one-time link, and we open the pull request for you and send you the URL. The PR opens the moment you confirm, so its timestamp is your priority record.
+For the open 2027 call, go to [algorithmacy.org/#2027](https://algorithmacy.org/#2027) and fill in the web form. That form lists six tracks, TR.01 through TR.06. The form at [algorithmacy.org/submit](https://algorithmacy.org/submit) is the 2026 archive and lists five tracks, TR.01 through TR.05. You'll confirm your email with a one-time link, and we open the pull request for you and send you the URL. The PR opens the moment you confirm, so its timestamp is your priority record.
 
 **One submission per email.** To revise, resubmit the form with the same email and confirm again — it updates your existing PR rather than opening a second one.
 
@@ -43,7 +43,7 @@ Open `submissions/<your-handle>.md` and complete every field. The template promp
 - Title
 - Authors and affiliations
 - Submission type (one of five — see README)
-- Track (one of TR.01–TR.05 — see [TRACKS.md](./TRACKS.md))
+- Track (TR.01–TR.06 for 2027 — see [submissions/TEMPLATE.md](./submissions/TEMPLATE.md); TR.01–TR.05 for 2026 — see [TRACKS.md](./TRACKS.md))
 - Word count (the body of the abstract should be 300–500 words)
 - Keywords (3–7)
 - Abstract (300–500 words)

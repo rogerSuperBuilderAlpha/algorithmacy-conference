@@ -23,7 +23,7 @@ const SUPPORTED_PROTOCOLS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 const TOOLS = [
   {
     name: 'list_tracks',
-    description: 'List the conference tracks, submission types, and the field requirements a submission must satisfy.',
+    description: 'List the 2027 conference tracks (six ids, TR.01 through TR.06) and the 2026 archive tracks (five ids, TR.01 through TR.05), plus submission types and field requirements.',
     inputSchema: { type: 'object', properties: {}, additionalProperties: false },
   },
   {
@@ -37,7 +37,11 @@ const TOOLS = [
         authors: { type: 'string', description: 'Authors with affiliations, e.g. "Jane Doe (MIT), John Roe (Bentley)"' },
         email: { type: 'string', description: "Author's contact email — the sign-off link is sent here" },
         type: { type: 'string', enum: core.TYPES },
-        track: { type: 'string', enum: Object.keys(core.TRACKS_2027) },
+        track: {
+          type: 'string',
+          enum: Object.keys(core.TRACKS_2027),
+          description: 'TR.01–TR.06 when conference is "2027". TR.01–TR.05 when conference is omitted or "2026". TR.06 is rejected for 2026.',
+        },
         keywords: {
           anyOf: [{ type: 'string' }, { type: 'array', items: { type: 'string' } }],
           description: '3–7 keywords, comma-separated or as an array',
