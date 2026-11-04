@@ -1387,7 +1387,7 @@
       <ol>
         <li><strong>Web form.</strong> Complete the form on this page and confirm the email. The conference opens the pull request. The form posts to <code>/api/submit</code>, the same endpoint as the 2026 form, with <code>conference</code> set to <code>2027</code>.</li>
         <li><strong>AI agent.</strong> Connect <code>https://algorithmacy.org/api/mcp</code> and ask the agent to submit. Set <code>conference</code> to <code>2027</code>. The agent prepares the submission. The author signs off by email. The agent does not receive the sign-off token, and nothing is published without that click.</li>
-        <li><strong>Prompt.</strong> Copy the prompt on the <a href="/submit#ai-prompt">submission page</a> into an assistant. Tell it that the paper is for the Second Algorithmacy Conference (2027) and that the file must contain the line <code>Conference: 2027</code>.</li>
+        <li><strong>Prompt.</strong> Copy the prompt on the <a href="/submit#ai-prompt">submission page</a> into an assistant. The prompt lists six tracks for 2027 (TR.01 through TR.06) and five tracks for 2026 (TR.01 through TR.05). Tell it that the paper is for the Second Algorithmacy Conference (2027) and that the file must contain the line <code>Conference: 2027</code>.</li>
         <li><strong>GitHub.</strong> Fork the repository, copy <code>submissions/TEMPLATE.md</code> to <code>submissions/&lt;handle&gt;.md</code>, set Conference to 2027, and open a pull request against <code>main</code>. Use the title form <code>[2027] [Type] [TR.0X] Your title</code>. The workflow is <a href="https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</li>
       </ol>
       <p>

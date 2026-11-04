@@ -24,7 +24,7 @@ The 2027 form accepts six tracks. TR.01 Decision Experience Design (DXD) and Cho
 
 - [Home](https://algorithmacy.org/): thank-you for 2026, the 2027 call for papers, and the 2026 program at https://algorithmacy.org/#2026.
 - [2027 call for papers](https://algorithmacy.org/#2027): Decision Experience Design. Web form on that tab, or the conference MCP with `conference` set to `2027`, or a GitHub pull request that includes `Conference: 2027`.
-- [Submit a paper](https://algorithmacy.org/submit): the shared web form, conference MCP, and GitHub pull request. The human author confirms by email before a pull request opens. The home-page 2027 form posts to the same `/api/submit` endpoint with `conference` set to `2027`.
+- [Submit a paper](https://algorithmacy.org/submit): the 2026 web form (five tracks, TR.01 through TR.05), the copy-paste prompt, and the conference MCP. The prompt on that page lists six tracks for 2027 (TR.01 through TR.06) and five tracks for 2026. The home-page 2027 form, with those six tracks, posts to the same `/api/submit` endpoint with `conference` set to `2027`. The human author confirms by email before a pull request opens.
 - [Conference MCP](https://algorithmacy.org/api/mcp): paper intake only. Do not use it for Studio.
 - [Logistics](https://algorithmacy.org/logistics): venue, travel, visas, registration.
 - [Repository](https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference): submissions and open reviews live here as pull requests.

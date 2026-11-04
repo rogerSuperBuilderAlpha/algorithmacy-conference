@@ -291,3 +291,40 @@ test('confirm stores 2027 apart from 2026', () => {
   const template = fs.readFileSync(path.join(root, 'submissions/TEMPLATE.md'), 'utf8');
   assert.match(template, /\*\*Conference:\*\* \[2026 \| 2027\]/);
 });
+
+test('2027 instructions say six tracks and 2026 instructions stay at five', () => {
+  const archive = sliceBetween(html, 'id="2026"', 'id="2027"');
+  assert.match(archive, /5 thematic tracks/);
+  assert.match(archive, /five thematic tracks/);
+  assert.equal(archive.includes('TR.06'), false);
+
+  const call = html.slice(html.indexOf('id="cfp-2027"'));
+  assert.match(call, /six tracks for 2027 \(TR\.01 through TR\.06\)/);
+  assert.match(call, /five tracks for 2026 \(TR\.01 through TR\.05\)/);
+
+  const submit = fs.readFileSync(path.join(root, 'submit/index.html'), 'utf8');
+  const form = sliceBetween(submit, 'id="web-form"', 'id="ai-prompt"');
+  assert.match(form, /TR\.05 — Methods, Lineage &amp; Practice/);
+  assert.equal(form.includes('TR.06'), false);
+  assert.match(submit, /5 thematic tracks/);
+  const prompt = sliceBetween(submit, 'id="prompt-textarea"', '</textarea>');
+  assert.match(prompt, /TR\.06 — Stratification, Labor, and the Hidden Animator/);
+  assert.match(prompt, /2026 \(five tracks\)/);
+  assert.match(prompt, /TR\.05 — Methods, Lineage & Practice/);
+
+  const llms = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8');
+  const wellKnown = fs.readFileSync(path.join(root, '.well-known/llms.txt'), 'utf8');
+  assert.equal(llms, wellKnown);
+  assert.match(llms, /The 2027 form accepts six tracks/);
+  assert.match(llms, /2026 web form \(five tracks, TR\.01 through TR\.05\)/);
+  assert.match(llms, /A 2026 submission still uses TR\.01 through TR\.05/);
+
+  const mcp = fs.readFileSync(path.join(root, 'handlers/mcp.js'), 'utf8');
+  assert.match(mcp, /six ids, TR\.01 through TR\.06/);
+  assert.match(mcp, /five ids, TR\.01 through TR\.05/);
+  assert.match(mcp, /TR\.06 is rejected for 2026/);
+
+  const howTo = fs.readFileSync(path.join(root, 'submissions/HOW-TO.md'), 'utf8');
+  assert.match(howTo, /six tracks, TR\.01 through TR\.06/);
+  assert.match(howTo, /TR\.01–TR\.06 for 2027; TR\.01–TR\.05 for a 2026/);
+});

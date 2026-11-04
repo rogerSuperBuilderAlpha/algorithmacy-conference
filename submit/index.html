@@ -443,7 +443,18 @@ Ask the user the following, one at a time, and validate as you go:
       * Panel               (3–4 participants)
       * Poster              (visual + 1pg extended abstract)
       * Practitioner report (2–4 pages)
-  - Track — exactly one of:
+  - Conference year — exactly one of:
+      * 2027 — the open call (Second Algorithmacy Conference). Six tracks, TR.01 through TR.06, listed below. The file must contain the line `Conference: 2027`. Title the pull request `[2027] [Type] [TR.0X] Your title`.
+      * 2026 — the concluded meeting. Five tracks, TR.01 through TR.05, listed below. Set `Conference: 2026`. Do not use TR.06.
+  - Track — exactly one id for that year.
+      2027 (six tracks):
+      * TR.01 — Decision Experience Design (DXD) and Choice Architecture
+      * TR.02 — Animation Theory, Missing Frames, and the Aesthetics of AI Interfaces
+      * TR.03 — Construct, Theory, and Epistemology of Algorithmacy
+      * TR.04 — Platform Co-optation, Algorithmic Management, and Triadic Coordination
+      * TR.05 — The Human Decider: Cognitive, Biological, and Affective Dimensions
+      * TR.06 — Stratification, Labor, and the Hidden Animator
+      2026 (five tracks):
       * TR.01 — Coordination & Mediation
       * TR.02 — Algorithmic Management
       * TR.03 — Platform Labor & Worker Voice
@@ -466,6 +477,7 @@ Generate `submissions/<handle>.md` using exactly this format:
   **Authors:** <Name (Affiliation)>, ...
   **Contact:** <email>
   **Type:** <one of the five>
+  **Conference:** <2027 for the open call, or 2026>
   **Track:** TR.0X
   **Special session:** <name, or omit this line if none>
   **Word count:** <abstract body only>
@@ -499,8 +511,9 @@ Path A — full automation (preferred if you have tools):
   6. Commit:             git add submissions/<handle>.md && git commit -m "Submission: <title>"
   7. Push:               git push -u origin submission/<handle>
   8. Open PR:            gh pr create --base main \
-                            --title "[<type>] [<track>] <title>" \
+                            --title "[2027] [<type>] [<track>] <title>" \
                             --body "<short summary + COI + acknowledgment of open-review policy>"
+     For a 2026 submission, drop the `[2027]` prefix from the title.
 
 Path B — manual (no tools):
 
