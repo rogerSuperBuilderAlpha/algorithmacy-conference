@@ -63,14 +63,46 @@ test('thank-you section names only people and facts already on the 2026 page', (
     'Caribbean Emergence Institute',
     'Animae Caribe',
     'The Rose Foundation',
-    'Hult International Business School',
   ];
   for (const name of names) {
     assert.ok(thanks.includes(name), name);
     assert.ok(html.includes(name), `name must already appear on the page: ${name}`);
   }
+  assert.match(thanks, /<ul class="thanks-list">/);
+  assert.match(thanks, /Wednesday keynotes: Roger Hunt, Antonio Scala, and Antonio Mele/);
+  assert.match(thanks, /Sponsors: The Rose Foundation and the Caribbean Emergence Institute/);
+  assert.equal(thanks.includes('Hult'), false);
+  assert.match(thanks, /id="thanks-close"[^>]*hidden/);
+  assert.match(thanks, /aria-label="Close thank-you message"/);
+  assert.equal(thanks.includes('\u2014'), false);
   const panel2026 = sliceBetween(html, 'id="2026"', 'id="2027"');
   for (const name of names) assert.ok(panel2026.includes(name), `2026 archive missing ${name}`);
+});
+
+test('Hult is not listed as a 2026 sponsor', () => {
+  const sponsors = sliceBetween(html, '"sponsor":', '"performer":');
+  assert.equal(sponsors.includes('Hult'), false);
+  assert.match(sponsors, /The Rose Foundation/);
+  assert.match(sponsors, /The Caribbean Emergence Institute/);
+  const archive = sliceBetween(html, 'id="2026"', 'id="2027"');
+  const footerSponsors = sliceBetween(archive, 'class="fs-list"', '</span>');
+  assert.equal(footerSponsors.includes('Hult'), false);
+  assert.match(footerSponsors, /The Rose Foundation/);
+  assert.match(footerSponsors, /The Caribbean Emergence Institute/);
+  const full = fs.readFileSync(path.join(root, 'llms-full.txt'), 'utf8');
+  const sponsorLine = full.split('\n').find((line) => line.startsWith('- Sponsors:'));
+  assert.equal(sponsorLine, '- Sponsors: The Rose Foundation and the Caribbean Emergence Institute');
+  assert.match(html, /Hult International Business School, Boston/);
+  assert.match(full, /Publication: full papers accepted at the conference are organized and published by Hult International Business School \(Boston\)/);
+});
+
+test('closing the thank-you is remembered and the control needs the script', () => {
+  assert.match(tabsJs, /algorithmacy-thanks-dismissed/);
+  assert.match(tabsJs, /getElementById\('thanks-close'\)/);
+  assert.match(tabsJs, /close\.hidden = false/);
+  assert.match(tabsJs, /localStorage\.setItem\('algorithmacy-thanks-dismissed', '1'\)/);
+  assert.match(tabsJs, /media\.focus\(\)/);
+  assert.match(html, /localStorage\.getItem\('algorithmacy-thanks-dismissed'\) === '1'/);
 });
 
 test('media placeholder sits under the thank-you', () => {

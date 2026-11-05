@@ -130,8 +130,7 @@
   "organizer": { "@type": "Organization", "name": "Caribbean Emergence Institute", "url": "https://algorithmacy.org/" },
   "sponsor": [
     { "@type": "Organization", "name": "The Rose Foundation" },
-    { "@type": "Organization", "name": "The Caribbean Emergence Institute" },
-    { "@type": "Organization", "name": "Hult International Business School", "location": "Boston, MA" }
+    { "@type": "Organization", "name": "The Caribbean Emergence Institute" }
   ],
   "performer": [
     { "@type": "Person", "name": "Roger Hunt", "affiliation": { "@type": "Organization", "name": "Bentley University" }, "sameAs": "https://www.linkedin.com/in/rogerjgs404040/" },
@@ -177,19 +176,36 @@
 <main class="stage" role="main">
 
   <section class="thanks" id="thanks" aria-labelledby="thanks-title">
-    <p class="thanks-kicker">Port of Spain · 28–31 October 2026</p>
+    <div class="thanks-top">
+      <p class="thanks-kicker">Port of Spain · 28–31 October 2026</p>
+      <button type="button" class="thanks-close" id="thanks-close" hidden aria-label="Close thank-you message">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+          <path d="M3 3l10 10M13 3L3 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
     <h2 id="thanks-title">Thank you.</h2>
     <p>
       The first Algorithmacy Conference is over. Thank you to the speakers, authors, reviewers, attendees, organizers, and partners who made those four days possible.
     </p>
-    <p>
-      Roger Hunt, Antonio Scala, and Antonio Mele gave the Wednesday keynotes.
-      Ryan R. Roper, Chevonnese Chevers Whyte, Sarah Witmer, and Mellissa Lezama were among the featured speakers.
-      Lorraine Villaroel chaired the FutureTT panel.
-      The Caribbean Emergence Institute hosted the meeting with Animae Caribe.
-      Sponsors were The Rose Foundation, the Caribbean Emergence Institute, and Hult International Business School (Boston).
-    </p>
+    <ul class="thanks-list">
+      <li>Wednesday keynotes: Roger Hunt, Antonio Scala, and Antonio Mele</li>
+      <li>Featured speakers included Ryan R. Roper, Chevonnese Chevers Whyte, Sarah Witmer, and Mellissa Lezama</li>
+      <li>Lorraine Villaroel chaired the FutureTT panel</li>
+      <li>Hosted by the Caribbean Emergence Institute with Animae Caribe</li>
+      <li>Sponsors: The Rose Foundation and the Caribbean Emergence Institute</li>
+    </ul>
   </section>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('algorithmacy-thanks-dismissed') === '1') {
+          var thanks = document.getElementById('thanks');
+          if (thanks) thanks.hidden = true;
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <section class="media-soon" id="media" aria-label="Conference media">
     <div class="media-soon-frame">
@@ -1202,7 +1218,7 @@
     </div>
     <div class="footer-sponsors">
       <span class="fs-label">Sponsors</span>
-      <span class="fs-list">The Rose Foundation · The Caribbean Emergence Institute · Hult International Business School (Boston)</span>
+      <span class="fs-list">The Rose Foundation · The Caribbean Emergence Institute</span>
     </div>
     <nav class="footer-legal" aria-label="Social">
       <a href="https://x.com/algorithmacy" target="_blank" rel="noopener noreferrer" aria-label="Algorithmacy on X (@algorithmacy)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @algorithmacy on X</a>

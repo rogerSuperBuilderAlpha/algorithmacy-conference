@@ -6,15 +6,48 @@
 }
 
 .thanks{
-  padding: 12px 0 4px;
+  position: relative;
+  margin: 8px 0 4px;
+  padding: 16px 16px 14px;
+  background: #24180F;
+  border: 1px solid var(--ember);
+  border-radius: 12px;
+}
+.thanks[hidden]{ display: none !important; }
+.thanks-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 .thanks-kicker{
-  margin: 0 0 10px;
+  margin: 6px 0 12px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--signal);
+  color: var(--ember);
+}
+.thanks-close{
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin: -4px -6px 0 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.thanks-close[hidden]{ display: none !important; }
+.thanks-close:hover{ background: rgba(255,176,119,0.12); border-color: var(--ember); }
+.thanks-close:focus-visible{
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 .thanks h2{
   margin: 0 0 12px;
@@ -24,13 +57,20 @@
   font-weight: 600;
   color: var(--ink);
 }
-.thanks p{
+.thanks p,
+.thanks-list{
   max-width: 68ch;
   margin: 0 0 12px;
-  color: var(--ink-soft);
+  color: var(--ink);
   font-size: 16.5px;
   line-height: 1.6;
 }
+.thanks-list{
+  margin: 0;
+  padding-left: 1.2em;
+}
+.thanks-list li{ margin: 0 0 8px; }
+.thanks-list li:last-child{ margin-bottom: 0; }
 
 .media-soon{
   margin: 8px 0 22px;
@@ -211,6 +251,7 @@
 
 @media (max-width: 720px){
   .thanks p,
+  .thanks-list,
   .cfp p,
   .cfp li{ font-size: 15.5px; }
   .media-soon-frame{ min-height: 120px; padding: 22px 14px; }

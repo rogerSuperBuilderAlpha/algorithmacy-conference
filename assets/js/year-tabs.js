@@ -156,3 +156,21 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 })();
+
+// The thank-you is a notice. The close control stays hidden unless this
+// script runs. Dismissal is remembered so a return visit stays closed.
+(function () {
+  var box = document.getElementById('thanks');
+  var close = document.getElementById('thanks-close');
+  if (!box || !close || box.hidden) return;
+  close.hidden = false;
+  close.addEventListener('click', function () {
+    box.hidden = true;
+    try { localStorage.setItem('algorithmacy-thanks-dismissed', '1'); }
+    catch (e) {}
+    var media = document.getElementById('media');
+    if (!media) return;
+    if (!media.hasAttribute('tabindex')) media.setAttribute('tabindex', '-1');
+    media.focus();
+  });
+})();
