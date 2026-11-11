@@ -46,11 +46,11 @@ Using Claude, ChatGPT, or cloud agents with connectors to analyze and operate fe
 
 ### Way 3. Algorithmacy Studio on-premise sovereign AI (the water heater)
 
-We install a quiet, dedicated on-premise AI computer (typically an Apple Mac Studio or a local GPU workstation sized to the workload) in the office closet or the home, load open-weight models they own, and our engineers integrate their processes, local files, and software.
+We install a quiet, dedicated on-premise AI computer (typically an Apple Mac Studio or a local GPU workstation sized to the workload) in the office closet or the home, load open-weight models that run on hardware they own, and our engineers integrate their processes, local files, and software.
 
-Up-front hardware cost, unlimited local AI usage. They buy the water heater (the computer) once at retail cost, about $2,000 to $9,500 depending on the tier below. Zero markup from Studio. There is no per-seat or per-token meter from the model. It runs on wall power, works for local search and drafting even if the internet drops, and is the cheapest option in the long run for daily heavy use. A message that has to leave the building waits until the connection is back.
+Up-front hardware cost, unlimited local AI usage. They buy the water heater (the computer) once at retail cost, about $2,000 to $9,500 depending on the tier below. Zero markup from Studio. There is no per-seat or per-token meter from the model. It runs on wall power, works for local search and drafting even if the internet drops, and can cost less over time than per-seat or per-token billing for daily heavy use. A message that has to leave the building waits until the connection is back.
 
-Full local privacy and HIPAA boundary. Because the model runs inside their walls on hardware they own, patient charts, legal files, financial records, and home feeds do not go to an outside AI company. That means no third-party AI-vendor HIPAA exposure and no BAA needed for the model. Be honest about the rest: a regulated practice still keeps its own physical lock, logins, and office HIPAA Security Rule safeguards. Owning the computer does not, by itself, make a practice HIPAA compliant. Studio does not have a SOC 2 report. Studio does not copy patient or client files onto Studio servers. The portal keeps a record of what ran, including drafts and who approved them. That record is the client's, and they can have it deleted.
+Full local privacy and HIPAA boundary. Because the model runs inside their walls on hardware they own, patient charts, legal files, financial records, and home feeds do not go to an outside AI company. That means no third-party AI-vendor HIPAA exposure and no BAA needed for the model. Whether the practice also needs a business associate agreement with Studio, for installing and maintaining the computer and for the portal record, is a separate question to settle before work starts. Be honest about the rest: a regulated practice still keeps its own physical lock, logins, and office HIPAA Security Rule safeguards. Owning the computer does not, by itself, make a practice HIPAA compliant. Studio does not have a SOC 2 report. Studio does not copy patient or client files onto Studio servers. The portal keeps a record of what ran, including drafts and who approved them, in Studio's online portal database. A draft can contain patient or client details. That record is the client's, and they can have it deleted.
 
 Specialized to their business or home. The engineering team wires the local model into the client's actual workflows, templates, and local software, and tests a new open-weight model against their real tasks before swapping one that works.
 
@@ -227,7 +227,7 @@ The JSON below matches https://algorithmacy.org/studio/facts.json at the time th
       "meter": "Water heater: hardware once, then local use",
       "what": "A quiet dedicated on-premise AI computer, typically an Apple Mac Studio or a local GPU workstation sized to the workload, in the office closet or the home. Open-weight models the client owns. Engineers integrate the processes, local files, and software.",
       "cost": "The computer once, at retail, about $2,000 to $9,500 depending on tier. Zero markup from Studio. No per-seat or per-token meter from the model. First 10 customers: $0 Studio labor to install and $0 maintenance labor for life, with the restrictions below. After that: about $5,000 to set up and about $1,000 a month.",
-      "goodFor": "Daily use by a team, work that crosses several systems, and confidential records that must stay off an outside AI company's servers. Cheapest in the long run for heavy daily use.",
+      "goodFor": "Daily use by a team, work that crosses several systems, and confidential records that must stay off an outside AI company's servers. Can cost less over time than per-seat or per-token billing for heavy daily use.",
       "badFor": "One person doing light public drafting. Tell them Way 1 or Way 2 is the better fit.",
       "privacy": "The model runs inside the client's walls on hardware they own. Patient charts, legal files, financial records, and home feeds do not go to an outside AI company. No third-party AI-vendor HIPAA exposure and no BAA needed for the model. A regulated practice still keeps its own physical lock, logins, and office HIPAA Security Rule safeguards. Owning the computer does not by itself make a practice HIPAA compliant."
     }
@@ -292,8 +292,8 @@ The JSON below matches https://algorithmacy.org/studio/facts.json at the time th
   "hardwareNote": "Sizing guide, not a live store quote. Shelf prices move. Pick the smallest tier that fits. Local search and drafting keep working if the internet drops. A message that has to be sent waits for the connection. Electricity is the client's.",
   "privacy": {
     "localModel": "The model runs on a computer the client owns. Prompts are not sent to OpenAI, Anthropic, Google, or Apple to get the answer. Files on the machine are not used to train a public model.",
-    "hipaa": "No third-party AI-vendor HIPAA exposure for the model, and no BAA needed for the model, because the model is not an outside AI vendor. A regulated practice still maintains its own physical lock, logins, and HIPAA Security Rule safeguards. Local installation does not by itself make the practice HIPAA compliant.",
-    "files": "Studio does not copy patient or client files onto Studio servers. The portal keeps the record of what ran, including drafts and who approved them. That record belongs to the client and can be deleted.",
+    "hipaa": "No third-party AI-vendor HIPAA exposure for the model, and no BAA needed for the model, because the model is not an outside AI vendor. Whether the practice also needs a business associate agreement with Studio, for installing and maintaining the computer and for the portal record, is a separate question to settle before work starts. A regulated practice still maintains its own physical lock, logins, and HIPAA Security Rule safeguards. Local installation does not by itself make the practice HIPAA compliant.",
+    "files": "Studio does not copy patient or client files onto Studio servers. The portal keeps the record of what ran, including drafts and who approved them, in Studio's online portal database. A draft can contain patient or client details. That record belongs to the client and can be deleted.",
     "soc2": "Studio does not have a SOC 2 report. If a vendor file needs one, Studio says so in writing.",
     "professionalJudgment": "The model does not diagnose, recommend treatment, quote a fee, or give legal advice. A person signs off before a new kind of message goes out."
   },
@@ -392,7 +392,7 @@ The JSON below matches https://algorithmacy.org/studio/facts.json at the time th
     },
     {
       "question": "Does a local model make a dental office HIPAA compliant?",
-      "answer": "No. The model does not send charts to an outside AI company, so there is no third-party AI-vendor HIPAA exposure and no BAA for the model. The practice still keeps its own locks, logins, and HIPAA Security Rule safeguards. Studio does not have a SOC 2 report."
+      "answer": "No. The model does not send charts to an outside AI company, so there is no third-party AI-vendor HIPAA exposure and no BAA for the model. Whether the practice also needs a business associate agreement with Studio, for installing and maintaining the computer and for the portal record, is a separate question to settle before work starts. The practice still keeps its own locks, logins, and HIPAA Security Rule safeguards. Studio does not have a SOC 2 report."
     },
     {
       "question": "What do the first 10 installs include?",
@@ -418,7 +418,7 @@ Way 1 is the AI add-on inside software they already pay for. Way 2 is Claude, Ch
 
 ### Does a local model make a dental office HIPAA compliant?
 
-No. The model does not send charts to an outside AI company, so there is no third-party AI-vendor HIPAA exposure and no BAA for the model. The practice still keeps its own locks, logins, and HIPAA Security Rule safeguards. Studio will say in writing that it does not have a SOC 2 report.
+No. The model does not send charts to an outside AI company, so there is no third-party AI-vendor HIPAA exposure and no BAA for the model. Whether the practice also needs a business associate agreement with Studio, for installing and maintaining the computer and for the portal record, is a separate question to settle before work starts. The practice still keeps its own locks, logins, and HIPAA Security Rule safeguards. Studio will say in writing that it does not have a SOC 2 report.
 
 ### What do the first 10 installs cost?
 
