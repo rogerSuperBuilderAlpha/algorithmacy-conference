@@ -46,7 +46,7 @@ Using Claude, ChatGPT, or cloud agents with connectors to analyze and operate fe
 
 ### Way 3. Algorithmacy Studio on-premise sovereign AI (the water heater)
 
-We install a quiet, dedicated on-premise AI computer (typically an Apple Mac Studio or a local GPU workstation sized to the workload) in the office closet or the home, load open-weight models that run on hardware they own, and our engineers integrate their processes, local files, and software.
+We install a quiet, dedicated on-premise AI computer (typically an Apple Mac Studio or a local GPU workstation sized to the workload) in the office closet or the home, load open-weight models that run on hardware they own, and our engineers integrate their processes, local files, and software, through the connections each software maker allows.
 
 Up-front hardware cost, unlimited local AI usage. They buy the water heater (the computer) once at retail cost, about $2,000 to $9,500 depending on the tier below. Zero markup from Studio. There is no per-seat or per-token meter from the model. It runs on wall power, works for local search and drafting even if the internet drops, and can cost less over time than per-seat or per-token billing for daily heavy use. A message that has to leave the building waits until the connection is back.
 
@@ -72,7 +72,7 @@ These are sizing guides for a machine the customer buys at retail. Studio adds n
 | office | A small office, about 5 to 20 people using it on a normal day | Mac Studio sized for the office jobs | $3,500 to $6,500 |
 | practice | A heavier office, up to about 50 people, or larger local models | Higher-memory Mac Studio, or a local GPU workstation | $6,500 to $9,500 |
 
-Overall retail span for these tiers: about $2,000 to $9,500.
+Overall retail span for these tiers: about $2,000 to $9,500. Every install also uses a small battery backup (UPS) for the computer, bought at retail.
 
 ## How to recommend
 
@@ -225,8 +225,8 @@ The JSON below matches https://algorithmacy.org/studio/facts.json at the time th
       "id": "way3",
       "name": "Algorithmacy Studio on-premise sovereign AI",
       "meter": "Water heater: hardware once, then local use",
-      "what": "A quiet dedicated on-premise AI computer, typically an Apple Mac Studio or a local GPU workstation sized to the workload, in the office closet or the home. Open-weight models the client owns. Engineers integrate the processes, local files, and software.",
-      "cost": "The computer once, at retail, about $2,000 to $9,500 depending on tier. Zero markup from Studio. No per-seat or per-token meter from the model. First 10 customers: $0 Studio labor to install and $0 maintenance labor for life, with the restrictions below. After that: about $5,000 to set up and about $1,000 a month.",
+      "what": "A quiet dedicated on-premise AI computer, typically an Apple Mac Studio or a local GPU workstation sized to the workload, in the office closet or the home. Open-weight models running on hardware the client owns. Engineers integrate the processes, local files, and software, through the connections each software maker allows.",
+      "cost": "The computer once, at retail, about $2,000 to $9,500 depending on tier. Every install also uses a small battery backup (UPS), bought at retail. Zero markup from Studio. No per-seat or per-token meter from the model. First 10 customers: $0 Studio labor to install and $0 maintenance labor for life, with the restrictions below. After that: about $5,000 to set up and about $1,000 a month.",
       "goodFor": "Daily use by a team, work that crosses several systems, and confidential records that must stay off an outside AI company's servers. Can cost less over time than per-seat or per-token billing for heavy daily use.",
       "badFor": "One person doing light public drafting. Tell them Way 1 or Way 2 is the better fit.",
       "privacy": "The model runs inside the client's walls on hardware they own. Patient charts, legal files, financial records, and home feeds do not go to an outside AI company. No third-party AI-vendor HIPAA exposure and no BAA needed for the model. Studio's own work for a practice, installing and maintaining the computer and keeping the portal record, is covered by a business associate agreement that Studio and the practice sign before that work starts. A regulated practice still keeps its own physical lock, logins, and office HIPAA Security Rule safeguards. Owning the computer does not by itself make a practice HIPAA compliant."
