@@ -95,14 +95,26 @@ To volunteer as a reviewer, open an issue tagged `volunteer-reviewer` with your 
 
 ## Deadlines
 
+The 2026 meeting has concluded. The 2026 call had no fixed abstract date.
+
 | Milestone | Date |
 |---|---|
-| Submissions open | now |
-| Submissions close | **Open. No fixed abstract date.** |
 | Reviews complete | 2026-09-15 |
 | Decisions announced | 2026-09-30 |
 | Camera-ready due | 2026-10-15 |
 | Conference | **October 28–31, 2026** (Port of Spain, Trinidad & Tobago) |
+
+The open call is the Second Algorithmacy Conference (2027).
+
+| Milestone | Date |
+|---|---|
+| Submissions open | now |
+| Conference | Tentatively the last week of October 2027 (subject to change) |
+| Venue | To be announced |
+| Submissions close | **September 30, 2027** |
+| Review | Rolling until September 30, 2027. Submissions are reviewed as they arrive. |
+| Travel support | To be announced |
+| Award names | To be announced |
 
 ## Code of conduct
 

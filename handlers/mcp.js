@@ -98,13 +98,17 @@ Optional:
                    Samuel Fosso Wamba) or "Critical Cultural Research" (chaired
                    by Sarah Witmer); still pick a track
   conference     — "2027" for the Second Algorithmacy Conference. Omit for 2026.
-                   The 2026 meeting has concluded. The 2027 call is open; dates
-                   and venue are to be announced.
+                   The 2026 meeting has concluded. The 2027 call is open.
+                   Tentatively the last week of October 2027 (subject to change).
+                   Venue to be announced. Abstract deadline: September 30, 2027.
+                   Review is rolling until then, so submissions are reviewed as they arrive.
 
-The 2027 call for papers is open. Dates and venue are to be announced. The 2026
-meeting has concluded. All submissions and reviews are public; the pull request
-timestamp is the author's priority record. A 2027 submission is stored separately
-from a 2026 submission by the same email.`);
+The 2027 call for papers is open. Tentatively the last week of October 2027
+(subject to change). Venue to be announced. The abstract deadline is
+September 30, 2027. Review is rolling until then, so submissions are reviewed
+as they arrive. The 2026 meeting has concluded. All submissions and reviews are
+public; the pull request timestamp is the author's priority record. A 2027
+submission is stored separately from a 2026 submission by the same email.`);
   }
 
   if (name === 'submit_abstract') {

@@ -1,6 +1,6 @@
 # Algorithmacy
 
-> Algorithmacy is two programs on one site. The 2026 conference, held in Port of Spain from 28 to 31 October, has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Dates and venue to be announced. The wording of the call is at https://algorithmacy.org/#2027. Algorithmacy Studio installs a local model on a computer a small office or a home owns, and maintains it.
+> Algorithmacy is two programs on one site. The 2026 conference, held in Port of Spain from 28 to 31 October, has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Tentatively the last week of October 2027 (subject to change). Venue to be announced. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. The wording of the call is at https://algorithmacy.org/#2027. Algorithmacy Studio installs a local model on a computer a small office or a home owns, and maintains it.
 
 Studio's decision guide works for an AI tool that can fetch URLs and for one that cannot. The copied prompt and the files below carry the same facts: three ways to run AI, hardware tiers, the first 10 free-labor offer, and a booking link the tool can fill in.
 
@@ -18,7 +18,7 @@ Studio's decision guide works for an AI tool that can fetch URLs and for one tha
 
 ## Conference
 
-The 2026 conference has concluded. The 2027 call for papers is open. Dates and venue to be announced. Theme: Decision Experience Design. The wording of the call is at https://algorithmacy.org/#2027.
+The 2026 conference has concluded. The 2027 call for papers is open. Tentatively the last week of October 2027 (subject to change). Venue to be announced. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. Theme: Decision Experience Design. The wording of the call is at https://algorithmacy.org/#2027.
 
 The 2027 form accepts six tracks. TR.01 Decision Experience Design (DXD) and Choice Architecture. TR.02 Animation Theory, Missing Frames, and the Aesthetics of AI Interfaces. TR.03 Construct, Theory, and Epistemology of Algorithmacy. TR.04 Platform Co-optation, Algorithmic Management, and Triadic Coordination. TR.05 The Human Decider: Cognitive, Biological, and Affective Dimensions. TR.06 Stratification, Labor, and the Hidden Animator. A 2026 submission still uses TR.01 through TR.05. Submission types are unchanged: full paper, note, panel, poster, practitioner report. A 2027 submission is tagged with conference year 2027 so it does not replace a 2026 submission from the same email. The two wordings of the call are at https://algorithmacy.org/#2027.
 
