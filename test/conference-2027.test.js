@@ -201,10 +201,18 @@ test('the AI Polish tab matches the source file, whitespace aside', () => {
   assert.equal(got, sourceNorm);
 });
 
-test('2027 call uses the 2026 submission mechanism and states no date or venue', () => {
+test('2027 call uses the 2026 submission mechanism and states tentative dates, a deadline, and no venue', () => {
   const call = html.slice(html.indexOf('id="cfp-2027"'));
   assert.match(call, /Decision Experience Design/);
-  assert.match(call, /Dates and venue to be announced/);
+  assert.match(call, /Tentatively the last week of October 2027 \(subject to change\)/);
+  assert.match(call, /Venue to be announced/);
+  assert.match(call, /The abstract deadline is September 30, 2027/);
+  assert.match(call, /Review is rolling until then, so submissions are reviewed as they arrive/);
+  assert.match(call, /Travel support for 2027, if any, is to be announced/);
+  assert.match(call, /Award names for 2027 are to be announced/);
+  assert.doesNotMatch(call, /Dates and venue to be announced/);
+  assert.doesNotMatch(call, /deadline will be announced/);
+  assert.doesNotMatch(call, /no fixed abstract date/);
   assert.match(call, /name="conference" value="2027"/);
   assert.match(html, /property="og:image" content="https:\/\/algorithmacy.org\/images\/social-share-2027.png"/);
   assert.match(html, /property="og:image:width" content="1200"/);
@@ -234,7 +242,7 @@ test('2027 call uses the 2026 submission mechanism and states no date or venue',
   assert.match(call, /rhunt@bentley.edu/);
   assert.match(html, /src="\/assets\/js\/submit-form\.js"/);
   assert.match(formJs, /\/api\/submit/);
-  assert.doesNotMatch(call, /Port of Spain, 2027|venue: [^<]*2027|October 2027|keynote/i);
+  assert.doesNotMatch(call, /Port of Spain, 2027|venue: [^<]*2027|keynote/i);
 });
 
 test('public descriptions say 2026 has concluded and the 2027 call is open', () => {
@@ -246,7 +254,12 @@ test('public descriptions say 2026 has concluded and the 2027 call is open', () 
   for (const text of [llms, full]) {
     assert.match(text, /has concluded/);
     assert.match(text, /2027/);
-    assert.match(text, /Dates and venue to be announced|dates and venue to be announced|Dates and venue are to be announced/);
+    assert.match(text, /Tentatively the last week of October 2027 \(subject to change\)/);
+    assert.match(text, /Venue to be announced/);
+    assert.match(text, /September 30, 2027/);
+    assert.match(text, /Review is rolling until then, so submissions are reviewed as they arrive/);
+    assert.doesNotMatch(text, /Dates and venue to be announced|dates and venue to be announced|Dates and venue are to be announced/);
+    assert.doesNotMatch(text, /deadline will be announced/);
   }
   assert.match(sitemap, /<loc>https:\/\/algorithmacy.org\/<\/loc>\s*<lastmod>2026-11-03<\/lastmod>/);
 });
@@ -343,6 +356,10 @@ test('2027 instructions say six tracks and 2026 instructions stay at five', () =
   assert.match(prompt, /TR\.06 — Stratification, Labor, and the Hidden Animator/);
   assert.match(prompt, /2026 \(five tracks\)/);
   assert.match(prompt, /TR\.05 — Methods, Lineage & Practice/);
+  assert.match(prompt, /Tentatively the last week of October 2027 \(subject to change\)/);
+  assert.match(prompt, /Abstract deadline: September 30, 2027/);
+  assert.match(prompt, /Review is rolling until then, so submissions are reviewed as they arrive/);
+  assert.equal(prompt.includes('no fixed abstract date'), false);
 
   const llms = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8');
   const wellKnown = fs.readFileSync(path.join(root, '.well-known/llms.txt'), 'utf8');
@@ -355,6 +372,10 @@ test('2027 instructions say six tracks and 2026 instructions stay at five', () =
   assert.match(mcp, /six ids, TR\.01 through TR\.06/);
   assert.match(mcp, /five ids, TR\.01 through TR\.05/);
   assert.match(mcp, /TR\.06 is rejected for 2026/);
+  assert.match(mcp, /Tentatively the last week of October 2027 \(subject to change\)/);
+  assert.match(mcp, /Abstract deadline: September 30, 2027/);
+  assert.match(mcp, /Venue to be announced/);
+  assert.doesNotMatch(mcp, /dates\s+and venue are to be announced/);
 
   const howTo = fs.readFileSync(path.join(root, 'submissions/HOW-TO.md'), 'utf8');
   assert.match(howTo, /six tracks, TR\.01 through TR\.06/);
