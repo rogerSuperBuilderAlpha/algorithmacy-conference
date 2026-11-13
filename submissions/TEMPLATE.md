@@ -6,7 +6,7 @@
 **Conference:** [2026 | 2027]
 **Track:** [TR.01 | TR.02 | TR.03 | TR.04 | TR.05 | TR.06]
 
-For a 2027 submission the tracks are: TR.01 Decision Experience Design (DXD) and Choice Architecture; TR.02 Animation Theory, Missing Frames, and the Aesthetics of AI Interfaces; TR.03 Construct, Theory, and Epistemology of Algorithmacy; TR.04 Platform Co-optation, Algorithmic Management, and Triadic Coordination; TR.05 The Human Decider: Cognitive, Biological, and Affective Dimensions; TR.06 Stratification, Labor, and the Hidden Animator. A 2026 submission uses TR.01 through TR.05 and the names in [TRACKS.md](../TRACKS.md). Dates and venue for 2027 are to be announced.
+For a 2027 submission the tracks are: TR.01 Decision Experience Design (DXD) and Choice Architecture; TR.02 Animation Theory, Missing Frames, and the Aesthetics of AI Interfaces; TR.03 Construct, Theory, and Epistemology of Algorithmacy; TR.04 Platform Co-optation, Algorithmic Management, and Triadic Coordination; TR.05 The Human Decider: Cognitive, Biological, and Affective Dimensions; TR.06 Stratification, Labor, and the Hidden Animator. A 2026 submission uses TR.01 through TR.05 and the names in [TRACKS.md](../TRACKS.md). The 2027 location is Port of Spain, Trinidad and Tobago. Dates are tentatively the last week of October 2027 (subject to change). Abstracts are due September 30, 2027.
 **Word count:** [body of abstract, target 300–500]
 **Keywords:** [3–7 comma-separated]
 **Conflicts of interest:** [none, or describe]

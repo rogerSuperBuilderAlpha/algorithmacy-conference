@@ -5,7 +5,7 @@ The first global conference on **algorithmacy** — the competency through which
 **Port of Spain, Trinidad & Tobago · October 28–31, 2026**
 **Hosted by the Caribbean Emergence Institute · CFP / v01**
 
-The 2026 meeting has concluded. The open call is the Second Algorithmacy Conference (2027), on Decision Experience Design. Tentatively the last week of October 2027 (subject to change). Venue to be announced. Abstracts are due September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. Travel support, if any, and award names are to be announced. Submit at [algorithmacy.org/#2027](https://algorithmacy.org/#2027).
+The 2026 meeting has concluded. The open call is the Second Algorithmacy Conference (2027), on Decision Experience Design. Tentatively the last week of October 2027 (subject to change), in Port of Spain, Trinidad and Tobago. Abstracts are due September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. Travel support, if any, and award names are to be announced. Submit at [algorithmacy.org/#2027](https://algorithmacy.org/#2027).
 
 → Website: [algorithmacy.org](https://algorithmacy.org)
 → Call for papers: this repository

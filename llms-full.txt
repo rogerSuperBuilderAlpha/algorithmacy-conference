@@ -1,12 +1,12 @@
 # Algorithmacy Conference — full reference
 
-> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Tentatively the last week of October 2027 (subject to change). Venue to be announced. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. The wording of the call is at https://algorithmacy.org/#2027. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
+> The 2026 conference in Port of Spain (28 to 31 October) has concluded. The call for papers for the Second Algorithmacy Conference (2027) is open. Theme: Decision Experience Design. Tentatively the last week of October 2027 (subject to change), in Port of Spain, Trinidad and Tobago. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. The wording of the call is at https://algorithmacy.org/#2027. The 2026 program below is the archive. Open review, open access, APA 7. Site: https://algorithmacy.org · Repository: https://github.com/rogerSuperBuilderAlpha/algorithmacy-conference
 
 ## 2027 call for papers
 
 Second Algorithmacy Conference (2027): Decision Experience Design
 
-Tentatively the last week of October 2027 (subject to change). Venue to be announced. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive.
+Tentatively the last week of October 2027 (subject to change), in Port of Spain, Trinidad and Tobago. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive.
 
 Digital experience used to be about a designer guiding a user to an end which both people agreed to... mostly. I want to buy a raincoat, and an online retailer designs me a beautiful, clear, simple flow for me to achieve that.
 
@@ -33,7 +33,7 @@ The page at https://algorithmacy.org/#2027 shows two wordings of this call. The 
 
 A 2026 submission still uses TR.01 through TR.05. Types are unchanged: full paper (6 to 8 pages), note (2 to 3 pages), panel (3 to 4 participants), poster (with a one-page extended abstract), and practitioner report (2 to 4 pages).
 
-Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. Tentatively the last week of October 2027 (subject to change). Venue to be announced. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. No 2027 keynote or publication partner has been announced. Travel support, if any, and award names are to be announced.
+Submit at https://algorithmacy.org/#2027. The web form posts to `POST https://algorithmacy.org/api/submit` with `conference` set to `2027`. The MCP server remains https://algorithmacy.org/api/mcp and accepts `conference: "2027"`. A manual pull request uses `Conference: 2027` in the submission file and the title form `[2027] [Type] [TR.0X] Your title`. A 2027 submission is stored separately from a 2026 submission by the same email. Tentatively the last week of October 2027 (subject to change), in Port of Spain, Trinidad and Tobago. The abstract deadline is September 30, 2027. Review is rolling until then, so submissions are reviewed as they arrive. No 2027 keynote or publication partner has been announced. Travel support, if any, and award names are to be announced.
 
 ## 2026 archive
 
