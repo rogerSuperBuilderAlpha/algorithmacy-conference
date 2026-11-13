@@ -110,7 +110,7 @@ The open call is the Second Algorithmacy Conference (2027).
 |---|---|
 | Submissions open | now |
 | Conference | Tentatively the last week of October 2027 (subject to change) |
-| Venue | To be announced |
+| Location | Port of Spain, Trinidad and Tobago |
 | Submissions close | **September 30, 2027** |
 | Review | Rolling until September 30, 2027. Submissions are reviewed as they arrive. |
 | Travel support | To be announced |

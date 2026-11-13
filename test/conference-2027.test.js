@@ -201,11 +201,12 @@ test('the AI Polish tab matches the source file, whitespace aside', () => {
   assert.equal(got, sourceNorm);
 });
 
-test('2027 call uses the 2026 submission mechanism and states tentative dates, a deadline, and no venue', () => {
+test('2027 call uses the 2026 submission mechanism and states tentative dates, a deadline, and Port of Spain', () => {
   const call = html.slice(html.indexOf('id="cfp-2027"'));
   assert.match(call, /Decision Experience Design/);
   assert.match(call, /Tentatively the last week of October 2027 \(subject to change\)/);
-  assert.match(call, /Venue to be announced/);
+  assert.match(call, /The location is Port of Spain, Trinidad and Tobago/);
+  assert.doesNotMatch(call, /Venue to be announced/);
   assert.match(call, /The abstract deadline is September 30, 2027/);
   assert.match(call, /Review is rolling until then, so submissions are reviewed as they arrive/);
   assert.match(call, /Travel support for 2027, if any, is to be announced/);
@@ -242,7 +243,21 @@ test('2027 call uses the 2026 submission mechanism and states tentative dates, a
   assert.match(call, /rhunt@bentley.edu/);
   assert.match(html, /src="\/assets\/js\/submit-form\.js"/);
   assert.match(formJs, /\/api\/submit/);
-  assert.doesNotMatch(call, /Port of Spain, 2027|venue: [^<]*2027|keynote/i);
+  assert.doesNotMatch(call, /keynote/i);
+  const dates = call.slice(call.indexOf('Dates, location, and deadline'), call.indexOf('How to submit'));
+  assert.match(dates, /The location is Port of Spain, Trinidad and Tobago/);
+  assert.doesNotMatch(dates, /streetAddress|Piarco|Animae|registration fee/i);
+  const event2027 = html.slice(
+    html.indexOf('"name": "Second Algorithmacy Conference (2027)"'),
+    html.indexOf('</script>', html.indexOf('"name": "Second Algorithmacy Conference (2027)"')),
+  );
+  assert.match(event2027, /"addressLocality": "Port of Spain"/);
+  assert.match(event2027, /"addressCountry": "TT"/);
+  assert.match(event2027, /Port of Spain, Trinidad and Tobago/);
+  assert.doesNotMatch(event2027, /streetAddress|postalCode/);
+  assert.match(html, /name="description"[^>]*Port of Spain, Trinidad and Tobago/);
+  assert.match(html, /property="og:description"[^>]*Port of Spain, Trinidad and Tobago/);
+  assert.match(html, /name="twitter:description"[^>]*Port of Spain, Trinidad and Tobago/);
 });
 
 test('public descriptions say 2026 has concluded and the 2027 call is open', () => {
@@ -255,7 +270,8 @@ test('public descriptions say 2026 has concluded and the 2027 call is open', () 
     assert.match(text, /has concluded/);
     assert.match(text, /2027/);
     assert.match(text, /Tentatively the last week of October 2027 \(subject to change\)/);
-    assert.match(text, /Venue to be announced/);
+    assert.match(text, /Port of Spain, Trinidad and Tobago/);
+    assert.doesNotMatch(text, /Venue to be announced/);
     assert.match(text, /September 30, 2027/);
     assert.match(text, /Review is rolling until then, so submissions are reviewed as they arrive/);
     assert.doesNotMatch(text, /Dates and venue to be announced|dates and venue to be announced|Dates and venue are to be announced/);
@@ -357,6 +373,8 @@ test('2027 instructions say six tracks and 2026 instructions stay at five', () =
   assert.match(prompt, /2026 \(five tracks\)/);
   assert.match(prompt, /TR\.05 — Methods, Lineage & Practice/);
   assert.match(prompt, /Tentatively the last week of October 2027 \(subject to change\)/);
+  assert.match(prompt, /Port of Spain, Trinidad and Tobago/);
+  assert.doesNotMatch(prompt, /Venue to be announced/);
   assert.match(prompt, /Abstract deadline: September 30, 2027/);
   assert.match(prompt, /Review is rolling until then, so submissions are reviewed as they arrive/);
   assert.equal(prompt.includes('no fixed abstract date'), false);
@@ -374,7 +392,8 @@ test('2027 instructions say six tracks and 2026 instructions stay at five', () =
   assert.match(mcp, /TR\.06 is rejected for 2026/);
   assert.match(mcp, /Tentatively the last week of October 2027 \(subject to change\)/);
   assert.match(mcp, /Abstract deadline: September 30, 2027/);
-  assert.match(mcp, /Venue to be announced/);
+  assert.match(mcp, /Port of Spain, Trinidad and Tobago/);
+  assert.doesNotMatch(mcp, /Venue to be announced/);
   assert.doesNotMatch(mcp, /dates\s+and venue are to be announced/);
 
   const howTo = fs.readFileSync(path.join(root, 'submissions/HOW-TO.md'), 'utf8');
